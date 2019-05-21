@@ -1,4 +1,5 @@
-123123
+vue  
+
 ### npm script 说明
 ```
 yarn mock  // 使用mock接口数据
