@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>全部账单</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/companyAccount/styles/orderform-nobill.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="packages-banner">
+            <div class="packages-banner-inner">
+                <div class="packages-banner-text">
+                    <a class="packages-banner-text-item" href="./coupons.html">
+                        <p>帐户余额 (元)</p>
+                        <bigger>0.00</bigger>
+                        <button class="btn account-detail">账户明细</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="layout-item">
+            <div class="no-bill">
+                <div class="img-box">
+                    <img src="/assets/public/companyAccount/images/nolist.png" alt="">
+                    <p>暂无账单明细</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script>
+    $('.account-detail').click(function () {
+        if (UR.isApp()) {
+            UR.setUrl('urwork:// ');
+        } else {
+            UR.openApp.init({
+                intentUrlParams:location.href
+            });
+        }
+    })
+</script>
+</body>
+
+</html>

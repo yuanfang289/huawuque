@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>服务商申请</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/form/form-index.css">
+    <style>
+        #main-footer {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary">
+
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- modal 服务商类别 -->
+    <div class="modal form-modal" id="categorysModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <dl>
+                            <dt>政府服务</dt>
+                            <dd>
+                                <ul data-col="2" data-mulity="true">
+                                    <li data-id="1" data-parent="a"><span>政策咨询</span></li>
+                                    <li data-id="2" data-parent="a"><span>政府补贴申请</span></li>
+                                    <li data-id="3" data-parent="a"><span>知识产权保护</span></li>
+                                    <li data-id="4" data-parent="a"><span>工商注册</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>金融</dt>
+                            <dd>
+                                <ul data-col="2" data-mulity="true">
+                                    <li data-id="1" data-parent="b"><span>金融租赁服务</span></li>
+                                    <li data-id="2" data-parent="b"><span>资产证券化服务</span></li>
+                                    <li data-id="3" data-parent="b"><span>理财</span></li>
+                                    <li data-id="4" data-parent="b"><span>信贷</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>法律</dt>
+                            <dd>
+                                <ul data-col="2" data-mulity="true">
+                                    <li data-id="1" data-parent="c"><span>政策咨询</span></li>
+                                    <li data-id="2" data-parent="c"><span>政府补贴申请</span></li>
+                                    <li data-id="3" data-parent="c"><span>知识产权保护</span></li>
+                                    <li data-id="4" data-parent="c"><span>工商注册</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>人力资源</dt>
+                            <dd>
+                                <ul data-col="2" data-mulity="true">
+                                    <li data-id="1" data-parent="d"><span>金融租赁服务</span></li>
+                                    <li data-id="2" data-parent="d"><span>资产证券化服务</span></li>
+                                    <li data-id="3" data-parent="d"><span>理财</span></li>
+                                    <li data-id="4" data-parent="d"><span>信贷</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ modal 服务商类别 -->
+
+    <div id="modal-container"></div>
+
+    <script type="text/html" id="workstageTpl">
+        <!-- modal 服务社区 -->
+        <div class="modal form-modal" id="{{name}}" role="dialog" data-select="global">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="scroller">
+                            <ul>
+                                <li data-select="all" data-id=""><span>全部社区</span></li>
+                            </ul>
+                            <dl data-pid="bj">
+                                <dt>北京市</dt>
+                                <dd>
+                                    <ul data-col="2" data-mulity="true">
+                                        <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                        <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                        <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                        <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl data-pid="shh">
+                                <dt>上海市</dt>
+                                <dd>
+                                    <ul data-col="2" data-mulity="true">
+                                        <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                        <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                        <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                        <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl data-pid="xian">
+                                <dt>西安市</dt>
+                                <dd>
+                                    <ul data-col="2" data-mulity="true">
+                                        <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                        <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                        <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                        <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default reset">重置</button>
+                        <button type="button" class="btn btn-primary confirm">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ modal 服务社区-->
+    </script>
+
+    <script type="text/html" id="formTpl">
+        {{ if step == 1 }}
+        <div class="legend">基础资料</div>
+
+        <div class="form-item form-item-image">
+            <label class="form-label"><em>*</em>企业logo</label>
+            <div class="form-cont">
+                <!-- upload -->
+                <div data-role="uploader" class="uploader" data-options="
+                    imgSrc: '',
+                    serverSrc: '',
+                    url: './data/upload.json',
+                    imgPX: '50x50',
+                    method: 'get',
+                    name: 'logo',
+                    require: true,
+                    formatted: function(res) {
+                        return { url: res.url, src: res.url }
+                    }
+                ">
+                    <input type="hidden" name="logo" data-role="hidden">
+                    <div data-role="placeholder" style="width: 50px; height: 50px;">
+                        <div data-role="add-plus"></div>
+                        <label data-role="add">
+                            <input type="file" data-role="file">
+                        </label>
+                    </div>
+                </div>
+                <!--/ upload -->
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>企业名称</label>
+            <div class="form-cont">
+                <input type="text" name="name" placeholder="企业名称30字以内" />
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>企业简称</label>
+            <div class="form-cont">
+                <input type="text" name="abbreviation" placeholder="填写企业简称10字以内" />
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="form-cont">
+                <div class="textarea-wrap required">
+                    <textarea name="summary" placeholder="请简单描述您的企业..." class="resize-none" maxlength="150"></textarea>
+                </div>
+                <div class="form-counter">
+                    <span>0</span>/150
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="form-cont">
+                <div class="textarea-wrap md-height required">
+                    <textarea name="business" placeholder="填写主营业务，多业务之间请用英文“,”隔开…" class="resize-none" maxlength="100"></textarea>
+                </div>
+                <div class="form-counter">
+                    <span>0</span>/100
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>服务商类别</label>
+            <div class="form-cont">
+                <i class="uricon-arrow-right ricon"></i>
+
+                <input type="hidden" id="categorys" name="categorys">
+                <input type="hidden" id="categorysParent" name="categorysParent">
+                <input type="hidden" id="categorysName" name="categorysName">
+                <input type="hidden" id="categorysParentName" name="categorysParentName">
+                <a href="javascript:;" id="categorys_dummy"
+                data-parent="categorysParent" data-servername="categorysName" data-serverparentname="categorysParentName" class="readonly-text" data-toggle="modal" data-target="#categorysModal">选择服务商类别</a>
+
+            </div>
+        </div>
+
+        <div class="form-item form-item-image">
+            <label class="form-label"><em>*</em>三证合一或营业执照</label>
+            <div class="form-cont">
+                <!-- upload -->
+                <div data-role="uploader" class="uploader" data-options="
+                    imgSrc: '',
+                    serverSrc: '',
+                    url: './data/upload.json',
+                    imgPX: '50x50',
+                    method: 'get',
+                    name: 'certificates',
+                    require: true,
+                    formatted: function(res) {
+                        return { url: res.url, src: res.url }
+                    }
+                ">
+                    <input type="hidden" name="certificates" data-role="hidden">
+                    <div data-role="placeholder" style="width: 50px; height: 50px;">
+                        <div data-role="add-plus"></div>
+                        <label data-role="add">
+                            <input type="file" data-role="file">
+                        </label>
+                    </div>
+                </div>
+                <!--/ upload -->
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>公司网址</label>
+            <div class="form-cont">
+                <input type="text" name="siteUrl" placeholder="填写网址信息"  value="http://"/>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>APP下载地址</label>
+            <div class="form-cont">
+                <input type="text" name="appDownload" placeholder="填写APP下载地址" value="http://"/>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>服务社区</label>
+            <div class="form-cont">
+                <i class="uricon-arrow-right ricon"></i>
+
+                <input type="hidden" id="workstages" name="workstages">
+                <input type="hidden" id="allWorkStage" name="allWorkStage">
+                <a href="javascript:;" id="workstages_dummy" data-id="allWorkStage" class="readonly-text" data-toggle="modal" data-target="#workstagesModal">选择服务社区</a>
+            </div>
+        </div>
+
+        <div class="legend">联系方式</div>
+
+        <div class="form-item">
+            <label class="form-label"><em>*</em>联系人姓名</label>
+            <div class="form-cont">
+                <input type="text" name="userName" placeholder="填写联系人姓名"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>手机号码</label>
+            <div class="form-cont">
+                <input type="tel" name="phone" placeholder="填写联系人手机号码"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">企业负责人</label>
+            <div class="form-cont">
+                <input type="text" name="pic" placeholder="选填"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">负责人手机号</label>
+            <div class="form-cont">
+                <input type="tel" name="picMobile" placeholder="选填"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">固定电话</label>
+            <div class="form-cont">
+                <input type="tel" name="telephone" placeholder="选填"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>联系邮箱</label>
+            <div class="form-cont">
+                <input type="email" name="email" placeholder="填写联系邮箱"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>联系地址</label>
+            <div class="form-cont">
+                <input type="text" name="address" placeholder="填写联系地址"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">微信公众号</label>
+            <div class="form-cont">
+                <input type="text" name="wxName" placeholder="选填"/>
+            </div>
+        </div>
+        <div class="form-item form-item-image">
+            <label class="form-label">公众号二维码</label>
+            <div class="form-cont">
+                <!-- upload -->
+                <div data-role="uploader" class="uploader" data-options="
+                    imgSrc: '',
+                    serverSrc: '',
+                    url: './data/upload.json',
+                    imgPX: '50x50',
+                    method: 'get',
+                    name: 'wxLogo',
+                    require: false,
+                    formatted: function(res) {
+                        return { url: res.url, src: res.url }
+                    }
+                ">
+                    <input type="hidden" name="wxLogo" data-role="hidden">
+                    <div data-role="placeholder" style="width: 50px; height: 50px;">
+                        <div data-role="add-plus"></div>
+                        <label data-role="add">
+                            <input type="file" data-role="file">
+                        </label>
+                    </div>
+                </div>
+                <!--/ upload -->
+            </div>
+        </div>
+
+        <div class="form-action">
+            <button type="button" class="btn btn-primary" id="step">下一步</button>
+        </div>
+        {{ else }}
+
+
+        <div class="form-dynamic" data-target=".form-discount" data-template="discountListTpl" data-newbtn="#newDiscount">
+
+
+        </div>
+
+        <div class="dynamic-action">
+            <button type="button" class="btn btn-default" id="newDiscount"><i class="plus"></i> 添加优惠</button>
+            <p>最多添加10项优惠</p>
+        </div>
+
+        <div class="form-action">
+            <button type="button" class="btn btn-primary" id="submit">提交</button>
+        </div>
+        <div class="form-prompt">
+            提交即视为同意 <a href="#">优客工场撮合平台服务协议</a>
+        </div>
+        {{ /if }}
+    </script>
+
+    <script type="text/html" id="discountListTpl">
+        {{include 'discountTpl' data}}
+    </script>
+
+    <script type="text/html" id="discountTpl">
+        {{each discountList as data index}}
+        <div class="form-discount" data-index="{{index}}">
+            <div class="form-item-title">
+                <h2>优惠服务{{data.zhIndex}}</h2>
+                {{if index != 0}}
+                <a href="javascript:;" data-dismiss="discount"><i class="uricon-delete"></i></a>
+                {{/if}}
+            </div>
+            <div class="form-item">
+                <!-- <label class="form-label">优惠主题</label>
+                <div class="form-cont">
+                    <input type="text" name="discountList[{{index }}].title" placeholder="必填(11字以内)" value="{{data['discountList['+index +'].title']}}"/>
+                </div> -->
+                <div class="form-cont">
+                    <input type="text" class="text-left" name="discountList[{{index }}].title" placeholder="优惠主题（11字以内）" value="{{data['discountList['+index +'].title']}}"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">优惠社区</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+
+                    <input type="hidden" id="discountList[{{index }}].workshop" name="discountList[{{index }}].workshop" value="{{data['discountList['+index +'].workshop']}}">
+                    <input type="hidden" id="discountList[{{index }}].allWorkStage" name="discountList[{{index }}].allWorkStage" value="{{data['discountList['+index +'].allWorkStage']}}">
+                    <a href="javascript:;" id="discountList[{{index }}].workshop_dummy" data-id="discountList[{{index }}].allWorkStage" class="readonly-text {{data['discountList[' + index  + '].workshop_dummy'] ? 'writed' : ''}}" data-text="选择社区" data-toggle="modal" data-target="#discountList_{{index }}_workshopModal">{{data['discountList[' + index + '].workshop_dummy'] ? data['discountList[' + index  + '].workshop_dummy'] : '选择社区'}} </a>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-cont radio-control">
+                    <label class="radio-date">
+                        {{if data['discountList['+index +'].limittype'] == 0}}
+                        <input type="radio" name="discountList[{{index}}].limittype" value="0" checked>优惠截止日期
+                        {{else}}
+                        <input type="radio" name="discountList[{{index}}].limittype" value="0">优惠截止日期
+                        {{/if}}
+                        <div class="form-child-cont">
+                            <i class="uricon-arrow-right ricon"></i>
+                            <input type="text" class="input-text" name="discountList[{{index }}].limitval" value="{{data['discountList[' + index  + '].limitval']}}" placeholder="选择期限" data-toggle="mdate">
+                        </div>
+                    </label>
+                    <label>
+                        {{if data['discountList['+index +'].limittype'] == 1}}
+                        <input type="radio" name="discountList[{{index}}].limittype" value="1" checked>长期优惠
+                        {{else}}
+                        <input type="radio" name="discountList[{{index}}].limittype" value="1">长期优惠
+                        {{/if}}
+                    </label>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-cont">
+                    <div class="textarea-wrap md-height">
+                        <textarea name="discountList[{{index }}].summary" placeholder="请简单描述优惠服务..." class="resize-none" maxlength="100">{{data['discountList['+index +'].summary']}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>{{data['discountList['+index +'].summary'] ? data['discountList['+index +'].summary'].length : 0}}</span>/150
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+    </script>
+
+    <script src="/assets/public/form/form-upgrade.js"></script>
+    <script src="/assets/public/form/discount.js" charset="utf-8"></script>
+
+    <script>
+        var ServiceForm = {
+            scrollTop: function () {
+                $('html, body').animate({scrollTop: 0})
+            },
+            validator: {
+                rules: {
+                    logo: {
+                        required: true,
+                    },
+                    name: {
+                        required: true,
+                        maxlength: 30,
+                    },
+                    abbreviation: {
+                        required: true,
+                        maxlength: 10,
+                    },
+                    summary: {
+                        required: true,
+                        maxlength: 150,
+                    },
+                    business: {
+                        required: true,
+                        maxlength: 100,
+                    },
+                    categorys: {
+                        required: true,
+                    },
+                    certificates: {
+                        required: true,
+                    },
+                    siteUrl: {
+                        required: true,
+                        url: true,
+                    },
+                    appDownload: {
+                        required: true,
+                        url: true,
+                    },
+                    workstages: {
+                        required: true,
+                    },
+                    userName: {
+                        required: true,
+                        maxlength: 20,
+                    },
+                    phone: {
+                        required: true,
+                        phone: true,
+                    },
+                    pic: {
+                        maxlength: 20,
+                    },
+                    picMobile: {
+                        phone: true,
+                    },
+                    telephone: {
+                        tel: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    address: {
+                        required: true,
+                        maxlength: 100,
+                    },
+                    wxName: {
+                        maxlength: 20,
+                    }
+                },
+                messages: {
+                    logo: {
+                        required: '请上传企业logo',
+                    },
+                    name: {
+                        required: '请填写企业名称',
+                        maxlength: '企业名称最多可填写30字',
+                    },
+                    abbreviation: {
+                        required: '请填写企业简称',
+                        maxlength: '企业简称最多可填写10字',
+                    },
+                    summary: {
+                        required: '请填写企业简介',
+                        maxlength: '企业简介最多可填写150字',
+                    },
+                    business: {
+                        required: '请填写主营业务',
+                        maxlength: '主营业务最多可填写100字',
+                    },
+                    categorys: {
+                        required: '请选择服务商类别',
+                    },
+                    certificates: {
+                        required: '请上传三证合一或营业执照',
+                    },
+                    siteUrl: {
+                        required: '请填写公司网址',
+                        url: '请填写正确的公司网址',
+                    },
+                    appDownload: {
+                        required: '请填写app下载地址',
+                        url: '请填写正确的app下载地址',
+                    },
+                    workstages: {
+                        required: '请选择服务社区',
+                    },
+                    userName: {
+                        required: '请填写联系人姓名',
+                        maxlength: '联系人姓名最多可填写20字',
+                    },
+                    phone: {
+                        required: '请填写手机号码',
+                        phone: '请填写正确的手机号码',
+                    },
+                    pic: {
+                        maxlength:'企业负责人最多可填写20字',
+                    },
+                    picMobile: {
+                        phone: '请填写正确的负责人手机号',
+                    },
+                    telephone: {
+                        tel: '请填写正确的固定电话',
+                    },
+                    email: {
+                        required: '请填写联系邮箱',
+                        email: '请填写正确的联系邮箱',
+                    },
+                    address: {
+                        required: '请填写联系地址',
+                        maxlength: '联系地址最多可填写100字',
+                    },
+                    wxName: {
+                        maxlength: '微信公众号最多可填写20字',
+                    }
+                }
+            },
+            _validator: {
+                rules: {
+                    title: {
+                        required: true,
+                        maxlength: 11,
+                    },
+                    workshop: {
+                         required: true
+                    },
+                    limittype: {
+                        required: true
+                    },
+                    summary: {
+                        required: true,
+                        maxlength: 150,
+                    },
+                },
+                messages: {
+                    title: {
+                        required: '请填写优惠主题',
+                        maxlength: '优惠主题最多可填11字'
+                    },
+                    workshop: {
+                        required: '请选择优惠社区',
+                    },
+                    limittype: {
+                        required:  '请选择优惠期限',
+                    },
+                    summary: {
+                        required: '请填写优惠描述',
+                        maxlength: '优惠描述最多可填150字'
+                    },
+                }
+            },
+            discountValidator: {},
+            renderModal: function(name, callback) {
+                var $modal = $(template('workstageTpl', {name: name})).appendTo($('#modal-container'));
+                new IScroll($modal.find('.modal-body')[0], {
+                    disablePointer: true,
+                    disableTouch: false
+                });
+
+                callback && callback($modal);
+
+                setTimeout(function() {$modal.modal('hide');}, 0)
+            },
+            addDiscountValidator: function (index, discountList) {
+                Form.counter();
+                Form.initFuture();
+
+                var values  = discountList[index]['discountList['+index+'].workshop'];
+
+                var modalId = 'discountList_'+ index +'_workshopModal';
+                if (!$('#' + modalId).length) {
+                    this.renderModal(modalId, function ($modal) {
+                        if (values) {
+                            values = values.indexOf(',') != -1 ? values.split(',') : [values];
+                            $modal.find('[data-id]').each(function () {
+                                var $elem = $(this);
+                                var _value = $.trim($elem.attr('data-id'));
+                                if ($.inArray(_value, values) != -1) {
+                                    $elem.addClass('active');
+                                } else {
+                                    $elem.removeClass('active');
+                                }
+                            })
+                        }
+                    });
+                }
+
+
+                var validator = {rules: {}, messages: {}};
+                var rules     = this._validator.rules,
+                    messages  = this._validator.messages;
+
+                for (var key in rules) {
+                    var _key = 'discountList['+ index +'].' + key;
+                    validator.rules[_key]    = rules[key];
+                    validator.messages[_key] = messages[key];
+                }
+
+                this.discountValidator = $.extend(true, {}, this.discountValidator, validator);
+
+                Form.setVerify(this.discountValidator);
+            },
+            methods: function (stepIndex) {
+                var that = this;
+                Form.counter();
+
+                if (stepIndex > 1) {
+                    that.post();
+                } else {
+                    that.renderModal('workstagesModal');
+                }
+
+
+                $('.form-dynamic').discount()
+                    .on('new.bs.discount', function (evt) {
+                        // console.log("new: %s", evt.index);
+                        if (evt.length > 1) {
+                            for (var i = 0; i < evt.length; i ++) {
+                                that.addDiscountValidator(evt.index + i, evt.source);
+                            }
+                        } else {
+                            that.addDiscountValidator(evt.index, evt.source);
+                        }
+                    })
+                    .on('del.bs.discount', function (evt) {
+                        console.log("del: %s, vInd: %s",evt.delIndex, evt.index);
+                        $.each(that.discountValidator.rules, function (key) {
+                            if (key.match(/\d+/)[0] == evt.index) {
+                                delete that.discountValidator.rules[key];
+                                delete that.discountValidator.messages[key];
+                            }
+                        });
+                        $('#discountList_'+ evt.delIndex +'_workshopModal').remove();
+                        $('.modal').each(function () {
+                            var id = this.id;
+                            if (id.indexOf('discountList_') != -1) {
+                                var _id = id.match(/\d+/g)[0];
+                                if (_id > evt.delIndex) {
+                                    $(this).attr('id', id.replace(/\d+/, _id - 1 ));
+                                }
+                            }
+                        })
+                        Form.setVerify(that.discountValidator)
+
+                    });
+
+            },
+            post: function () {
+                Form.ajaxPost({
+                    validator: this.discountValidator,
+                    postUrl: 'xx',
+                    data: JSON.parse(window.localStorage.getItem('UR.service.base')),
+                    postFormatted: function (data) {
+                        console.log(data);
+                        var ret = {};
+                        for (var key in data ) {
+                            if (!data.hasOwnProperty(key)) continue;
+                            if (/\w+\[\d+\]\./.test(key)) {
+                                key.replace(/(\w+)\[(\d+)\]\.(\w+)/, function (arg) {
+                                    var _key = arguments[1],
+                                        index = arguments[2],
+                                        name = arguments[3];
+                                    if (!ret[_key]) {
+                                        ret[_key] = [];
+                                    }
+                                    if (!ret[_key][index]) {
+                                        ret[_key][index] = {};
+                                    }
+                                    ret[_key][index][name] = data[key]
+                                });
+                            } else {
+                                ret[key] = data[key];
+                            }
+                        }
+
+                        return ret
+                    },
+                    success: function(res) {
+                        window.localStorage.removeItem('UR.service.discountList');
+                        window.localStorage.removeItem('UR.service.base');
+                        console.log(res);
+                    }
+                });
+            },
+            render: function (stepIndex) {
+                $('.form').html(template('formTpl', {step: stepIndex}));
+                var that = this;
+                that.scrollTop();
+                setTimeout(function () {
+                    that.methods(stepIndex);
+                }, 0)
+
+                $(document).off(UR.click, '#step').on(UR.click, '#step', function () {
+                    var post1 = UR.serializeObject('form');
+                    if (UR.validate(post1, that.validator)) {
+                        that.render(stepIndex += 1);
+                        if (window.localStorage) {
+                            window.localStorage.setItem('UR.service.base', JSON.stringify(post1));
+                        }
+                    }
+                });
+            },
+        }
+        $(function() {
+            ServiceForm.render(window.localStorage.getItem('UR.service.base') ? 2 : 1);
+        });
+    </script>
+</body>
+
+</html>

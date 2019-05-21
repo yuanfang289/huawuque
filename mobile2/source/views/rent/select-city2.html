@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>租赁入口页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/rent/styles/select-city.css">
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=acf4923c3689ec51d2a41c613a975f37&plugin=AMap.CitySearch"></script>
+    <style>
+#pullUp{
+    display: none;
+}
+    </style>
+</head>
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<input type="hidden" id="getGps" name="getGps" data-cityName="" data-cityCode="110000" data-lng="" data-lat="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar-def.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <ul class="text-list">
+            <li id="selectBtn"><p class="center-y w-full">切换城市<i class="uricon-arrow-right fr gray"></i></p></li>
+        </ul>
+        <ul class="text-list h-130" id="textList">
+            <p style="text-align:center;padding:50px 0;">定位中...</p>
+        </ul>
+        <div class="fixed-box"style="display:none">
+            <div id="titlebar" style="background:#f9f9f9">
+                <i class="nav-switch uricon-arrow-left" id="closeBtn"></i>
+                <span class="title">切换城市</span>
+            </div>
+            <ul class="text-list">
+                <li><p class="center-y w-full" id="thisCity"></p></li>
+            </ul>
+            <p class="change-title">切换城市</p>
+            <ul class="text-list" id="cityList">
+
+            </ul>
+        </div>
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+<script src="/public/rent/scripts/list.js"></script>
+
+<script type="text/html" id="gpsSuccess">
+{{if list.length == 0}}
+<li>
+    <div class="result-tips">
+        <div class="result-tips-inner">
+            <img src="/public/images/search-nodata.png" alt="">
+            <p>找不到相匹配的内容</p>
+        </div>
+    </div>
+</li>
+{{else}}
+{{each list as d i}}
+<li>
+    <dl>
+        <dt class="gray">
+            {{d.distance}}km
+        </dt>
+        <dd class="center-y">
+            <h2>{{d.stageName}}</h2>
+            <p class="gray">{{d.address}}</p>
+        </dd>
+    </dl>
+</li>
+{{/each}}
+{{/if}}
+</script>
+<script type="text/html" id="gpsfail">
+{{if list.length == 0}}
+<li>
+    <div class="result-tips">
+        <div class="result-tips-inner">
+            <img src="/public/images/search-nodata.png" alt="">
+            <p>找不到相匹配的内容</p>
+        </div>
+    </div>
+</li>
+{{else}}
+{{each list as d i}}
+<li>
+    <dl>
+        <dt class="gray"></dt>
+        <dd class="center-y">
+            <h2>{{d.stageName}}</h2>
+            <p class="gray">{{d.address}}</p>
+        </dd>
+    </dl>
+</li>
+{{/each}}
+{{/if}}
+</script>
+<script type="text/html" id="cityTplList">
+
+    {{if list.length == 0}}
+    <div class="result-tips">
+        <div class="result-tips-inner">
+            <img src="/public/images/search-nodata.png" alt="">
+            <p>找不到相匹配的内容</p>
+        </div>
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <li data-code="{{d.city}}"><p class="center-y w-full">{{d.cityName}}<em class="fr gray-c">{{d.count}}个场区</em></p></li>
+    {{/each}}
+    {{/if}}
+</script>
+<script>
+//-------- 获取城市名、城市adcode、当前坐标值 --------
+var map = new AMap.Map("getGps", {
+    resizeEnable: true,
+    zoom: 13
+});
+//获取用户所在城市信息
+function showCityInfo() {
+    //实例化城市查询类
+    var citysearch = new AMap.CitySearch();
+    //自动获取用户IP，返回当前城市
+    citysearch.getLocalCity(function(status, result) {
+        if (status === 'complete' && result.info === 'OK') {
+            if (result && result.city) {
+                var cityname = result.city;
+                var citycode = result.adcode;
+                $('#getGps').attr('data-cityName',cityname);
+                $('#getGps').attr('data-cityCode',citycode);
+                console.log('城市定位成功');
+                console.log('您当前所在城市：'+cityname);
+                console.log('城市code：'+citycode);
+            }
+        } else {
+            console.log('城市定位失败');
+        }
+    });
+}
+//定位当前坐标
+map.plugin('AMap.Geolocation', function() {
+    geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true,//是否使用高精度定位，默认:true
+        timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+        buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+        zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+    });
+    map.addControl(geolocation);
+    geolocation.getCurrentPosition();
+    AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+    AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+});
+//解析定位结果
+function onComplete(data) {
+    console.log('经纬度定位成功');
+    var lng = data.position.getLng();
+    var lat = data.position.getLat();//如为IP精确定位结果则没有精度信息
+    showCityInfo();
+    $('#getGps').attr('data-lng',lng);
+    $('#getGps').attr('data-lat',lat);
+    console.log('经度'+lng+' 纬度'+lat);
+
+    var _refresh = $('#textList')
+                .refresh({
+                    url: './data/city2.json',
+                    data: {
+                        cityId: $('#getGps').attr('data-cityCode'),
+                        longitude: $('#getGps').attr('data-lng'),
+                        latitude: $('#getGps').attr('data-lat')
+                    },
+                    template: 'gpsSuccess',
+                    isFirstLoad: true,
+                    formatted: function(res) {
+                        var data = res.data;
+                        var list = data.result || [];
+                        list.map(function(d) {
+                            d.distance = (d.distance/1000).toFixed(1);
+                        });
+                        return list;
+                    }
+                });
+
+}
+//解析定位错误信息
+function onError(data) {
+    console.log('经纬度定位失败');
+    showCityInfo();
+    var _refresh = $('#textList')
+                .refresh({
+                    url: './data/city2.json',
+                    data: {
+                        cityId: 110000,
+                    },
+                    template: 'gpsfail',
+                    isFirstLoad: true,
+                    formatted: function(res) {
+                        $('#getGps').attr('data-citycode','110000');
+                        var data = res.data;
+                        var list = data.result || [];
+                        return list;
+                    }
+                });
+
+}
+$(function(){
+   $('body')
+    .off(UR.click,'#selectBtn')
+    .on(UR.click,'#selectBtn',function(){
+        $('.fixed-box').show();
+        $.ajax({
+            url: './data/city3.json',
+            type: 'GET',
+            dataType: 'json',
+            data: {}
+        })
+        .done(function(res) {
+            var list = res.data || [];
+            list.map(function(d) {
+                if(d.city == $('#getGps').attr('data-citycode')){
+                    // console.log(d.cityName);
+                    $('#thisCity').html(d.cityName+'<em class="fr gray-c">'+d.count+'个场区</em>');
+                };
+            });
+            $('#cityList').html(template('cityTplList', {list:list}));
+        });
+    })
+    .off(UR.click,'#closeBtn')
+    .on(UR.click,'#closeBtn',function(){
+        $('.fixed-box').hide();
+    })
+    .off(UR.click,'#cityList li')
+    .on(UR.click,'#cityList li',function(){
+        var $this = $(this);
+        var code = $this.attr('data-code');
+        // $('.fixed-box').hide();
+        $.ajax({
+            url: './data/city2.json',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                cityId: code,
+            }
+        })
+        .done(function(res) {
+            var data = res.data;
+            var list = data.result || [];
+            $('#textList').html(template('gpsfail', {list:list}));
+        });
+    });
+});
+</script>
+</body>
+</html>

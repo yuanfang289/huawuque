@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>场地列表</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/place/place.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="app">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- select cities -->
+            <a class="menu-item" href="selectCity.html">
+                <p>北京市</p>
+                <i class="uricon-arrow-right menu-arrow"></i>
+            </a>
+            <!--/ select cities -->
+
+            <!-- 场地列表 place-list -->
+            <section class="place-list" data-scroll="pullUp" data-options="
+              url: 'data/list.json',
+              data: {
+                  cityId: UR.getBrowserParam().cityId
+              },
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  return res.result || [];
+              }
+              ">
+                <!-- <div class="bigpictext-item">
+                    <dl>
+                        <dt>
+                            <span class="lazy" data-src="http://pic.90sjimg.com/back_pic/00/04/27/49/08bfc708cf3096c8a1bb817864a1cbcf.jpg"></span>
+                        </dt>
+                        <dd>
+                            <div class="bigpictext-title">
+                                <h2 class="bigpictext-title-text">山丘多功能厅山丘多功能厅山丘多功能厅山丘多功能厅</h2>
+                                <em>&yen;5000<small>／小时</small></em>
+                            </div>
+                            <p class="bigpictext-addr"><span>北京市朝阳区光华路阳光100D座10层1001</span> |  B1层</p>
+                            <p class="bigpictext-tip"><em>发布会</em><em>年会</em><em>沙龙</em><em>发布会</em><em>年会</em><em>沙龙</em><em>发布会</em><em>年会</em><em>沙龙</em></p>
+                            <a href="./detail.html?id=1" class="btn btn-primary">立即预约</a>
+                        </dd>
+                    </dl>
+                </div> -->
+            </section>
+            <!--/ 场地列表 place-list -->
+
+            @import "goto.tpl"
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+
+    <script type="text/html" id="tlpList">
+        {{each list as d i}}
+        <div class="bigpictext-item">
+            <a href="#">
+                <dl>
+                    <dt>
+                        <span class="lazy" data-src="http://pic.90sjimg.com/back_pic/00/04/27/49/08bfc708cf3096c8a1bb817864a1cbcf.jpg"></span>
+                    </dt>
+                    <dd>
+                        <div class="bigpictext-title">
+                            <h2 class="bigpictext-title-text">山丘多功能厅山丘多功能厅山丘多功能厅山丘多功能厅</h2>
+                            <em>&yen;5000<small>／小时</small></em>
+                        </div>
+                        <p class="bigpictext-addr"><span>北京市朝阳区光华路阳光100D座10层1001</span> |  B1层</p>
+                        <p class="bigpictext-tip"><em>发布会</em><em>年会</em><em>沙龙</em><em>发布会</em><em>年会</em><em>沙龙</em><em>发布会</em><em>年会</em><em>沙龙</em></p>
+                        <a href="./detail.html?id=1" class="btn btn-primary">立即预约</a>
+                    </dd>
+                </dl>
+            </a>
+        </div>
+        {{/each}}
+    </script>
+
+
+    <script src="/assets/public/place/list.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>优惠券列表</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/coupon/coupon.css">
+</head>
+
+<!--工位确认订单时选择优惠券-->
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+
+        <!-- 优惠券列表 coupon-list -->
+        <section data-render="template" data-url="./data/orderConfirm.json"
+                 class="coupon-use-list">
+            <div class="rendering">
+                <div class="img-box">
+                    <div class="img"></div>
+                </div>
+
+                <p>正在加载 . . .</p>
+            </div>
+        </section>
+
+        <!--<section class="coupon-list coupon-use-list" data-scroll="pullUp" data-options="-->
+        <!--url: 'data/list.json',-->
+        <!--data: {-->
+        <!--//type: UR.getBrowserParam().type-->
+        <!--},-->
+        <!--template: 'tlpList',-->
+        <!--isFirstLoad: true,-->
+        <!--formatted: function(res) {-->
+        <!--return res.result || [];-->
+        <!--}-->
+        <!--">-->
+
+        <!--</section>-->
+        <!--/ 优惠券列表 coupon-list -->
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+
+<script type="text/html" id="pageTpl">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+        <p>暂时没有优惠券～</p>
+    </div>
+    {{else}}
+    {{each list as d i}}
+    {{if d.checked}}
+    <div class="coupon-item coupon-item-checkable" data-id="{{d.couponCode}}" data-num="{{d.price}}" checked>
+        {{else}}
+        <div class="coupon-item coupon-item-checkable" data-id="{{d.couponCode}}" data-num="{{d.price}}">
+        {{/if}}
+        <dl>
+            <dt>
+            <div class="coupon-info">
+                <p class="price">&yen; <big>{{d.price}}</big></p>
+                <p>{{d.remark}}</p>
+            </div>
+            </dt>
+            <dd>
+                <p class="coupon-title">{{d.strType}}</p>
+                <div class="coupon-desc">
+                    <p>{{d.startDate}}-{{d.endDate}}</p>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    {{/each}}
+    {{/if}}
+
+    <footer class="fixed-bottom">
+        <button class="btn btn-default">确定</button>
+    </footer>
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+
+<script src="/assets/public/coupon/scripts/use.js"></script>
+
+<script>
+    Page.redirectUrl = "/views/station/orderConfirm.html";
+</script>
+
+
+</body>
+
+</html>

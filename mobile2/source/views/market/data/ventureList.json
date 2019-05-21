@@ -1,0 +1,197 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "pageSize": 20,
+        "currentPageNo": 1,
+        "totalRecord": 2,
+        "result": [
+            {
+                "userId": 11146,
+                "userName": "Slintta",
+                "business": "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
+                "needhelp": "红红火火哈你会你您",
+                "xiuType": 2,
+                "typeStr": "美女CEO",
+                "companyName": "Google",
+                "xiuTop": 0,
+                "companies": [
+                    {
+                        "email": "liangds@urwork.cn",
+                        "name": "Google",
+                        "phone": "18610000",
+                        "userName": "阿娇",
+                        "enterType": 3,
+                        "strEnterType": "已入驻"
+                    },
+                    {
+                        "email": "111111@qq.com",
+                        "name": "会议室限制专用企业",
+                        "phone": "18612880000",
+                        "userName": "毛大庆",
+                        "enterType": 3,
+                        "strEnterType": "已入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "特别厉害的企业账户iOS",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "UrWork-i",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "Android Apr 17",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "iOS创建的企业",
+                        "phone": "",
+                        "userName": "",
+                        "enterType": 3,
+                        "strEnterType": "已入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "聚会",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "哦哦好红博",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "办案",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "哼积极",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "v雨uvi比斌",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "优客工场（互联网/IT）",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "jsixnswmmw",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "创建一企业",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "刚喝完酒",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "哈哈哈汗",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    },
+                    {
+                        "email": "",
+                        "name": "北京路思达生物信息科技有限公司",
+                        "phone": "",
+                        "userName": "",
+                        "strEnterType": "待入驻"
+                    }
+                ],
+                "headImg": "873b627e-6c01-4593-9546-c283df173984.10",
+                "summary": "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈发反反复复反反复复反反复复反反复复隐隐约约隐隐约约隐隐约约有意义"
+            },
+            {
+                "userId": 15815,
+                "userName": "哈哈",
+                "business": "提供一些帮助",
+                "needhelp": "给我钱",
+                "xiuType": 1,
+                "typeStr": "霸道总裁",
+                "xiuTop": 0,
+                "headImg": "07141758-a4bd-49e8-b63e-cf6c4ff5a498.png",
+                "summary": "呵呵哈哈"
+            },
+            {
+                "userId": 15815,
+                "userName": "哈哈",
+                "business": "提供一些帮助",
+                "needhelp": "给我钱",
+                "xiuType": 1,
+                "typeStr": "霸道总裁",
+                "xiuTop": 0,
+                "headImg": "07141758-a4bd-49e8-b63e-cf6c4ff5a498.png",
+                "summary": "呵呵哈哈"
+            },
+            {
+                "userId": 15815,
+                "userName": "哈哈",
+                "business": "提供一些帮助",
+                "needhelp": "给我钱",
+                "xiuType": 1,
+                "typeStr": "霸道总裁",
+                "xiuTop": 0,
+                "headImg": "07141758-a4bd-49e8-b63e-cf6c4ff5a498.png",
+                "summary": "呵呵哈哈"
+            },
+            {
+                "userId": 15815,
+                "userName": "哈哈",
+                "business": "提供一些帮助",
+                "needhelp": "给我钱",
+                "xiuType": 1,
+                "typeStr": "霸道总裁",
+                "xiuTop": 0,
+                "headImg": "07141758-a4bd-49e8-b63e-cf6c4ff5a498.png",
+                "summary": "呵呵哈哈"
+            }
+        ],
+        "lastPageNo": 1,
+        "prevPageNo": 1,
+        "nextPageNo": 1,
+        "totalPage": 1,
+        "endRow": 20,
+        "beginRow": 0
+    }
+}

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'chip/piclist';
+
+.sub-account-list {
+    padding: rem(40);
+    margin-bottom: rem(-40);
+
+    .piclist-item {
+        margin-bottom: rem(32);
+        .piclist-image-box {
+            @include fixed-ratio-box(26.8657);
+            padding: rem(4);
+        }
+
+        .piclist-image {
+            background-color: #f5f5f5;
+        }
+
+        .center-text {
+            margin-top: rem(-8);
+            text-align: left;
+            text-shadow: none;
+            @include position-center-y();
+            left: rem(40);
+            .text-title {
+                font-size: 18px;
+            }
+
+            .text-desc {
+                color: #f5efe5;
+            }
+        }
+
+        .ricon {
+            @include position-center-y();
+            right: rem(24);
+            margin-top: rem(-8);
+            font-size: 12px;
+            color: #fff;
+        }
+    }
+
+}
+
+
+
+
+

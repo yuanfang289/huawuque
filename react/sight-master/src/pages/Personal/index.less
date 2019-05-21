@@ -1,0 +1,277 @@
+@import "./../../public/public.less";
+.personal {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #fff;
+  .personal-main {
+    padding: 100px 40px 0px 40px;
+    box-sizing: content-box;
+    width: 1010px;
+    margin: 0 auto;
+    .personal-main-header {
+      display: flex;
+      margin-bottom: 23px;
+      .personal-main-header-left {
+        flex: 1;
+        margin-right: 30px;
+        .personal-main-header-left-avatar {
+          width: 152px;
+          height: 152px;
+          margin-left: auto;
+          margin-right: auto;
+          position: relative;
+          .personal-main-header-left-avatar-input {
+            .AVATAR_HEIGHT_WIDTH();
+            cursor: pointer;
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            font-size: 0px;
+          }
+          .personal-main-header-left-avatar-label {
+            .AVATAR_HEIGHT_WIDTH();
+            cursor: pointer;
+            border-radius: 100%;
+            position: relative;
+            border: 0px solid transparent;
+            .personal-main-header-left-avatar-label-image {
+              .AVATAR_HEIGHT_WIDTH();
+              position: absolute;
+              left: 0;
+              top: 0;
+              border-radius: 50%;
+              overflow: hidden;
+              border: 1px solid #e7e7e7;
+            }
+          }
+          .personal-main-header-left-avatar-spin {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+      .personal-main-header-right {
+        flex: 2;
+        min-width: 0px;
+        .personal-main-header-right-account {
+          font-size: 32px;
+          margin-bottom: 0px;
+          font-weight: 200;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .personal-main-header-right-setting {
+          color: #262626;
+        }
+        .personal-main-header-right-name {
+          font-weight: 600;
+          font-size: 16px;
+          color: #262626;
+          word-wrap: break-word;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .personal-main-content {
+    height: 23px;
+    border-top: 1px solid #efefef;
+  }
+  .personal-main-list {
+    .personal-main-list-images {
+      .DISPLAY_FLEX();
+      margin-bottom: 3px;
+      .personal-main-list-img {
+        height: 100%;
+        .FLEX();
+        width: 60px;
+        margin-right: 20px;
+      }
+    }
+    .personal-main-list-clear {
+      .DISPLAY_FLEX();
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 200;
+    }
+    .personal-main-list-img {
+      width: 700px;
+    }
+  }
+}
+
+.ant-modal-body {
+  padding: 0px;
+};
+
+.personal-main-setting-modal {
+  .CENTER_MODAL();
+}
+
+.personal-main-images-modal {
+  .CENTER_MODAL();
+}
+
+.personal-main-setting-modal-content {
+  .PERSONAL-MAIN-SETTING-MODAL-CONTENT();
+  .PERSONAL-MAIN-SETTING-MODAL-CONTENT-BOTTOM();
+}
+
+.PERSONAL-MAIN-SETTING-MODAL-CONTENT-BOTTOM {
+  border-bottom: 1px solid #efefef;
+}
+
+.PERSONAL-MAIN-SETTING-MODAL-CONTENT {
+  display: flex;
+  width: 400px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: rgb(4,4,4);
+  line-height: 48px;
+  cursor: pointer;
+}
+
+.personal-main-setting-modal-cancel {
+  .PERSONAL-MAIN-SETTING-MODAL-CONTENT();
+}
+
+.public-spin {
+  .PUBLIC_SPIN();
+}
+
+.AVATAR_HEIGHT_WIDTH {
+  width: 152px;
+  height: 152px;
+}
+
+.personal-main-images-modal-view {
+  height: 400px;
+  width: auto;
+}
+
+.personal-main-images-modal-view-left {
+  .personal-main-images-modal-view();
+  left: -24px;
+}
+
+.personal-main-images-modal-view {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+.personal-main-images-modal-view-right {
+  .personal-main-images-modal-view();
+  right: -24px;
+}
+
+.personal-icon {
+  .WHITE_ICON();
+}
+
+.personal-main-images-modal-view-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: -24px;
+}
+
+.personal-main-header-left-avatar-input:hover {
+  text-decoration: none;
+}
+
+.personal-label-avatar::after {
+  border: 1px solid rgba(0,0,0,.0975);
+  border-radius: 50%;
+  bottom: 0;
+  content: "";
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .personal .personal-main {
+    margin: 0px auto;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .personal .personal-main {
+    margin: 0px auto;
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .personal .personal-main {
+    margin: 0px auto;
+    width: 100%;
+    padding: 0px;
+    padding-top: 80px;
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-left .personal-main-header-left-avatar .personal-main-header-left-avatar-label .personal-main-header-left-avatar-label-image {
+    .AVATAR_PHONE_HEIGHT_WIDTH();
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-left .personal-main-header-left-avatar .personal-main-header-left-avatar-label {
+    .AVATAR_PHONE_HEIGHT_WIDTH();
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-left .personal-main-header-left-avatar .personal-main-header-left-avatar-input {
+    .AVATAR_PHONE_HEIGHT_WIDTH();
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-left .personal-main-header-left-avatar {
+    .AVATAR_PHONE_HEIGHT_WIDTH();
+  }
+
+  .AVATAR_PHONE_HEIGHT_WIDTH {
+    width: 77px;
+    height: 77px;
+  }
+
+  .personal .personal-main .personal-main-header {
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-left {
+    margin-right: 0px;
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-right {
+    flex: 1;
+  }
+
+  .personal .personal-main .personal-main-header .personal-main-header-right .personal-main-header-right-account {
+    font-size: 22px;
+    font-weight: normal;
+  }
+  .personal .personal-main .personal-main-header .personal-main-header-right .personal-main-header-right-name {
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .personal .personal-main-content {
+    height: 15px;
+  }
+
+  .personal .personal-main-list .personal-main-list-images .personal-main-list-img {
+    margin-right: 3px;
+  }
+}

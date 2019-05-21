@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+@import 'variable';
+@import 'mixins';
+@import 'form';
+
+/* Common
+ ---------------------------------------- */
+.form-bind {
+    width: rem(530);
+    @include box-center;
+    padding-bottom: 100px;
+    padding-top:rem(214);
+    color: #b2b2b2;
+    .legend {
+        margin-bottom: 40px;
+        color: #333;
+        font-size: 18px;
+    }
+    .form-action {
+        margin-top: 55px;
+    }
+}
+
+/* login
+ ---------------------------------------- */
+body {
+    background-color: #fff;
+}
+.logo-box{
+    @include box-center;
+    width:rem(140);
+    height:rem(187);
+    margin-bottom:rem(80);
+}
+/* openFail
+ ---------------------------------------- */
+ .data-wrap{
+    padding-top:rem(214);
+    .data-img{
+        width:rem(280);
+        @include box-center;
+     }
+    .data-tip{
+        width:210px;
+        @include box-center;
+        padding-top:rem(120);
+        padding-bottom:rem(100);
+        h2{
+            font-size:14px;
+            color:#333;
+            text-align:center;
+            padding-bottom:rem(20);
+        }
+        p{
+            text-align:center;
+        }
+    }
+    .data-btn{
+        @include box-center;
+        width:rem(200);
+        height:rem(70);
+        border:1px solid #999;
+        border-radius:4px;
+        a{
+            display:inline-block;
+            width:100%;
+            height:100%;
+            text-align:center;
+            line-height:rem(70);
+            color:#333;
+        }
+    }
+ }
+ 

@@ -1,0 +1,36 @@
+.pictext-item {
+    @include clearfix;
+    dt {
+        @include fixed-ratio-box(74.545) {
+            color: $font-def;
+        }
+        position: relative;
+        float: left;
+        width: 110px;
+        &::before {
+            background-size: 40%;
+        }
+        span {
+            @include fixed-ratio-inner;
+        }
+    }
+    dd {
+        height: 100%;
+        padding: 0 10px;
+        overflow: hidden;
+    }
+    .pictext-title {
+        @include text-overflow;
+        padding-top: 5px;
+        line-height: 30px;
+        font-size: 15px;
+        color: $font-def;
+    }
+    .pictext-desc {
+        height: 36px;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 18px;
+        color: $font-666;
+    }
+}

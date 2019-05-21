@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'common';
+@import 'refresh/refresh';
+
+
+/**/
+.video-release{
+    h3{
+        font-size: 16px;
+        font-weight: bold;
+        em{
+            margin-right: 3px;
+            color: #EF1010;
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+    &>div{
+        padding:15px 20px;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+    .video-choice{
+        .video-add{
+            position: relative;
+            overflow: hidden;
+            width: 53%;
+            height: 2.7rem;
+            margin: 15px 0;
+            color: #999;
+            text-align: center;
+            border: 1px dashed #ccc;
+            dl{
+                position: relative;
+                margin-top: 0.8rem;
+                dt{
+                    i{
+                        font-size: 20px;
+                    }
+                }
+            }
+            .change{
+                position: absolute;
+                overflow: hidden;
+                right: 0;
+                top: 0;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .row{
+                position: absolute;
+                top:0;
+                left:0;
+                z-index:99;
+                width: 100%;
+
+            }
+            .v-box{
+                display: none;
+                position: absolute;
+                top: 0;
+                z-index: 9;
+                width: 100%;
+                height: 2.75rem;
+                text-align: center;
+                background:#000;
+                img{
+                    max-height: 100%;
+                    vertical-align: bottom;
+                }
+            }
+            #loadingBar{
+                display: none;
+                position: absolute;
+                top:0;
+                width: 100%;
+                height: 2.75rem;
+                line-height: 2.75rem;
+                background-color: #fff;
+                text-align: center;
+            }
+        }
+        p{
+            color: #333;
+        }
+    }
+    .video-title{
+        input{
+            width: 100%;
+            border: none;
+            line-height: 2;
+        }
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            font-size:14px;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            font-size:14px;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            font-size:14px;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            font-size:14px;
+        }
+    }
+    .company-select {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #999999;
+        &.writed{
+            span {
+                color: #333333;
+            }
+        }
+        span {
+            font-size: 14px;
+        }
+        i {
+            transform: scale(.7777);
+        }
+    }
+}

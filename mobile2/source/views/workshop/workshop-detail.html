@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>社区详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/simditor/styles/simditor.css">
+    <link rel="stylesheet" href="/assets/public/workshop/styles/workshop-detail.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- slide -->
+            <div class="swiper-container main-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg"  alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/e3943121-b5de-4382-8742-0946529a7a40.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/c26a009d-b9b5-4768-9fb0-151269b80ca6.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/2dcd0cf7-7cb5-4cc0-8b5b-44913360a476.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- /slide -->
+            <section class="layout-item workshop-profile">
+                <header>
+                    <a href="#" class="navigator-ar"><i class="uricon-daohang2"></i>AR导航</a>
+                    <h1>天恒大厦·优客工场·优客工场·优客工场</h1>
+                    @import "common/score.tpl"
+                </header>
+                <div class="workshop-location" data-navigation="http://m.urwork.cn">
+                    <img class="js-navigation" src="https://restapi.amap.com/v3/staticmap?location=116.27194,39.95439&amp;zoom=14&amp;size=335*100&amp;scale=2&amp;markers=large,,A:116.27194,39.95439&amp;labels=北京阿里云＋优客工场,3,0,26,0xFFFFFF,0xe95513:116.27194,39.95439&amp;key=739267cee1c64393de3dc02798fce752" alt="北京阿里云＋优客工场">
+                    <ul>
+                        <li>
+                            <p>北京市朝阳区光华路阳光100D</p><em class="btn-icon js-navigation"><i class="uricon-daohang"></i></em>
+                        </li>
+                        <li>
+                            <p><a href="tel:400-3567-435">400-3567-435</a></p><em class="btn-icon"><a href="tel:400-3567-435"><i class="uricon-phone"></i></a></em>
+                        </li>
+                    </ul>
+                </div>
+                <div class="workshop-resume" id="workshopResume" show-mode="less" show-line="2.5">
+                    <div class="content-wrap">
+                        <section class="more-content editor-style">天恒大厦·优客工场位于东直门外大街天恒大厦B1层，紧邻东二环，地铁2号线、地铁13号线、机场线东直门站以及多路公交均可到达，交通便利；周套天恒大厦·优客工场位于东直门外大街天恒大厦B1层，紧邻东二环，地铁2号线、地铁13号线、机场线东直门站以及多路公交均可到达，交通便利。</section>
+                    </div>
+                    <a href="javascript:;" class="btn-more" data-more="展开简介" data-less="收起简介"><span class="btn-text">展开简介</span><i class="uricon-arrow-bottom"></i></a>
+                </div>
+            </section>
+            <section class="layout-item workshop-device">
+                <header class="layout-item-title">
+                    <h2>社区设施</h2>
+                </header>
+                <ul class="device-list">
+                    <li>
+                        <div class="device-icon"><i class="uricon-tyy"></i></div>
+                        <p>投影</p>
+                    </li>
+                    <li>
+                        <div class="device-icon"><i class="uricon-zy"></i></div>
+                        <p>座椅</p>
+                    </li>
+                    <li>
+                        <div class="device-icon"><i class="uricon-ht"></i></div>
+                        <p>话筒</p>
+                    </li>
+                    <li>
+                        <div class="device-icon"><i class="uricon-yx"></i></div>
+                        <p>音箱</p>
+                    </li>
+                    <li>
+                        <div class="device-icon" id="MoreDevice"><i class="uricon-slh"></i></div>
+                        <p>+14</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="layout-item">
+                <header class="layout-item-title">
+                    <h2>社区服务</h2>
+                </header>
+                <ul class="workshop-servcie-list">
+                    <li>
+                        <dl class="service-item">
+                            <dt>
+                                <img data-src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt="" class="lazy">
+                            </dt>
+                            <dd>
+                                <h5>工位·150个</h5>
+                                <p>50元 /天起</p>
+                                <a href="javascript:;" class="btn btn-ordering">去预订</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="service-item">
+                            <dt>
+                                <img data-src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt="" class="lazy">
+                            </dt>
+                            <dd>
+                                <h5>工位·150个</h5>
+                                <p>50元 /天起</p>
+                                <a href="javascript:;" class="btn btn-ordering">去预订</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="service-item">
+                            <dt>
+                                <img data-src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt="" class="lazy">
+                            </dt>
+                            <dd>
+                                <h5>工位·150个</h5>
+                                <p>50元 /天起</p>
+                                <a href="javascript:;" class="btn btn-ordering">去预订</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="service-item no-btn">
+                            <dt>
+                                <img data-src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt="" class="lazy">
+                            </dt>
+                            <dd>
+                                <h5>优客支持</h5>
+                                <p>遇到问题？我们将随时为您服务！</p>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </section>
+            <section class="layout-item workshop-team">
+                <header class="layout-item-title">
+                    <h2>社区团队</h2>
+                </header>
+                <!-- slide -->
+                <div class="swiper-container team-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="team-role-wrap">
+                                <div class="team-role">
+                                    <div class="team-role-inner">
+                                        <div class="img-wrap" require-clip>
+                                            <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                        </div>
+                                        <p class="team-name">烊烊</p>
+                                        <p class="team-position">社区经理</p>
+                                        <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                    </div>
+                                </div>
+                                <div class="team-role">
+                                    <div class="team-role-inner">
+                                        <div class="img-wrap" require-clip>
+                                            <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                        </div>
+                                        <p class="team-name">烊烊烊烊烊烊烊烊烊烊</p>
+                                        <p class="team-position">社区经理社区经理社区经理社区经理</p>
+                                        <button type="button" class="btn btn-primary team-send" disabled><i class="uricon-sixin"></i> 发私信</button>
+                                    </div>
+                                </div>
+                                <div class="team-role">
+                                    <div class="team-role-inner">
+                                        <div class="img-wrap" require-clip>
+                                            <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                        </div>
+                                        <p class="team-name">烊烊</p>
+                                        <p class="team-position">社区经理</p>
+                                        <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="team-role-wrap">
+                                <div class="team-role">
+                                    <div class="team-role-inner">
+                                        <div class="img-wrap" require-clip>
+                                            <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                        </div>
+                                        <p class="team-name">烊烊</p>
+                                        <p class="team-position">社区经理</p>
+                                        <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                    </div>
+                                </div>
+                                <div class="team-role">
+                                    <div class="team-role-inner">
+                                        <div class="img-wrap" require-clip>
+                                            <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                        </div>
+                                        <p class="team-name">烊烊</p>
+                                        <p class="team-position">社区经理</p>
+                                        <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                    </div>
+                                </div>
+                                <div class="team-role">
+                                    <div class="team-role-inner">
+                                        <div class="img-wrap" require-clip>
+                                            <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                        </div>
+                                        <p class="team-name">烊烊</p>
+                                        <p class="team-position">社区经理</p>
+                                        <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!--/ slide -->
+                <p class="slogan">
+                    阿里云+ 优客工场作为全国旗舰店，通过两大品牌的强强联合，通过"生态、社群、共享、大数据"等平台合作，将致力打造最有科技范儿的联合办公空间，同时为我们优秀的入驻企业提供最完善的服务。
+                </p>
+                <div class="team-pic"><img class="lazy" data-src="https://image.urwork.cn/901f99b0-4ac4-4f67-8335-1beeef936891.jpg" alt=""></div>
+            </section>
+            <section class="layout-item workshop-comment">
+                <header class="layout-item-title">
+                    <h2><a href="#">社区评论<i class="uricon-arrow-dropright"></i></a></h2>
+                    <aside>
+                        <a class="btn" href="#">发评论</a>
+                    </aside>
+                </header>
+                <div class="data-null">
+                    <div class="data-null-inner">
+                        暂无评论
+                    </div>
+                </div>
+                <div class="tab tab-pic comment-tab" data-role="tab">
+                    <div class="tabs" data-tab-role="tabs">
+                        <ul>
+                            <li data-tab-role="tab">
+                                <div class="user-pic" require-clip><img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt=""></div>
+                            </li>
+                            <li data-tab-role="tab">
+                                <div class="user-pic" require-clip><img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt=""></div>
+                            </li>
+                            <li data-tab-role="tab">
+                                <div class="user-pic" require-clip><img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt=""></div>
+                            </li>
+                            <li data-tab-role="tab">
+                                <div class="user-pic" require-clip><img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt=""></div>
+                            </li>
+                            <li data-tab-role="tab">
+                                <div class="user-pic" require-clip><img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt=""></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tabbed" data-tab-role="tabbed">
+                        <div class="tab-group" data-tab-role="group">
+                            <h5>杨帆</h5>
+                            <p>在优客工场办公，我更喜欢这作，给每个创业者一个最适合自己发想。</p>
+                        </div>
+                        <div class="tab-group" data-tab-role="group">
+                            <h5>金帆</h5>
+                            <p>在优客工场办公，我更喜欢这里的文化氛围——温馨、舒适、不做作者一个最适合自己发想。</p>
+                        </div>
+                        <div class="tab-group" data-tab-role="group">
+                            <h5>帆</h5>
+                            <p>在优客工场办公，我更喜欢这里的文化氛围——温馨、舒适、。</p>
+                        </div>
+                        <div class="tab-group" data-tab-role="group">
+                            <h5>杨帆金</h5>
+                            <p>在优客工场办公，我更喜欢这每个创业者一个最适合自己发想。</p>
+                        </div>
+                        <div class="tab-group" data-tab-role="group">
+                            <h5>杨金帆</h5>
+                            <p>在优客工场办公，我更喜欢这里的文化氛围——温馨、舒适个最适合自己发想。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="layout-item workshop-activity">
+                <header class="layout-item-title">
+                    <h2>社区活动</h2>
+                </header>
+                <div class="swiper-fixed-ratio">
+                    <div class="swiper-container" id="activitySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="piclist-item activity-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="text-box">
+                                            <p class="title">阳光100社区阳光100社区阳光100社区阳光100社区</p>
+                                            <div class="attrs">
+                                                <time><i class="uricon-time"></i>活动进行中</time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="piclist-item activity-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/e3943121-b5de-4382-8742-0946529a7a40.jpg" alt="">
+                                                <div class="price"><i>¥ </i>120<sub>起</sub></div>
+                                            </div>
+                                        </div>
+                                        <div class="text-box">
+                                            <p class="title">阳光100社区阳光100社区阳光100社区阳光100社区</p>
+                                            <div class="attrs">
+                                                <time><i class="uricon-time"></i>活动进行中</time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="piclist-item activity-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/c26a009d-b9b5-4768-9fb0-151269b80ca6.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="text-box">
+                                            <p class="title">阳光100社区阳光100社区阳光100社区阳光100社区</p>
+                                            <div class="attrs">
+                                                <time><i class="uricon-time"></i>活动进行中</time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <div class="workshop-bottombar">
+        <div class="booking-wrap">
+            <div class="feedback">
+                <a href="#"><i class="uricon-msg"></i></a>
+            </div>
+            <div class="booking">
+                <div class="link-wrap">
+                    <a href="#" class="btn btn-def">预约参观</a>
+                </div>
+                <div class="link-wrap">
+                    <a href="#" class="btn btn-primary">预约入驻</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    @import "workshop/devicePopup.tpl"
+    <script src="/assets/public/workshop/scripts/workshop-detail.js"></script>
+    <script>
+        $(function() {
+            mySwiper.init();
+            $('body').on(UR.click, '.js-navigation', function() {
+                var navigationUrl = encodeURIComponent($.trim($('.workshop-location').attr('data-navigation')));
+                if (UR.isApp()) {
+                    UR.setUrl('urwork://qrcode' + navigationUrl);
+                } else {
+                    UR.openApp.init({
+                        intentUrlParams: navigationUrl
+                    })
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

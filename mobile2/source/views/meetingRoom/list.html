@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>会议室列表</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/meetingRoom/index.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header" style="">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+
+        <!-- 筛选条件 /meetingRoom/getWorkStageList -->
+        <section class="ur-searcher">
+            <div class="search-wrapper" data-type="yyyy-MM-dd" data-url="./data/stage.json"></div>
+        </section>
+        <!-- ／筛选条件 -->
+
+
+        <!-- 工位列表 meeting-room-list -->
+        <!--/rentMeetingRoom/getMeetingRoomList-->
+        <section class="meeting-room-list" data-render="template" data-url="data/list.json">
+
+            <div class="rendering">
+                <div class="img-box">
+                    <div class="img"></div>
+                </div>
+
+                <p>正在加载 . . .</p>
+            </div>
+
+        </section>
+        <!--/ 工位列表 meeting-room-list -->
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<!-- 社区列表 modal -->
+<div class="modal primary-modal" id="plantIdModal" role="dialog" data-param="plantId">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="background-color: #f5f5f5;">
+                <div class="scroller" id="plantIdContainer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ 社区列表 modal -->
+
+<script type="text/html" id="plantIdTpl">
+    <!-- 社区列表 stage-list -->
+    <ul class="select-list stage-list">
+        {{each list as node}}
+        <li class="stage-title">{{node.cityName}}</li>
+        {{if node.stageList}}
+        {{each node.stageList as stage j}}
+        <li data-id="{{stage.id}}" class="{{j == node.stageList.length - 1 ? 'last': ''}}">{{stage.stageName}}<i class="uricon-success-circle"></i></li>
+        {{/each}}
+        {{/if}}
+        {{/each}}
+    </ul>
+    <!--/ 社区列表 stage-list -->
+</script> 
+
+
+<script type="text/html" id="tlpFilter">
+    <a href="javascript:;" class="menu-item" data-set="plantId" data-text="社区"
+       data-toggle="modal" data-target="#plantIdModal">
+        <span>社区</span>
+        <i class="uricon-arrow-dropdown menu-arrow"></i>
+    </a>
+
+    <ul data-param="meetingRoomDate">
+        <li class="active" data-id="{{data.today}}"><span>今天</span></li>
+        <li data-id="{{data.tomorrow}}"><span>明天</span></li>
+        <li class="last" data-id="">
+            <span>
+                <input type="text" class="input-text" placeholder="其他日期">
+            </span>
+        </li>
+    </ul>
+</script>
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+        <p>暂无可预订的会议室</p>
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="bigpictext-item">
+        <dl>
+            <dt>
+                <span class="lazy"
+                      data-src="{{d.pic}}"></span>
+            </dt>
+            <dd>
+                <div class="bigpictext-title">
+                    <div class="bigpictext-title-cont">
+                        <h2 class="bigpictext-title-txt">{{d.meetingroomName}}</h2>
+                        <small> | {{d.peopleNumber}}人</small>
+                        <a href="#" class="navigator-ar"><i class="uricon-daohang2"></i></a>
+                    </div>
+                    {{if d.inCompany == 1 && d.inLimit == true}}
+                    <em>企业内部会议室</em>
+                    {{else}}
+                    <em>&yen;{{d.rentalPrice}}
+                        <small>/ 0.5小时</small>
+                    </em>
+                    {{/if}}
+                </div>
+                <div class="bigpictext-bar">
+                    <button class="btn-prev"><i class="uricon-arrow-left"></i></button>
+                    <button class="btn-next"><i class="uricon-arrow-right"></i></button>
+                    <div class="bar-list">
+                        <ul style="width: {{d.width}}px;" data-move="6">
+                            <!--{{each d.reserveOrderMap as j k}}-->
+                                <!--<li>{{j.reserveUsername}}</li>-->
+                            <!--{{/each}}-->
+                            {{each d.timeline as t}}
+                            <li data-id="{{t.id}}" class="{{t.className}}" data-reserveUsername="{{t.reserveUsername}}" data-reserveCompany="{{t.reserveCompany}}"data-meetingTheme="{{t.meetingTheme}}">
+                                <label>{{t.label}}</label>
+                                <div></div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-action" data-id="{{d.meetingroomId}}" data-type="{{d.meetingType}}">
+                    <p class="reserveInfo" style="display:none"></p>
+                    <div class="tool-info">
+                        <span data-set="timeRange">12:30-13:30</span>
+                        <span> (共<i data-set="hour">1</i>小时）</span>
+                    </div>
+                    <button type="button" class="btn btn-primary booking">确认预定</button>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+
+<script src="/assets/public/plugins/template.js"></script>
+
+<script src="/assets/public/meetingRoom/scripts/list.js"></script>
+
+<script>
+
+</script>
+<script>
+
+
+
+
+
+    List.redirect("./orderConfirm.html", "/meetingRoom/meetingRoomTimeLimit");
+//    location.replace("./orderConfirm.html");
+</script>
+
+</body>
+
+</html>

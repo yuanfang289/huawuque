@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+.publish-wrap{
+    text-align: center;
+    padding-top: 85px;
+    span{
+        display: inline-block;
+        color: #fff;
+        background: #6ba0f0;
+        line-height: 20px;
+        padding: 0 5px;
+        border-radius: 3px;
+    }
+    h2{
+        font-size: 18px;
+        font-weight: 600;
+        padding: 5px 20px;
+    }
+    img{
+        width: 85%;
+    }
+}

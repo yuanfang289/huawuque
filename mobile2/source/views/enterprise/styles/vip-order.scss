@@ -1,0 +1,318 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'modal/modal';
+@import "chip/pictextlist";
+@import "footer";
+@import "form";
+
+.pictext-item {
+    @include clearfix;
+    dt {
+        @include fixed-ratio-box(60.9524) {
+            color: $font-def;
+        }
+        width: 158px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    dd {
+        padding-left: 20px;
+        padding-right: 0;
+    }
+
+    .pictext-title {
+        padding-top: 5px;
+        line-height: 20px;
+        font-size: 14px;
+        white-space: pre-wrap;
+        height: 72px;
+    }
+    .pictext-flexbox {
+        display: flex;
+        font-size: 12px;
+        color: $font-999;
+
+        .pictext-flex {
+            flex: 1;
+            color: $font-def;
+        }
+    }
+}
+
+.price {
+    font-weight: bold;
+}
+
+[data-toggle="modal"] {
+    outline: none;
+    display: block;
+    text-align: right;
+    color: $font-def;
+
+    &.val-empty {
+        color: $font-999 !important;
+    }
+}
+
+/* 图片图标
+----------------------------------------------------*/
+[class^="urimg-"] {
+    background: url(/assets/public/enterprise/images/paymethod.png) no-repeat;
+    width: 22px;
+    height: 22px;
+    display: block;
+    margin-right: rem(24);
+    float: left;
+    //transform: scale(.5);
+    transform-origin: 0 0;
+    background-size: cover;
+}
+
+.urimg-alipay {
+    background-position: 0 0;
+}
+
+.urimg-wechat {
+    background-position: 0 -22px;
+}
+
+/* 信息展示
+----------------------------------------------------*/
+em {
+    @for $i from 1 to 3 {
+        &.em-#{$i} {
+            padding-left: #{$i}em;
+        }
+    }
+}
+
+.info-layout {
+    background-color: #fff;
+    margin-bottom: rem(16);
+    @include padding-h(rem(40));
+}
+
+.info-item {
+    @include padding-v(rem(40));
+    padding-left: rem(164);
+    font-size: 14px;
+    color: $font-def;
+
+    & + .info-item {
+        padding-top: 0;
+    }
+
+    &.bordered-bottom {
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .info-label {
+        width: rem(144);
+        margin-left: rem(-164);
+        float: left;
+        overflow: hidden;
+        white-space: nowrap;
+        color: $font-999;
+    }
+
+    .info-cont {
+
+        &.flexbox {
+            display: flex;
+        }
+
+        .flex {
+            flex: 1;
+        }
+
+        span + span {
+            padding-left: rem(20);
+        }
+
+    }
+
+
+}
+
+.info-item-simple {
+    @include padding-v(rem(30));
+    position: relative;
+    font-size: 14px;
+    color: $font-def;
+
+    & + .info-item-simple {
+        padding-top: 0;
+    }
+
+    &.bordered-bottom {
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    &.flexbox {
+        display: flex;
+        align-items: center;
+
+        & + .flexbox {
+            padding-top: rem(30);
+            border-top: 1px solid #e6e6e6;
+        }
+    }
+}
+
+.info-layout {
+    &.hidden-company {
+        .info-title {
+            border-color: transparent !important;
+        }
+        .flexbox {
+            display: none !important;
+        }
+    }
+}
+
+.info-title {
+    padding-top: rem(30);
+    font-size: 14px;
+    color: $font-999;
+
+    &.info-title-sm {
+        margin: 0 rem(-40);
+        padding: rem(16) rem(40);
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    label {
+        @include margin-v(4px);
+        position: relative;
+        padding: 4px 20px;
+        display: inline-block;
+        border: 1px solid $font-999;
+        border-radius: 2px;
+        font-size: 14px;
+        color: $font-666;
+
+        & + label {
+            margin-left: 15px;
+        }
+
+        &.selected {
+            border-color: $font-def;
+            color: $font-def;
+
+            &:before {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-width: 8px;
+                border-style: solid;
+                border-color: transparent $font-def $font-def transparent;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 1px;
+                bottom: 1px;
+                width: 16px;
+                height: 10px;
+                display: block;
+                background: url("/assets/public/images/ui/right-icon.png") no-repeat;
+                transform: scale(.5);
+                transform-origin: right bottom;
+
+            }
+        }
+    }
+}
+
+.flex {
+    flex: 1;
+}
+
+.has-ricon {
+    position: relative;
+    padding-right: rem(40);
+}
+
+.ricon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: #b3b3b3;
+}
+
+//.val-empty {
+//    color: $font-999 !important;
+//}
+
+input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url("/assets/public/images/ui/checkicon.png") no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    border: none;
+    outline: none;
+    shadow: none;
+
+    &:checked {
+        background-position: 0 -88px;
+    }
+
+    &:disabled {
+        background-position: 0 -66px;
+    }
+}
+
+/* 选择列表
+---------------------------------------------------------------*/
+.select-list {
+    background-color: #fff;
+    padding: 0 rem(40);
+
+    li {
+        position: relative;
+        height: rem(110);
+        line-height: rem(110);
+        font-size: 14px;
+        color: $font-def;
+        border-bottom: 1px solid #e5e5e5;
+        @include text-overflow;
+        padding-right:rem(60);
+        i {
+            display: none;
+        }
+
+        &.active {
+            i {
+                @include position-center-y();
+                position: absolute;
+                display: block;
+                right: 0;
+                font-size: 24px;
+                color: #4e4e4e;
+            }
+        }
+    }
+}
+[data-set="companyId"] {
+    @include text-overflow;
+    text-align: right;
+    padding-left:rem(60);
+}
+.silde-unselected{
+    @include text-overflow;
+    display:block;
+    width:100%;
+    height: 100%;
+}

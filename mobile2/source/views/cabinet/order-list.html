@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>柜子订单</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/order-list.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <!-- 筛选条件 -->
+        <section class="ur-searcher">
+            <ul class="tabs" data-param="orderStatus">
+                <li class="active" data-id=""><a href="javascript:;">全部</a></li>
+                <li data-id="1"><a href="javascript:;">待使用</a></li>
+                <li data-id="2"><a href="javascript:;">使用中</a></li>
+                <li data-id="3"><a href="javascript:;">待付款</a></li>
+                <li data-id="4"><a href="javascript:;">已完成</a></li>
+            </ul>
+        </section>
+        <!-- ／筛选条件 -->
+
+
+        <!-- 订单列表 order-list -->
+        <section class="order-list" data-scroll="pullUp">
+
+        </section>
+        <!--/ 订单列表 order-list -->
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script type="text/html" id="orderListTlp">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/list-no-data.png" alt="" class="data-null-img">
+        <p style="line-height: 60px;">暂无相关订单</p>
+    </div>
+    {{else}}
+    {{each list as item}}
+    <div class="order-item">
+        <a href="javascript:;" data-id="{{item.id}}">
+            <div class="item-status">
+                <h3>订单号 {{item.id}}</h3>
+                <p>{{item.lockerOrderStatus.strCurrentStatus}}</p>
+            </div>
+            <div class="item-info">
+                <dl>
+                    <dt>
+                        <img src="{{item.categoryImage}}?imageMogr2/thumbnail/!300x300r/gravity/Center/crop/300x300" alt="">
+                    </dt>
+                    <dd>
+                        <div class="cabinet-name">
+                            <p>{{item.lockerName}}</p>
+                            <h3>￥{{item.price}}/ 小时</h3>
+                        </div>
+                        <div class="cabinet-type">
+                            <p>{{item.lockerCategoryName}}</p>
+                        </div>
+                        <div class="cabinet-location">
+                            <p>{{item.lockerLocation}}</p>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="item-handle">
+                <div class="item-cost">
+                    <p>共{{item.useTimeNum}}小时   实付: <em>￥{{item.payAmount}}</em></p>
+                </div>
+                <div class="btn-wrap">
+                    {{if item.lockerOrderStatus.currentStatus == 1}}
+                    <button class="btn btn-primary pay-now"></button>
+                    <button class="btn cancel-order"></button>
+                    {{else if item.lockerOrderStatus.currentStatus == 2}}
+                    <button class="btn end-use"></button>
+                    {{else if item.lockerOrderStatus.currentStatus == 3}}
+                    <button class="btn btn-primary pay-now"></button>
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+    </div>
+    {{/each}}
+    {{/if}}
+<!--</script>
+
+<script src="/assets/public/cabinet/scripts/order-list.js"></script>
+
+<script>
+    var OrderList = {
+        init:function () {
+            this.refreshDom = null;
+            this.initRefresh();
+            this.bindEvent();
+        },
+        initRefresh:function () {
+            this.refreshDom = $('[data-scroll="pullUp"]')
+                .refresh({
+                    url: '/assets/views/cabinet/data/orderList.json',
+//                    url: '/locker/orderList',
+                    data: {
+                        status  : 0
+                    },
+                    template: 'orderListTlp',
+                    isFirstLoad: true,
+                    formatted: function(res) {
+                        var list = res.data.result || [];
+                        list.map(function (item) {
+                            if(!item.categoryImage){
+                                item.categoryImage = '/assets/public/images/list-default-big.png';
+                            }
+                        })
+                        return list;
+                    }
+                })
+        },
+        bindEvent:function () {
+            var $body = $('body');
+            var that = this;
+            $body
+                .off(UR.click,'.tabs li')
+                .on(UR.click,'.tabs li',function (evt) {
+                    evt.preventDefault();
+                    var $this   = $(this);
+                    $this.addClass('active').siblings().removeClass('active');
+                    var id  = $.trim($this.attr('data-id'));
+                    that.refreshDom.refresh({status: id});
+                })
+                .off('click','.order-item a')
+                .on('click','.order-item a',function (evt) {
+                    evt.preventDefault();
+                    var id = $(this).data('id');
+                    if(UR.isApp()){
+                        DANativeApi.navigateTo({
+                            url:  UR.host + '/leasePlace/getPlaceInfo?orderNum=' + id
+                        });
+                    }else{
+                        location.href = 'order-detail.html?orderNum=' + id;
+                        //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                    }
+                })
+                .off('click','.cancel-order')
+                .on('click','.cancel-order',function (evt) {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    console.log('取消订单');
+                    var orderNum = $(this).closest('.order-item').data('id');
+                    UR.dialog.confirm({
+                        message: '您是否要取消订单？',
+                        buttons: {
+                            no: {
+                                label: '取消',
+                                fn: function() {
+
+                                }
+                            },
+                            yes: {
+                                label: '确定',
+                                fn: function() {
+                                    that.cancelOrder(orderNum);
+                                }
+                            }
+                        }
+                    });
+                })
+                .off('click','.end-use')
+                .on('click','.end-use',function (evt) {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    console.log('结束使用')
+                    var orderNum = $(this).closest('.order-item').data('id');
+                    UR.dialog.confirm({
+                        message: '您是否要结束使用储物柜？',
+                        buttons: {
+                            no: {
+                                label: '取消',
+                                fn: function() {
+
+                                }
+                            },
+                            yes: {
+                                label: '确定',
+                                fn: function() {
+                                    that.stopOrder(orderNum);
+                                }
+                            }
+                        }
+                    });
+                })
+                .off('click','.pay-now')
+                .on('click','.pay-now',function (evt) {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    console.log('立即支付')
+                })
+        },
+        cancelOrder:function (orderNum) {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/cancel.json',
+//                url:'locker/cancel/+ orderNum',
+                type:'GET',
+                dataType:'json',
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    window.location.reload();
+                }
+            })
+        },
+        stopOrder:function (orderNum) {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/cancel.json',
+//                url:'locker/stop/+ orderNum',
+                type:'GET',
+                dataType:'json',
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    window.location.reload();
+                }
+            })
+        }
+    };
+    $(function () {
+        OrderList.init();
+    })
+</script>
+
+</body>
+
+</html>

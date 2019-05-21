@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区域详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/cabinet-list.css">
+</head>
+<body>
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+
+    </main>
+    <!-- /main -->
+</div>
+<script type="text/html" id="mainTlp">
+    <div class="cabinet-banner">
+        <span style="background-image: url('{{image}}?imageMogr2/thumbnail/!828x464r/gravity/Center/crop/828x464')"></span>
+    </div>
+    <div class="cabinet-info">
+        <div class="info-area">
+            <p>{{name}}</p>
+        </div>
+        <a class="info-map">
+            <img src="/assets/public/cabinet/images/pingmian.png" alt="">
+            <span>平面图</span>
+            <i class="uricon-arrow-right"></i>
+        </a>
+    </div>
+    <p class="cabinet-site">{{location}}</p>
+    <div class="cabinet-book">
+        <span>你还可以定 <em>{{reservableLockerNum}}</em> 个柜子</span>
+    </div>
+    <div class="cabinet-title">柜子可订类型</div>
+    <ul class="cabinet-list">
+        {{if categories.length == 0}}
+        <div class="data-null">
+            <img class="data-null-img" src="/assets/public/images/no-data.png" alt="" style="margin-top: 50px">
+            <p>暂无可订柜子</p>
+        </div>
+        {{else}}
+        {{each categories as item}}
+        <li class="cabinet-item" data-lockerName="{{item.name}}" data-lockerCategoryId="{{item.id}}">
+            <a href="javascript:;">
+                <dl>
+                    <dt>
+                        <h3>{{item.name}}</h3>
+                        <p>￥{{item.price}}<small>/小时 </small></p>
+                    </dt>
+                    <dd class="cabinet-status">
+                        剩余数量：{{item.usableLockerNum}}
+                    </dd>
+                    <dd>
+                        <p>开放时间：{{item.openTimeStart}}-{{item.openTimeEnd}}</p>
+                        <button class="btn btn-primary cabinet-usable" {{if item.usableLockerNum <= 0}}disabled{{/if}}>立即预定</button>
+                    </dd>
+                </dl>
+            </a>
+        </li>
+        {{/each}}
+        {{/if}}
+    </ul>
+    <!-- banner弹层 -->
+    <div class="modal form-modal img-modal" id="imgAmp" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close imgAmp-close" data-dismiss="modal" aria-hidden="true"><i class="uricon-close"></i></button>
+                    <div id="imgAmp-wrap">
+                        <img src="{{planImage}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ banner弹层 -->
+</script>
+<script src="/assets/public/cabinet/scripts/cabinet-list.js"></script>
+<script type="text/javascript">
+    var CabinetList = {
+        init:function () {
+            this.lockerWorkstageId = UR.getBrowserParam().workstageId;
+            this.lockerAreaId = UR.getBrowserParam().areaId;
+            this.channel = null;
+            if(UR.clientTest.isAndroid){
+                this.channel = 3;
+            }else if(UR.clientTest.isIos){
+                this.channel = 2;
+            }else {
+                this.channel = 1;
+            }
+            this.ajaxLoading();
+        },
+        ajaxLoading:function () {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/cabinetList.json',
+//                url:'locker/area',
+                type:'GET',
+                dataType:'json',
+                data:{
+                    areaId:this.lockerAreaId
+                },
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    that.lockerId = res.data.id;
+                    // that.usingCabinet(res.data);
+                    that.render(res.data);
+                }
+            })
+        },
+        usingCabinet:function (data) {
+            var usingCabinetNum = 3 - data.reservableLockerNum;
+            if(usingCabinetNum == 0){
+                return;
+            }
+            else if(usingCabinetNum > 0 && usingCabinetNum < 3){
+                UR.dialog.confirm({
+                    message: '您有'+ usingCabinetNum + '个柜子正在使用中',
+                    buttons: {
+                        no: {
+                            label: '取消',
+                            fn: function() {
+
+                            }
+                        },
+                        yes: {
+                            label: '去看看',
+                            fn: function() {
+                                if(UR.isApp()){
+                                    DANativeApi.navigateTo({
+                                        url:  UR.host + '/leasePlace/getPlaceInfo'
+                                    });
+                                }else{
+                                    location.href = 'order-list.html';
+                                    //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            else {
+                UR.dialog.confirm({
+                    message: '您可订柜子数为0，请及时处理您的未完成订单',
+                    buttons: {
+                        no: {
+                            label: '取消',
+                            fn: function() {
+
+                            }
+                        },
+                        yes: {
+                            label: '去看看',
+                            fn: function() {
+                                if(UR.isApp()){
+                                    DANativeApi.navigateTo({
+                                        url:  UR.host + '/leasePlace/getPlaceInfo'
+                                    });
+                                }else{
+                                    location.href = 'order-list.html';
+                                    //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        },
+        render:function (data) {
+            if(data.categories.length){
+                data.categories.map(function (item) {
+                    item.openTimeStart = $.dateFormat(item.openTimeStart, 'hh:mm');
+                    item.openTimeEnd = $.dateFormat(item.openTimeEnd, 'hh:mm');
+                });
+            }
+            $('#main').html(template('mainTlp',data));
+            this.bindEvent(data);
+        },
+        bindEvent:function (data) {
+            var $body = $('body');
+            var that = this;
+            var info = data;
+            $body
+                .off('click','.info-map')
+                .on('click','.info-map',function () {
+                    $('#imgAmp')
+                        .on('show.bs.modal',function () {
+                            if(UR.isApp()){
+                                DANativeApi.showNavigationBar({
+                                    isShow: false,
+                                    isShowStatusBarView: false
+                                });
+                                DANativeApi.setStatusBarStyle({
+                                    style: 2
+                                });
+                            }
+                        })
+                        .on('hide.bs.modal',function () {
+                            if(UR.isApp()){
+                                DANativeApi.showNavigationBar({
+                                    isShow: true,
+                                    isShowStatusBarView: true
+                                });
+                                DANativeApi.setStatusBarStyle({
+                                    style: 1
+                                });
+                            }
+                        })
+                    $('#imgAmp').modal('show');
+                })
+                .off('click','.cabinet-usable')
+                .on('click','.cabinet-usable',function () {
+                    var $this = $(this);
+                    var $item = $this.closest('.cabinet-item');
+                    if(info.reservableLockerNum == 0){
+                        UR.dialog.confirm({
+                            message: '您可订柜子数为0，请及时处理您的未完成订单',
+                            buttons: {
+                                no: {
+                                    label: '取消',
+                                    fn: function() {
+
+                                    }
+                                },
+                                yes: {
+                                    label: '去看看',
+                                    fn: function() {
+                                        if(UR.isApp()){
+                                            DANativeApi.navigateTo({
+                                                url:  UR.host + '/leasePlace/getPlaceInfo'
+                                            });
+                                        }else{
+                                            location.href = 'order-list.html';
+                                            //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                        return;
+                    }
+
+                    that.lockerName = $item.attr('data-lockerName');
+                    that.lockerCategoryId = $item.attr('data-lockerCategoryId');
+                    that.createOrder();
+
+                })
+        },
+        createOrder:function () {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/reserve.json',
+//                url:'locker/reserve',
+                type:'GET',
+                dataType:'json',
+                data:{
+                    lockerId:that.lockerId,
+                    lockerName:that.lockerName,
+                    lockerWorkstageId:that.lockerWorkstageId,
+                    lockerAreaId:that.lockerAreaId,
+                    lockerCategoryId:that.lockerCategoryId,
+                    channel:that.channel,
+                },
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    var orderNum = res.data;
+                    if(UR.isApp()){
+                        DANativeApi.navigateTo({
+                            url:  UR.host + '/leasePlace/getPlaceInfo?orderNum=' + orderNum
+                        });
+                    }else{
+                        location.href = 'order-detail.html?orderNum=' + orderNum;
+                        //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                    }
+                }
+            })
+        }
+    };
+    $(function () {
+        CabinetList.init();
+    })
+</script>
+</body>
+</html>

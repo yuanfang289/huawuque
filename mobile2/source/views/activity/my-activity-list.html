@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的活动</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/activity/my-activity-list.css">
+</head>
+<body style="background-color: #F0F0F0;">
+    <!-- header -->
+    @import "topbar.tpl"
+    <!-- /header -->
+    <!-- content -->
+    <div id="content">
+        <ul class="nav">
+            <li class="active"><span sign="1">全部</span></li>
+            <li><span sign="2">待支付</span></li>
+            <li><span sign="3">已支付</span></li>
+            <li><span sign="4">免费票</span></li>
+            <li><span sign="5">已报名</span></li>
+        </ul>
+
+        <div class="activity-list">
+            <!--<div data-scroll="pullUp"
+                 data-options="
+                    url: './activity/getList',
+                    data: {
+                        searchStatus:1
+                    },
+                    template: 'tlpList',
+                    isFirstLoad: true,
+                    formatted: function(res) {
+                        console.log(res)
+                        return res.result || [];
+                    }
+                    ">
+            </div>-->
+            <div class="product">
+                <div class="product-header"> <span class="status">已购买</span>新奇美食入食入住亦庄</div>
+                <dl class="product-content">
+                    <dt><span style="background-image: url('http://m.urwork.cn/assets/public/index/images/news/news-01.jpg?0508')"></span></dt>
+                    <dd>
+                        <p class="title">11/03 00:00-11/04 11:00</p>
+                        <p class="desc"><span>全国社区</span></p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="product">
+                <div class="product-header"> <span class="status">已购买</span>新奇美食入食奇美食入食奇美食入食奇美食入食奇美食入食奇美食入食入住亦庄</div>
+                <dl class="product-content">
+                    <dt><span style="background-image: url('http://m.urwork.cn/assets/public/index/images/news/news-01.jpg?0508')"></span></dt>
+                    <dd>
+                        <p class="title">11/03 00:00-11/04 11:00</p>
+                        <p class="desc"><span>全国社区</span><span>全国社区</span><span>全国社区</span><span>全国社区</span></p>
+                    </dd>
+                </dl>
+                <div class="product-footer">
+                    <div class="box">
+                        <span class="subject">活动入场门票</span>
+                        <span class="border-top"></span>
+                        <span class="border-bottom"></span>
+                        <span class="price">免费</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-header"> <span class="status">已购买</span>新奇美食入食奇美食入食奇美食入食奇美食入食奇美食入食奇美食入食入住亦庄</div>
+                <dl class="product-content">
+                    <dt><span style="background-image: url('http://m.urwork.cn/assets/public/index/images/news/news-01.jpg?0508')"></span></dt>
+                    <dd>
+                        <p class="title">11/03 00:00-11/04 11:00</p>
+                        <p class="desc"><span>全国社区</span><span>全国社区</span><span>全国社区</span><span>全国社区</span></p>
+                    </dd>
+                </dl>
+                <div class="product-footer">
+                    <div class="box">
+                        <span class="subject">活动入场门票</span>
+                        <span class="border-top"></span>
+                        <span class="border-bottom"></span>
+                        <span class="price">免费</span>
+                    </div>
+                </div>
+                <div class="give-money">
+                    <a class="cancel" href="">取消订单</a>
+                    <a class="agree" href="">立即支付</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / content -->
+    <!--@import "goto.tpl"-->
+</body>
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="../public/images/ui/no-data.png" alt="">
+    </div>
+    {{/if}}
+    {{each list as d i}}
+
+    {{/each}}
+</script>
+<script  src="/assets/public/activity/my-activity-list.js"></script>
+</html>

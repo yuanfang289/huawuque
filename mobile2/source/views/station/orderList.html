@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>工位订单列表</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/station/station.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <!-- 筛选条件 -->
+        <section class="ur-searcher">
+            <ul class="tabs" data-param="status">
+                <li class="active" data-id="0"><a href="javascript:;">全部</a></li>
+                <li data-id="1"><a href="javascript:;">待支付</a></li>
+                <li data-id="2"><a href="javascript:;">待使用</a></li>
+                <li data-id="4"><a href="javascript:;">已完成</a></li>
+                <li data-id="3"><a href="javascript:;">已取消</a></li>
+            </ul>
+        </section>
+        <!-- ／筛选条件 -->
+
+
+        <!-- 工位订单列表 order-list -->
+        <section class="order-list" data-scroll="pullUp" data-options="
+              url: './data/orderList.json',
+              data: {
+                status: 0
+              },
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  res = res.data.result || [];
+                  res.map(function(node) {
+                      node._orderStatus = ['待支付', '待使用', '已取消', '已完成'][node.orderStatus - 1];
+                  });
+                  return res;
+              }
+              ">
+        </section>
+        <!--/ 工位订单列表 order-list -->
+
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+        <p>暂无相关订单</p>
+
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="pictext-item">
+        <a href="./orderDetail.html?id={{d.id}}">
+            <div class="pictext-header">
+                <div class="flex">订单编号 {{d.id}}</div>
+                <div class="text-second">{{d._orderStatus}}</div>
+            </div>
+            <div class="pictext-main">
+                <dl>
+                    <dt>
+                        <span style="background-image:url({{d.img}})"></span>
+                    </dt>
+                    <dd>
+                        <div class="pictext-flex">
+                            <p class="pictext-addr">{{d.workstageName}}</p>
+                            <p>&yen;{{d.totalAmount}}</p>
+                        </div>
+                        <p>{{d.floor}}层</p>
+                        <p>{{d.day}}</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="pictext-footer">
+                共1天，实付&yen;{{d.payAmount}}
+            </div>
+        </a>
+        {{if d.orderStatus == 1}}
+        <div class="pictext-operate" data-id="{{d.id}}" data-way="1">
+            <button class="btn btn-primary pay">立即付款</button>
+        </div>
+        {{/if}}
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+
+<script src="/assets/public/station/scripts/orderList.js"></script>
+<script>
+    $(function () {
+       $(document)
+           .off(UR.click, '.pay')
+           .on(UR.click, '.pay', function (evt) {
+               evt.preventDefault();
+              
+               var $this = $(this).closest('.pictext-operate');
+
+               $.ajaxGet({
+                   submit: this,
+                   url: '',
+                   data: {
+                       orderIds: $this.attr('data-id'),
+                       payWay: $this.attr('data-way'),
+                       channel: 4,
+                   },
+                   success: function (res) {
+                       
+                   }
+               })
+
+           });
+    });
+</script>
+</body>
+
+</html>

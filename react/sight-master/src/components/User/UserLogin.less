@@ -1,0 +1,47 @@
+.login-form {
+  margin: 0px 40px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.login-text-tips {
+  font-size: 14px;
+  font-weight: 400;
+  color: red;
+  text-align: center;
+  padding: 20px 20px;
+  margin-bottom: 0px;
+}
+
+.login-form-thirdparty {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  .wexin-login {
+    background-position: 0 0;
+    .THIREDPARTY-LOGIN();
+  }
+  .qq-login {
+    background-position: 0 -84px;
+    .THIREDPARTY-LOGIN();
+  }
+  .weibo-login {
+    background-position: 0 -126px;
+    .THIREDPARTY-LOGIN();
+  }
+}
+
+.THIREDPARTY-LOGIN {
+  background-image: url(//img.downfuture.com/images/login.png);
+  width: 42px;
+  height: 42px;
+  display: inline-block;
+  cursor: pointer;
+  background-size: 42px;
+}

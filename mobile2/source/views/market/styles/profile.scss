@@ -1,0 +1,376 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'modal/modal';
+@import 'refresh/refresh';
+@import 'common';
+
+
+
+/* Layout
+---------------------------------------- */
+
+body {
+    padding-bottom: 50px;
+
+    .iphone-x.is-app & {
+        padding-bottom: 50 + 34px;
+    }
+}
+
+.data-null {
+    color: #999;
+}
+
+#goto {
+    bottom: 76px;
+    .iphone-x.is-app & {
+        bottom: 76 + 34px;
+    }
+}
+#main {
+    padding-top: 0;
+}
+
+#header {
+    &, #titlebar {
+        transition: .2s;
+    }
+}
+.wrapper-app {
+    #header {
+        height: 65px;
+        padding-top: 20px;
+        .iphone-x.is-app & {
+            height: 89px;
+            padding-top: 44px;
+        }
+    }
+}
+
+.layout-item {
+    position: relative;
+    margin-bottom: 8px;
+    padding-top: 0;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.profile-header-bg{
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    .bg-shade{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,.5) , rgba(0,0,0,0));
+    }
+    /*.wrapper-app & {
+        height: 150px + 20;
+    }
+    .iphone-x.is-app & {
+        height: 150px + 20 + 24;
+    }*/
+}
+.profile-header-info{
+    background: #fff;
+    margin-bottom: 8px;
+    .profile-item{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .profile-img{
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+        flex-basis: 72px;
+        flex-grow: 0;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 2px solid #fff;
+        margin-top: -35px;
+        box-shadow: 0px 1px 5px rgba(0,0,0,.2);
+    }
+    .profile-actions{
+        padding-top: 14px;
+        .follow-btn{
+            display: inline-block;
+            width: 66px;
+            height: 27px;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+            border-radius: 27px;
+        }
+        .header-contact-btn{
+            border: 1px solid #666;
+            margin-right: 10px;
+        }
+        .herder-attention-btn{
+            background: $color-main;
+            border: 1px solid $color-main;
+        }
+        .header-edit-btn{
+            width: 100px;
+            border: 1px solid #666;
+        }
+        .herder-followed-btn{
+            background: #f2f2f2;
+            border: 1px solid #f2f2f2;
+        }
+    }
+    .profile-info{
+        padding: 12px 20px 15px;
+        h2{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .flag{
+            position: relative;
+            top: -1px;
+            width: 14px;
+            margin-left: 5px;
+        }
+        p{
+            font-size: 12px;
+            padding-top: 7px;
+            a{
+                color: #666;
+            }
+            i{
+                color: #999;
+                transform: scale(.91667);
+            }
+        }
+        .follow-number{
+            display: flex;
+            justify-content: space-between;
+            padding-right: 20px;
+            padding-top: 8px;
+            a{
+                font-size: 11px;
+                color: #999;
+            }
+            span{
+                font-size: 18px;
+                font-weight: 600;
+                color: #333;
+            }
+        }
+    }
+}
+
+//.profile-header {
+//    height: 200px;
+//    padding: 50px 30px 15px;
+//    background: url("/assets/public/market/images/profile_bg.jpg") no-repeat 0 100%;
+//    background-size: cover;
+//
+//    &, a {
+//        color: #fff;
+//    }
+//
+//    .wrapper-app & {
+//        height: 220px;
+//        padding-top: 70px;
+//    }
+//
+//    .iphone-x.is-app & {
+//        height: 244px;
+//        padding-top: 94px;
+//    }
+//
+//    .profile-item {
+//        display: flex;
+//        margin-bottom: 20px;
+//    }
+//    .profile-img {
+//        overflow: hidden;
+//        flex-shrink: 0;
+//        flex-basis: 70px;
+//        flex-grow: 0;
+//        width: 70px;
+//        height: 70px;
+//        border-radius: 50%;
+//        background-color: #fff;
+//    }
+//    .profile-info {
+//        flex-grow: 1;
+//        padding-top: 2px;
+//        padding-left: 15px;
+//        font-size: 12px;
+//
+//        h2 {
+//            margin-bottom: 5px;
+//            font-size: 18px;
+//        }
+//        p {
+//            line-height: 1.2;
+//        }
+//        a {
+//        }
+//        i {
+//            display: inline-block;
+//            transform: scale(.9);
+//        }
+//    }
+//}
+.my-company{
+    padding-bottom: 0;
+    overflow: hidden;
+    .company-item {
+        &:not(:last-child){
+            @include border-bottom($border-def);
+        }
+        a{
+            display: flex;
+            align-items: center;
+            @include padding-v(20px);
+        }
+        dt {
+            flex-shrink: 0;
+            flex-grow: 0;
+            flex-basis: 42px;
+        }
+        dd {
+            position: relative;
+            flex-grow: 1;
+            padding-left: 10px;
+            padding-right: 20px;
+            min-width: 0;
+            i{
+                position: absolute;
+                top: 5px;
+                right: 0;
+                color: #999;
+                transform: scale(.73334);
+                font-size: 12px;
+            }
+        }
+        .name {
+            @include text-overflow;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .address {
+            @include text-overflow;
+            color: #666;
+            font-size: 12px;
+        }
+        .img {
+            overflow: hidden;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            border: 1px solid #e6e6e6;
+        }
+    }
+}
+.card-bottom {
+    .data-null {
+        @include padding-v(0);
+    }
+}
+
+.overview {
+    padding-top: 15px;
+
+    article {
+        margin-bottom: 12px;
+        color: #333;
+        text-align: justify;
+        white-space: pre-line;
+    }
+
+    .info {
+        color: #333;
+        font-size: 14px;
+
+        dl {
+            @include clearfix;
+            margin-left: 66px;
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        dt {
+            float: left;
+            width: 66px;
+            margin-left: -66px;
+            font-weight: inherit;
+        }
+        dd {
+            float: right;
+            width: 100%;
+            span {
+                float: left;
+                margin-right: 20px;
+            }
+        }
+        i {
+            margin-right: 6px;
+            color: #959595;
+            font-size: 16px;
+        }
+    }
+}
+
+.anchor {
+    li {
+        flex-shrink: 0;
+        flex-grow: 0;
+        flex-basis: 70px;
+        font-size: 15px;
+        text-align: center;
+
+        &:first-child {
+            text-align: left;
+        }
+    }
+}
+
+// 锚点定位
+#overview {
+    top: -90px;
+}
+#feed {
+    top: -136px;
+}
+.wrapper-app {
+    #overview {
+        top: -90px - 20;
+        .iphone-x.is-app & {
+            top: -90px - 20 -24;
+        }
+    }
+    #feed {
+        top: -136px - 20;
+        .iphone-x.is-app & {
+            top: -136px - 20 -24;
+        }
+    }
+}
+.detail-title {
+    @include clearfix;
+    .publish-btn {
+        float: right;
+        font-size: 11px;
+        padding: 0 8px;
+        background-color: #ffd624;
+        border-radius: 24px;
+        i {
+            top: -1px;
+            margin-right: 2px;
+            font-weight: 600;
+        }
+    }
+}

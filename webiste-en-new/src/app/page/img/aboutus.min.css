@@ -1,0 +1,143 @@
+.infor-all::after,.shareholder-list ul::after {
+  content: " ";
+  display: table;
+  clear: both
+}
+
+.pic-box {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+
+.pic-box .pic-item {
+  position: relative;
+  width: 393px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.pic-box .pic-item:first-child {
+  width: 100%;
+  font-size: 24px;
+}
+
+.pic-box .pic-item:first-child .pic-text {
+  padding: 220px 130px 0
+}
+
+.pic-box .pic-text {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 158px 20px 0
+}
+
+.pic-box .pic-text dt {
+  margin-bottom: 24px;
+  font-size: 36px;
+  line-height: 20px;
+}
+
+.pic-box .pic-text dt p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.aboutus-ds {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.inforbox {
+  display: -ms-flexbox;
+  display: flex
+}
+
+.inforbox .img-wrap {
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  margin-right: 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px
+}
+
+.inforbox .img-wrap img {
+  vertical-align: bottom
+}
+
+.inforbox .mdaq-infor {
+  width: 800px
+}
+
+.inforbox .mdaq-infor h4 {
+  font-size: 30px;
+  color: #333
+}
+
+.inforbox .mdaq-infor div {
+  font-size: 18px;
+  line-height: 25px;
+  color: #666
+}
+
+.infor-all {
+  margin-top: 60px
+}
+
+.infor-all li {
+  float: left;
+  margin-bottom: 40px;
+  width: 20%;
+  text-align: center
+}
+
+.infor-all li h5 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+  margin: 20px 0 10px
+}
+
+.infor-all li span {
+  display: inline-block;
+  height: 44px;
+  line-height: 22px;
+  font-size: 16px;
+  color: #666
+}
+
+.infor-all li img {
+  width: 180px;
+  height: 180px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%
+}
+
+.shareholder-list {
+  overflow: hidden;
+  margin-bottom: 0
+}
+
+.shareholder-list li {
+  float: left;
+  width: 25%
+}
+
+.shareholder-list .wrap {
+  width: 185px;
+}
+

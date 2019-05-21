@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>审核提示页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/financeServer/financeServer.css">
+</head>
+
+<body class="" no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <section class="audit-tips">
+                <div class="audit-inner">
+                    <img src="/assets/public/financeServer/images/audits.png" alt="">
+                    <h5>您的投资人身份正在审核中...</h5>
+                </div>
+            </section>
+            
+            <section class="audit-tips">
+                <div class="audit-inner">
+                    <img src="/assets/public/financeServer/images/reject.png" alt="">
+                    <h5>您申请的投资人认证被驳回</h5>
+                    <p>驳回理由稍后会开放给全部注册会员，各位看官稍安勿燥，如果急切的想知道其中的内容，那就来加入优客大家庭吧！</p>
+                    <div class="action">
+                        <a href="#" class="btn btn-primary">去修改认证材料</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+</body>
+
+</html>

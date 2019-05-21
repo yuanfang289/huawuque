@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'modal/modal';
+
+$color-primary:#1093ff;
+
+.modal{
+    transform: translateY(100%);
+}
+.modal.in{
+    transform: translateY(0);
+}
+.no-bar-modal{
+    .modal-header{
+        padding-top: 35px;
+    }
+    .modal-body{
+        top:123px!important;
+    }
+}
+#cityModel{
+    .modal-dialog{
+        overflow: hidden;
+    }
+    .modal-content{
+        position: absolute;
+        right: 0;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+    }
+    .modal-body{
+        position: absolute;
+        top: 103px;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        z-index: 10;
+    }
+    .modal-header{
+        border-bottom: none;
+        h2{
+            font-size:25px;
+            padding-top:15px;
+            font-weight:bold;
+        }
+    }
+    .scroller{
+        padding: 0;
+        position: relative;
+        width: 100%;
+        z-index: 10;
+        .hot-city{
+            padding: 0 20px 30px;
+            h3{
+                color: $font-666;
+            }
+            ul{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                li{
+                    width: 30%;
+                    a{
+                        display: inline-block;
+                        line-height: 25px;
+                        width: 100%;
+                        text-align: center;
+                        border-radius: 15px;
+                        background: #f4f4f4;
+                        margin-top: rem(26);
+                    }
+                }
+                .active{
+                    a{
+                        background: $color-primary;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .all-city{
+            ul{
+                p{
+                    height: 30px;
+                    line-height: 30px;
+                    background: #f4f4f4;
+                    padding: 0 20px;
+                    width: 100%;
+                    color: $font-999;
+                }
+                li{
+                    margin: 0 20px;
+                    &:first-child{
+                        margin: 0;
+                        border-bottom: none;
+                    }
+                    &:not(:last-child){
+                        @include border-bottom(#e6e6e6);
+                    }
+                    a{
+                        display: inline-block;
+                        height: 45px;
+                        line-height: 45px;
+                        width: 100%;
+                    }
+                }
+                .active{
+                    a{
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
+    }
+    .city-index-bar{
+        position: absolute;
+        right: 0;
+        top:220px;
+        width: 20px;
+        z-index: 20;
+        transform: translateZ(1000px);
+        span{
+            color: $color-primary;
+            display: block;
+            padding: 0 3px;
+            text-align: center;
+            font-size: 12px;
+            font-weight:600;
+        }
+    }
+}

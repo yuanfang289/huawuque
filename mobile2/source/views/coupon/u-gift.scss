@@ -1,0 +1,277 @@
+@charset "UTF-8";
+/**
+ * coupon.scss
+ *
+ * @project       www.urwork.cn
+ * @author        zhanggy
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'refresh/refresh';
+
+
+@import "chip/tabs";
+@import "chip/coupon";
+@import 'modal/modal';
+
+.filter-item{
+    position: fixed;
+    top: 45px;
+    z-index: 890;
+    display: flex;
+    width: 100%;
+    line-height: 40px;
+    background: #fff;
+    transition: top .2s;
+    li{
+        &.active{
+            &:before{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%);
+                width: 28px;
+                height: 2px;
+                background: #333;
+            }
+        }
+        position: relative;
+        flex: 1;
+        text-align: center;
+        font-size: 14px;
+    }
+}
+.list-item{
+    dl{
+        @include clearfix;
+        margin: 20px 20px 0;
+        background: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px rgba(0,0,0,.1);
+    }
+    dt{
+        @include fixed-ratio-box( 120.000 );
+        float: left;
+        width: 100px;
+        span{
+            @include fixed-ratio-inner;
+        }
+    }
+    dd{
+        padding: 0 18px;
+        overflow: hidden;
+        h4{
+            @include text-overflow;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 32px;
+            margin-top: 15px;
+        }
+        p{
+            line-height: 20px;
+            color: #999;
+        }
+    }
+    .btn-item{
+        padding-top: 10px;
+        @include clearfix;
+        p{
+            float: left;
+            line-height: 24px;
+            font-size: 16px;
+            color: #ff3e2b;
+        }
+        button{
+            float: right;
+            width: 75px;
+            height: 27px;
+            border-radius: 27px;
+        }
+    }
+}
+.btn.btn-primary{
+    background: #333;
+    border-color: #333;
+    color: #deba6c;
+}
+.btn.btn-primary:active {
+    background: #333;
+    border-color: #333;
+    color: #deba6c;
+}
+
+#main{
+    padding-top: 85px;
+}
+.wrapper-app #main{
+    padding-top: 40px;
+}
+.wrapper-app .filter-item{
+    top: 0;
+}
+.hide-header .filter-item{
+    top: -85px;
+}
+.gift-list .data-null{
+    padding-top: 100px;
+    img{
+        margin-bottom: 24px;
+    }
+    p{
+        font-size: 16px;
+        color: #333;
+        line-height:35px;
+    }
+    .data-null-desc{
+        font-size: 13px;
+        color: #666;
+        line-height: 30px;
+    }
+}
+.gift-list{
+    margin-bottom: 20px;
+}
+
+.modal{
+    //弹窗动画进入位置
+    transform: translateY(100%);
+    .in{
+        transform: translateY(0);
+    }
+    //全屏固定样式
+    .modal-dialog {
+        overflow: hidden;
+    }
+    .modal-content {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+    }
+    .modal-body {
+        position: absolute;
+        top: 111px;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        z-index: 10;
+    }
+    .modal-header {
+        padding-top: 29px;
+        padding-bottom: 9px;
+        background: #fff;
+        position: relative;
+        z-index: 100;
+        transform: translateZ(1000px);
+        h2 {
+            font-size: 25px;
+            padding-top: 15px;
+            font-weight: bold;
+        }
+    }
+    .scroller {
+        padding: 0;
+        position: relative;
+        width: 100%;
+        z-index: 10;
+    }
+}
+.iphone-x.is-app {
+    //适配iphoneX
+    .no-bar-modal {
+        .modal-header {
+            padding-top: 53px !important;
+        }
+        .modal-body {
+            top: 135px !important;
+        }
+    }
+}
+.no-bar-modal {
+    //没有状态栏的位置
+    .modal-header {
+        padding-top: 35px;
+    }
+    .modal-body {
+        top: 123px !important;
+    }
+}
+#uGiftModel {
+    .modal-header{
+        border-bottom:none;
+        h2{
+            @include text-overflow;
+        }
+    }
+    .modal-body{
+        bottom: 100px;
+    }
+    .modal-footer{
+        padding:10px 20px 20px ;
+        height: 100px;
+        display: block;
+        text-align: center;
+        .btn{
+            width: 245px;
+            height:42px;
+            line-height: 42px;
+            font-size:16px;
+            margin: auto;
+            border-radius: 42px;
+        }
+        p{
+            line-height: 30px;
+            color: #666;
+        }
+    }
+}
+.coupon-list{
+    .coupon-item{
+        &:nth-of-type(1){
+            margin-top: 0;
+        }
+        &::before{
+            background-color: #fff;
+        }
+        dl{
+            background-image: url("/assets/public/images/coupon/coupon-bg2.png");
+            .coupon-info{
+                font-size: 14px;
+            }
+            .price{
+                font-size:27px;
+            }
+        }
+        dd{
+            padding-right: 15px;
+        }
+        .coupon-title{
+            font-size:16px;
+            h4{
+                float: left;
+                font-weight: 600;
+                @include text-overflow;
+                width:calc(100% - 45px);
+            }
+            p{
+                float: right;
+                text-align: right;
+                width: 40px;
+                margin-left: 5px;
+            }
+
+        }
+        .coupon-desc{
+            font-size:12px;
+        }
+    }
+}

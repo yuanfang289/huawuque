@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UR Dialog Demo</title>
+    @import "meta.tpl"
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <section class="layout-item">
+                <button class="btn" id="alert">Alert</button>
+                <br>
+                <button class="btn" id="tip">Alert AutoClose</button>
+                <br>
+                <button class="btn" id="confirm">Confirm</button>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <script>
+        var Example = {
+            init: function() {
+                this.layer();
+            },
+            layer: function() {
+                $(document)
+                    .off('click', '#alert')
+                    .on('click', '#alert', function(evt) {
+                        evt.preventDefault();
+                        UR.dialog.alert({
+                            // title: '',
+                            message: '<p>只是提示</p>',
+                            buttons: {
+                                ok: {
+                                    label: '确定',
+                                    fn: function() {
+
+                                    }
+                                },
+                            }
+                        });
+                    })
+                    .off('click', '#tip')
+                    .on('click', '#tip', function(evt) {
+                        evt.preventDefault();
+                        UR.dialog.alert({
+                            // title: '',
+                            message: '<p>5s后自动消失</p>',
+                            autoClose: true,
+                            timeout: 3000,
+                            buttons: {
+                                ok: {
+                                    label: '确定',
+                                    fn: function() {
+
+                                    }
+                                },
+                            }
+                        });
+                    })
+                    .off('click', '#confirm')
+                    .on('click', '#confirm', function(evt) {
+                        evt.preventDefault();
+                        UR.dialog.confirm({
+                            // title: '',
+                            message: '<p>即刻认证成为投资人<br />去关注自己中意的项目吧</p>',
+                            buttons: {
+                                no: {
+                                    label: '暂不',
+                                    fn: function(dialog) {
+                                        console.log(dialog);
+                                    }
+                                },
+                                yes: {
+                                    label: '立即认证',
+                                    fn: function(dialog) {
+                                        console.log(dialog);
+                                    }
+                                }
+                            }
+                        });
+                    });
+            }
+        }
+
+        $(function() {
+            Example.init();
+        })
+    </script>
+</body>
+
+</html>

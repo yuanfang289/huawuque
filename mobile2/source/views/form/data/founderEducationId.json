@@ -1,0 +1,18 @@
+{
+           "retCode":0,
+           "retMsg":"接口请求成功",
+           "data":[
+               {
+                   "id":1,
+                   "education":"高中及以下"
+               },
+               {
+                   "id":2,
+                   "education":"本科"
+               },
+               {
+                   "id":3,
+                   "education":"研究生及以上"
+               }
+           ]
+       }

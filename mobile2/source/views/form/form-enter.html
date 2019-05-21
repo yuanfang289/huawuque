@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>预约入驻</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/form/form-index.css">
+    <style>
+        #main-footer {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary">
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>预约社区</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+
+                        <input type="hidden" id="workstageId" name="workstageId">
+                        <a href="javascript:;" id="workstageId_dummy" class="readonly-text" data-toggle="modal" data-target="#formModal">选择预约社区</a>
+
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>预约日期</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+
+                        <input type="hidden" name="bookingDate">
+
+                        <input type="text" class="input-text" placeholder="选择预约日期" data-toggle="mdate" data-target="bookingDate">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>公司名称</label>
+                    <div class="form-cont">
+                        <input type="text" name="company" placeholder="填写公司名称23字以内" />
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>预约人</label>
+                    <div class="form-cont">
+                        <input type="text" name="name" placeholder="填写预约人20字以内" />
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>联系电话</label>
+                    <div class="form-cont">
+                        <input type="text" name="phone" placeholder="填写预约社区" />
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>入驻人数</label>
+                    <div class="form-cont">
+                        <input type="number" name="number" placeholder="填写入驻人数" min="1" />
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <div class="form-cont">
+                        <div class="textarea-wrap sm-height">
+                            <textarea name="remark" maxlength="100" placeholder="请填写备注说明..." class="resize-none"></textarea>
+                        </div>
+                        <div class="form-counter">
+                            <span>0</span>/100
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button type="button" class="btn btn-primary" id="submit">提交</button>
+                </div>
+                <div class="form-call">
+                    <p><i class="uricon-tel"></i><a href="tel:400-1188-891">400-1188-891</a></p>
+                    <p><em>如有任何问题请拨打电话</em></p>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- modal -->
+    <div class="modal form-modal" id="formModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <dl data-pid="bj">
+                            <dt>北京市</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                    <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                    <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                    <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl data-pid="shh">
+                            <dt>上海市</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                    <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                    <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                    <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl data-pid="xian">
+                            <dt>西安市</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                    <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                    <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                    <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ modal -->
+
+    <script src="/assets/public/form/form-visit.js"></script>
+    <script>
+
+        $(function() {
+            Form.ajaxPost({
+                validator: {
+                    rules: {
+                        workstageId: {
+                            required: true
+                        },
+                        bookingDate: {
+                            required: true
+                        },
+                        company: {
+                            required: true,
+                            maxlength: 23,
+                        },
+                        name: {
+                            required: true,
+                            maxlength: 20,
+                        },
+                        phone: {
+                            required: true,
+                            phone: true,
+                        },
+                        number: {
+                            required: true,
+                            reg: /^[1-9]\d{0,9}$/,
+                        },
+                        remark: {
+                            maxlength: 100
+                        },
+                    },
+                    messages: {
+                        workstageId: {
+                            required: '请选择预约社区'
+                        },
+                        bookingDate: {
+                            required: '请选择预约日期'
+                        },
+                        company: {
+                            required: '请填写公司名称',
+                            maxlength: '公司名称最多填写23字',
+                        },
+                        name: {
+                            required: '请填写预约人',
+                            maxlength: '预约人最多填写20字',
+                        },
+                        phone: {
+                            required: '请填写联系电话',
+                            phone: '请填写正确的手机号',
+                        },
+                        number: {
+                            required: '请填写入驻人数',
+                            reg: '入驻人数为10位以内的正整数'
+                        },
+                        remark: {
+                            maxlength: '备注最大长度为100字'
+                        },
+                    }
+                },
+                postUrl: 'xx',
+                success: function (res) {
+
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+@charset "UTF-8";
+/**
+ * financeServer.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * slide-reset（轮播图-固定比例盒模型重置）
+ * pictextbtn-item
+ * release
+ * entrance-list
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'plugins/swiper';
+@import 'chip/banner';
+@import 'chip/piclist';
+
+/* swiper-fixed-ratio
+---------------------------------------- */
+//.swiper-fixed-ratio {
+//    margin-right: rem(-16);
+//    .swiper-container {
+//        overflow: visible;
+//        .piclist-item {
+//            margin-right: rem(16);
+//            .piclist-image-box {
+//                &:before {
+//                    padding-top: 100%;
+//                }
+//            }
+//        }
+//    }
+//}
+
+
+.banner-image-box {
+    @include fixed-ratio-box(51.7333);
+}
+
+/* pictextbtn-item
+---------------------------------------- */
+.layout-item-financeserver {
+    @include padding-v(rem(40));
+
+    .icon-list {
+        li {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: rem(2);
+                height: 40px;
+                background-color: #f2f2f2;
+            }
+
+            &:last-child:after {
+                background-color: transparent;
+            }
+        }
+        i {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            background-color: #404040;
+
+            &.uricon-hqzc:before {
+                margin-right: -4px;
+            }
+
+        }
+    }
+}
+
+.support-list {
+    @include clearfix();
+    margin-bottom: rem(-30);
+    margin-right: rem(-20);
+
+    li {
+        width: 25%;
+        height: rem(60);
+        line-height: rem(60);
+        float: left;
+        padding-right: rem(20);
+        margin-bottom: rem(30);
+
+        span ,
+        a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            font-size: 13px;
+            color: $font-666;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+    }
+
+}
+.quare-list {
+    margin: rem(-40) 0;
+}
+.pictextbtn-item {
+    position: relative;
+    padding: rem(40) 0;
+    &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        border-bottom: 1px solid #e6e6e6;
+        content: "";
+        transform: scale(.5);
+        transform-origin: 0 0;
+    }
+    &:last-of-type::before {
+        border-bottom: 0;
+    }
+    .btn {
+        position: absolute;
+        top: rem(40);
+        right: 0;
+        height: auto;
+        @include padding-h(7px);
+        line-height: 26px;
+    }
+    dl {
+        @include clearfix;
+        color: $font-def;
+
+        &.bigimage {
+            dt {
+                @include fixed-ratio-box(56.1194);
+                width: 100%;
+                float: none;
+            }
+            dd {
+                position: relative;
+                @include clearfix();
+
+                .pictextbtn-info {
+                    float: left;
+                    width: 70%;
+                    margin-bottom: rem(-8);
+                }
+
+                .pictextbtn-title {
+                    margin-top: rem(20);
+                    margin-bottom: 0;
+                    font-size: 14px;
+                }
+
+                .pictextbtn-desc {
+                    font-size: 12px;
+                }
+
+                .btn {
+                    overflow: hidden;
+                    height: 28px;
+                }
+            }
+        }
+    }
+    dt {
+        @include fixed-ratio-box(100) {
+            color: $font-def;
+        }
+        position: relative;
+        float: left;
+        width: rem(114);
+        margin-right: rem(28);
+        border: 1px solid #e6e6e6;
+        &::before {
+            background-size: 40%;
+        }
+        span {
+            @include fixed-ratio-inner;
+        }
+    }
+    dd {
+        overflow: hidden;
+    }
+    .pictextbtn-title {
+        @include text-overflow;
+        line-height: 1.5;
+        font-size: 15px;
+    }
+    .pictextbtn-title-pr {
+        padding-right: rem(160);
+    }
+    .pictextbtn-desc {
+        @include text-overflow;
+        padding: rem(12) 0;
+        line-height: 1.4;
+        font-size: rem(24);
+        color: $font-666;
+    }
+    .pictextbtn-tip {
+        overflow: hidden;
+        height: rem(36);
+        em {
+            float: left;
+            display: block;
+            margin-right: rem(18);
+            margin-bottom: rem(10);
+            padding: 0 rem(12);
+            border-radius: 2px;
+            line-height: 18px;
+            background: #f0f0f0;
+            font-size: 12px;
+            color: $font-666;
+        }
+    }
+    .pictextbtn-detail {
+        @include text-overflow;
+        margin-top: rem(20);
+        padding: 0 rem(20);
+        line-height: rem(60);
+        font-size: rem(24);
+        color: $font-999;
+        background: #f7f7f7;
+    }
+}
+.circle-list {
+    margin-bottom: rem(-40);
+
+    .swiper-fixed-ratio & {
+        margin-right: rem(-40);
+    }
+    .pictextbtn-item {
+        background-color: #f0f0f0;
+        margin-bottom: rem(40);
+        margin-right: rem(16);
+        padding: rem(4);
+
+        &:before {
+            border-bottom: none;
+        }
+
+        dl {
+            padding: rem(37) rem(35) rem(29);
+        }
+
+        dt {
+            overflow: hidden;
+            border-radius: 50%;
+            &::before {
+                background-size: 100%;
+            }
+        }
+
+        .pictextbtn-title {
+            line-height: rem(58);
+            span {
+                margin-left: rem(26);
+                font-size: 12px;
+                color: $font-666;
+            }
+        }
+
+        .pictextbtn-tip {
+            em {
+                background-color: #fff;
+            }
+        }
+
+        .pictextbtn-detail {
+            margin: 0;
+            font-size: 12px;
+            background-color: #fff;
+
+            .pictextbtn-detail-title {
+                line-height: rem(70);
+            }
+
+            .pictextbtn-detail-list {
+                @include clearfix();
+                overflow: hidden;
+                height: 76px;
+                a {
+                    @include padding-h(rem(20));
+                    line-height: rem(42);
+                    float: left;
+                    margin-right: rem(26);
+                    margin-bottom: rem(30);
+                    color: $font-def;
+                    border: 1px solid $font-999;
+                    border-radius: rem(42);
+                    cursor: pointer;
+
+                    &.disabled {
+                        color: #b2b2b2;
+                        border-color: #e6e6e6;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.rectangle-list {
+    margin: rem(-40) 0;
+    .pictextbtn-title {
+        margin-bottom: rem(20);
+    }
+    .pictextbtn-tip {
+        height: rem(92);
+    }
+}
+
+/* release
+---------------------------------------- */
+.release-image {
+    width: 100%;
+    padding: 20% 30% 0;
+}
+.release-title {
+    padding-top: rem(30);
+    line-height: rem(80);
+    text-align: center;
+    font-size: rem(32);
+}
+.release-desc {
+    line-height: rem(44);
+    text-align: center;
+    color: $font-666;
+}
+.release-btn {
+    &:hover {
+        color: #fff;
+    }
+    display: block;
+    height: rem(80);
+    margin: 25% rem(200) 0;
+    border-radius: rem(8);
+    line-height: rem(80);
+    text-align: center;
+    background: $font-def;
+    color: #fff;
+    i {
+        margin-right: rem(10);
+        font-size: rem(40);
+    }
+}
+
+/* entrance-list
+---------------------------------------- */
+.entrance-list{
+    h1{
+        padding: 0 rem(40);
+        line-height: rem(104);
+        color: $font-666;
+    }
+    ul{
+        padding: 0 rem(40);
+        background: #fff;
+    }
+    li{
+        position: relative;
+        // border-bottom: 1px solid #eee;
+        line-height: rem(110);
+        &:before{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 200%;
+            content: "";
+            border-bottom: 1px solid #eee;
+            transform: scale(.5);
+            transform-origin: 0 0;
+        }
+        &:last-child{
+            &:before{
+                width: 0;
+                border-bottom: 0;
+            }
+        }
+    }
+    a{
+        display: block;
+    }
+    i{
+        position: relative;
+        top: rem(40);
+        float: right;
+        color: #ccc;
+    }
+}
+/* Layout
+---------------------------------------- */
+.audit-tips {
+    display: table;
+    width: 70%;
+    min-height: 420px;
+    @include box-center;
+    @include padding-v(35px);
+    text-align: center;
+    .audit-inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    img {
+        width: 140px;
+        margin-bottom: 35px;
+    }
+    h5 {
+        margin-bottom: 26px;
+        color: #333;
+        font-size: 16px;
+    }
+    p {
+        color: #999;
+        font-size: 14px;
+    }
+    .action {
+        margin-top: 85px;
+        .btn {
+            display: inline-block;
+            width: 185px;
+            height: 40px;
+            font-size: 14px;
+            line-height: 38px;
+        }
+    }
+    @media only screen and (min-width: 350px) {
+        @include padding-v(75px);
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "page": {
+        "pageSize": 2,
+        "currentPageNo": 1,
+        "totalRecord": 10,
+        "result": [
+            {
+                "commentId": 38,
+                "userId": 11198,
+                "userName": "1********2",
+                "type": 2,
+                "content": "再回复",
+                "commentTime": "2017-01-05 11:20:47",
+                "status": 1,
+                "parentId": 13,
+                "parentName": "熊伟",
+                "isPraise": false
+            },
+            {
+                "commentId": 37,
+                "userId": 11198,
+                "userName": "1********2",
+                "type": 2,
+                "content": "百度",
+                "commentTime": "2017-01-05 11:20:23",
+                "status": 1,
+                "parentId": 13,
+                "parentName": "熊伟",
+                "isPraise": false
+            }
+        ]
+    },
+    "totalRecord": 10
+}

@@ -1,0 +1,99 @@
+{
+    "retCode": 0,
+    "retMsg": "请求成功",
+    "data": {
+        "isApp": false,
+        "companyList": [
+            {
+                "name": "山寨啊哈dfgdfgggggggfgdfgdfgdfgererertert",
+                "id": 81,
+                "accountAuth": 0
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "我很帅科技有限公司",
+                "id": 334,
+                "accountAuth": 1
+            },
+            {
+                "name": "我很帅科技有限公司",
+                "id": 334,
+                "accountAuth": 1
+            },
+            {
+                "name": "我很帅科技有限公司",
+                "id": 334,
+                "accountAuth": 1
+            },
+            {
+                "name": "我很帅科技有限公司",
+                "id": 334,
+                "accountAuth": 1
+            },
+            {
+                "name": "我很帅科技有限公司",
+                "id": 334,
+                "accountAuth": 1
+            },
+            {
+                "name": "我很帅科技有限公司",
+                "id": 334,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            },
+            {
+                "name": "SlinttA",
+                "id": 300,
+                "accountAuth": 1
+            }
+        ],
+        "memberPackageOrder": {
+            "bgImage": "http://placehold.it/400x300",
+            "packageId": 10006,
+            "packageType": 1,
+            "totalAmount": 198,
+            "count": 2,
+            "price": 99,
+            "memberPackageName": "刘波",
+            "memberPackageNameEn": "liubo"
+        }
+    }
+}

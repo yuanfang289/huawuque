@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访客预约</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/visitor/styles/index.css">
+</head>
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header" class="header-def">
+            <!-- titlebar -->
+            <div id="titlebar">
+                <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+                <span class="title">访客预约</span>
+            </div>
+            <!-- / titlebar -->
+        </header>
+        <!-- / header -->
+        <!-- main -->
+        <main id="main">
+            <div class="content-wrap">
+                <ul>
+                    <li>
+                        <a href="javascrips:;">
+                            <div class="content-img">
+                                <img src="/assets/public/visitor/images/enter1.png" alt="">
+                            </div>
+                            <div class="content-tip">
+                                <p>预约访问</p>
+                                <span>访问入驻会员</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrips:;">
+                            <div class="content-img">
+                                <img src="/assets/public/visitor/images/enter2.png" alt="">
+                            </div>
+                            <div class="content-tip">
+                                <p>预约参观</p>
+                                <span>预约参观场区</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrips:;">
+                            <div class="content-img">
+                                <img src="/assets/public/visitor/images/enter3.png" alt="">
+                            </div>
+                            <div class="content-tip">
+                                <p>邀请访问</p>
+                                <span>邀请朋友访问</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <!-- / main -->
+    </div>
+    <!-- / wrapper -->
+    <script>
+        $('.content-wrap')
+            .off('touchstart','a')
+            .on('touchstart','a',function (e) {
+                $(this).addClass('scale')
+            })
+            .off('touchend','a')
+            .on('touchend','a',function (e) {
+                $(this).removeClass('scale')
+            })
+    </script>
+</body>
+</html>

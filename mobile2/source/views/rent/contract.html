@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>租赁入口页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <style>
+    #main{
+        position: relative;
+    }
+    #closebtn{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 32px;
+        color: #666;
+    }
+    #contract{
+        padding: 0 20px;
+    }
+    </style>
+</head>
+<body>
+<input type="hidden" name="appSource" value="app">
+<input type="hidden" id="getGps" name="getGps" data-cityName="" data-cityCode="" data-lng="" data-lat="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- main -->
+    <main id="main">
+        <a href="jacascript:;" id="closebtn" class="uricon-close"></a>
+        <div id="contract"></div>
+        @import "goto.tpl"
+    </main>
+
+  <!-- //url: '/leaseWorkStage/workStageList', -->
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+<script>
+    $(function(){
+        $('body')
+            .off(UR.click,'#closebtn')
+            .on(UR.click,'#closebtn',function(){
+                UR.nativeWebFinish();
+            })
+        UR.nativeWebFinish();
+        $.ajax({
+            url: './data/contract.json',
+            type: 'GET',
+            dataType: 'json',
+            data: {}
+        })
+        .done(function(res) {
+            var text = res.data.content||'';
+            $('#contract').html(text);
+        });
+
+    })
+</script>
+</body>
+</html>

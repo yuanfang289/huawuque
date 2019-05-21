@@ -1,0 +1,45 @@
+{
+    "data": [
+        {
+            "cityName": "北京市",
+            "stageList": [
+                {
+                    "id": 10070,
+                    "stageName": "北京Fesco社区"
+                },
+                {
+                    "id": 10068,
+                    "stageName": "北京阳光壹佰社区"
+                }
+            ]
+        },
+        {
+            "cityName": "南京市",
+            "stageList": [
+                {
+                    "id": 10065,
+                    "stageName": "南京东科社区"
+                },
+                {
+                    "id": 10037,
+                    "stageName": "南京第二高科技"
+                },
+                {
+                    "id": 10031,
+                    "stageName": "南京东科"
+                }
+            ]
+        },
+        {
+            "cityName": "太原市",
+            "stageList": [
+                {
+                    "id": 10039,
+                    "stageName": "大同优客test"
+                }
+            ]
+        }
+    ],
+    "retCode": 0,
+    "retMsg": "success"
+}

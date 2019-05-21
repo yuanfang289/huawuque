@@ -1,0 +1,43 @@
+{
+    "retCode": 1,
+    "retMsg": "接口请求成功",
+    "data": [
+        {
+            "id": 10068,
+            "stageName": "阳光100·优客工场",
+            "reserveLongRentNum": 0,
+            "address": "朝阳区光华路2号阳光100座B1层",
+            "workstageImage": "https://image.urwork.cn/b2bef3b3-cc0e-4ae1-9e60-b8b0a3fa64d9.jpg",
+            "averageScore": 5,
+            "distance": 542
+        },
+        {
+            "id": 10036,
+            "stageName": "阳光100·优客工场",
+            "reserveLongRentNum": 0,
+            "address": "朝阳区西大望路15号外企大厦B座18层",
+            "workstageImage": "https://image.urwork.cn/f443c6f3-5bb4-448f-ac0d-31c3306263f0.jpg",
+            "averageScore": 5,
+            "distance": 557
+        },
+        {
+            "id": 10055,
+            "stageName": "Xplus炫嘉中心·优客工场",
+            "reserveLongRentNum": 0,
+            "address": "阳光100国际公寓",
+            "workstageImage": "https://image.urwork.cn/4c2d85d3-8cfb-4996-8e92-5ec8a4bc9c46.png",
+            "averageScore": 5,
+            "distance": 1394
+        },
+        {
+            "id": 10033,
+            "stageName": "Fesco·优客工场",
+            "reserveLongRentNum": 0,
+            "address": "海龙",
+            "workstageImage": "https://image.urwork.cn/4c0f16bc-2a6b-4a42-b242-2db4a07dd5f1.jpg",
+            "averageScore": 5,
+            "distance": 2109
+        }
+
+    ]
+}

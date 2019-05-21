@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>开门</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/open.css">
+</head>
+
+<body>
+<input type="hidden" name="" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <ul class="doors-list" data-scroll="pullUp" >
+            <li>
+                <a href="javascript:;">
+                    <p>bjyg100-QM</p>
+                    <button class="open-btn"></button>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <p>bjyg100-QM</p>
+                    <button class="open-btn"></button>
+                </a>
+            </li>
+        </ul>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script>
+    $(function () {
+        var $body = $('body');
+        $body
+            .on('click','.open-btn',function () {
+                $(this).css('backgroundColor','#f1f1f1');
+            })
+    })
+</script>
+
+</body>
+
+</html>

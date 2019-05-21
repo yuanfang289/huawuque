@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>公告列表</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/notice/styles/notice-list.css">
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <ul class="notice-list" data-scroll="pullUp" id="noticeList"></ul>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script src="/assets/public/notice/scripts/notice-list.js"></script>
+    <script>
+        $(function() {
+            var noticeRefresh = $('#noticeList').refresh({
+                url: '/news/getNoticeListJson',
+               template: 'tplList',
+               isFirstLoad: true,
+               pageSize: 10,
+               formatted: function(res) {
+                   var list = res.result || [];
+                   list.map(function(item) {
+                       item.createTime = item.createTime ? $.dateFormat(item.createTime, 'YY-MM-dd'): '';
+                   });
+
+                   return list;
+               }
+           });
+
+            noticeRefresh.on('pullup.bs.refresh', function(evt) {
+                setTimeout(function() {
+                    $('.lazy').lazy();
+                }, 0)
+            });
+        })
+    </script>
+    <script type="text/html" id="tplList">
+        {{if list.length == 0}}
+        <li class="result-tips">
+             <div class="result-tips-inner">
+                 <img src="/assets/public/images/NODATA.png" alt="">
+                 <p>暂无公告</p>
+             </div>
+        </li>
+        {{/if}}
+        {{each list as item i}}
+        <li>
+            <a href="/news/noticeDetail?id={{item.id}}">
+                <div class="notice-item">
+                    <h5>{{item.title}}</h5>
+                    <div class="attrs">
+                        <p>{{item.createTime}}</p>
+                        <p>{{item.author}}</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+</body>
+
+</html>

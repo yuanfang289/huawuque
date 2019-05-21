@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/**
+ * passport
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+@import 'variable';
+@import 'mixins';
+@import 'tab/tab';
+
+/* Common
+ ---------------------------------------- */
+.form-passport {
+    width: rem(530);
+    @include box-center;
+    padding-top: 44px;
+    padding-bottom: 100px;
+    .forget-link {
+        color: #b2b2b2;
+    }
+}
+/* Signin
+ ---------------------------------------- */
+.signin-bg {
+    @include fixed-ratio-box(58.666) text-align: center;
+    &::before {
+        background-image: none;
+    }
+    img {
+        @include position-center;
+        height: 50px;
+    }
+}
+.tab {
+    position: relative;
+    color: #b2b2b2;
+}
+.tabs {
+    overflow: hidden;
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    color: rgba(255,255,255,.55);
+    font-size: 18px;
+    text-align: center;
+    line-height: 26px;
+    li {
+        position: relative;
+        width: 50%;
+        height: 40px;
+        &.active::before {
+            @include arrow();
+            @include arrow-type-solid() {
+                 @include arrow-skins(#fff);
+                @include arrow-size(20px);
+            };
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            transform: matrix(0, 1, 1.3, 0, -10, 24) translateX(-50%) rotate(45deg);
+            content: "";
+        }
+        &.active {
+            color: #fff;
+        }
+    }
+}
+
+.form-forget {
+    padding-top: 25px;
+    color: #b2b2b2;
+}
+
+/* Layout
+ ---------------------------------------- */

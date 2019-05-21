@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>社区列表</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/community-list.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="filter-model">
+            <p data-role="citypicker">北京市</p>
+            <i class="uricon-arrow-right"></i>
+        </div>
+        <ul class="community-list" data-scroll="pullUp">
+
+        </ul>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script type="text/html" id="communityListTlp">
+    {{if list.length == 0}}
+    <div class="data-null" style="background-color: #f5f5f5">
+        <img class="data-null-img" src="/assets/public/images/no-data.png" alt="">
+        <p>暂无社区</p>
+    </div>
+    {{else}}
+    {{each list as item}}
+    <li>
+        <a href="javascript:;"  class="community-item" data-id="{{item.id}}">
+            <div class="img-wrap">
+                <span style="background-image: url('{{item.workstageImage}}?imageMogr2/thumbnail/!670x376r/gravity/Center/crop/670x376')"></span>
+            </div>
+            <div class="community-info">
+                <h3>{{item.stageName}}</h3>
+            </div>
+            <div class="community-location">
+                <p>{{item.address}}</p>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+    {{/if}}
+</script>
+<script src="/assets/public/cabinet/scripts/community-list.js"></script>
+
+<script>
+    var CommunityList = {
+        refreshDom:null,
+        init:function () {
+            var that = this;
+            var data = UR.storage('XY.cabinet.cityData');
+            var defaultCity = {
+                cityCode:110000,
+                cityName:'北京市'
+            };
+            data = data ? data : defaultCity;
+            $('[data-role=citypicker]').citypicker({
+                cityCode:data.cityCode,
+                cityName:data.cityName,
+                title:'想在哪个城市订柜子？',
+                storageName:'XY.cabinet.cityData',
+                ajaxUrl:'/assets/views/company/data/citypicker.json'
+            })
+             .on('citypicker:selected', function(e) {
+                that.refresh(e.cityInfo.cityCode);
+             });
+            this.initRefresh(data);
+            this.bindEvent();
+        },
+        initRefresh:function (data) {
+            this.refreshDom = $('[data-scroll="pullUp"]')
+                .refresh({
+                    url: '/assets/views/cabinet/data/communityList.json',
+//                    url: '/locker/getWorkStageListByCity',
+                    data: {
+                        cityId: data.cityCode
+                    },
+                    template: 'communityListTlp',
+                    isFirstLoad: true,
+                    formatted: function(res) {
+                        var list = res.data.result || [];
+                        list.map(function (item) {
+                            if(!item.workstageImage){
+                                item.workstageImage = '/assets/public/images/list-default-big.png';
+                            }
+                        })
+                        return list;
+                    }
+                })
+        },
+        refresh:function (id) {
+            this.refreshDom.refresh({
+                cityId:id
+            })
+        },
+        bindEvent:function () {
+            var $body = $('body');
+            $body
+                .off('click','.community-item')
+                .on('click','.community-item',function () {
+                    var $this = $(this);
+                    var id = $this.data('id');
+                    if(UR.isApp()){
+                        DANativeApi.navigateTo({
+                            url:  UR.host + '/leasePlace/getPlaceInfo?workstageId=' + id
+                        });
+                    }else{
+                        location.href = 'area-list.html?workstageId=' + id;
+                        //                    location.href = '/leasePlace/getPlaceInfo?workstageId=' + id;
+                    }
+                })
+        }
+    }
+    $(function() {
+        CommunityList.init();
+    })
+</script>
+
+</body>
+
+</html>

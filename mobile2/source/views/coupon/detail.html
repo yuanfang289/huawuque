@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>优惠券详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/coupon/coupon.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+
+        <!-- 优惠券详情 coupon-detail -->
+            <div data-render="template" data-url="./data/detail.json">
+                <div class="rendering">
+                    <div class="img-box">
+                        <div class="img"></div>
+                    </div>
+
+                    <p>正在加载 . . .</p>
+                </div>
+            </div>
+        <!--/ 优惠券详情 coupon-detail -->
+
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+
+<script type="text/html" id="pageTpl">
+    {{if !couponNo}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+        <p class="msg-null">请先登录～</p>
+    </div>
+    {{else}}
+    <section class="coupon-detail">
+        <div class="coupon-info">
+            <div class="coupon-info-container">
+                <div class="coupon-info-item flex">
+                    <h2 class="coupon-title">{{couponBatch.couponName}}</h2>
+                    <p>{{startDate}}-{{endDate}}</p>
+
+                    {{if className}}
+                    <i class="{{className}}"></i>
+                    {{/if}}
+                </div>
+                <div class="coupon-info-item price">
+                    &yen; <big>{{couponBatch.money}}</big>
+                </div>
+            </div>
+        </div>
+
+        <div class="coupon-desc">
+            <dl>
+                <dt>使用说明</dt>
+                <dd>
+                    1.{{stageName}}
+                </dd>
+                {{if couponBatch.remark}}
+                <dd>
+                    2.{{couponBatch.remark}}</dd>
+                {{/if}}
+            </dl>
+        </div>
+
+    </section>
+    {{/if}}
+</script>
+
+
+<script src="/assets/public/plugins/template.js"></script>
+
+<script src="/assets/public/coupon/scripts/detail.js">
+
+</script>
+
+</body>
+
+</html>

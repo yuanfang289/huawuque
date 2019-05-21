@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'plugins/swiper';
+@import 'chip/banner';
+@import 'chip/piclist';
+@import 'chip/account-item';
+@import "packages";
+//@import 'chip/pictextlist';
+
+.packages-banner {
+    @include fixed-ratio-box(46.6667);
+    margin-bottom: rem(20);
+
+    .packages-banner-inner {
+        @include fixed-ratio-inner();
+        background-color: #303030;
+
+        .packages-banner-text {
+            @include position-center-y();
+            width: 100%;
+
+            display: flex;
+
+            font-size: 12px;
+        }
+
+        .packages-banner-text-item {
+            position: relative;
+            flex: 1;
+            display: block;
+            padding-top: 10px;
+            text-align: center;
+            color: #94784b;
+
+            &::before {
+                content: '';
+                @include position-center-y();
+                right: 0;
+                width: 1px;
+                height: rem(96);
+                background-color: #504637;
+            }
+
+            &:last-child::before {
+                display: none;
+            }
+        }
+
+        bigger {
+            font-size: 30px;
+            color: #bc9658;
+        }
+        .authority-manage{
+            display: block;
+            position: absolute;
+            top:rem(24);
+            right:rem(18);
+            // width: rem(105);
+            // height: rem(32);
+            padding: 1px 5px;
+            border:1px solid #685940;
+            border-radius: 2px;
+            color: #ae8b54;
+            background: rgba(188,150,88,.1);
+            font-size:12px;
+            text-align: center;
+            // line-height:rem(30);
+            transform: scale(.95);
+        }
+
+    }
+}
+
+/* swiper-fixed-ratio
+---------------------------------------- */
+.swiper-fixed-ratio {
+    margin-right: -15px;
+    .swiper-container {
+        overflow: visible;
+        .piclist-item {
+            margin-right: 15px;
+        }
+    }
+}
+
+
+
+.layout-item {
+    .layout-item-title {
+        margin-top: -4px;
+        padding-bottom: 8px;
+        h2 {
+            font-size: 16px;
+        }
+
+        aside {
+            line-height: 30px;
+            font-size: 12px;
+
+            a {
+                color: $font-999;
+            }
+        }
+    }
+}
+
+.layout-item-link {
+    padding: rem(40);
+    a {
+        display: block;
+        height: rem(20);
+        line-height: rem(20);
+        font-size: 14px;
+        color: $font-def;
+        text-align: center;
+    }
+
+    [class*="uricon-"] {
+        margin-left: 1px;
+        font-size: 12px;
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+
+        color: $font-999;
+    }
+}

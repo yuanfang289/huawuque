@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+/* Layout
+---------------------------------------- */
+.container {
+    padding: 222px 20px 24px;
+    background: #61a1ff url("/assets/public/referee/images/banner.jpg") no-repeat 50% 0;
+    background-size: contain;
+}
+.layout-item {
+    margin-bottom: 20px;
+    padding: 25px 20px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    img {
+        vertical-align: bottom;
+    }
+}
+.layout-title {
+    margin-bottom: 14px;
+    font-size: 17px;
+    text-align: center;
+    span {
+        position: relative;
+        display: inline-block;
+        padding: 0 12px;
+        color: #3a85f3;
+        line-height: 24px;
+        vertical-align: bottom;
+        &::before, &::after {
+            position: absolute;
+            top: 50%;
+            content: "";
+            width: 46px;
+            height: 1px;
+            background-color: #3a85f3;
+            transform: translateY(-50%);
+        }
+        &::before {
+            right: 100%;
+        }
+        &::after {
+            left: 100%;
+        }
+    }
+}
+.invitaction-letter {
+    position: relative;
+    min-height: 198px;
+    margin-bottom: 22px;
+    padding: 28px 22px 32px;
+    background-color: #277af4;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    &::before, &::after {
+        position: absolute;
+        top: 70px;
+        width: 22px;
+        height: 22px;
+        border-radius: 100%;
+        background-color: #61a1ff;
+        content: "";
+    }
+    &::before {
+        left: 0;
+        margin-left: -11px;
+    }
+    &::after {
+        right: 0;
+        margin-right: -11px;
+    }
+
+    h2 {
+        overflow: hidden;
+        margin-bottom: 12px;
+        height: 40px;
+        background: url("/assets/public/referee/images/title.png") no-repeat 50% 0;
+        background-size: auto 40px;
+        span {
+            position: relative;
+            top: 110%;
+            z-index: -100;
+        }
+        &.title {
+            background-image: url("/assets/public/referee/images/share/title-share.jpg");
+        }
+    }
+    p {
+        margin-bottom: 18px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .bi {
+        position: absolute;
+        top: 0;
+        right: 24%;
+        width: 42px;
+        height: 45px;
+        margin-top: -20px;
+        background: url("/assets/public/referee/images/bi.png") no-repeat 0 0;
+        background-size: cover;
+    }
+    .sub-title {
+        overflow: hidden;
+        height: 24px;
+        margin-bottom: 27px;
+        background: url("/assets/public/referee/images/share/sub-title.jpg") no-repeat center 0;
+        background-size: auto 24px;
+        span {
+            position: relative;
+            z-index: -100;
+            top: 200%;
+        }
+    }
+}
+
+.result {
+    overflow: hidden;
+    position: relative;
+    max-height: 610px;
+    margin-top: 14px;
+    li {
+        @include padding-v(10px);
+    }
+    .iScrollVerticalScrollbar {
+        z-index: 100 !important;
+    }
+}
+.rules {
+    color: #333;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: justify;
+    li {
+        margin-bottom: 10px;
+    }
+}
+.company-item {
+    display: flex;
+    dt {
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        flex-basis: 44px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        line-height: 44px;
+        text-align: center;
+        @include border($border-def);
+        &::before {
+            border-radius: 5px;
+            z-index: 10;
+        }
+        img {
+            position: relative;
+            top: -1px;
+            z-index: 1;
+            max-height: 44px;
+        }
+    }
+    dd {
+        flex-grow: 1;
+        min-width: 0;
+        padding-left: 8px;
+        line-height: 18px;
+    }
+    .name {
+        @include text-overflow;
+        margin-bottom: 1px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    time {
+        color: #666;
+    }
+}
+
+.sahre-guide {
+    display: none;
+    height: 128px;
+    background: #45464b url("/assets/public/referee/images/share-guide.png") no-repeat 70% 50%;
+    background-size: 221px auto;
+}
+.download-app {
+    display: inline-block;
+    margin-top: 18px;
+    color: #fff;
+    text-decoration: underline;
+    vertical-align: bottom;
+}
+
+.btn {
+    &, &:active {
+        width: 216px;
+        height: 48px;
+        @include box-center;
+        background: #fc0 url("/assets/public/referee/images/btn.png") no-repeat 9px 5px;
+        background-size: 19px 19px;
+        border: none;
+        border-radius: 48px;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        text-shadow: 0 1px 0 #ffde59;
+        box-shadow: 0 3px 2px rgba(21, 107, 234, .16);
+        &.btn-share {
+            margin-top: 20px;
+            box-shadow: 0 3px 2px rgba(255, 204, 0, .4);
+        }
+    }
+}
+.share-img {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    line-height: 0;
+}

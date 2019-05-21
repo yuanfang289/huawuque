@@ -1,0 +1,8 @@
+{
+    "data": {
+        "payNumber": "983e85770ad54cb9b975032a8e1b2afc",
+        "payStr": "partner=\"2088911785297575\"&seller_id=\"finance@urwork.cn\"&out_trade_no=\"983e85770ad54cb9b975032a8e1b2afc\"&subject=\"983e85770ad54cb9b975032a8e1b2afc\"&body=\"优客工场商品\"&total_fee=\"20.00\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"10m\"&notify_url=\"http://localhost:8080/notify/iospay/alipay/notify\"&sign=\"D%2F%2B%2BODd97gz7cRLMjGmEJSJ%2FwNDC%2BCt5clFTmMcO3KxEOCQ0tXgLuTSQ737PYqDkU8ruZzR5yBoQTgVZMXvRn5jZUu32rdo5bYKrZLm%2FG5uACXQ86eSy29JlZMkeoXg5dfb6RhO7CAVRyEhPU6lhzR1%2BFDrKDJpb8tMzMPfijgo%3D\"&sign_type=\"RSA\""
+    },
+    "retCode": 0,
+    "retMsg": "success"
+}

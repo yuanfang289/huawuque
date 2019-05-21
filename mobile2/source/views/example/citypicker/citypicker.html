@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/example/citypicker/citypicker.css">
+</head>
+
+<body class="gray-bg">
+<!-- wrapper -->
+<div class="wrapper">
+
+    <!-- main -->
+    <main id="main">
+        <input class="txt" data-role="citypicker" value="">
+    </main>
+    <!-- /main -->
+
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+<script src="/assets/public/example/citypicker/citypicker.js"></script>
+<script>
+    $(function() {
+        $('[data-role=citypicker]').citypicker({
+            cityCode:110000,
+            cityName:'北京市'
+        })
+            .on('citypicker:beforeshow', function(e) {
+                console.log('beforeshow')
+            })
+            .on('citypicker:shown', function(e) {
+                console.log('shown')
+            })
+            .on('citypicker:hidden', function(e) {
+                console.log(e.currentTarget.dataset.citycode)
+                console.log(e.currentTarget.dataset.cityname)
+            })
+            .on('citypicker:selected', function(e) {
+                console.log(e)
+            });
+       /* setTimeout(function() {
+//             重置为指定文本
+            $('[data-role=citypicker]').data('xy.citypicker').reset('请选择日期');
+            console.log('reset');
+        }, 3000)*/
+    })
+</script>
+</body>
+
+</html>

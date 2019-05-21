@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/**
+ * util
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+.user-select-none {
+    @include user-select-none;
+}
+.clear {
+    clear: both !important;
+}
+.float-left {
+    float: left !important;
+}
+.float-right {
+    float: right !important;
+}
+.float-none {
+    float: none !important;
+}
+.inline-block {
+    display: inline-block !important;
+}
+.block {
+    display: block !important;
+}
+.hide {
+    display: none !important;
+}
+.hidden {
+    visibility: hidden !important;
+}
+.full-block {
+    display: block !important;
+    width: 100% !important;
+}
+.fixed-img {
+    @include fixed-ratio-inner;
+}
+
+/* text align */
+.text-left {
+    text-align: left !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.text-center {
+    text-align: center !important;
+}
+.text-nowrap {
+    white-space: nowrap !important;
+}
+.text-justify {
+    text-align: justify !important;
+}
+.text-break {
+    @include text-break;
+}
+.text-overflow {
+    @include text-overflow;
+}
+
+/* position */
+.static {
+    position: static !important;
+}
+.absolute {
+    position: absolute !important;
+}
+.fixed {
+    position: fixed !important;
+}
+
+.em-2 {
+    width: 2em;
+    display: inline-block;
+}

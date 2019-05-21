@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预约参观</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/visitor/styles/success.css">
+</head>
+<body>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header" class="header-def">
+        <!-- titlebar -->
+        <div id="titlebar">
+            <i class="nav-switch uricon-arrow-left" id="backOrClose"></i>
+            <span class="title">预约参观</span>
+        </div>
+        <!-- / titlebar -->
+    </header>
+    <!-- / header -->
+    <!-- main -->
+    <main id="main">
+        <div class="success-model">
+            <div class="success-logo">
+                <img src="/assets/public/visitor/images/right.png" alt="">
+                <p>您的预约申请已发送</p>
+            </div>
+        </div>
+        <div class="success-tip">
+            <p>社区运营将收到短信提醒，运营通过您的申请后，您将收到包含预约码的短信。</p>
+            <div class="success-btn">
+                <button class="btn gohome">回首页</button>
+                <button class="btn check">查看我的预约</button>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+    $(document)
+        .on(UR.click, '.gohome', function() {
+            if (UR.isApp()) {
+                location.href = '';
+                return;
+            }
+            location.href = '';
+        })
+        .on(UR.click, '.check', function() {
+            if (UR.isApp()) {
+                location.href = '';
+                return;
+            }
+            location.href = '';
+        })
+</script>
+</body>
+</html>

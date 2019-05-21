@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>投资人信息</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/form/form-index.css">
+    <style>
+        #main-footer {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary">
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>真实姓名</label>
+                    <div class="form-cont">
+                        <input type="text" name="investorName" placeholder="必填" value="Lily" />
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <div class="form-cont">
+                        <div class="textarea-wrap required sm-height">
+                            <textarea name="investorDesc" placeholder="请简单介绍自己..." class="resize-none">我是...</textarea>
+                        </div>
+                        <div class="form-counter">
+                            <span>0</span>/50
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-item form-item-image">
+                    <label class="form-label"><em>*</em>名片</label>
+                    <div class="form-cont">
+                        <!-- upload -->
+                        <div data-role="uploader" class="uploader" data-options="
+                            imgSrc: 'http://placehold.it/100x100',
+                            serverSrc: '',
+                            url: './data/upload.json',
+                            imgPX: '50x50',
+                            method: 'get',
+                            name: 'card',
+                            require: true,
+                            formatted: function(res) {
+                                return { url: res.url, src: res.url }
+                            }
+                        ">
+                            <input type="hidden" name="card" data-role="hidden">
+                            <div data-role="placeholder" style="width: 50px; height: 50px;">
+                                <div data-role="add-plus"></div>
+                                <label data-role="add">
+                                    <input type="file" data-role="file">
+                                </label>
+                            </div>
+                        </div>
+                        <!--/ upload -->
+                    </div>
+                </div>
+
+                <div class="form-item form-item-telphone">
+                    <label class="form-label"><em>*</em>固定电话</label>
+                    <div class="form-cont">
+                        <!-- <input type="hidden" name="telephone"/> -->
+                        <input type="tel" name="areaCode" placeholder="区号" value="010"> <span>—</span>
+                        <input type="tel" name="phone" placeholder="电话号" value="12345678">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>关注行业</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+
+                        <input type="hidden" id="industry" name="industry" value="2">
+                        <!-- <a href="javascript:;" id="industry_dummy" class="readonly-text" data-toggle="modal" data-target="#industryModal" data-text="选择行业">选择行业</a> -->
+                        <a href="javascript:;" id="industry_dummy" class="readonly-text" data-toggle="modal" data-target="#industryModal" data-text="选择行业">互联网保险</a>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>关注阶段</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+
+                        <input type="hidden" id="stage" name="stage" value="2">
+                        <a href="javascript:;" id="stage_dummy" class="readonly-text" data-toggle="modal" data-target="#stageModal" data-text="选择阶段">Pre-A</a>
+                        <!-- <a href="javascript:;" id="stage_dummy" class="readonly-text" data-toggle="modal" data-target="#stageModal">选择阶段</a> -->
+
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>工作经历</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+                        <select name="identity" data-toggle="dynamic" data-target=".form-dynamic" data-tpl="identityTpl">
+                            <option value="">选择投资身份</option>
+                            <option value="1">个人投资者</option>
+                            <option value="2" selected>任职投资机构</option>
+                            <option value="3">任职公司投资并购部</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-dynamic">
+
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>邮箱</label>
+                    <div class="form-cont">
+                        <input type="email" name="investorEmail" placeholder="建议填写企业邮箱" value="112@qq.com"/>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>主投币种</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+
+                        <input type="hidden" id="currency" name="currency" value="2">
+                       <a href="javascript:;" id="currency_dummy" class="readonly-text" data-toggle="modal" data-target="#currencyModal" data-text="选择币种">美元</a>
+                        <!-- <a href="javascript:;" id="currency_dummy" class="readonly-text" data-toggle="modal" data-target="#currencyModal">选择币种</a> -->
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>单笔可投</label>
+                    <div class="form-cont">
+                        <div id="investAmountMin_dummy" class="form-hint">万元</div>
+                        <input type="text" name="investAmountMin" placeholder="万元" data-toggle="redraw" data-target="#investAmountMin_dummy" value="11"/>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <div class="form-cont radio-control">
+                        <label><input type="radio" name="isOverseas" value="1">有海外投资资格</label>
+                        <label><input type="radio" name="isOverseas" value="2">无海外投资资格</label>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button type="button" class="btn btn-primary" id="submit">提交认证申请</button>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- modal 关注行业 -->
+    <div class="modal form-modal" id="industryModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <dl>
+                            <dt>关注行业</dt>
+                            <dd>
+                                <ul data-col="3" data-mulity="true">
+                                    <li data-id="1"><span>金融</span></li>
+                                    <li data-id="2"><span>互联网保险</span></li>
+                                    <li data-id="3"><span>出海</span></li>
+                                    <li data-id="4"><span>娱乐</span></li>
+                                    <li data-id="5"><span>网红经济</span></li>
+                                    <li data-id="6"><span>消费升级</span></li>
+                                    <li data-id="7"><span>金融</span></li>
+                                    <li data-id="8"><span>互联网保险</span></li>
+                                    <li data-id="9"><span>出海</span></li>
+                                    <li data-id="10"><span>娱乐</span></li>
+                                    <li data-id="11"><span>网红经济</span></li>
+                                    <li data-id="12"><span>消费升级</span></li>
+                                    <li data-id="13"><span>金融</span></li>
+                                    <li data-id="14"><span>互联网保险</span></li>
+                                    <li data-id="15"><span>出海</span></li>
+                                    <li data-id="16"><span>娱乐</span></li>
+                                    <li data-id="17"><span>网红经济</span></li>
+                                    <li data-id="18"><span>消费升级</span></li>
+                                    <li data-id="19"><span>金融</span></li>
+                                    <li data-id="20"><span>互联网保险</span></li>
+                                    <li data-id="21"><span>出海</span></li>
+                                    <li data-id="22"><span>娱乐</span></li>
+                                    <li data-id="23"><span>网红经济</span></li>
+                                    <li data-id="24"><span>消费升级</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ modal 关注行业 -->
+
+    <!-- modal 关注阶段 -->
+    <div class="modal form-modal" id="stageModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <dl>
+                            <dt>关注阶段</dt>
+                            <dd>
+                                <ul data-col="2" data-mulity="true">
+                                    <li data-id="1"><span>天使</span></li>
+                                    <li data-id="2"><span>Pre-A</span></li>
+                                    <li data-id="3"><span>A轮</span></li>
+                                    <li data-id="4"><span>B轮</span></li>
+                                    <li data-id="5"><span>C轮</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ modal 关注阶段-->
+
+    <!-- modal 主投币种 -->
+    <div class="modal form-modal" id="currencyModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <dl>
+                            <dt>主投币种</dt>
+                            <dd>
+                                <ul data-col="2" data-mulity="true">
+                                    <li data-id="1"><span>人民币</span></li>
+                                    <li data-id="2"><span>美元</span></li>
+                                    <li data-id="3"><span>其他</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ modal 主投币种-->
+
+    <script type="text/html" id="identityTpl">
+        {{ if data.type == 2 }}
+        <div class="form-item">
+            <label class="form-label"><em>*</em>机构简称</label>
+            <div class="form-cont">
+                <input type="text" name="institutionName" placeholder="填写机构简称" />
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>职位</label>
+            <div class="form-cont">
+                <i class="uricon-arrow-right ricon"></i>
+                <select name="titleId">
+                        <option value="">选择职位</option>
+                        <option value="1">创始合伙人</option>
+                        <option value="2">董事长</option>
+                        <option value="3">CEO</option>
+                    </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>任职时间</label>
+            <div class="form-cont">
+                <i class="uricon-arrow-right ricon"></i>
+                <input type="hidden" name="officeTime">
+                <input type="text" class="input-text" id="officeTime_dummy" placeholder="选择任职时间" data-toggle="mdate">
+            </div>
+        </div>
+        {{ /if }}
+        {{ if data.type == 3 }}
+        <div class="form-item">
+            <label class="form-label"><em>*</em>公司简称</label>
+            <div class="form-cont">
+                <input type="text" name="institutionName" placeholder="填写公司简称" />
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>职位</label>
+            <div class="form-cont">
+                <i class="uricon-arrow-right ricon"></i>
+                <select name="titleId">
+                    <option value="">选择职位</option>
+                    <option value="1">创始合伙人</option>
+                    <option value="2">董事长</option>
+                    <option value="3">CEO</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><em>*</em>任职时间</label>
+            <div class="form-cont">
+                <i class="uricon-arrow-right ricon"></i>
+                <input type="hidden" name="officeTime">
+                <input type="text" class="input-text" id="officeTime_dummy" placeholder="选择任职时间" data-toggle="mdate">
+            </div>
+        </div>
+        {{ /if }}
+    </script>
+
+    <script src="/assets/public/form/form-upgrade.js"></script>
+    <script>
+        var Investor = {
+            init: function() {
+                UR.inputCounter('textarea', 50);
+                this.post();
+                this.changeIdentity();
+                this.modify({name: 'xx', title: 1, date: '2016-11-12'});
+            },
+            initModal: function (elem) {
+                var $this   = $(elem);
+                var $target = $('#' + elem.id.replace('_dummy', '')),
+                    $modal  = $($this.attr('data-target')),
+                    value   = $target.val();
+                if (value) {
+                    $this.addClass('writed');
+                }
+
+                $modal.find('[data-id]').each(function () {
+                    if ($(this).attr('data-id') == value) {
+                        $(this).addClass('active');
+                        return false;
+                    }
+                });
+            },
+            modify: function (option) {
+                var that = this;
+
+                $('[data-toggle="modal"]').each(function () {
+                    that.initModal(this);
+                })
+                .off(UR.click)
+                .on(UR.click, function () {
+                    that.initModal(this);
+                });
+
+                $('[data-toggle="dynamic"]').each(function () {
+                    $(this).trigger('change');
+                });
+
+                $('[data-toggle="redraw"]').each(function () {
+                    if ($(this).val()) {
+                        $($(this).attr('data-target')).addClass('shown')
+                    }
+                })
+
+                if (option && !$.isEmptyObject(option)) {
+                    option.name  && $('[name="institutionName"]').val();
+                    option.title && $('[name="titleId"]').val(option.title);
+                    option.date  && $('#officeTime_dummy').val($.dateFormat(option.date, 'yyyy/MM/dd') + ' 至今');
+                }
+
+                $('[data-toggle="mdate"]').each(function () {
+                    var value = $.trim($(this).val());
+                    if (value) {
+                        value = value.replace(/\s*至今$/, '');
+                        $('[name="'+this.id.replace('_dummy', '')+'"]').val($.dateFormat(value));
+                    }
+                })
+
+                $('textarea').each( function () {
+                    var $counter = $(this).closest('.form-cont').find('.form-counter span');
+                    if ($counter.length) {
+                        $counter.text($(this).val().length)
+                    }
+                });
+            },
+            validator: {
+                rules: {
+                    investorName: {
+                        required: true,
+                        reg: /^.{1,20}$/
+                    },
+                    investorDesc: {
+                        required: true,
+                    },
+                    card: {
+                        required: true,
+                    },
+                    areaCode: {
+                        required: true,
+                        reg: /^\d{3,5}$/
+                    },
+                    phone: {
+                        required: true,
+                        tel: /^\d{7,8}$/,
+                    },
+                    industry: {
+                        required: true,
+                    },
+                    stage: {
+                        required: true,
+                    },
+                    identity: {
+                        required: true,
+                    },
+                    investorEmail: {
+                        required: true,
+                        email: true,
+                    },
+                    currency: {
+                        required: true,
+                    },
+                    investAmountMin: {
+                        required: true,
+                        reg: /^[1-9]\d{0,9}$/,
+                    },
+                    isOverseas: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    investorName: {
+                        required: '请填写真实姓名',
+                        reg: '真实姓名不大于20位'
+                    },
+                    investorDesc: {
+                        required: '请填写个人简介'
+                    },
+                    card: {
+                        required: '请上传名片'
+                    },
+                    areaCode: {
+                        required: '请填写区号',
+                        reg: '区号为3~5位数字'
+                    },
+                    phone: {
+                        required: '请填写电话号',
+                        reg: '电话号为7~8位数字'
+                    },
+                    industry: {
+                        required: '请选择关注行业',
+                    },
+                    stage: {
+                        required: '请选择关注阶段',
+                    },
+                    identity: {
+                        required: '请选择工作经历',
+                    },
+                    investorEmail: {
+                        required: '请填写邮箱',
+                        emial: '请填写正确的邮箱'
+                    },
+                    currency: {
+                        required: '请选择主投币种',
+                    },
+                    investAmountMin: {
+                        required: '请填写单笔可投',
+                        reg: '请填写10位以内整数',
+                    },
+                    isOverseas: {
+                        required: '请选择海外投资资格',
+                    },
+                }
+            },
+            dynamicValidator: {
+                rules: {
+                    institutionName: {
+                        required: true,
+                        reg: /^.{1,50}$/
+                    },
+                    titleId: {
+                        required: true
+                    },
+                    officeTime: {
+                        required: true
+                    },
+                },
+                messages: {
+                    titleId: {
+                        required: '请选择职位'
+                    },
+                    officeTime: {
+                        required: '请选择任职时间'
+                    },
+                }
+            },
+            changeIdentity: function () {
+                var that = this;
+                $(document).on('select', function(evt, dynamicVal) {
+                    $('#submit').trigger('click');
+                    Form.setVerify(function() {
+                        if (dynamicVal == 2) {
+                            return $.extend(true, {}, that.validator, that.dynamicValidator, {
+                                messages: {
+                                    institutionName: {
+                                        required: '请填写机构简称',
+                                        reg: '机构简称不大于50位',
+                                    }
+                                }
+                            });
+                        } else if (dynamicVal == 3) {
+                            return $.extend(true, {}, that.validator, that.dynamicValidator, {
+                                messages: {
+                                    institutionName: {
+                                        required: '请填写公司简称',
+                                        reg: '公司简称不大于50位',
+                                    }
+                                }
+                            });
+                        } else {
+                            return that.validator;
+                        }
+                    }())
+                });
+            },
+            post: function () {
+                Form.ajaxPost({
+                    validator: Investor.validator,
+                    postUrl: 'xx',
+                    success: function(res) {
+                        console.log(res);
+                    }
+                });
+                $('#submit').trigger('click');
+            }
+        }
+        $(function() {
+            Investor.init();
+        });
+    </script>
+
+</body>
+
+</html>

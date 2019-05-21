@@ -1,0 +1,378 @@
+@charset "UTF-8";
+/**
+ * index.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * slide-reset（轮播图-固定比例盒模型重置）
+ * open-door
+ * content-inner
+ * layout-item
+ * swiper-fixed-ratio
+ * btn-list
+ * image-list
+ * crosswise-full-btn
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'plugins/swiper'; // @import 'slide';
+/* slide-reset
+ ---------------------------------------- */
+.banner-image-box {
+    @include fixed-ratio-box(69.333);
+    .banner-image {
+        @include fixed-ratio-inner;
+    }
+}
+/* open-door
+---------------------------------------- */
+.open-door {
+    position: relative;
+    z-index: 1;
+    // height: 100px;
+}
+.open-door-btn {
+    &:active {
+        background: $color-primary-darken;
+    }
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 56px;
+    height: 56px;
+    margin-right: 23px;
+    transform: translateY(-50%);
+    background: $color-primary;
+    color: $font-white;
+    border-radius: 50%;
+}
+/* content-inner
+---------------------------------------- */
+.index-user {
+    h1 {
+        padding-top: 8px;
+        padding-right: 55px;
+        padding-bottom: 12px;
+        line-height: 30px;
+        font-size: rem(26);
+        font-weight: 100;
+        em {
+            @include text-overflow;
+            float: left;
+            max-width: 88%;
+        }
+    }
+    ul {
+        margin: 0 -20px;
+        padding: 8px 0;
+        display: flex;
+    }
+    li {
+        flex: 1;
+        text-align: center;
+    }
+    i {
+        font-size: rem(30);
+        color: #0c0000;
+    }
+    p {
+        padding-top: 5px;
+        line-height: 24px;
+        color: #333;
+    }
+}
+/* layout-item
+---------------------------------------- */
+.layout-item {
+    margin-bottom: 8px;
+    background: #fff;
+    padding: 15px 20px 18px;
+    .layout-item-title {
+        @include clearfix;
+        position: relative;
+        padding-bottom: 15px;
+        h2 {
+            float: left;
+            line-height: 30px;
+            font-size: rem(22);
+        }
+        .uricon-arrow-dropright {
+            margin-left: 7px;
+            font-size: rem(8);
+        }
+        .link-btn {
+            position: relative;
+            float: right;
+            padding: 0 10px;
+            height: 30px;
+            border: 1px solid #bababa;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 28px;
+            font-size: rem(12);
+            color: $font-def;
+            [class*=" uricon-"],
+            [class^="uricon-"]{
+                top: 0;
+                margin-right: 3px;
+            }
+        }
+        // 优惠券左右缺口
+        .gap{
+            border-radius: 0;
+            &:before{
+                content:'';
+                position: absolute;
+                @include position-center-y;
+                // top: 50%;
+                left: -5px;
+                z-index: 1;
+                width: 9px;
+                height: 9px;
+                border: 1px solid #bababa;
+                border-radius: 50%;
+                // transform: translateY(-50%);
+                background: #fff;
+            }
+
+            &:after{
+                content:'';
+                position: absolute;
+                @include position-center-y;
+                // top: 50%;
+                right: -5px;
+                z-index: 1;
+                width: 9px;
+                height: 9px;
+                border: 1px solid #bababa;
+                border-radius: 50%;
+                // transform: translateY(-50%);
+                background: #fff;
+            }
+            b{
+                @include position-center;
+                z-index: 2;
+                width: 100%;
+                &:before{
+                    content:'';
+                    position: absolute;
+                    @include position-center-y;
+                    // top:  50%;
+                    left: -11px;
+                    z-index: 2;
+                    width: 10px;
+                    height: 10px;
+                    // transform: translateY(-50%);
+                    background: #fff;
+                }
+                &:after{
+                    content:'';
+                    position: absolute;
+                    @include position-center-y;
+                    // top:  50%;
+                    left: calc(100% + 1px);
+                    // z-index: 2;
+                    width: 10px;
+                    height: 10px;
+                    // transform: translateY(-50%);
+                    background: #fff;
+                }
+            }
+        }
+
+    }
+}
+.hot-tip{
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    min-width: 24px;
+    height: 24px;
+    line-height: 18px;
+    padding: 0 5px;
+    border: 3px solid #fff;
+    border-radius: 12px;
+    font-size: rem(12);
+    color:#fff;
+    background: #ff8208;
+    transform: scale(0.8 ,0.8);
+}
+/* swiper-fixed-ratio
+---------------------------------------- */
+.swiper-fixed-ratio {
+    // padding: 0 12px 20px 0;
+    margin-right: -8px;
+    .swiper-container {
+        overflow: visible;
+        .piclist-item{
+            margin-right: 8px;
+        }
+    }
+}
+// ------ piclist-item ------
+.piclist-item{
+    .piclist-image-box {
+        @include fixed-ratio-box(65.672);
+        position: relative;
+        overflow: hidden;
+    }
+    .piclist-image {
+        @include fixed-ratio-inner;
+    }
+    //局中文案
+    .center-text {
+        @include position-center;
+        text-align: center;
+        text-shadow: 2px 2px 2px rgba(0,0,0,.3);
+        p {
+            line-height: 22px;
+            font-size: rem(12);
+            color: #fff;
+        }
+        .text-title {
+            line-height: 33px;
+            font-size: rem(24);
+        }
+    }
+    //外部文案单行
+    .outer-text {
+        @include text-overflow;
+        display: block;
+        padding-top: 14px;
+        line-height: 19px;
+        font-size: rem(18);
+        color: $font-def;
+    }
+    // 外部文案多行
+    .outer-text-box{
+        display: block;
+        color: $font-def;
+        p{
+            @include text-overflow;
+            line-height: 24px;
+            font-size: rem(14);
+        }
+        .outer-title{
+            padding-top: 5px;
+            line-height: 28px;
+            font-size: rem(18);
+        }
+        .outer-desc{
+            color: #666;
+        }
+        .outer-price{
+            padding-top: 3px;
+            line-height: 16px;
+            color: $font-primary;
+        }
+    }
+}
+/* btn-list
+---------------------------------------- */
+.btn-list{
+    @include clearfix;
+    margin-left: -10px;
+    margin-bottom: -15px;
+    li{
+        position: relative;
+        float: left;
+        width: 25%;
+        padding-left: 10px;
+        padding-bottom: 15px;
+    }
+    a{
+        display: block;
+        width: 100%;
+        height: 30px;
+        border: 1px solid #ccc;
+        // box-sizing: border-box;
+        border-radius: 3px;
+        text-align: center;
+        line-height: 30px;
+        color: $font-def;
+    }
+}
+/* image-list
+---------------------------------------- */
+.pictext-list{
+    .pictext-item{
+        background: #fafafa;
+    }
+    li{
+        &:last-child{
+            margin-bottom: 0;
+        }
+        margin-bottom: 10px;
+    }
+    a{
+        display: block;
+    }
+}
+.pictext-item{
+    @include clearfix;
+    dt{
+        @include fixed-ratio-box(74.545) {
+            color: $font-def;
+        }
+        position: relative;
+        float: left;
+        width: 110px;
+        span{
+            @include fixed-ratio-inner;
+        }
+    }
+    dd{
+        height: 100%;
+        padding: 0 10px;
+        overflow: hidden;
+    }
+    .pictext-title{
+        @include text-overflow;
+        padding-top: 5px;
+        line-height: 30px;
+        font-size: rem(16);
+        color: $font-def;
+    }
+    .pictext-desc{
+        height: 36px;
+        overflow: hidden;
+        line-height: 18px;
+        color: $font-666;
+    }
+}
+
+/* crosswise-full-btn
+---------------------------------------- */
+.crosswise-full-btn{
+    display: block;
+    padding: 25px 45px;
+    line-height: 37px;
+    button{
+        &:before{
+            content:'';
+            @include position-center;
+            width: 17px;
+            height: 16px;
+            margin-left: -64px;
+            background-size: cover;
+            background-image: url(./images/diamond.png);
+        }
+        position: relative;
+        width: 100%;
+        height: 37px;
+        padding-left: 25px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        line-height: 35px;
+        font-size: rem(12);
+        color: $font-666;
+    }
+}
+/* Layout
+---------------------------------------- */

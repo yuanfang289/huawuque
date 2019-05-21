@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>根据ip定位</title>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=5e639b2a0d3668329faf9f37a6957e92&plugin=AMap.CitySearch"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+//-------- 获取城市名、城市adcode、当前坐标值 --------
+    var map = new AMap.Map("container", {
+        resizeEnable: true,
+        zoom: 13
+    });
+    //获取用户所在城市信息
+    function showCityInfo() {
+        //实例化城市查询类
+        var citysearch = new AMap.CitySearch();
+        //自动获取用户IP，返回当前城市
+        citysearch.getLocalCity(function(status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                if (result && result.city) {
+                    var cityinfo = result.city;
+                    var citycode = result.adcode;
+                    console.log('您当前所在城市：'+cityinfo);
+                    console.log('城市code：'+citycode);
+                }
+            } else {
+                document.getElementById('tip').innerHTML = result.info;
+            }
+        });
+    };
+    map.plugin('AMap.Geolocation', function() {
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+        console.log('定位成功');
+        var lng = data.position.getLng();
+        var lat = data.position.getLat();//如为IP精确定位结果则没有精度信息
+        showCityInfo();
+        console.log('经度'+lng+' 纬度'+lat);
+    }
+    //解析定位错误信息
+    function onError(data) {
+        console.log('定位失败');
+    }
+</script>
+</body>
+</html>

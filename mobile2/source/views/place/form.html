@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>提交预约</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/place/place.css">
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="app">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form-info">
+                <header class="form-info-header">
+                    <h2 class="form-info-title">预定信息</h2>
+                </header>
+                <section class="form-info-body">
+                    <div class="form-info-group">
+                        <div class="form-info-item">
+                            <label for="">预约场地</label>
+                            <div class="form-info-cont">
+                                <p>山丘多功能厅</p>
+                            </div>
+                        </div>
+                        <div class="form-info-item">
+                            <label for="">场地地址</label>
+                            <div class="form-info-cont">
+                                <p>阳光100优客工场</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-info-group">
+                        <div class="form-info-item">
+                            <label for="">使用时间</label>
+                            <div class="form-info-cont">
+                                <input class="txt" type="text" id="useDate" readonly="readonly">
+                                <i class="ricon uricon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-info-group">
+                        <div class="form-info-item ">
+                            <label for="">场地用途</label>
+                            <div class="form-info-cont">
+                                <input type="hidden" name="applicationId" id="applicationId">
+                                <input type="text" id="application_dummy" value="" class="txt" readonly="readonly">
+
+                                <ul id="application" class="treelist-none" style="display: none;">
+                                    <li data-val="年会" data-id="10068">年会</li>
+                                    <li data-val="沙龙" data-id="10061">沙龙</li>
+                                    <li data-val="Party" data-id="10062">Party</li>
+                                    <li data-val="发布会" data-id="10063">发布会</li>
+                                </ul>
+                                <i class="ricon uricon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-info-group">
+                        <div class="form-info-item noarrow">
+                            <label for="">备注</label>
+                            <div class="form-info-cont">
+                                <input type="hidden" class="txt" maxlength="50" id="comments">
+                                <p class="comments txt" ></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer class="form-info-footer btn-group">
+                    <button type="button" class="btn btn-primary" disabled>提交预约</button>
+                </footer>
+            </form>
+
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+
+    @import "footer-common.tpl"
+    <script src="/assets/public/place/form.js"></script>
+</body>
+
+</html>

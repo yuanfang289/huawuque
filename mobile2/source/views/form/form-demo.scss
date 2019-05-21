@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/**
+ * form.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'form';
+/* Form Primary
+  ---------------------------------------- */
+.form-primary {
+    padding: 11px 40px 40px;
+    input,
+    textarea {
+        &::placeholder {
+            color: #ccc;
+            font-size: rem(26);
+        }
+        appearance: none;
+    }
+    .readonly-text {}
+    .form-item {
+        position: relative;
+        min-height: rem(98);
+        padding: rem(24) 0;
+        line-height: rem(50);
+        font-size: rem(28);
+        &::before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 200%;
+            content: "";
+            border-bottom: 1px solid #ccc;
+            transform: scale(.5);
+            transform-origin: 0 0;
+        }
+    }
+    .form-label {
+        position: absolute;
+        width: rem(174);
+        color: $font-666;
+    }
+    .form-cont {
+        padding-left: rem(174);
+        input {
+            float: left;
+            width: 100%;
+            height: rem(50);
+            line-height: rem(50);
+            border: 0;
+        }
+        select {
+            width: 100%;
+            border: 0;
+            background: rgba(255,255,255,0);
+        }
+    }
+    .form-action {
+        margin-top: rem(56);
+        .btn {
+            width: 100%;
+            height: rem(80);
+            line-height: rem(80);
+            font-size: rem(30);
+        }
+    }
+    .form-item-textarea {
+        &::before {
+            border-bottom: 0;
+        }
+        label {
+            position: static;
+            display: block;
+            height: rem(50);
+        }
+        textarea {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            padding: rem(32);
+            border: 1px solid #ccc;
+            transform: scale(.5);
+            transform-origin: 0 0;
+            font-size: rem(56);
+            &::placeholder {
+                font-size: rem(52);
+            }
+        }
+        .textarea-wrap {
+            height: rem(200);
+        }
+        .form-cont {
+            margin-top: rem(5);
+            padding-left: 0;
+        }
+    }
+}

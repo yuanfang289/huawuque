@@ -1,0 +1,9 @@
+{
+    "retCode": 1,
+    "retMsg": "接口请求成功",
+    "data": {
+        "id": 10043,
+        "stageName": "阳光100·优客工场",
+        "rentStationNum": 0
+    }
+}

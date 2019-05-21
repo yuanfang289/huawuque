@@ -1,0 +1,134 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "pageSize": 10,
+        "currentPageNo": 1,
+        "totalRecord": 6,
+        "result": [
+            {
+                "id": 100697,
+                "batchNo": "sz22",
+                "couponNo": "sz22720506",
+                "status": 0,
+                "startDate": 1479225600000,
+                "endDate": 1481903999000,
+                "bindingUser": 1461,
+                "bindingDate": 1479292898000,
+                "usedDate": 1479293318000,
+                "remark": "A",
+                "createAt": 1479292515000,
+                "createBy": 2856,
+                "updateAt": 1479293318000,
+                "updateBy": 1461,
+                "couponBatch": {
+                    "id": 10009,
+                    "couponName": "时租会议室2",
+                    "batchNo": "sz22",
+                    "money": 1000,
+                    "limitMoney": 100,
+                    "isLimit": 0,
+                    "type": 4,
+                    "status": 2,
+                    "isPre": 0,
+                    "quantity": 100,
+                    "startDate": 1479225600000,
+                    "endDate": 1481903999000,
+                    "isFixPeriod": 0,
+                    "source": "1,4,2,3,5",
+                    "limitQuantity": 100,
+                    "givenType": "0",
+                    "remark": "ceshi",
+                    "isAllWorkstage": 1,
+                    "createAt": 1479292486000,
+                    "createBy": 2856,
+                    "updateAt": 1479292515000,
+                    "updateBy": 2856,
+                    "strType": "时租会议室",
+                    "strSource": [
+                        "web",
+                        "h5",
+                        "iOS",
+                        "安卓",
+                        ""
+                    ],
+                    "strGivenType": [
+                        "其他"
+                    ]
+                },
+                "workStageList": [
+                    {
+                        "id": 277,
+                        "couponBatchNo": "cz03",
+                        "workstageId": 10055,
+                        "workstage": {
+                            "stageName": "阳光壹佰WZL"
+                        }
+                    }
+                ],
+                "strStatus": "未使用"
+            },
+            {
+                "id": 100697,
+                "batchNo": "sz22",
+                "couponNo": "sz22720506",
+                "status": 1,
+                "startDate": 1479225600000,
+                "endDate": 1481903999000,
+                "bindingUser": 1461,
+                "bindingDate": 1479292898000,
+                "usedDate": 1479293318000,
+                "remark": "A",
+                "createAt": 1479292515000,
+                "createBy": 2856,
+                "updateAt": 1479293318000,
+                "updateBy": 1461,
+                "couponBatch": {
+                    "id": 10009,
+                    "couponName": "时租会议室2",
+                    "batchNo": "sz22",
+                    "money": 1000,
+                    "isLimit": 0,
+                    "type": 4,
+                    "status": 2,
+                    "isPre": 0,
+                    "quantity": 100,
+                    "startDate": 1479225600000,
+                    "endDate": 1481903999000,
+                    "isFixPeriod": 0,
+                    "source": "1,4,2,3,5",
+                    "limitQuantity": 100,
+                    "givenType": "0",
+                    "remark": "ceshi",
+                    "isAllWorkstage": 0,
+                    "createAt": 1479292486000,
+                    "createBy": 2856,
+                    "updateAt": 1479292515000,
+                    "updateBy": 2856,
+                    "strType": "时租会议室",
+                    "strSource": [
+                        "web",
+                        "h5",
+                        "iOS",
+                        "安卓",
+                        ""
+                    ],
+                    "strGivenType": [
+                        "其他"
+                    ]
+                },
+                "workStageList": [
+                    {
+                        "id": 277,
+                        "couponBatchNo": "cz03",
+                        "workstageId": 10055,
+                        "workstage": {
+                            "stageName": "阳光壹佰WZL"
+                        }
+                    }
+                ],
+                "strStatus": "已使用"
+            }
+        ]
+    }
+}

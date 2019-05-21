@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>确认订单</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/meetingRoom/index.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="">
+
+
+
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="meeting-room-main">
+
+        <!--/套页面时去掉data-url属性-->
+        <section data-render="template" data-url="./data/orderConfirm.json">
+
+            <div class="rendering">
+                <div class="img-box">
+                    <div class="img"></div>
+                </div>
+
+                <p>正在加载 . . .</p>
+            </div>
+
+        </section>
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<div id="modalContainer">
+    <!-- 提醒 modal -->
+    <div class="modal primary-modal" id="remindTimeModal" role="dialog" data-param="remindTime">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <ul class="select-list">
+                            <li data-id="0">无需提醒<i class="uricon-success-circle"></i></li>
+                            <li data-id="1">提前5分钟<i class="uricon-success-circle"></i></li>
+                            <li data-id="2">提前15分钟<i class="uricon-success-circle"></i></li>
+                            <li data-id="3">提前30分钟<i class="uricon-success-circle"></i></li>
+                            <li data-id="4">提前1小时<i class="uricon-success-circle"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 提醒 modal -->
+
+    <!-- 参会人 modal -->
+    <div class="modal primary-modal" id="meetingInfosModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="background-color: #f5f5f5;">
+                    <div class="scroller" id="meetingContainer">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 参会人 modal -->
+
+    <!-- 企业列表 modal -->
+    <div class="modal primary-modal" id="companyModal" role="dialog" data-param="companyId">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller" id="companyContainer">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 企业列表 modal -->
+
+    <!-- 企业优惠券 modal -->
+    <div class="modal primary-modal" id="companyCouponsModal" role="dialog" data-param="couponCodes">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="background-color: #f5f5f5;">
+                    <div class="scroller" id="companyCouponsContainer">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default text-primary save">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 企业优惠券 modal -->
+
+    <!-- 个人优惠券 modal -->
+    <div class="modal primary-modal" id="couponsModal" role="dialog" data-param="couponCodes">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="background-color: #f5f5f5;">
+                    <div class="scroller" id="couponsContainer">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default text-primary save">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 个人优惠券 modal -->
+</div>
+
+<script type="text/html" id="meetingTpl">
+    {{each info as item key}}
+    <div class="layout-item" data-id="{{item.id}}">
+        <div class="info-title">
+            <h2 class="flex">参会人{{item.index}}</h2>
+            {{if item.index > 1}}
+            <a href="javascript:;" class="delete"><i class="uricon-delete"></i></a>
+            {{/if}}
+        </div>
+        <div class="info-item-simple">
+            <div class="info-label">
+                姓名：
+            </div>
+            <div class="info-cont">
+                <input type="text" value="{{item.name}}" data-name="name">
+            </div>
+        </div>
+        <div class="info-item-simple">
+            <div class="info-label">
+                手机号：
+            </div>
+            <div class="info-cont">
+                <input type="tel" value="{{item.tel}}" data-name="tel">
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    {{if visible}}
+    <div class="btn-container">
+        <button class="btn btn-default new"><i class="plus"></i> 添加参会人</button>
+    </div>
+    {{/if}}
+</script>
+
+<script type="text/html" id="companyTpl">
+    <ul class="select-list">
+        {{each list as item}}
+        <li data-id="{{item.id}}" data-time="{{item.countTime}}"><a class="silde-unselected">{{item.name}}<i class="uricon-success-circle"></i></a></li>
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/html" id="couponsTpl">
+    {{each list as d i}}
+    <div class="coupon-item coupon-item-checkable" data-id="{{d.couponCode}}" data-num="{{d.price}}">
+        <dl>
+            <dt>
+            <div class="coupon-info">
+                <p class="price">&yen; <big>{{d.price}}</big></p>
+            </div>
+            </dt>
+            <dd>
+                <p class="coupon-title">{{d.strType}}</p>
+                <div class="coupon-desc">
+                    <p>{{d.startDate}}-{{d.endDate}}</p>
+                </div>
+                <div class="coupon-desc">
+                    <p>{{d.remark}}</p>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    {{/each}}
+</script>
+
+<script type="text/html" id="companyCouponsTpl">
+    {{include 'couponsTpl'}}
+</script>
+
+<script type="text/html" id="pageTpl">
+    <div class="zhima-shadow">
+        <div class="zhima-bg">
+            <img src="/assets/public/meetingRoom/images/tanchuang.png" alt="" width="100%">
+            <a href="javascript:;" class="zhima-close"></a>
+            <p class="zhima-text"><strong>芝麻分特权</strong><br />芝麻分650分以上，订会议室、订工位<br />可享受免押金预订</p>
+            <a href="javascript:;" class="zhima-esc">不再提醒</a>
+            <a href="" class="zhima-look">去查芝麻分</a>
+        </div>
+    </div>
+    <div class="banner-image-box">
+        <a class="banner-image" href="javascript:;"
+           style="background-image: url({{pic}})">
+        </a>
+    </div>
+
+    <section class="info-layout">
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <span>{{meetingroomName}}</span>
+                <span>{{stageName}}</span>
+            </div>
+        </div>
+        <div class="info-sprite"></div>
+        <div class="info-item-simple flexbox">
+            <div class="info-cont">
+                预订时间：<span>{{_date}} ({{_week}})</span>
+                <span>{{_startTime}}-{{_endTime}}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm">服务说明</div>
+        <div class="info-item-simple ">
+            <div class="info-cont">
+                <i class="uricon-locationB location"></i><span>{{workstageAddress}} {{floor}}层</span>
+            </div>
+        </div>
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <i class="uricon-time time"></i><span>{{openStartTime}}-{{openEndTime}} 开放</span>
+            </div>
+        </div>
+        {{if _equipments}}
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <i class="uricon-duogongneng"></i><span>{{_equipments}}</span>
+            </div>
+        </div>
+        {{/if}}
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <i class="uricon-people"></i><span>可容纳 {{peopleNumber}}人</span>
+            </div>
+        </div>
+        <div class="info-sprite"></div>
+        <div class="info-item-simple">
+            <div class="info-cont">
+                预订人：{{name ? name : tel}}
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-item-simple flexbox has-ricon">
+            <div class="item-cell">
+                参会人
+            </div>
+            <a href="javascript:;" class="item-cell flex val-empty" data-set="meetingInfos" data-text="添加一个或多个参会人员"
+                    data-toggle="modal" data-target="#meetingInfosModal">
+                添加一个或多个参会人员
+            </a>
+            <i class="uricon-arrow-right ricon"></i>
+        </div>
+        <div class="info-item-simple flexbox has-ricon">
+            <div class="item-cell">
+                提醒
+            </div>
+            <a href="javascript:;" class="item-cell flex val-empty" data-set="remindTime" data-text="添加提醒"
+                 data-toggle="modal" data-target="#remindTimeModal">
+                添加提醒
+            </a>
+            <i class="uricon-arrow-right ricon"></i>
+        </div>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm" id="payType">
+            <label class="{{payTypeClass1}}" data-id="2">企业支付</label>
+            <label class="{{payTypeClass2}}" data-id="1">个人支付</label>
+        </div>
+        {{if allowTime == 1 || isCoupons == 1}}
+        <div class="info-item-simple flexbox has-ricon" id="companyItem">
+            <div class="item-cell">
+                企业
+            </div>
+            <a href="javascript:;" class="item-cell flex" data-set="companyId"
+               data-toggle="modal" data-target="#companyModal"></a>
+            <i class="uricon-arrow-right ricon"></i>
+        </div>
+        {{/if}}
+        {{if meetingType == 0 && allowTime == 1 && list && list.length}}
+        <div class="info-item-simple flexbox" id="timeItem">
+            <div class="item-cell flex">
+                免费时长 <span class="coupon-count" data-set="countTime">剩余59.2小时</span>
+            </div>
+            <div class="item-cell">
+                <input type="radio" id="hour" name="paymethod" value="4">
+            </div>
+        </div>
+        {{/if}}
+        {{if meetingType == 1 && isCoupons == 1}}
+        <div class="info-item-simple flexbox has-ricon" id="couponItem">
+            <div class="item-cell">
+                代金券 <span class="coupon-count"><em data-set="couponNum">0</em>张可用</span>
+            </div>
+            <a href="javascript:;" class="item-cell flex val-empty coupon-hide" data-set="couponCodes" data-text="去选择"
+               data-toggle="modal" data-target="#couponsModal">
+                去选择
+            </a>
+            <i class="uricon-arrow-right ricon coupon-hide"></i>
+        </div>
+        {{/if}}
+    </section>
+
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm">支付方式</div>
+        <div class="info-item-simple flexbox">
+            <label class="item-cell flex" for="alipay">
+                <i class="urimg-alipay"></i>支付宝支付
+            </label>
+            <div class="item-cell">
+                <input type="radio" id="alipay" name="paymethod" value="1">
+            </div>
+        </div>
+        <div class="item-tip">
+            <p>授权芝麻信用，享尊贵特权
+                <a href="">立即授权<i class="uricon-arrow-right"></i></a>
+            </p>
+        </div>
+    </section>
+
+    {{if (allowTime == 1) || (isCoupons == 1)}}
+    <section class="info-layout">
+        <div class="info-item">
+            <label class="info-label">商品金额</label>
+            <div class="info-cont price text-right">
+                &yen;{{totalPrice}}
+            </div>
+        </div>
+        {{if meetingType == 1 && isCoupons == 1 && listCouponsVo && listCouponsVo.length}}
+        <div class="info-item">
+            <label class="info-label">优惠券</label>
+            <div class="info-cont price text-right">
+                - &yen;<span data-set="couponTotal">0</span>
+            </div>
+        </div>
+        {{/if}}
+        {{if meetingType == 0 && allowTime == 1 && list && list.length}}
+        <div class="info-item">
+            <label class="info-label" style="width: 200px;">免费时长抵扣</label>
+            <div class="info-cont price text-right">
+                - <span data-set="timeTotal">0</span>小时
+            </div>
+        </div>
+        {{/if}}
+    </section>
+    {{/if}}
+
+    <section class="tip-wrapper">
+        <p>您可在会议开始1小时前取消订单</p>
+    </section>
+
+    <footer class="btn-group fixed-bottom">
+        <div class="flex">
+            实付：<span class="price" data-set="payMoney">&yen;{{totalPrice}}</span>
+        </div>
+        <a href="javascript:;" class="btn btn-primary" id="submit">提交订单</a>
+
+    </footer>
+</script>
+
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/meetingRoom/scripts/confirm.js"></script>
+
+
+<script>
+
+</script>
+
+<script>
+    $(function () {
+        Page.andriodMethod = function () {
+            console.log('///android');
+
+        }
+        Page.payHour = function (res, that) {
+            if (res.retCode == 1) {
+                location.href="/rentMeetingRoom/paySuccess"; // 时长支付 // 优惠券完全支付
+            }
+        }
+
+        Page.payOther = function (res, that) {
+            if (res.retCode == 0) {
+                location.href = '/pay/h5payment?orderNo=' + that.browser.id + '&paychannel=' + that.ajaxSubmitData.orderChanel;
+            }
+        }
+        var timer;
+        timer=setTimeout(function(){
+            $('html, body').animate({
+                scrollTop: 0
+            }, 'fast');
+        },0);
+        $('body')
+            .on('click','.zhima-close',function(){
+                $('.zhima-shadow').remove();
+            })
+            .on('click','.zhima-esc',function(){
+                $('.zhima-shadow').remove();
+            })
+            .on('touchmove','.zhiama-shadow',function(ev){
+                ev.preventDefault();
+            });
+
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/**
+ * control text
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ * Text
+ * Textarea
+ * Text Size
+ */
+
+/* Text
+ ---------------------------------------- */
+.txt {
+    width: $txt-base-width;
+    &[readonly="readonly"] {
+        &,
+        &:focus,
+        &:hover {
+            border-color: $txt-base-border-color !important;
+            box-shadow: none;
+        }
+    }
+    @include txt-style($txt-base-border-color, $txt-base-hover-border-color, $txt-base-focus-border-color);
+    border: $txt-base-border-width $txt-base-border-style $txt-base-border-color;
+    color: $txt-base-color;
+    @if ($txt-base-radius != null) {
+        border-radius: $txt-base-radius;
+    }
+    @include txt-size($txt-base-height, $txt-base-font-size, $txt-base-line-height, $txt-base-border-width);
+    &::placeholder {
+        color: $placeholder-color;
+    }
+}
+
+/* Textarea
+ ---------------------------------------- */
+textarea {
+    overflow-y: auto;
+    padding: $textarea-base-padding;
+    background: #fff;
+    border: $textarea-base-border-width $textarea-base-border-style $textarea-base-border-color;
+    @include txt-style($textarea-base-border-color, $textarea-base-hover-border-color, $textarea-base-focus-border-color);
+    outline: 0;
+    vertical-align: top;
+    resize: vertical;
+    @if ($txt-base-radius != null) {
+        border-radius: $txt-base-radius;
+    }
+    &.resize-none {
+        resize: none;
+    }
+    &.resize-h {
+        resize: horizontal;
+    }
+    &.resize-both {
+        resize: both;
+    }
+}
+
+/* Text Size
+ ---------------------------------------- */
+.txt {
+    // width
+    &.width-full {
+        width: 100% !important;
+    }
+    @include make-txt-width(
+        width-xsmall,
+        $txt-width-xsmall
+    )
+    @include make-txt-width(
+        width-small,
+        $txt-width-small
+    )
+    @include make-txt-width(
+        width-medium,
+        $txt-width-medium
+    )
+    @include make-txt-width(
+        width-large,
+        $txt-width-large
+    )
+    @include make-txt-width(
+        width-xlarge,
+        $txt-width-xlarge
+    )
+}
+
+// txt height
+.txt {
+    @include make-txt-height(
+        height-xsmall,
+        $txt-height-xsmall,
+        $txt-height-xsmall-line-height,
+        $txt-base-border-width
+    )
+    @include make-txt-height(
+        height-small,
+        $txt-height-small,
+        $txt-height-small-line-height,
+        $txt-base-border-width
+    )
+    @include make-txt-height(
+        height-medium,
+        $txt-height-medium,
+        $txt-height-medium-line-height,
+        $txt-base-border-width
+    )
+    @include make-txt-height(
+        height-large,
+        $txt-height-large,
+        $txt-height-large-line-height,
+        $txt-base-border-width
+    )
+    @include make-txt-height(
+        height-xlarge,
+        $txt-height-xlarge,
+        $txt-height-xlarge-line-height,
+        $txt-base-border-width
+    )
+}

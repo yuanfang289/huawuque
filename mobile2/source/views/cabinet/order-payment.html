@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/order-payment.css">
+</head>
+<body class="gray-bg">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="station-main">
+
+    </main>
+</div>
+
+<script type="text/html" id="mainTlp">
+    <dl class="order-info">
+        <dt>
+            <span style="background-image: url('/assets/public/images/search-nodata.png')"></span>
+        </dt>
+        <dd>
+            <h3><p>{{lockerName}}</p> <span>￥ <em>{{lockerOrderStatus.consumption}}</em>/小时</span></h3>
+            <p>大柜子</p>
+            <p>{{lockerLocation}}</p>
+        </dd>
+    </dl>
+
+    <div class="time-wrap">
+        <div class="info-time">
+            <p>开始时间</p>
+            <span>{{useStartTime}}</span>
+        </div>
+        <div class="info-time">
+            <p>结束时间</p>
+            <span>{{useEndTime}}</span>
+        </div>
+        <div class="info-cost">共{{useTime}}小时  总金额：<em>¥{{price}}</em></div>
+    </div>
+    <ul class="payment-way">
+        <li>
+            <label class="way-item" for="alipay">
+                <i class="urimg-alipay"></i>
+                支付宝支付
+                <input type="radio" id="alipay" name="paymethod" checked>
+            </label>
+        </li>
+    </ul>
+    <div class="pay-confirm">
+        <div class="cost-total">
+            <p>实付：<span>¥{{price}}</span></p>
+        </div>
+        <button class="btn btn-primary pay-btn">立即支付</button>
+    </div>
+</script>
+<script src="/assets/public/cabinet/scripts/order-payment.js"></script>
+<script type="text/javascript">
+    var Payment = {
+        init:function () {
+            this.orderNum = null;
+            this.channel = null;
+            if (UR.clientTest.isAndroid) {
+                this.channel = 3;
+            } else if (UR.clientTest.isIos) {
+                this.channel = 2;
+            } else {
+                this.channel = 1;
+            }
+            this.ajaxLoading();
+        },
+        ajaxLoading:function () {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/orderDetail.json',
+//                url:'/locker/orderDetail/+ that.orderNum',
+                type:'GET',
+                dataType:'json',
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    that.render(res.data);
+                }
+            })
+        },
+        render:function (data) {
+            data.useStartTime = $.dateFormat(data.useStartTime, 'yyyy-MM-dd hh:mm:ss');
+            data.useEndTime = $.dateFormat(data.useEndTime, 'yyyy-MM-dd hh:mm:ss');
+            this.orderNum = data.id;
+            $('#main').html(template('mainTlp',data));
+            this.bindEvent();
+        },
+        bindEvent:function () {
+            var $body = $('body');
+            var that = this;
+            $body
+                .off('click','.pay-btn')
+                .on('click','.pay-btn',function () {
+                    that.aliPay()
+                })
+        },
+        aliPay:function () {
+            var that = this;
+            $.ajax({
+                url: '/locker/payment?orderId=' + that.orderNum + '&clientType=' + that.channel + '&payWay=1',
+                type: 'GET',
+                dataType: 'json',
+                success: function (json) {
+                    if (json.retCode === 0) {
+                        var pr = json.data.paymentInfo,
+                            pn = json.data.paymentNum,
+                            pw = json.data.payWay;
+                        console.log(pr);
+                        console.log(pn);
+                        console.log(pw);
+                        if (UR.isApp()) {
+                            DANativeApi.payment({
+                                paymentInfo: pr,
+                                paymentNum: pn,
+                                payWay: pw,
+                                completion: function (res) {
+                                    if (res.data) {
+                                        UR.msg("支付成功");
+                                        if (UR.isApp()) {
+                                            DANativeApi.redirectTo({
+                                                url: UR.host + '/locker/success?orderId=' + that.orderNum
+                                            });
+                                        } else {
+                                            location.replace('/locker/success?orderId=' + that.orderNum);
+                                        }
+                                    } else {
+                                        UR.msg("支付失败!");
+                                        setTimeout(function () {
+                                            location.reload();
+                                        }, 300)
+                                    }
+                                }
+                            });
+                        } else {
+                            UR.openApp.init({
+                                intentUrlParams: location.href
+                            });
+                        }
+
+                    } else if (json.retCode === 1) {
+                        if (UR.isApp()) {
+                            DANativeApi.navigateTo({
+                                url: UR.host + '/locker/success?orderId=' + that.orderNum
+                            });
+                        } else {
+                            location.href = '/locker/success?orderId=' + that.orderNum
+                            //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                        }
+                    } else if (json.retCode === -2) {
+                        if (UR.isApp()) {
+                            UR.openApp.login(location.href);
+                        } else {
+                            UR.setUrl(UR.getPassportUrl('login'));
+                        }
+                    } else {
+                        UR.msg(json.retMsg);
+                    }
+                }
+            })
+        }
+    }
+    $(function () {
+        Payment.init()
+    })
+</script>
+</body>
+</html>

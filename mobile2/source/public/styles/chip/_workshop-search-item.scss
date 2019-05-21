@@ -1,0 +1,61 @@
+.workshop-search-item {
+    overflow: hidden;
+    dl {
+        @include clearfix;
+        margin-left: 110px;
+    }
+    dt {
+        position: relative;
+        float: left;
+        width: 110px;
+        height: 82px;
+        margin-left: -110px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    dd {
+        float: left;
+        width: 100%;
+        padding-left: 10px;
+    }
+    h5 {
+        @include text-overflow;
+        color: #333;
+        font-size: 14px;
+    }
+    p {
+        overflow: hidden;
+        height: 40px;
+        color: #666;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .item-attrs {
+        @include clearfix;
+        color: #666;
+        font-size: 12px;
+        line-height: 20px;
+        .attr-item:first-child {
+            float: left;
+            max-width: 46%;
+        }
+        .attr-item:last-child {
+            max-width: 84px;
+            float: right;
+        }
+    }
+    .hot-tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 22px;
+        @include padding-h(5px);
+        background-color: #ffae00;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        line-height: 14px;
+    }
+}

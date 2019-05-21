@@ -1,0 +1,30 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": [
+        {
+            "id": 90123,
+            "stageName": "清风",
+            "provinceCode": "110000",
+            "cityCode": "110000",
+            "provinceName": "北京市",
+            "cityName": "北京市"
+        },
+        {
+            "id": 10023,
+            "stageName": "方圆大厦",
+            "provinceCode": "110000",
+            "cityCode": "110000",
+            "provinceName": "北京市",
+            "cityName": "北京市"
+        },
+        {
+            "id": 10033,
+            "stageName": "方圆大厦·优客工场",
+            "provinceCode": "110000",
+            "cityCode": "110000",
+            "provinceName": "北京市",
+            "cityName": "北京市"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/**
+ * init
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+html {
+    font-size: 37.5px;
+    touch-action: manipulation;
+}
+body {
+    &.gray-bg{
+        background-color: $body-gray-background;
+    }
+    width: 100%;
+    background-color: $body-def-background;
+    color: $font-def;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+    touch-action: manipulation;
+    // 设置文本被选中后的样式
+    @if ( $selection-bg-color != null and $selection-color != null ) {
+        @include selection( $selection-bg-color, $selection-color );
+    }
+    &.has-download-bar {
+        padding-bottom: 50px;
+    }
+}
+img {
+    max-width: 100%;
+}
+a {
+    color: $link-def;
+    text-decoration: none;
+    @if ($link-def-hover != null) {
+        &:hover {
+            color: $link-def-hover;
+        }
+    }
+}
+
+[disabled]:hover, [disabled]:hover a {
+    @include not-allowed;
+}

@@ -1,0 +1,31 @@
+/* AgreeText
+ ---------------------------------------- */
+.agree-text {
+    padding: 20px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: justify;
+    @include text-break;
+    section {
+        margin-bottom: 20px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    h1 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1;
+    }
+    h2 {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    p {
+        margin-bottom: 10px;
+    }
+}

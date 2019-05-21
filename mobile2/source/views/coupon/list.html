@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>优惠券列表</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/coupon/coupon.css">
+</head>
+
+<!--工位确认订单时选择优惠券-->
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <ul class="search-wrapper tabs" data-param="couponStatus">
+            <li class="active" data-id=""><a href="javascript:;">全部</a></li>
+            <li data-id="0"><a href="javascript:;">未使用</a></li>
+            <li data-id="1"><a href="javascript:;">已使用</a></li>
+            <li data-id="3"><a href="javascript:;">已过期</a></li>
+            <li data-id="2"><a href="javascript:;">已注销</a></li>
+        </ul>
+
+
+        <!-- 优惠券列表 coupon-list -->
+        <section class="coupon-list" data-scroll="pullUp" data-options="
+              url: 'data/list.json',
+              data: {
+                  //couponStatus: UR.getBrowserParam().couponStatus
+              },
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  var list = res.data.result || [];
+                  list.map(function(item) {
+
+                      if (item.couponBatch.limitMoney) {
+                           item.limitMoney = '满' + item.couponBatch.limitMoney + '元可用';
+                      } else {
+                           item.limitMoney = '无限额使用';
+                      }
+
+                      item = formatted(item);
+                  });
+                  return list;
+              }
+              ">
+
+        </section>
+        <!--/ 优惠券列表 coupon-list -->
+
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="coupon-item {{d.className}}">
+        <a href="./detail.html?id={{d.couponNo}}">
+            <dl>
+                <dt>
+                <div class="coupon-info">
+                    <p class="price">&yen; <big>{{d.couponBatch.money}}</big></p>
+                    <p>{{d.limitMoney}}</p>
+                </div>
+                </dt>
+                <dd>
+                    <p class="coupon-title">{{d.couponBatch.couponName}}</p>
+                    <div class="coupon-desc">
+                        <p class="text-overflow">{{d.stageName}}</p>
+                        <p>{{d.startDate}}-{{d.endDate}}</p>
+                    </div>
+                </dd>
+            </dl>
+        </a>
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+
+<script src="/assets/public/coupon/scripts/list.js"></script>
+</body>
+
+</html>

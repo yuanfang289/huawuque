@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+            @import "nav-tab.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <div class="result-tips">
+                 <div class="result-tips-inner">
+                     <img src="/assets/public/images/update.png" alt="">
+                     <p>使用此功能需要更新最新客户端</p>
+                     <div class="action">
+                         <a href="javascript:;" class="btn btn-primary" id="downloadBtn" data-ios="https://itunes.apple.com/cn/app/you-ke-gong-chang/id1034170822?mt=8" data-android="http://m.urwork.cn/android/urwork_urwork.apk"><i class="uricon-download icon"></i>立即更新</a>
+                     </div>
+                 </div>
+            </div>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script>
+        $(function() {
+            $('body').on(UR.click, '#downloadBtn',downloadHandler);
+            function downloadHandler() {
+                var url = UR.clientTest.isIos ? this.getAttribute('data-ios') : this.getAttribute('data-android');
+                UR.setUrl(url);
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+.info-desc {
+    dl {
+        @include clearfix;
+        margin-bottom: rem(8);
+        padding-left: rem(138);
+        font-size: rem(28);
+        line-height: rem(40);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    dt {
+        color: $font-999;
+        float: left;
+        // width: rem(138);
+        margin-left: rem(-138);
+
+        &.spacing-2 {
+            letter-spacing: 2em;
+        }
+    }
+
+    dd {
+        color: $font-666;
+
+        span + span {
+            padding-left: rem(20);
+        }
+    }
+}

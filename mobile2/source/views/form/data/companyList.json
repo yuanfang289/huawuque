@@ -1,0 +1,157 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "pageSize": 20,
+        "currentPageNo": 1,
+        "totalRecord": 1,
+        "result": [
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "5"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "6"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "7"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "8"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "9"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "10"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "11"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "12"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "13"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "14"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "15"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "16"
+            },
+            {
+                "userCnt": "3",
+                "authenticateStatus": "0",
+                "name": "UCAR用车科技",
+                "logo": "http://7xp26u.com1.z0.glb.clouddn.com/84b17b8c-eecc-4fd6-bade-b306de9a3ca5.png",
+                "id": "17"
+            }
+        ],
+        "totalPage": 1,
+        "beginRow": 0,
+        "endRow": 20,
+        "lastPageNo": 1,
+        "prevPageNo": 1,
+        "nextPageNo": 1
+    }
+}

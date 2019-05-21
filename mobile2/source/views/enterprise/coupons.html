@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>代金券</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/public/enterprise/coupons.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <!-- <section class="layout-item swiper-wrap-hidden">
+            swiper-fixed-ratio
+            <div class="swiper-fixed-ratio">
+                <div class="swiper-container swiper-packages">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="piclist-item">
+                                <div class="piclist-image-box">
+                                    <a class="piclist-image" href="javascript:;"
+                                       style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');"></a>
+                                </div>
+                                <div class="outer-text-box">
+                                    <p class="outer-title">工位大礼包</p>
+                                    <p class="outer-price">
+                                        <small>¥</small>
+                                        299.00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="piclist-item">
+                                <div class="piclist-image-box">
+                                    <a class="piclist-image" href="javascript:;"
+                                       style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');"></a>
+                                </div>
+                                <div class="outer-text-box">
+                                    <p class="outer-title">工位大礼包工位大礼包工位大礼包</p>
+                                    <p class="outer-price">
+                                        <small>¥</small>
+                                        299.00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="piclist-item">
+                                <div class="piclist-image-box">
+                                    <a class="piclist-image" href="javascript:;"
+                                       style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');"></a>
+                                </div>
+                                <div class="outer-text-box">
+                                    <p class="outer-title">工位大礼包</p>
+                                    <p class="outer-price">
+                                        <small>¥</small>
+                                        299.00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            /swiper-fixed-ratio
+        </section> -->
+
+        <!-- 列表 coupon-list -->
+        <section class="coupon-list" data-scroll="pullUp" data-options="
+              url: 'data/list.json',
+              data: {
+                  //couponStatus: UR.getBrowserParam().couponStatus
+              },
+              pageSize   : 5,
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  var list = res.data.result || [];
+                  list.map(function(item) {
+
+                      if (item.couponBatch.limitMoney) {
+                           item.limitMoney = '满' + item.couponBatch.limitMoney + '元可用';
+                      } else {
+                           item.limitMoney = '无限额使用';
+                      }
+
+                      item = formatted(item);
+                  });
+                  return list;
+              }
+              ">
+
+        </section>
+        <!--/ 列表 coupon-list -->
+
+        <div class="crosswise-full-btn">
+            <a href="./coupons-disabled.html">查看失效代金券<i class=" uricon-arrow-right"></i></a>
+        </div>
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/public/enterprise/images/nocoupon.png" alt="">
+        <p>暂无可用代金券</p>
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="coupon-item {{d.className}}">
+        <a href="./detail.html?id={{d.couponNo}}">
+            <dl>
+                <dt>
+                <div class="coupon-info">
+                    <p class="price">&yen; <big>{{d.couponBatch.money}}</big></p>
+                    <p>{{d.limitMoney}}</p>
+                </div>
+                </dt>
+                <dd>
+                    <p class="coupon-title">{{d.couponBatch.couponName}}</p>
+                    <div class="coupon-desc">
+                        <p class="text-overflow">{{d.stageName}}</p>
+                        <p>{{d.startDate}}-{{d.endDate}}</p>
+                    </div>
+                </dd>
+            </dl>
+        </a>
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/public/plugins/template.js"></script>
+<script src="/public/enterprise/scripts/coupons.js"></script>
+</body>
+
+</html>

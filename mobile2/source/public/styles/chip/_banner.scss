@@ -1,0 +1,6 @@
+.banner-image-box {
+    @include fixed-ratio-box(69.333);
+    .banner-image {
+        @include fixed-ratio-inner;
+    }
+}

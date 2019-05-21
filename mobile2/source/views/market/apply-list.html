@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>U应用</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/market/styles/apply-list.css">
+</head>
+
+<body class="">
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar-trans.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <!--<section class="advertisement">-->
+            <!--<div class="img-box">-->
+                <!--<span style="background-image: url('/assets/public/market/images/banner.jpg')"></span>-->
+            <!--</div>-->
+        <!--</section>-->
+            <h2 class="text-title">U应用</h2>
+            <section class="banners swiper-fixed-ratio">
+            <div class="swiper-container banner-list">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+            <ul class="apply-list">
+            <li>
+                <a href="./book.html">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/yjsw.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>一键上网</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/fkyy.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>访客预约</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/ydy.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>云打印</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/ofo.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>共享单车</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/mb.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>磨呗</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/dkgy.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>蛋壳公寓</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/fws.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>服务商</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <dl>
+                        <dt>
+                            <img src="/assets/public/market/images/apply/trz.png" alt="">
+                        </dt>
+                        <dd>
+                            <p>投融资</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+                <li>
+                    <a href="javascript:;">
+                        <dl>
+                            <dt>
+                                <img src="/assets/public/market/images/apply/hdx.png" alt="">
+                            </dt>
+                            <dd>
+                                <p>活动行</p>
+                            </dd>
+                        </dl>
+                    </a>
+                </li>
+        </ul>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<script>
+    var Index = {
+        init: function() {
+            this.bindEvent();
+        },
+        bindEvent:function () {
+
+        }
+    };
+
+    $(function() {
+        Index.init();
+    });
+    var mySwiper = new Swiper ('.swiper-container', {
+        loop: true,
+        speed: 200,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false,
+        simulateTouch: false,
+        pagination : '.swiper-pagination',
+    })
+</script>
+</body>
+
+</html>

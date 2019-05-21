@@ -1,0 +1,46 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "id": 112122,
+        "name": "健身房",
+        "workstageId": 90121,
+        "location": "一楼健身房",
+        "image": "http://ouip1glzq.bkt.clouddn.com/0f0307b7-ed52-41dd-a372-2663470dc24d.jpg",
+        "planImage": "http://ouip1glzq.bkt.clouddn.com/d9ee0656-d9a5-4e2d-a40e-1eb6ab482fce.png",
+        "reservableLockerNum": 1,
+        "categories": [
+            {
+                "id": 18,
+                "name": "小柜子",
+                "image": "http://ouip1glzq.bkt.clouddn.com/aa27f1e0-1424-4205-a006-da8a3baaec39.jpg",
+                "price": 34,
+                "openType": 2,
+                "openTimeStart": 1509363041333,
+                "openTimeEnd": 1509363041355,
+                "usableLockerNum": 1
+            },
+            {
+                "id": 177,
+                "name": "柜子",
+                "image": "http://ouip1glzq.bkt.clouddn.com/aa27f1e0-1424-4205-a006-da8a3baaec39.jpg",
+                "price": 34,
+                "openType": 2,
+                "openTimeStart": 1509363041333,
+                "openTimeEnd": 1509363041355,
+                "usableLockerNum": 6
+            },
+            {
+                "id": 19,
+                "name": "大柜子",
+                "image": "http://ouip1glzq.bkt.clouddn.com/aa27f1e0-1424-4205-a006-da8a3baaec39.jpg",
+                "price": 2,
+                "openType": 2,
+                "openTimeStart": 1509363451333,
+                "openTimeEnd": 1509311041355,
+                "usableLockerNum": 0
+            }
+        ]
+    }
+}
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>会员包</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/enterprise/styles/package.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <!-- 筛选条件 -->
+        <section class="ur-searcher">
+            <ul class="tabs" data-param="type">
+                <li class="active" data-id="0"><a href="javascript:;">企业会员包</a></li>
+                <li data-id="1"><a href="javascript:;">个人会员包</a></li>
+            </ul>
+        </section>
+        <!-- ／筛选条件 -->
+
+        <!-- <section id="banner">
+            <div class="packages-banner">
+                <div class="packages-banner-inner" style="background-image:url(http://placehold.it/400x300) ">
+                </div>
+            </div>
+        </section> -->
+
+        <!-- 列表 swiper-packages  -->
+        <div class="layout-item">
+            <section class="swiper-packages" data-scroll="pullUp" data-options="
+              url: '/rentMeetingRoom/rentOrderList',
+              url: './data/packages.json',
+              data: {
+              },
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  res = res.data.result || [];
+                 // res.map(function(node) {
+
+                 // });
+                  return res;
+              }
+              ">
+            </section>
+        </div>
+        <!--/ 列表 swiper-packages -->
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpBanner">
+
+</script>
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/public/images/NODATA.png" alt="">
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="piclist-item">
+        <div class="piclist-image-box">
+            <a class="piclist-image lazy" href="./package-detail.html"
+               data-src="http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg"></a>
+        </div>
+        <div class="outer-text-box">
+            <div class="outer-msg">
+                <p class="outer-title">工位大礼包工位大礼包工位大礼包</p>
+                <p class="outer-price">
+                    <small>¥</small>
+                    299.00
+                </p>
+            </div>
+            <div class="outer-buy">
+                <button class="btn btn-buy">立即购买</button>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/enterprise/scripts/package.js"></script>
+</body>
+
+</html>

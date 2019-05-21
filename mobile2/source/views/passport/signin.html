@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录|注册</title>
+    <script>
+        var ENV_VAR = {
+            SIGN_IMG_LENGTH: 4
+        };
+    </script>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/passport/passport.css">
+</head>
+
+<body no-downloadbar>
+    <!-- wrapper -->
+    <div class="wrapper wrapper-app">
+        @import "topbar-trans.tpl"
+        <!-- main -->
+        <main id="main">
+            <div class="signin-bg">
+                <span class="fixed-img" id="signinImg" style="background-image: url('/assets/public/passport/images/bg/bg_1.jpg')">
+                    <img src="/assets/public/images/logo-white.png" alt="">
+                </span>
+            </div>
+            <div class="tab" data-role="tab">
+                <div class="tabs" data-tab-role="tabs">
+                    <ul>
+                        <li data-tab-role="tab">登录</li>
+                        <li data-tab-role="tab">注册</li>
+                    </ul>
+                </div>
+                <div class="tabbed" data-tab-role="tabbed">
+                    <div class="tab-group signin-group" data-tab-role="group">
+                        <form id="loginForm" class="form form-second form-passport">
+                            <div class="form-item">
+                                <div class="input-item"><input type="tel" class="input" autocomplete="off" name="mobile" placeholder="手机号"/></div>
+                            </div>
+                            <div class="form-item">
+                                <div class="input-item"><input type="password" class="input" autocomplete="off" name="password" placeholder="密码"/></div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="btn btn-primary">登录</button>
+                                <div class="action-wrap">
+                                    <a href="#" class="forget-link">忘记密码</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-group" data-tab-role="group">
+                        <form id="registerForm" class="form form-second form-passport">
+                            <div class="form-item">
+                                <div class="input-item"><input type="tel" autocomplete="off" class="input" name="mobile" placeholder="手机号"/></div>
+                            </div>
+                            <div class="form-item">
+                                <div class="valid-code-item">
+                                    <div class="input-item"><input type="text" autocomplete="off" class="input" name="smsCode" placeholder="验证码"/></div>
+                                    <button type="button" disabled id="sendBtn" class="btn-code">获取验证码</button>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="input-item"><input type="password" autocomplete="off" class="input" name="password" placeholder="密码(6-18位）"/></div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="btn btn-primary">注册</button>
+                                <div class="action-wrap text-center">
+                                    注册即视为同意 <a href="http://m.urwork.cn" target="_blank" class="color-def">优客工场注册协议</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--/ main -->
+    </div>
+    <!-- /wrapper -->
+
+    @import "footer-common.tpl"
+    <script src="/assets/public/passport/scripts/passport.js"></script>
+    <script src="/assets/public/passport/scripts/signin.js"></script>
+</body>
+
+</html>

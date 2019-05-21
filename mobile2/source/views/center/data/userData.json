@@ -1,0 +1,10 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "meetingRoomOrderCnt": 35,
+        "couponCnt": 0,
+        "rentOrderCnt": 1,
+        "productOrderCnt": 4
+    }
+}

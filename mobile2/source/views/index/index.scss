@@ -1,0 +1,375 @@
+@charset "UTF-8";
+/**
+ * index.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * slide-reset（轮播图-固定比例盒模型重置）
+ * open-door
+ * content-inner
+ * layout-item
+ * swiper-fixed-ratio
+ * btn-list
+ * image-list
+ * crosswise-full-btn
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'plugins/swiper';
+@import 'chip/banner';
+@import 'chip/piclist';
+@import 'chip/pictextlist';
+@import 'chip/notice';
+@import 'tab/tab';
+
+/* open-door
+---------------------------------------- */
+.open-door {
+    position: relative;
+    z-index: 1;
+}
+
+.open-door-btn {
+    &:active {
+        background: $color-primary-darken;
+    }
+    position: absolute;
+    top: 60%;
+    right: 0;
+    width: 56px;
+    height: 56px;
+    margin-right: 22px;
+    margin-top: -20px;
+    background: $color-primary;
+    border-radius: 50%;
+    color: $font-white;
+    font-size: 14px;
+}
+
+/* info-slide
+---------------------------------------- */
+.info-slide {
+    .swiper-pagination {
+        padding-bottom: 10px;
+        position: static;
+        bottom: auto;
+    }
+    .swiper-pagination-bullet {
+        margin: 0 4px;
+        background: #fff;
+        @include border-circle(#808080);
+        // border:1px solid #808080;
+    }
+    .swiper-pagination-bullet-active {
+        background: #808080;
+    }
+    .icon-list {
+        padding-bottom: 10px !important;
+    }
+}
+
+/* content-inner
+---------------------------------------- */
+.index-user {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    .greeting {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        padding-right: 75px;
+        padding-bottom: 12px;
+        line-height: 30px;
+        font-size: 22px;
+        font-weight: 100;
+        em {
+            @include text-overflow;
+            float: left;
+            max-width: 88%;
+        }
+    }
+    .icon-list {
+        margin: 0;
+        padding-bottom: 20px;
+        a {
+            position: relative;
+        }
+    }
+    .new {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 11px;
+        margin-left: 9px;
+    }
+}
+
+.notice-mod {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* swiper-fixed-ratio
+---------------------------------------- */
+.swiper-fixed-ratio {
+    margin-right: -8px;
+    .swiper-container {
+        overflow: visible;
+        .piclist-item {
+            margin-right: 8px;
+        }
+    }
+}
+
+.swiper-helpclub {
+    .piclist-image-box {
+        &:before {
+            padding-top: 100%;
+        }
+    }
+}
+
+.tabbed-uwu .piclist-item .piclist-image-box {
+    &:before {
+        padding-top: 58.282%;
+    }
+}
+
+/* btn-list
+---------------------------------------- */
+.btn-list {
+    @include clearfix;
+    margin-left: -10px;
+    margin-bottom: -15px;
+    li {
+        position: relative;
+        float: left;
+        width: 25%;
+        padding-left: 10px;
+        padding-bottom: 15px;
+    }
+    a {
+        display: block;
+        width: 100%;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        @include padding-h(0);
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+        line-height: 30px;
+    }
+}
+
+/* image-list
+---------------------------------------- */
+.pictext-list {
+    .pictext-item {
+        background: #fafafa;
+    }
+    li {
+        &:last-child {
+            margin-bottom: 0;
+        }
+        margin-bottom: 10px;
+    }
+    a {
+        display: block;
+    }
+}
+
+/* crosswise-full-btn
+---------------------------------------- */
+.crosswise-full-btn {
+    display: block;
+    padding: 25px 45px;
+    line-height: 34px;
+    text-align: center;
+    a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 36px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        line-height: 34px;
+        font-size: 13px;
+        color: $font-666;
+    }
+    img {
+        position: relative;
+        top: -1px;
+        vertical-align: middle;
+        width: 18px;
+        margin-right: 8px;
+    }
+}
+
+/* Layout
+---------------------------------------- */
+
+/* banner-item
+---------------------------------------- */
+.banner-item {
+    display: flex;
+    justify-content: space-between;
+    a {
+        display: block;
+        //height: rem(190);
+        flex: 1;
+        &:nth-child(1) {
+            padding-right: 5px;
+        }
+        &:nth-child(2) {
+            padding-left: 5px;
+        }
+    }
+}
+
+/* tabs-uwu
+---------------------------------------- */
+.tab-primary > .tabs-uwu {
+    border-bottom: 0;
+    @include border-bottom(#e5e5e5);
+    ul {
+        display: flex;
+        height: auto;
+        //padding-bottom: 10px;
+        margin-bottom: 20px;
+        @include border-bottom(#e5e5e5);
+    }
+    li {
+        &:first-child {
+            text-align: left;
+        }
+        &:last-child {
+            text-align: right;
+        }
+        &.active {
+            border-bottom: 0;
+            span {
+                color: #fff;
+                background: $font-def;
+            }
+        }
+        line-height: 44px;
+        text-align: center;
+        padding: 0;
+        flex: 1;
+        font-size: 12px;
+        color: #999;
+        span {
+            border-radius: 14px;
+            padding: 4px 10px;
+            transition: all .3s;
+        }
+    }
+}
+
+.uwu-header {
+    font-size: 18px;
+    line-height: 52px;
+}
+
+.ptn {
+    padding-top: 0 !important;
+}
+
+/* NeedList & NeedItem
+---------------------------------------- */
+
+.need-list {
+    li:not(:last-of-type) {
+        @include border-bottom($border-def);
+    }
+    li:first-of-type {
+        .need-item {
+            padding-top: 0;
+        }
+    }
+    li:last-of-type {
+        .need-item {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.need-item {
+    display: block;
+    @include padding-v(20px);
+
+    .need-user-info {
+        margin-bottom: 5px;
+        color: #999;
+        font-size: 12px;
+        line-height: 1;
+    }
+    .pic {
+        overflow: hidden;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 9px;
+        border-radius: 50%;
+        vertical-align: middle;
+        background-color: #f0f0f0;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .name {
+        display: inline-block;
+        padding-right: 9px;
+        vertical-align: middle;
+    }
+    .company {
+        display: inline-block;
+        padding-left: 10px;
+        @include border-left($border-def);
+        vertical-align: middle;
+    }
+
+    .need-text {
+        overflow: hidden;
+        max-height: 50px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 25px;
+    }
+    .need-tag {
+        float: left;
+        display: inline-block;
+        @include padding-h(5px);
+        background-color: $color-primary;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 18px;
+        vertical-align: middle;
+
+        b {
+            display: inline-block;
+            font-weight: normal;
+            transform: scale(.9);
+        }
+    }
+    time {
+        float: right;
+        color: #999;
+        font-size: 12px;
+        transform: scale(.9);
+    }
+    .need-attr {
+        @include clearfix;
+    }
+}

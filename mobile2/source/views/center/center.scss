@@ -1,0 +1,111 @@
+@charset "UTF-8";
+/**
+ * center.scss
+ *
+ * @project       www.urwork.cn
+ * @author        zhanggy
+ * @copyright
+ */
+/**
+ * CSS Menu
+ * 图片图标
+ * 信息展示
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import "chip/menuitem";
+
+/* 图片图标
+----------------------------------------------------*/
+[class^="urimg-"] {
+    //@include position-center-y();
+    background: url(images/mark.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    transform-origin: 0 0;
+    background-size: cover;
+}
+
+.urimg-join {
+    margin-left: 6px;
+    background-position: 0 0;
+}
+
+.urimg-vip {
+    margin-top: 2px;
+    background-position: 0 -15px;
+}
+
+.menu-list {
+    margin-top: rem(16);
+    @include padding-h(20px);
+    background-color: #fff;
+}
+
+.user-center-profile {
+    @include fixed-ratio-box(30.6667);
+
+    &-inner {
+        @include fixed-ratio-inner();
+        background-image: url('./images/bg.png');
+    }
+
+    dl {
+        @include padding-h(20px);
+        @include clearfix();
+        @include position-center-y();
+        width: 100%;
+    }
+
+    dt {
+        float: left;
+        margin-right: 10px;
+
+        img {
+            width: 55px !important;
+            height: 55px !important;
+            border-radius: 50%;
+        }
+    }
+
+    .user-name {
+        font-size: 14px;
+        color: $font-def;;
+    }
+
+    .user-desc {
+        @include text-overflow();
+        line-height: 1.6;
+        font-size: 11px;
+        color: $font-666;
+    }
+}
+
+.btn-wrapper {
+    padding: 39px 0;
+    text-align: center;
+    .btn {
+        margin: 0 auto;
+        width: 58%;
+        height: 35px;
+        line-height: 33px !important;
+        border-color: #b7b7b7;
+        font-size: 13px;
+        color: $font-999;
+    }
+}
+.menu-title{
+    position:relative;
+    .point{
+        display:inline-block;
+        width:rem(10);
+        height:rem(10);
+        background:#fd6e37;
+        border-radius:50%;
+        position:absolute;
+        left:64px;
+    }
+}

@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@import 'variable';
+@import 'mixins';
+@import "chip/tabs";
+@import 'refresh/refresh';
+
+.order-item{
+    margin-top: 10px;
+    & > a{
+        display: block;
+    }
+    .item-status{
+        @include clearfix;
+        padding: 10px 20px;
+        background: #fff;
+        h3{
+            float: left;
+        }
+        p{
+            float: right;
+            color: $color-primary;
+        }
+    }
+    .item-info{
+        padding: 20px;
+        background: #f7f7f7;
+        dl{
+            display: flex;
+            dt{
+                flex:1;
+                width: 75px;
+                height:75px;
+                overflow: hidden;
+                margin-right: 18px;
+            }
+            dd{
+                flex:3.2;
+                .cabinet-name{
+                    @include clearfix;
+                    p{
+                        float: left;
+                        width: 125px;
+                        @include text-overflow;
+                        font-size: 14px;
+                    }
+                    h3{
+                        float: right;
+                        color: #999;
+                    }
+                }
+                .cabinet-type{
+                    font-size: 12px;
+                    color: #999;
+                    padding: 5px 0;
+                }
+                .cabinet-location{
+                    font-size: 12px;
+                    color: #999;
+                }
+            }
+        }
+    }
+    .item-handle{
+        padding: 0 20px;
+        background: #fff;
+        text-align: right;
+        .item-cost{
+            padding: 10px 0;
+            em{
+                font-weight: 600;
+            }
+        }
+        .btn-wrap{
+            padding: 8px 0;
+            @include border-top(#e6e6e6);
+            @include clearfix;
+            .btn{
+                float: right;
+                height: 25px;
+                margin-left: 10px;
+            }
+        }
+        .pay-now::after{
+            content: '立即付款';
+        }
+        .end-use::after{
+            content: '结束使用';
+        }
+        .cancel-order::after{
+            content: '取消订单';
+        }
+    }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vip首页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/vip/vip.css">
+</head>
+
+<body>
+    <div class="coupon-shadow">
+        <div class="coupon-bg">
+            <img src="/assets/public/vip/images/vip-coupon.png" alt="" width="100%">
+            <a href="javascript:;" class="coupon-close"></a>
+            <p class="coupon-text"><strong>尊敬的会员</strong><br /><br />工位和会议室的优惠券<br />已存入您的账户</p>
+            <a href="http://www.baidu.com
+            " class="coupon-btn">去看看</a>
+        </div>
+    </div>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- wrapper-inner -->
+        <div class="wrapper-inner">
+            <!-- main -->
+            <main id="main">
+                <!-- content -->
+                <div id="content">
+                    <!-- 未付费开通 -->
+                    <div class="vip-user">
+                        <div class="vip-inner">
+                            <span style="background-image:url(/assets/public/vip/images/vip-banner-normal.jpg)"></span>
+                        </div>
+                        <div class="vip-user-info">
+                            <a href="javascript:;" class="tip-text"><i class="uricon-tip"></i>VIP 会员权益说明</a>
+                            <h2><span class="title-icon-normal"></span>付费会员</h2>
+                            <div class="vip-info">
+                                <div class="auto-box">
+                                    <div class="info-text">
+                                        <p class="text-tittle">
+                                            <span>赵常宇</span>
+                                        </p>
+                                        <p><span>会员身份已过期，续费即可享受更多特权</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /未付费开通 -->
+                    <!-- 已付费开通 -->
+                    <div class="vip-user">
+                        <div class="vip-inner">
+                            <span style="background-image:url(/assets/public/vip/images/vip-banner-vip.jpg)"></span>
+                        </div>
+                        <div class="vip-user-info">
+                            <a href="javascript:;" class="tip-text"><i class="uricon-tip"></i>VIP 会员权益说明</a>
+                            <h2><span class="title-icon-vip"></span>付费会员</h2>
+                            <div class="vip-info">
+                                <div class="auto-box">
+                                    <div class="info-text">
+                                        <p class="text-tittle"><span>小金豆</span></p>
+                                        <p><span>有效期  15/12/12-16/08/16</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /已付费开通 -->
+                    <!-- 未登录 -->
+                    <div class="vip-user">
+                        <div class="vip-inner">
+                            <span style="background-image:url(/assets/public/vip/images/vip-banner-normal.jpg)"></span>
+                        </div>
+                        <div class="vip-user-info">
+                            <a href="javascript:;" class="tip-text"><i class="uricon-tip"></i>VIP 会员权益说明</a>
+                            <h3>尊享会员特权<br />开通即享好礼</h3>
+                            <em>加入URWORK会员</em>
+                        </div>
+                    </div>
+                    <!-- /未登录 -->
+                    <div class="vip-privilege">
+                        <h3><span>优客工场会员特权</span></h3>
+                        <ul>
+                            <li>租赁开放工位</li>
+                            <li>租赁开放会议室</li>
+                            <li>赠送时租优惠券</li>
+                        </ul>
+                        <ul>
+                            <li>专享社交功能</li>
+                            <li>畅享服务商优惠</li>
+                            <li>点亮专属身份</li>
+                        </ul>
+                    </div>
+                    <div class="vip-btn">
+                        <a href="javascript:;" class="btn-item">立即续费</a>
+                        <p><a href="javascript:;"><i class="uricon-tip"></i>VIP 会员权益说明</a></p>
+                    </div>
+                </div>
+                <!-- / content -->
+            </main>
+            <!-- / main -->
+        </div>
+        <!-- / wrapper-inner -->
+    </div>
+    <!--/ wrapper -->
+    @import "footer-common.tpl"
+<script>
+$(function() {
+    var timer;
+    timer=setTimeout(function(){
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'fast');
+    },0);
+    $('body')
+        .on('click','.coupon-close',function(){
+            $('.coupon-shadow').remove();
+        })
+        .on('touchmove','.coupon-shadow',function(ev){
+            ev.preventDefault();
+        });
+
+});
+</script>
+</body>
+</html>

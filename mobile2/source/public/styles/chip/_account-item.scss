@@ -1,0 +1,99 @@
+.account-list {
+    li {
+        @include padding-v(rem(32));
+        border-bottom: 1px solid #e5e5e5;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        &.account-title {
+            @include margin-h(rem(-40));
+            margin-top: -1px;
+            padding: rem(20) rem(40) rem(15);
+            font-size: 12px;
+            color: $font-def;
+            background-color: #fafafa;
+            border-bottom: none !important;
+        }
+    }
+}
+
+.account-item {
+    @include clearfix();
+    padding-left: rem(242);
+    padding-right: rem(180);
+    line-height: 20px;
+    color: $font-999;
+
+    .desc-wrap {
+        margin-right: rem(-180);
+        width: rem(140);
+        float: right;
+        text-align: right;
+    }
+
+    .info-wrap {
+        float: left;
+        display: flex;
+        margin-left: rem(-242);
+        width: rem(222);
+        @include clearfix();
+    }
+
+    .text-wrap {
+        font-size: 12px;
+
+        p {
+            @include text-overflow;
+        }
+    }
+
+    .desc-price,
+    .desc-price-center {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .desc-price-center {
+        line-height: 38px;
+    }
+
+    .desc-type {
+        font-size: 12px;
+    }
+
+    .img-wrap {
+        @include fixed-ratio-box(100);
+        width: 20px;
+        display: block;
+        border-radius: 50%;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .image {
+            @include fixed-ratio-inner;
+        }
+    }
+    .time-wrap {
+        font-size: 11px;
+    }
+
+    .user-info-wrap {
+        flex: 1;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .text-title {
+        position: relative;
+        color: #333;
+        font-size: 14px;
+    }
+
+}

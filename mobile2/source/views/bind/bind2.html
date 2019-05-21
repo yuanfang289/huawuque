@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>绑定优客工场账号</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/bind/bind.css">
+</head>
+
+<body no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        @import "topbar-def.tpl"
+
+        <!-- main -->
+        <main id="main">
+            <form action="" id="bindForm2" class="form form-second form-bind">
+                <input type="hidden" name="mobile" value="13311331133">
+                <h2 class="legend">您是优客工场新用户<br>请设置登录密码</h2>
+                <div class="form-item">
+                    <div class="input-item"><input type="password" class="input" id="password" name="password" autocomplete="off" placeholder="设置优客工场密码(6-18位）"/></div>
+                </div>
+                <div class="form-item">
+                    <div class="input-item"><input type="password" class="input" name="rePassword" autocomplete="off" placeholder="重复输入密码"/></div>
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary">确定</button>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+    <script src="/assets/public/plugins/jquery.validate.js"></script>
+    <script src="/assets/public/bind/scripts/bind.js"></script>
+</body>
+
+</html>

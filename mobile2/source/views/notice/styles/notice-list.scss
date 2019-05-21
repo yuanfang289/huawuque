@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       www.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * NoticeItem
+ * Layout
+ */
+
+@import 'variable';
+@import 'mixins';
+@import 'refresh/refresh';
+
+/* NoticeItem
+---------------------------------------- */
+.notice-item {
+    padding: 15px;
+    h5 {
+        @include text-overflow;
+        margin-bottom: 5px;
+        color: #333;
+        font-size: 14px;
+    }
+    .attrs {
+        @include clearfix;
+        color: #999;
+        font-size: 12px;
+        p {
+            width: 50%;
+        }
+        p:first-child {
+            float: left;
+        }
+        p:last-child {
+            float: right;
+            text-align: right;
+        }
+    }
+}
+
+/* Layout
+---------------------------------------- */
+.notice-list {
+    li {
+        @include border-bottom(#e5e5e5);
+    }
+}
+#pullUp {
+    &.pull-loading .pullUpIcon {
+        background-image: url('../../images/component/ajax-loading.gif');
+    }
+}

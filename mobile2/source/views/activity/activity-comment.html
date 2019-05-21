@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>活动评论</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/activity/activity-comment.css">
+</head>
+<body style="background-color: #f5f5f5;">
+    <div class="herder">
+        <a class="cancel" href="javascript:void(0)">取消</a>
+        <span>发表评论</span>
+        <a class="confirm f-dn" href="javascript:void(0)">发送</a>
+    </div>
+    <div class="content">
+        <form action="">
+            <p class="prompt">回复<span>asdfsadf</span>:</p>
+            <textarea name="" id="" placeholder="写评论..." autofocus="autofocus" maxlength="140"></textarea>
+            <div class="count">0/140</div>
+        </form>
+    </div>
+</body>
+<script>
+    var Comment={
+        init:function () {
+            var textarea = $("textarea");
+            textarea
+                .attr("style","text-indent:"+($('.prompt').width()+5)+"px" )
+                .trigger("click").focus()
+                .on("blur",this.textareaJudge)
+                .on("keyup",this.textareaJudge);
+            $(".cancel").on("click",function () {
+                window.history.go(-1);
+            })
+        },
+        textareaJudge:function () {
+            var textarea = $("textarea");
+            if(textarea.val()==""||/^[\r\n\s\t\n]+$/.test(textarea.val())){
+                $(".confirm").hasClass("f-dn")?null:$(".confirm").addClass("f-dn");
+            }else{
+                $(".confirm").hasClass("f-dn")&&$(".confirm").removeClass("f-dn");
+            }
+            $(".count").html(textarea.val().length+"/140");
+        }
+    };
+    $(function () {
+        Comment.init();
+    })
+</script>
+</html>

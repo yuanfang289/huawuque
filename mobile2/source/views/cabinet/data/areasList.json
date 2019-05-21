@@ -1,0 +1,38 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "pageSize": 20,
+        "currentPageNo": 1,
+        "totalRecord": 1,
+        "result": [
+            {
+                "id": 42,
+                "name": "健身房",
+                "workstageId": 90121,
+                "location": "一楼健身房",
+                "image": "http://ouip1glzq.bkt.clouddn.com/0f0307b7-ed52-41dd-a372-2663470dc24d.jpg",
+                "categoryNames": [
+                    "小柜子"
+                ]
+            },
+            {
+                "id": 43,
+                "name": "美容房",
+                "workstageId": 90121,
+                "location": "二楼健身房",
+                "image": null,
+                "categoryNames": [
+                    "小柜子",
+                    "超级柜子"
+                ]
+            }
+        ],
+        "lastPageNo": 1,
+        "prevPageNo": 1,
+        "nextPageNo": 1,
+        "totalPage": 1,
+        "beginRow": 0,
+        "endRow": 20
+    }
+}

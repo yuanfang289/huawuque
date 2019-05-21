@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'chip/account-item';
+
+.list-banner{
+    margin-bottom: rem(16);
+    .list-banner-inner{
+        background: #2f2f2f;
+        .bill-box{
+            @include clearfix;
+            background: #2f2f2f;
+            padding: rem(24) rem(32);
+            color: #999;
+            font-size:12px;
+            .current-bill{
+                float: left;
+                p{
+                    font-size:14px;
+                }
+            }
+            .all-bill{
+                float: right;
+                a{
+                    color: #999;
+                }
+            }
+        }
+        .wait-pay{
+            @include clearfix;
+            padding: rem(40) rem(36);
+            background: #333;
+            .pay-number{
+                float: left;
+                p{
+                    font-size: 16px;
+                    color: #bc9658;
+                }
+                span{
+                    color: #999;
+                }
+            }
+            .pay-btn{
+                float: right;
+                .go-pay{
+                    color: #ba985f;
+                    border: 1px solid #ba985f;
+                    width: rem(160);
+                    height: rem(60);
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.layout-item {
+    .layout-item-title {
+        margin-top: -4px;
+        padding-bottom: 8px;
+        h2 {
+            font-size: 16px;
+        }
+
+        aside {
+            line-height: 30px;
+            font-size: 12px;
+
+            a {
+                color: $font-999;
+            }
+        }
+    }
+}
+.account-item .text-wrap p{
+    line-height: 38px;
+    font-size: 14px;
+}
+
+.no-bill{
+    min-height: rem(860);
+    position: relative;
+    .img-box{
+        width: rem(280);
+        height: rem(240);
+        @include position-center;
+        p{
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+    }
+}

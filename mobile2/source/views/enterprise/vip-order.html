@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>确认订单</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/enterprise/styles/vip-order.css">
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <script src="/assets/public/plugins/mobiscroll/scripts/mobiscroll.js"></script>
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div data-render="template" data-url="./data/confirm.json">
+
+            <div class="rendering">
+                <div class="img-box">
+                    <div class="img"></div>
+                </div>
+
+                <p>正在加载 . . .</p>
+            </div>
+
+        </div>
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+
+<!-- 企业列表 modal -->
+<div class="modal primary-modal" id="companyModal" role="dialog" data-param="companyId">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="scroller" id="companyContainer">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ 企业列表 modal -->
+
+<script type="text/html" id="companyTpl">
+    <ul class="select-list">
+        {{each list as item}}
+        <li data-id="{{item.id}}" data-aut="{{item.accountAuth}}"><a class="silde-unselected">{{item.name}}<i class="uricon-success-circle"></i></a></li>
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/html" id="pageTpl">
+    <section class="layout-item">
+        <dl class="pictext-item">
+            <dt><span class="lazy" data-src="{{memberPackageOrder.bgImage}}"></span></dt>
+            <dd>
+                <p class="pictext-title">{{memberPackageOrder.memberPackageName}}</p>
+                <div class="pictext-flexbox">
+                    <p class="pictext-flex price">¥{{memberPackageOrder.price}}</p>
+                    <p>x{{memberPackageOrder.count}}</p>
+                </div>
+            </dd>
+        </dl>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm" id="payType">
+            <label data-id="2" data-type="enterprise" class="selected">企业支付</label>
+            {{if memberPackageOrder.packageType == 1}}
+            <label data-id="1" data-type="person">个人支付</label>
+            {{/if}}
+        </div>
+        <div class="info-item-simple flexbox has-ricon" id="companyList">
+            <div class="item-cell">
+                企业
+            </div>
+            <a href="javascript:;" class="item-cell flex val-empty" data-set="companyId"
+               data-toggle="modal" data-target="#companyModal" data-text="去创建"></a>
+            <i class="uricon-arrow-right ricon"></i>
+        </div>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm">电子支付</div>
+        {{if !isWechat}}
+        <div class="info-item-simple flexbox">
+            <label class="item-cell flex" for="alipay">
+                <i class="urimg-alipay"></i>支付宝支付
+            </label>
+            <div class="item-cell">
+                <input type="radio" id="alipay" name="paymethod" value="1" checked>
+            </div>
+        </div>
+        {{/if}}
+
+        {{if isApp || isWechat}}
+        <div class="info-item-simple flexbox">
+            <label class="item-cell flex" for="wechat">
+                <i class="urimg-wechat"></i>微信支付
+            </label>
+            <div class="item-cell">
+                {{if isWechat}}
+                    <input type="radio" id="wechat" name="paymethod" value="3" checked>
+                {{else if !isWechat}}
+                    <input type="radio" id="wechat" name="paymethod" value="3">
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+    </section>
+
+    <section class="info-layout">
+        <div class="info-item">
+            <label class="info-label">商品金额</label>
+            <div class="info-cont price text-right">
+                ¥{{memberPackageOrder.totalAmount}}
+            </div>
+        </div>
+    </section>
+
+    <section class="package-footer">
+        <div class="flex">
+            实付：<span class="price">¥<em id="total">{{memberPackageOrder.totalAmount}}</em></span>
+        </div>
+        <div class="">
+            <button type="button" class="btn btn-primary" id="go">立即购买</button>
+        </div>
+    </section>
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/enterprise/scripts/vip-order.js"></script>
+<script>
+
+
+</script>
+
+<script>
+
+    Page.submit(function(data) {
+        console.log(data)
+    })
+
+</script>
+
+</body>
+
+</html>

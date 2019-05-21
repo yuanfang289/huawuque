@@ -1,0 +1,49 @@
+.service-item {
+    @include clearfix;
+    position: relative;
+    height: 82px;
+    margin-left: 110px;
+    background-color: #fafafa;
+    dt {
+        float: left;
+        width: 110px;
+        height: 100%;
+        margin-left: -110px;
+    }
+    dd {
+        float: left;
+        width: 70%;
+        width: calc(100% - 66px);
+        height: 100%;
+        padding: 15px;
+        .btn-ordering {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%) scale(.5);
+            transform-origin: center right;
+            width: 102px;
+            height: 48px;
+            padding: 0;
+            border-color: #d6d6d6;
+            color: #666;
+            line-height: 44px;
+            font-size: 24px;
+        }
+    }
+    h5 {
+        margin-bottom: 5px;
+        color: #333;
+        font-size: 15px;
+        line-height: 26px;
+    }
+    p {
+        color: #666;
+        font-size: 12px;
+    }
+    &.no-btn {
+        dd {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+{
+    "pageSize": 4,
+    "currentPageNo": 1,
+    "totalRecord": 6,
+    "result": [
+        {
+            "projectDesc": "产品概述",
+            "id": 8,
+            "projectName": "项目名称",
+            "companyLogo": "sdvujodvuf",
+            "cityName": "北京",
+            "stageName": "天使",
+            "companyName": "测试一下",
+            "projectAbstract": "js",
+            "faBpIndustryList": [
+                {
+                    "id": 13,
+                    "bpId": 8,
+                    "userId": 13,
+                    "industryId": 4,
+                    "industryName": "娱乐"
+                },
+                {
+                    "id": 14,
+                    "bpId": 8,
+                    "userId": 13,
+                    "industryId": 7,
+                    "industryName": "网红经济"
+                }
+            ]
+        },
+        {
+            "projectDesc": "产品概述",
+            "id": 7,
+            "projectName": "jdsvkdvj",
+            "companyLogo": "sdvujodvuf",
+            "cityName": "北京",
+            "stageName": "天使",
+            "companyName": "测试一下",
+            "projectAbstract": "js",
+            "faBpIndustryList": [
+                {
+                    "id": 11,
+                    "bpId": 7,
+                    "userId": 13,
+                    "industryId": 2,
+                    "industryName": "互联网保险"
+                },
+                {
+                    "id": 12,
+                    "bpId": 7,
+                    "userId": 13,
+                    "industryId": 3,
+                    "industryName": "出海"
+                }
+            ]
+        },
+        {
+            "projectDesc": "产品概述",
+            "id": 6,
+            "projectName": "jdsvkdvj",
+            "companyLogo": "sdvujodvuf",
+            "cityName": "北京",
+            "stageName": "天使",
+            "companyName": "测试一下",
+            "projectAbstract": "js",
+            "faBpIndustryList": [
+                {
+                    "id": 9,
+                    "bpId": 6,
+                    "userId": 13,
+                    "industryId": 2,
+                    "industryName": "互联网保险"
+                },
+                {
+                    "id": 10,
+                    "bpId": 6,
+                    "userId": 13,
+                    "industryId": 7,
+                    "industryName": "网红经济"
+                }
+            ]
+        },
+        {
+            "projectDesc": "产品概述",
+            "id": 5,
+            "projectName": "jdsvkdvj",
+            "companyLogo": "sdvujodvuf",
+            "cityName": "北京",
+            "stageName": "天使",
+            "companyName": "测试一下",
+            "projectAbstract": "js",
+            "faBpIndustryList": [
+                {
+                    "id": 7,
+                    "bpId": 5,
+                    "userId": 13,
+                    "industryId": 2,
+                    "industryName": "互联网保险"
+                },
+                {
+                    "id": 8,
+                    "bpId": 5,
+                    "userId": 13,
+                    "industryId": 7,
+                    "industryName": "网红经济"
+                }
+            ]
+        }
+    ]
+}

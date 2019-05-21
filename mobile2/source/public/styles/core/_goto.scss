@@ -1,0 +1,50 @@
+#goto {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 890;
+    color: #666;
+    li {
+        overflow: hidden;
+        width: 36px;
+        height: 36px;
+        margin-top: 10px;
+        &.gotop {
+            display: none;
+        }
+        &.feedback {
+            font-size: 14px;
+            line-height: 20px;
+            a {
+                display: block;
+                color: #fff;
+            }
+        }
+    }
+    .icon-wrap {
+        position: relative;
+        top: 0;
+        width: 72px;
+        height: 72px;
+        border: 1px solid #666;
+        border-radius: 50%;
+        background-color: #fff;
+        font-size: 40px;
+        cursor: pointer;
+        transform: scale(.5);
+        transform-origin: 0 0;
+        [class*=uricon-] {
+            @include position-center;
+        }
+    }
+    &.show-gotop {
+        .gotop {
+            display: block;
+        }
+    }
+
+    .has-download-bar &,
+    .chat-input-show & {
+        bottom: 60px;
+    }
+}

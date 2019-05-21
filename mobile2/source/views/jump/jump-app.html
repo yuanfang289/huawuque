@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>好心情游戏厅</title>
+    @import "meta.tpl"
+</head>
+<body>
+<script>
+    $(function () {
+        if(UR.isApp()){
+            UR.setUrl('urwork://group?groupId=1500');
+        }else {
+            UR.openApp.init({
+                intentUrlParams:'urwork://group?groupId=1500'
+            })
+        }
+    })
+</script>
+</body>
+</html>

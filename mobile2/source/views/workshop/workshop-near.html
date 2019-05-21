@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>附近社区</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/workshop/styles/workshop-search.css">
+</head>
+
+<body class="gray-bg" style="background-color: #fff;">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!--@import "common/search.tpl"-->
+            <section class="layout-item search-result-layout refresh-result-layout block">
+                <ul class="search-result-list" id="searchResultList" data-url="data/near.json" data-render="template">
+                    <li style="height: 100%;">
+                        <div class="rendering">
+                            <div class="img-box">
+                                <div class="img"></div>
+                            </div>
+
+                            <p>正在加载 . . .</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <!--<section class="layout-item search-result-layout refresh-result-layout block">-->
+                <!--<ul class="search-result-list" id="searchResultList" data-scroll="pullUp" data-options="-->
+                  <!--url: 'data/list.json',-->
+                  <!--data: {-->
+                      <!--longitude: UR.getBrowserParamByName('longitude'),-->
+                      <!--latitude: UR.getBrowserParamByName('latitude'),-->
+                  <!--},-->
+                  <!--template: 'tplList',-->
+                  <!--isFirstLoad: true,-->
+                  <!--formatted: function(res) {-->
+                      <!--var data = res.data || {};-->
+                        <!--var list = data.result || [];-->
+                        <!--list.map(function(item) {-->
+                            <!--item.averageScore = Math.round(item.averageScore);-->
+                        <!--});-->
+
+                        <!--return list;-->
+                  <!--}-->
+            <!--">-->
+
+                <!--</ul>-->
+            <!--</section>-->
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script src="/assets/public/plugins/template.js"></script>
+    <script>
+        UR.template({
+            templateId:'tplList',
+            renderEl: $('#searchResultList'),
+            ignoreCode: true,
+            data: {
+                longitude: UR.getBrowserParamByName('longitude'),
+                latitude: UR.getBrowserParamByName('latitude'),
+            },
+            renderRedis: function (res) {
+                var list = res.data || [];
+                list.map(function(item) {
+                    item.averageScore = Math.round(item.averageScore);
+                    item.distance = (item.distance / 1000).toFixed(2);
+                    if (item.distance < 0.01) {
+                        item.distance = 0.01;
+                    }
+                });
+
+                return {list: list};
+            },
+        })
+    </script>
+
+    <script type="text/html" id="tplList">
+    {{if list.length == 0}}
+    <li>
+        <div class="result-tips">
+            <div class="result-tips-inner">
+                <img src="/assets/public/images/search-nodata.png" alt="">
+                <p>找不到相匹配的内容</p>
+            </div>
+        </div>
+    </li>
+    {{/if}}
+    {{each list as item i}}
+    {{if i == list.length - 1}}
+    <li>
+        <div class="workshop-search-item">
+            <a href="/workstage/detail?id={{item.id}}">
+                <dl>
+                    <dt>
+                        <img src="{{item.workstageImage}}">
+                    </dt>
+                    <dd>
+                        <div class="flexbox">
+                            <h5>{{item.stageName}}</h5>
+                            <aside>{{item.distance}}km</aside>
+                        </div>
+                        <p>{{item.address}}</p>
+                        <div class="item-attrs">
+                            <div class="attr-item">{{item.rentStationNum}}工位可订</div>
+                            <div class="attr-item">
+                                <div class="score-mod star-min lv-{{item.averageScore}}">
+                                    <div class="star"><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </a>
+            <div class="no-more">
+                没有更多了
+            </div>
+        </div>
+    </li>
+    {{else}}
+    <li>
+        <div class="workshop-search-item">
+            <a href="/workstage/detail?id={{item.id}}">
+                <dl>
+                    <dt>
+                        <img src="{{item.workstageImage}}">
+                    </dt>
+                    <dd>
+                        <div class="flexbox">
+                            <h5>{{item.stageName}}</h5>
+                            <aside>{{item.distance}}km</aside>
+                        </div>
+                        <p>{{item.address}}</p>
+                        <div class="item-attrs">
+                            <div class="attr-item">{{item.rentStationNum}}工位可订</div>
+                            <div class="attr-item">
+                                <div class="score-mod star-min lv-{{item.averageScore}}">
+                                    <div class="star"><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </a>
+        </div>
+    </li>
+    {{/if}}
+    {{/each}}
+    </script>
+</body>
+
+</html>

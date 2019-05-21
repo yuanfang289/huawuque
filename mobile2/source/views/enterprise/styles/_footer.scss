@@ -1,0 +1,27 @@
+
+.package-footer {
+    padding: 9px 20px;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #f5f5f5;
+    color: $font-666;
+
+    .flex {
+        flex: 1;
+        line-height: 40px;
+    }
+
+    span {
+        font-size: 17px;
+        color: $font-def;
+    }
+
+    .btn {
+        width: rem(300);
+        height: 40px;
+        font-size: 17px;
+    }
+}

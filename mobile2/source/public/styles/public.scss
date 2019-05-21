@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/**
+ * public
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+@import "./variable";
+@import "./mixins";
+@import "./core";
+@import "./control";
+@import "./dialog";
+@import "./module";
+@import "./data-null";
+@import "./msgbox";
+@import "./result-tips";
+@import "./input-clear";
+@import "./agree-text";
+@import "chip/render";
+
+/* Link
+ ---------------------------------------- */
+.link-primary {
+    color: $link-primary;
+    text-decoration: none;
+    &:hover {
+        color: $link-primary-color;
+    }
+}
+.link-second {
+    color: $link-second;
+    text-decoration: none;
+    &:hover {
+        color: $link-second-hover;
+    }
+}
+
+/* Layout
+ ---------------------------------------- */
+.swiper-wrap-hidden {
+    overflow: hidden !important;
+}
+// banner
+.banner-item {
+    margin-top: rem(20);
+    margin-bottom: rem(20);
+    @include padding-h(20px);
+}
+
+.swiper-layout {
+    overflow: hidden;
+}

@@ -1,0 +1,119 @@
+{
+    "data": {
+        "name": "耿希",
+        "tel": "18612188658",
+        "emial": "",
+        "stageName": "方圆大厦·优客工场",
+        "meetingroomName": "你好世界",
+        "peopleNumber": 12,
+        "time": "2017-04-07 12:00至12:30",
+        "hours": "0.5",
+        "rentalPrice": "0.02",
+        "totalPrice": "0.02",
+        "plantId": 10022,
+        "meetingRoomId": 19820346,
+        "startTime": "2017-04-07 12:00:00",
+        "endTime": "2017-04-07 12:30:00",
+        "leftTime": 0,
+        "pic": "http://7xp26u.com1.z0.glb.clouddn.com/c7e7e7c8-9224-4056-8c76-0da1481d8914.jpg",
+        "city": "北京市",
+        "list": [
+            {
+                "name": "Android测试无线公司232344545456546423123123",
+                "id": 241,
+                "countTime": "21.0",
+                "accountAuth": 0
+            },
+            {
+                "name": "Google1111111",
+                "id": 291,
+                "countTime": "10.0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google22222222222",
+                "id": 292,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google33333333333",
+                "id": 293,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google444444444444",
+                "id": 294,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google55555555555",
+                "id": 295,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google66666666666",
+                "id": 296,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google7777777777",
+                "id": 297,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google8888888",
+                "id": 298,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google9999",
+                "id": 299,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google8888888",
+                "id": 2911,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google8888888",
+                "id": 2912,
+                "countTime": "0",
+                "accountAuth": 1
+            },
+            {
+                "name": "Google8888888",
+                "id": 2913,
+                "countTime": "0",
+                "accountAuth": 1
+            }
+        ],
+        "floor": 12,
+        "allowTime": 1,
+        "payHours": "1.0",
+        "byHours": 2,
+        "meetingType": 0,
+        "selectDate": "2017-04-07",
+        "selectWeekDay": 5,
+        "workstageAddress": "北京市海淀区中关村南大街甲56号方圆大厦商务楼1-3层",
+        "openStartTime": "6:00",
+        "openEndTime": "24:00",
+        "meetingRoomTel": 0,
+        "meetingRoomProjector": 0,
+        "meetingRoomSound": 0,
+        "meetingRoomVideo": 0,
+        "isCoupons": 0,
+        "roomType": 2
+    },
+    "retCode": 0,
+    "retMsg": "success"
+}

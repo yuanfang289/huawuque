@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="is-app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/example/header-switch.css">
+</head>
+
+<body>
+
+    <div id="filterTransform">
+        <!-- header -->
+        <header id="header" class="header-transparent transparent-def">
+            <!-- titlebar -->
+            <div id="titlebar">
+                <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+                <span class="title">场地</span>
+            </div>
+            <!-- /titlebar -->
+        </header>
+        <!-- /header -->
+
+        <div class="filter-wrap">
+            <ul id="filters">
+                <li>啊</li>
+                <li>吧</li>
+                <li>车</li>
+                <li>的</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- main -->
+        <main id="main">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+            </ul>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <script>
+        $(function() {
+            var $wrap = $('.wrapper');
+            var $header = $('#header');
+            var $filterTransform = $('#filterTransform');
+            var $filterWrap = $('.filter-wrap');
+            var $filters = $('#filters');
+
+
+            var filterHeight = $filters.outerHeight();
+            var fire = filterHeight / 2;
+            var isFirst = false;
+            var start, end;
+            var isTopToBottom, currentDirection;
+            var currentDirectionChenged = false;
+            var wrapCurrentHeight;
+            var wrapHeight;
+            var i = 0;
+            $filterWrap.height(filterHeight);
+
+            $wrap[0].addEventListener('touchstart', function() {
+                wrapCurrentHeight = $filterWrap.outerHeight();
+            });
+
+            $wrap[0].addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                var screenY = e.touches[0].screenY;
+                if (!isFirst) {
+                    isFirst = true;
+                    start = screenY;
+                }
+                if (end === screenY) return;
+
+                if (screenY > end) {
+                    isTopToBottom = true;
+                    if (wrapHeight === filterHeight) return;
+                } else if(screenY < end) {
+                    isTopToBottom = false;
+                    if (wrapHeight === 0) return;
+                }
+
+                if (currentDirection === undefined) {
+                    currentDirection = isTopToBottom;
+                }
+
+                if (currentDirection !== isTopToBottom) {
+                    i = 0;
+                    currentDirection = isTopToBottom;
+                }
+
+                end = screenY;
+
+                var diff = end - start;
+                // 递增
+                // i+=2;
+
+                // 大于0是向下拉
+                diff = diff > 0 ? diff + i : diff - i;
+                wrapHeight = Math.floor(wrapCurrentHeight + diff);
+
+                console.log(wrapHeight, screenY);
+
+                if (wrapHeight <= 0) {
+                    wrapHeight = 0;
+                }
+
+                if (wrapHeight + i >= filterHeight) {
+                    wrapHeight = filterHeight;
+                }
+
+                if (wrapHeight >= 0 && wrapHeight <= filterHeight) {
+                    $filterWrap.height(wrapHeight);
+                }
+            });
+            $wrap[0].addEventListener('touchend', function() {
+
+                var h = $filterWrap.outerHeight();
+
+                // if (h <= fire) {
+                //     $filterWrap.outerHeight(0);
+                // } else {
+                //     $filterWrap.outerHeight(filterHeight);
+                // }
+
+                isFirst = false;
+                start = end = undefined;
+                isTopToBottom = false;
+                currentDirection = isTopToBottom;
+                currentDirectionChenged = false;
+                i = 0;
+            });
+        });
+
+
+
+        function FilterTransform() {
+
+        }
+
+        FilterTransform.prototype = {
+
+        }
+
+    </script>
+</body>
+
+</html>

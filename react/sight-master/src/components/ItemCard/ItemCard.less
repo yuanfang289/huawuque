@@ -1,0 +1,208 @@
+.card {
+  margin-bottom: 24px;
+  width: 600px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  .card-header {
+    border: 1px solid #efefef;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    padding: 16px;
+    align-items: center;
+    .card-header-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #e7e7e7;
+      img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+    }
+    .card-header-name {
+      margin-left: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #262626;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+  .card-img {
+    cursor: pointer;
+  }
+  .card-body {
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid #efefef;
+    .card-body-section {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      .card-body-section-heart {
+        cursor: pointer;
+        font-size: 24px;
+        padding-left: 16px;
+      }
+      .card-body-section-like {
+        cursor: pointer;
+        font-size: 24px;
+      }
+      .card-body-section-share-alt {
+        cursor: pointer;
+        font-size: 24px;
+        padding-left: 16px;
+      }
+    }
+    .card-body-total {
+      font-weight: 600;
+      font-size: 14px;
+      color: #262626;
+    }
+    .card-body-comment {
+      margin-bottom: 0px;
+      font-size: 14px;
+      font-weight: 500px !important;
+      color: #999;
+      cursor: pointer;
+    }
+    .card-body-li {
+      list-style: none;
+      a {
+        color: #262626;
+        font-weight: 600;
+        overflow: hidden;
+        white-space: nowrap;
+        padding-left: 5px;
+        margin-left: -5px;
+        font-size: 14px;
+      }
+      span {
+        color: #c2c2c2;
+        font-size: 14px;
+      }
+    }
+    .card-body-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 56px;
+      border-top: 1px solid #efefef;
+      margin-top: 8px;
+    }
+    .card-body-footer-textarea {
+      background: 0 0;
+      border: 0;
+      color: #262626;
+      font-size: 14px;
+      max-height: 80px;
+      outline: 0;
+      padding: 0;
+      resize: none;
+      cursor: text;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      width: 100%;
+      overflow: auto;
+      line-height: 18px;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.card-test {
+  width: 600px;
+  height: 200px;
+  background: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+  animation: skeleton-loading 1.4s ease infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #fafafa;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fafafa;
+  border: 1px solid #e7e7e7;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #c2c2c2;
+}
+
+/*.ant-card-meta-title {
+  text-align: left;
+}
+
+.ant-card-meta-description {
+  text-align: left;
+}
+
+.ant-card-actions > li {
+  float: left;
+  text-align: center;
+  margin: 0px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ant-card-actions > li > span {
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 22px;
+  min-width: 100%;
+  position: relative;
+  display: block;
+  line-height: 47px;
+}
+
+.ant-card-body {
+  display: none;
+}*/
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .card {
+    margin-bottom: 24px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
+
+  .card .card-header {
+    border: 0px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .card .card-body {
+    border: 0px;
+  }
+
+  .card .card-body .card-body-footer {
+    display: none;
+  }
+
+  .card .card-body .card-body-li {
+    padding-bottom: 16px;
+  }
+}

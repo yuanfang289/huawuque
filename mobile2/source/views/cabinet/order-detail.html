@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/order-detail.css">
+</head>
+<body class="gray-bg">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="station-main">
+
+    </main>
+</div>
+<!--当前订单的状态:1待使用2使用中3待支付4已完成5已取消6订单超时-->
+<script type="text/html" id="mainTlp">
+    {{if lockerOrderStatus.currentStatus == 1}}
+        <!--待使用-->
+        <div class="order-pandect start-billing">
+            <p class="pandect-status time-num"><span>{{activeTime}}</span>秒后自动开始计费</p>
+            <div class="pandect-tip">
+                请检查柜子是否可以正常使用 <br/> 柜子最长使用时间为24小时，请及时处理您的订单
+            </div>
+        </div>
+        <!--待使用/-->
+    {{else if lockerOrderStatus.currentStatus == 2}}
+        <!--使用中-->
+        <div class="order-pandect keep-billing">
+            <div class="main-info">
+                <span>使用时长</span>
+                <p class="time using-time">{{activeTimeShow}}</p>
+                <p class="cost"><span>预估当前费用: <em>￥{{lockerOrderStatus.consumption}}</em></span></p>
+            </div>
+            <div class="pandect-tip margin-small">
+                使用结束后，请收好您的个人物品以免遗落
+            </div>
+        </div>
+        <!--使用中/-->
+    {{else if lockerOrderStatus.currentStatus == 3 || lockerOrderStatus.currentStatus == 4}}
+        <!--已完成/待支付-->
+        <div class="order-pandect end-billing">
+            <div class="main-info">
+                <span>总消费</span>
+                <p class="time">￥{{payAmount}}</p>
+                <p class="cost">
+                    <span>总费用: <em>￥{{lockerOrderStatus.consumption}}</em></span>
+                    <span>使用时长: <em>{{useTimeNum}}小时</em></span>
+                </p>
+            </div>
+            <div class="pandect-tip margin-small">
+                请收好您的个人物品以免遗落
+            </div>
+        </div>
+        <!--已完成/待支付/-->
+    {{else if lockerOrderStatus.currentStatus == 6}}
+        <!--订单超时-->
+        <div class="order-pandect end-billing">
+            <div class="main-info">
+                <span>总消费</span>
+                <p class="time">￥{{payAmount}}</p>
+                <p class="cost">
+                    <span>总费用: <em>￥{{lockerOrderStatus.consumption}}</em></span>
+                    <span>使用时长: <em>24小时</em></span>
+                </p>
+            </div>
+            <div class="pandect-tip margin-small">
+                柜子使用超时，已为您自动结束，请联系运营管理员
+            </div>
+        </div>
+        <!--订单超时/-->
+    {{/if}}
+    <div class="orderCabinet-info table-info">
+        <ul>
+            <li>
+                <h3>预定柜子：</h3>
+                <p>{{lockerName}}</p>
+            </li>
+            <li>
+                <h3>柜子类型：</h3>
+                <p>{{lockerCategoryName}}</p>
+            </li>
+            <li>
+                <h3>柜子位置：</h3>
+                <p>{{lockerLocation}}</p>
+            </li>
+        </ul>
+        <div class="point-line"></div>
+        <ul>
+            <li>
+                <h3>预订人：</h3>
+                <p>{{userName}}</p>
+            </li>
+            <li>
+                <h3>联系方式：</h3>
+                <p>{{mobile}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="order-status table-info">
+        <ul>
+            <li>
+                <h3>订单状态：</h3>
+                <p class="blue-color">{{lockerOrderStatus.strCurrentStatus}}</p>
+            </li>
+            <li>
+                <h3>订单编号：</h3>
+                <p>{{id}}</p>
+            </li>
+            <li>
+                <h3>预定时间：</h3>
+                <p>{{createTime}}</p>
+            </li>
+            {{if lockerOrderStatus.currentStatus == 3 || lockerOrderStatus.currentStatus == 4 || lockerOrderStatus.currentStatus == 6}}
+            <li>
+                <h3>结束时间：</h3>
+                <p>{{useEndTime}}</p>
+            </li>
+            {{/if}}
+            {{if lockerOrderStatus.currentStatus == 4}}
+            <li>
+                <h3>完成时间：</h3>
+                <p>{{payTime}}</p>
+            </li>
+            {{/if}}
+            {{if lockerOrderStatus.currentStatus == 5}}
+            <li>
+                <h3>取消时间：</h3>
+                <p>{{cancelTime}}</p>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+    <div class="bottom-btns" data-id="{{id}}">
+        {{if lockerOrderStatus.currentStatus == 1}}
+        <button class="btn cancel-btn">
+           取消订单
+        </button>
+        <button class="btn btn-primary open-btn">
+            开门
+        </button>
+        {{/if}}
+        {{if lockerOrderStatus.currentStatus == 2}}
+        <button class="btn btn-primary over-btn">
+            结束使用并支付
+        </button>
+        {{/if}}
+        {{if lockerOrderStatus.currentStatus == 3 || lockerOrderStatus.currentStatus == 6}}
+        <button class="btn btn-primary payNow-btn">
+            立即支付
+        </button>
+        {{/if}}
+    </div>
+</script>
+<script src="/assets/public/cabinet/scripts/order-detail.js"></script>
+<script type="text/javascript">
+    var OrderDetail = {
+        init:function () {
+            this.orderNum = UR.getBrowserParam().orderNum;
+            this.diffTime = 0;
+            this.ajaxLoading();
+        },
+        ajaxLoading:function () {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/orderDetail.json',
+//                url:'/locker/orderDetail/+ that.orderNum',
+                type:'GET',
+                dataType:'json',
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    that.render(res.data);
+                }
+            })
+        },
+        render:function (data) {
+            var that = this;
+            $('#main').html(template('mainTlp',that.dataDeal(data)));
+            that.bindEvent();
+        },
+        dataDeal:function (data) {
+            //当前订单的状态:1待使用2使用中3待支付4已完成5已取消6订单超时
+            data.createTime = $.dateFormat(data.createTime, 'yyyy-MM-dd hh:mm');
+            data.cancelTime = $.dateFormat(data.cancelTime, 'yyyy-MM-dd hh:mm');
+            data.useEndTime = $.dateFormat(data.useEndTime, 'yyyy-MM-dd hh:mm');
+            data.payTime = $.dateFormat(data.payTime, 'yyyy-MM-dd hh:mm');
+
+            if(data.lockerOrderStatus.currentStatus == 1){
+                //待使用
+                data.activeTime = parseInt((data.useStartTime - data.currentTime) / 1000);
+                if(data.activeTime > 120){
+                    data.activeTime = 120;
+                }else if(data.activeTime < 0){
+                    data.activeTime = 0;
+                }
+                this.diffTime = data.activeTime;
+            }
+
+            if(data.lockerOrderStatus.currentStatus == 2){
+                //使用中
+                data.activeTime = data.currentTime - data.useStartTime;
+                if (data.activeTime < 0) {
+                    data.activeTime = 0;
+                }
+                this.diffTime = data.activeTime;
+                var hours = parseInt((data.activeTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = parseInt((data.activeTime % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = parseInt((data.activeTime % (1000 * 60)) / 1000);
+                hours >= 10 ? "" : hours == 0 ? hours = "00" : hours = "0" + hours;
+                minutes >= 10 ? "" : minutes == 0 ? minutes = "00" : minutes = "0" + minutes;
+                seconds >= 10 ? "" : seconds == 0 ? seconds = "00" : seconds = "0" + seconds;
+                data.activeTimeShow = hours + ':' + minutes + ':' + seconds;
+            }
+            return data;
+        },
+        bindEvent:function () {
+            //待使用倒计时
+            var $timeBox = $('.time-num').find('span');
+            if($timeBox.length){
+                var activeTime = this.diffTime;
+                var timer = null;
+                clearTimeout(timer);
+                timer = setInterval(function () {
+                    activeTime = activeTime - 1;
+                    if(activeTime >= 0){
+                        $timeBox.html(activeTime);
+                    }else {
+                        // window.location.reload();
+                    }
+                },1000)
+            }
+            //使用中计时器
+            var $usingTimeBox = $('.using-time').find('p');
+            if($usingTimeBox.length){
+                var activeTime = this.diffTime;
+                var timer = null;
+                clearTimeout(timer);
+                timer = setInterval(function () {
+                    activeTime = activeTime + 1000;
+                    var hours = parseInt((activeTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = parseInt((activeTime % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = parseInt((activeTime % (1000 * 60)) / 1000);
+                    hours >= 10 ? "" : hours == 0 ? hours = "00" : hours = "0" + hours;
+                    minutes >= 10 ? "" : minutes == 0 ? minutes = "00" : minutes = "0" + minutes;
+                    seconds >= 10 ? "" : seconds == 0 ? seconds = "00" : seconds = "0" + seconds;
+
+                    if (activeTime < 24 * 60 * 60 * 1000) {
+                        $usingTimeBox.html(hours + ":" + minutes + ":" + seconds);
+                    } else {
+                        // window.location.reload();
+                    }
+                },1000)
+            }
+
+
+
+            var $body = $('body');
+            var that = this;
+            $body
+                .off('click','.cancel-btn')
+                .on('click','.cancel-btn',function () {
+                    console.log('取消订单');
+                    var orderNum = $(this).closest('.bottom-btns').data('id');
+                    UR.dialog.confirm({
+                        message: '您是否要取消订单？',
+                        buttons: {
+                            no: {
+                                label: '取消',
+                                fn: function() {
+
+                                }
+                            },
+                            yes: {
+                                label: '确定',
+                                fn: function() {
+                                    that.cancelOrder(orderNum);
+                                }
+                            }
+                        }
+                    });
+                })
+                .off('click','.open-btn')
+                .on('click','.open-btn',function () {
+                    console.log('开门');
+                })
+                .off('click','.over-btn')
+                .on('click','.over-btn',function () {
+                    console.log('结束使用并支付');
+                    var orderNum = $(this).closest('.bottom-btns').data('id');
+                    UR.dialog.confirm({
+                        message: '您是否要结束使用储物柜？',
+                        buttons: {
+                            no: {
+                                label: '取消',
+                                fn: function() {
+
+                                }
+                            },
+                            yes: {
+                                label: '确定',
+                                fn: function() {
+                                    that.stopOrder(orderNum);
+                                }
+                            }
+                        }
+                    });
+                })
+                .off('click','.payNow-btn')
+                .on('click','.payNow-btn',function () {
+                    console.log('立即支付');
+                })
+        },
+        cancelOrder:function (orderNum) {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/cancel.json',
+//                url:'locker/cancel/+ orderNum',
+                type:'GET',
+                dataType:'json',
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    window.location.reload();
+                }
+            })
+        },
+        stopOrder:function (orderNum) {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/cabinet/data/cancel.json',
+//                url:'locker/stop/+ orderNum',
+                type:'GET',
+                dataType:'json',
+                error:function(){
+                    UR.msg('数据获取失败请刷新重试', {
+                        delay: 2000
+                    })
+                },
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg);
+                        return;
+                    }
+                    console.log('去支付了吧')
+                }
+            })
+        }
+    }
+    $(function () {
+        OrderDetail.init();
+    })
+</script>
+</body>
+</html>

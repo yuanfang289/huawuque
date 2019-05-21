@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>优惠券列表</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/coupon/u-gift.css">
+</head>
+
+<!--工位确认订单时选择优惠券-->
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <ul class="filter-item">
+            <li class="active" data-type="2">企业</li>
+            <li data-type="1">个人</li>
+        </ul>
+        <div class="gift-list" id="giftListLayout">
+
+        </div>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<div class="modal" id="uGiftModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="uricon-close" style="font-size: 18px;"></i></button>
+                <h2>企业尝鲜包接口的反馈给很快就尽快发给风格</h2>
+            </div>
+            <div class="modal-body">
+                <div class="scroller">
+                    <div class="coupon-list">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@import "footer-common.tpl"
+
+<script type="text/html" id="giftList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NOUGIFT.png" alt="">
+        <p>暂无U礼包</p>
+        <p class="data-null-desc">快去挑选您的U礼包吧</p>
+    </div>
+    {{else}}
+    {{each list as d i}}
+        <a href="javascript:;" class="list-item" data-id="{{d.id}}">
+            <dl>
+                <dt><span style="background-image: url({{d.bgImage}});"></span></dt>
+                <dd>
+                    <h4>{{d.memberPackageName}}</h4>
+                    <p>{{d.createTime}}&nbsp;购买</p>
+                    <div class="btn-item">
+                        <p>&yen;{{d.memberPackagePrice}}</p>
+                        <button type="button" class="btn btn-primary to-open">使用礼包</button>
+                    </div>
+                </dd>
+            </dl>
+        </a>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/html" id="openlList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="coupon-item">
+        <a href="javascript:;">
+            <dl>
+                <dt>
+                <div class="coupon-info">
+                    &yen; <span class="price">{{d.money}}</span>
+                </div>
+                </dt>
+                <dd>
+                    <div class="coupon-title"> <h4>{{d.couponName}}</h4> <p>×{{d.count}}</p></div>
+                    <div class="coupon-desc">
+                        <p class="text-overflow">
+                            {{if d.isAllWorkstage == 1}}
+                            全国场区可用
+                            {{else}}
+                            限指定场区可用
+                            {{/if}}
+                        </p>
+                        <p>有效期{{d.expiration}}个月</p>
+                    </div>
+                </dd>
+            </dl>
+        </a>
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/html" id="footerBtn">
+    {{if list.length != 0}}
+    <button class="btn btn-primary put-in" data-companyId="{{list[0].companyId}}" data-packageId="{{list[0].memberPackageInfoId}}">确认使用礼包</button>
+    <p>礼包中的代金券将放入您的个人账户</p>
+    {{/if}}
+</script>
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/coupon/scripts/gift-list.js"></script>
+<script>
+    var List = {
+        init: function () {
+            // this.search();
+            this.lazy();
+            this.myscroll = null;
+            this.listData();
+        },
+        lazy: function () {
+            $('[data-scroll="pullUp"]').on('pullup.bs.refresh', function (evt) {
+                setTimeout(function () {
+                    $('.lazy').lazy({
+                        // domain: ['pic.90sjimg.com', 'static.urwork.cn']
+                    });
+                }, 0)
+            });
+        },
+        listData: function(){
+            var that = this;
+            $('#uGiftModel')
+                .on('show.bs.modal',function () {
+                    if(UR.isApp()){
+                        DANativeApi.showNavigationBar({
+                            isShow: false,
+                        });
+                    }
+                })
+                .on('hide.bs.modal',function () {
+                    if(UR.isApp()){
+                        DANativeApi.showNavigationBar({
+                            isShow: true,
+                        });
+                    }
+                });
+            var _refresh = $('#giftListLayout')
+                .refresh({
+                    // url: '/memberPackage/memberPackageList',
+                    url: './data/gift-list.json',
+                    data: {
+                        type: 2
+                    },
+                    template: 'giftList',
+                    isFirstLoad: true,
+                    formatted: function(res) {
+                        var list = res.data.result || [];
+                        list.map((item) => {
+                            item.createTime = $.dateFormat(item.createTime, 'yyyy-MM-dd');
+                        })
+                        return list;
+                    }
+                });
+
+            $('body')
+                .off(UR.click,'.filter-item li')
+                .on(UR.click,'.filter-item li',function(){
+                    var $this = $(this);
+                    $this.addClass('active').siblings().removeClass('active');
+                    _refresh.refresh({
+                        type: $this.attr('data-type')
+                    });
+                })
+                .off(UR.click,'.to-detail')
+                .on(UR.click,'.to-detail',function(){
+                    var $this = $(this);
+                    var $parent = $this.closest('.list-item');
+
+                    $.ajax({
+                        type: "GET",
+                        url: "./data/detail-list.json",
+                        // url: "/memberPackage/memberPackageDetail",
+                        data: {
+                            memberPackageInfoId: $parent.attr('data-id')
+                        },
+                        dataType: "json",
+                        success: function(res){
+                            // console.log(1)
+                            var list = res.data || {};
+                            // console.log(list)
+                            $('#detailListLayout').html(template('detailList', {list:list}));
+                            setTimeout(function(){
+                                var selectScroll = new IScroll('.datail-list', {
+                                    click: true,
+                                    disablePointer: true,
+                                    disableTouch: false,
+                                    useTransform: false,
+                                    scrollbars: true
+                                });
+                            },0);
+
+                            $('.gift-detail').show();
+                            $('[data-mask=mask]').show();
+                            $('body').css('overflow','hidden');
+                            return list;
+                        }
+
+                    });
+                })
+                .off('click','.list-item')
+                .on('click','.list-item',function() {
+                    var $this = $(this);
+                    var id = $this.attr('data-id');
+                    $.ajax({
+                        type: "GET",
+                        url: "./data/open-list.json",
+                        // url: "/memberPackage/openMemberPackage",
+                        data: {
+                            memberPackageInfoId:id
+                        },
+                        dataType: "json",
+                        success: function (res) {
+                            // console.log(1)
+                            var list = res.data || [];
+                            // console.log(list)
+                            if(list.length){
+                                list[0].memberPackageInfoId = res.retCode;
+                            }
+                            $('.coupon-list').html(template('openlList', {list: list}));
+                            $('.modal-footer').html(template('footerBtn', {list: list}));
+                            $('#uGiftModel').modal('show');
+                            that.myscroll = $('#uGiftModel').data('myscroll');
+                            that.myscroll.refresh();
+                            that.myscroll.on('scroll',function () {
+                                if(this.y < 0){
+                                    $('.modal-header').css('borderBottom','1px solid #e6e6e6')
+                                }else {
+                                    $('.modal-header').css('borderBottom','1px solid transparent')
+                                }
+                            })
+                        }
+                    })
+                })
+                .off(UR.click,'.put-in')
+                .on(UR.click,'.put-in',function() {
+                    var companyId = $(this).attr('data-companyId');
+                    $.ajax({
+                        type: "GET",
+                        url: "./data/putCoupon.json",
+                        // url: "/memberPackage/putCoupon",
+                        data: {
+                            memberPackageInfoId: companyId
+                        },
+                        dataType: "json",
+                        success: function (res) {
+                            if(res.retCode < 0){
+                                UR.msg(res.retMsg);
+                                return;
+                            }
+                            $('.open-gift').hide();
+                            $('[data-mask=mask]').hide();
+                            $('body').css('overflow','auto');
+                            var list = $('.list-item');
+                            for(var i = 0;i < list.length;i ++){
+                                var id = list.eq(i).attr('data-id');
+                                if(id == companyId){
+                                    list.eq(i).remove();
+                                    break;
+                                }
+                            }
+                            UR.setUrl('/coupon/validCoupon?companyId=' + companyId);
+                        }
+                    })
+                })
+        }
+
+    }
+    $(function () {
+        List.init();
+    })
+</script>
+</body>
+
+</html>

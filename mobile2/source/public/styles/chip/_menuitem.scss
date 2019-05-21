@@ -1,0 +1,67 @@
+.menu-item {
+    position: relative;
+    display: block;
+    padding: 0 20px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    color: $font-def;
+    background-color: #fff;
+
+    .menu-arrow {
+        @include position-center-y();
+        right: 0;
+        width: 45px;
+        text-align: center;
+        font-size: 10px;
+        color: $font-999;
+    }
+}
+
+.menu-item-primary {
+    position: relative;
+    display: flex;
+    height: 55px;
+    padding-right: 20px;
+    color: $font-def;
+    align-items: center;
+
+    + .menu-item-primary {
+        border-top: 1px solid #e6e6e6;
+    }
+
+    .menu-title {
+        @include text-overflow();
+        position: relative;
+        padding-right: 20px;
+        flex: 1;
+        font-size: 15px;
+        color: $font-def;
+
+        &.new-msg {
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: #ff7608;
+            }
+        }
+    }
+
+    .menu-arrow {
+        @include position-center-y();
+        right: 0;
+        width: 20px;
+        text-align: right;
+        font-size: 10px;
+        color: $font-999;
+    }
+
+    .msg-num {
+        color: $font-999;
+    }
+
+}

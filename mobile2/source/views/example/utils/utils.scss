@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@import "variable";
+@import "mixins";
+@import "core/normalize";
+
+@import "tooltip/tooltip";
+
+.test {
+    width: 400px;
+    height: 400px;
+}

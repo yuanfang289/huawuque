@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>行业分类</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/company/styles/classify.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <section class="classify-wrap">
+            <!--<div class="left-wrap">
+                <ul>
+                    <li><a href="javascript:;">全部</a></li>
+                </ul>
+            </div>
+            <div class="right-wrap">
+                <ul>
+                    <li>
+                        <h2><img src="/assets/public/images/urwork-qrcode.jpg" alt="">健康医疗</h2>
+                        <div class="second-wrap">
+                            <a href="javascript:;">全部</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<script src="/assets/public/company/scripts/classify.js"></script>
+<script type="text/html" id="classifyTpl">
+    <div class="left-wrap">
+        <ul>
+            {{each list as i index}}
+            {{if index == 0}}
+            <li data-id="{{i.id}}" class="active"><a href="javascript:;">{{i.categoryName}}</a></li>
+            {{else}}
+            <li data-id="{{i.id}}"><a href="javascript:;">{{i.categoryName}}</a></li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="right-wrap">
+        <ul>
+            {{each list as i}}
+            <li data-oneLevelId="{{i.id}}">
+                {{if i.iconList}}
+                <h2><i class="uricon-{{i.iconList.icon}}" style="color: {{i.iconList.color}}"></i>{{i.categoryName}}</h2>
+                {{else}}
+                <h2><i class="uricon-qiyefuwu" style="color: #ffa200"></i>{{i.categoryName}}</h2>
+                {{/if}}
+                <div class="second-wrap">
+                    <a href="javascript:;">全部</a>
+                    {{each i.childCompayCategory as item}}
+                    <a href="javascript:;" data-twoLevelId="{{item.id}}">{{item.categoryName}}</a>
+                    {{/each}}
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+
+<script>
+    var Classify = {
+        init: function() {
+            this.leftScroll = null;
+            this.rightScroll = null;
+            this.rightItemHeight = [];
+            this.iconList = [
+                {
+                    icon:'qiyefuwu',
+                    color:'#ffa200',
+                    name:'企业服务',
+                    id:10104
+                },
+                {
+                    icon:'jiaoyu',
+                    color:'#1bcf65',
+                    name:'教育',
+                    id:10183
+                },
+                {
+                    icon:'qita',
+                    color:'#1bcf65',
+                    name:'其他',
+                    id:10102
+                },{
+                    icon:'shenghuofuwu',
+                    color:'#1bcf65',
+                    name:'生活服务',
+                    id:10103
+                },{
+                    icon:'jinrong',
+                    color:'#219eff',
+                    name:'金融',
+                    id:10105
+                },{
+                    icon:'wenyuchuanmei',
+                    color:'#ffa200',
+                    name:'文娱传媒',
+                    id:10106
+                },{
+                    icon:'yingjian',
+                    color:'#1bcf65',
+                    name:'硬件',
+                    id:10107
+                },{
+                    icon:'hulianwang',
+                    color:'#219eff',
+                    name:'互联网',
+                    id:10108
+                },{
+                    icon:'fangchanfuwu',
+                    color:'#ffa200',
+                    name:'房产服务',
+                    id:10191
+                },
+                {
+                    icon:'jiankangyiliao',
+                    color:'#219eff',
+                    name:'健康医疗',
+                    id:10199
+                }
+            ];
+            this.ajaxLoading();
+            this.bindEvent();
+        },
+        bindEvent:function () {
+            var $body = $('body');
+            var that = this;
+            $body
+                .off('click','.left-wrap li a')
+                .on('click','.left-wrap li a',function () {
+                    var $this = $(this);
+                    $this.parent().addClass('active').siblings().removeClass('active');
+                    var id = $this.parent().attr('data-id');
+                    var selector = $('[data-oneLevelId="'+ id +'"]')[0];
+                    that.rightScroll.scrollToElement(selector,500,0,0);
+                })
+                .off('click','.second-wrap a')
+                .on('click','.second-wrap a',function () {
+                    var $this = $(this);
+                    var twoLevelId = $this.attr('data-twoLevelId') || null;
+                    var oneLevelId = $this.parent().parent().attr('data-oneLevelId');
+                    console.log(twoLevelId,oneLevelId)
+
+                })
+        },
+        ajaxLoading:function () {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/company/data/companyType.json',
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg)
+                        return;
+                    }
+                    if(res.data){
+                        var data = res.data;
+                        that.iconList.forEach(function (value,index) {
+                            data.forEach(function (item) {
+                                if(value.id == item.id){
+                                    item.iconList = value;
+                                }
+                            })
+                        });
+                        console.log(data)
+                        $('.classify-wrap').html(template('classifyTpl',{list:data}));
+                        that.scroll();
+                    }
+                },
+                error:function (res) {
+                    console.log('接口请求失败');
+                }
+            })
+        },
+        scroll:function () {
+            var that = this;
+            var $leftWrap = $('.left-wrap');
+            var $leftWrapHeight = $leftWrap.height();
+            var $lis = Array.from($('.right-wrap').find('li'));
+            var num = 0;
+            $lis.forEach(function (value,index) {
+                num += $(value).height();
+                that.rightItemHeight.push(num);
+            });
+            this.leftScroll = new IScroll('.left-wrap',{
+                disablePointer: true,   // 因谷歌升级需加以下两行
+                disableTouch: false,
+                click: true,
+            });
+            this.rightScroll = new IScroll('.right-wrap',{
+                disablePointer: true,   // 因谷歌升级需加以下两行
+                disableTouch: false,
+                click: true,
+                probeType:2             //使用scroll事件时必须带有的参数
+            });
+            this.rightScroll.on('scroll',function () {
+                that.rightItemHeight.forEach(function (item,index) {
+                    if(Math.abs(Math.round(this.y)) >= item){
+                        $leftWrap.find('li').removeClass('active');
+                        $leftWrap.find('li').eq(index).addClass('active');
+                        var activeLi = $leftWrap.find('ul .active')[0];
+                        that.leftScroll.scrollToElement(activeLi,800,0,-($leftWrapHeight / 2 - 54));
+                    }
+                })
+            })
+        }
+    };
+
+    $(function() {
+        Classify.init();
+    });
+</script>
+</body>
+
+</html>

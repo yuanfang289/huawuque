@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/**
+ * skipDownload.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+/* this
+---------------------------------------- */
+.special-image{width: 100%}
+.special-desc{
+    padding: rem(8) 0 rem(40);
+    line-height: rem(44);
+    text-align: center;
+    font-size: rem(30);
+}
+.btn.btn-primary{
+    height: rem(80);
+    margin: rem(16) rem(84) rem(56);
+    line-height: rem(78);
+    font-size: rem(30);
+}
+.special-logo{
+    @include clearfix;
+    width: rem(360);
+    margin: 0 auto;
+    padding-top: rem(22);
+    dt{
+        float: left;
+        width: rem(98);
+        margin-right: rem(32);
+    }
+    dd{
+        p{
+            padding: 0;
+            text-align: left;
+            &:nth-child(1){
+                line-height: rem(64);
+                font-size: rem(50);
+            }
+            &:nth-child(2){
+                line-height: rem(32);
+                font-size: rem(24);
+            }
+        }
+    }
+}
+
+.special-tip{
+    display: block;
+    text-align: center;
+    line-height: rem(68);
+    font-size: rem(28);
+}
+/* Layout
+---------------------------------------- */
+.wrapper-app #main{
+    margin-bottom: rem(100);
+}

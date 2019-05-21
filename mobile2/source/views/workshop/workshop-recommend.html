@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>推荐社区</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/workshop/styles/workshop-search.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!--@import "common/search.tpl"-->
+            <section class="layout-item search-result-layout refresh-result-layout block">
+                <ul class="search-result-list" id="searchResultList" data-scroll="pullUp" data-options="
+                  url: 'data/list.json',
+                  data: {
+                      //longitude: UR.getBrowserParamByName('longitude'),
+                      //latitude: UR.getBrowserParamByName('latitude'),
+                  },
+                  template: 'tplList',
+                  isFirstLoad: true,
+                  formatted: function(res) {
+                      var data = res.data || {};
+                        var list = data.result || [];
+                        list.map(function(item) {
+                            item.averageScore = Math.round(item.averageScore);
+                        });
+
+                        return list;
+                  }
+            ">
+
+                </ul>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script src="/assets/public/workshop/scripts/workshop-pull.js"></script>
+
+    <script type="text/html" id="tplList">
+    {{if list.length == 0}}
+    <li>
+        <div class="result-tips">
+            <div class="result-tips-inner">
+                <img src="/assets/public/images/search-nodata.png" alt="">
+                <p>找不到相匹配的内容</p>
+            </div>
+        </div>
+    </li>
+    {{/if}}
+    {{each list as item i}}
+    <li>
+        <div class="workshop-search-item">
+            <a href="/workstage/detail?id={{item.id}}">
+                <dl>
+                    <dt>
+                        <img data-src="{{item.workstageImage}}" class="lazy" alt="">
+                    </dt>
+                    <dd>
+                        <h5>{{item.stageName}}</h5>
+                        <p>{{item.address}}</p>
+                        <div class="item-attrs">
+                            <div class="attr-item">{{item.rentStationNum}}工位可订</div>
+                            <div class="attr-item">
+                                <div class="score-mod star-min lv-{{item.averageScore}}">
+                                    <div class="star"><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </a>
+        </div>
+    </li>
+    {{/each}}
+    </script>
+</body>
+
+</html>

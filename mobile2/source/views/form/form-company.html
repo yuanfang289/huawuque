@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>企业详情信息</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/form/form-index.css">
+    <link rel="stylesheet" href="/assets/public/form/form-enter-gray.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .company-title {
+            height: 112px;
+            background: #fff url("/assets/public/form/images/company_bg.jpg") no-repeat 0 0;
+            background-size: cover;
+            padding-top: 29px;
+        }
+        .company-title h1 {
+            margin-bottom: 10px;
+            color: #5b8bf2;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .company-title p {
+            color: #666;
+            font-size: 12px;
+            line-height: 16px;
+        }
+    </style>
+</head>
+
+<body no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header" class="header-def">
+            <!-- titlebar -->
+            <div id="titlebar">
+                <i class="nav-switch uricon-arrow-left" id="backOrClose"></i>
+                <span class="title">企业详情信息</span>
+            </div>
+            <!-- /titlebar -->
+        </header>
+        <!-- /header -->
+
+        <!-- main -->
+        <main id="main"></main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    <script type="text/html" id="initForm">
+        <div class="layout-item company-title">
+            <h1>欢迎加入优客工场</h1>
+            <p>完善以下必填项，即可加入U企业<br>并获得90元代金劵哦！</p>
+        </div>
+        <form class="form form-primary form-def" style="background-color: #fff">
+            <!--<div class="form-item">-->
+                <!--<dl class="title">-->
+                    <!--<dt>欢迎入驻优客工场</dt>-->
+                    <!--<dd>请在入驻前填写以下信息（必填）</dd>-->
+                <!--</dl>-->
+            <!--</div>-->
+            <div class="form-item">
+                <label class="form-label">企业名称</label>
+                <div class="form-cont">
+                    <input type="hidden" name="companyName" value="优客工场（北京）创业投资有限公司">
+                    <p class="readonly-text main-text">优客工场（北京）创业投资有限公司</p>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">成立时间</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+
+                    <input type="hidden" name="establishYear">
+                    <input type="hidden" name="establishMonth">
+
+                    <input type="text" class="input-text" placeholder="选择成立时间" data-toggle="mdate" value="{{list.establishYear}}-{{list.establishMonth}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">入驻前办公情况</label>
+                <div class="form-cont">
+
+                </div>
+            </div>
+            <div class="form-item form-select-enter">
+                <div class="flex-box">
+                    <label class="form-label">注册地</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+                        <input type="hidden" name="registerCountryCode" value="">
+                        <input type="hidden" name="registerCountryName" value="">
+                        <input type="hidden" name="registerProvinceCode" value="">
+                        <input type="hidden" name="registerProvinceName" value="">
+                        <input type="hidden" name="registerCityCode" value="">
+                        <input type="hidden" name="registerCityName" value="">
+                        <!-- <input type="hidden" id="workstageId" name="workstageId"> -->
+                        <a href="#" id="workstageId_dummy" class="readonly-text{{if list.registerCountryCode}} writed{{/if}}" data-placeholder="请选择" data-toggle="modal" data-target="#workstageModal">{{if list.registerCountryCode == 'CHN'}}{{list.registerCountryName}},{{list.registerProvinceName}},{{list.registerCityName}}{{else if list.registerCountryCode == 'OTH'}}其他{{else}}请选择{{/if}}</a>
+                    </div>
+                </div>
+                <input type="text" name="registerAddress" placeholder="请填写国家名称" class="input-text input-text-gary" data-select="special" value="{{list.registerAddress}}">
+            </div>
+            <div class="form-item">
+                <label class="form-label">创始人姓名</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写姓名" data-maxlength="20" data-maxlength-hint="姓名最大长度为20">
+                    <input type="text" name="founderName" placeholder="填写姓名20字以内" value="{{list.founderName}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">公司所属行业</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="industryId">
+                    <a href="#" id="industryId_dummy" class="readonly-text{{if list.industryName}} writed{{/if}}" data-toggle="modal" data-target="#industryIdModal" data-select="option" data-scroll="#industryScroll" data-template="industryIdList" data-url="./data/industryId.json">{{if list.industryName}}{{list.industryName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyIndustry -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">入驻优客工场人数</label>
+                <div class="form-cont" data-required="true" data-required-hint="填写入驻人数">
+                    <input type="text" name="enterQuantity" placeholder="填写入驻人数" value="{{list.enterQuantity}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">公司整体规模</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="companySizeId">
+                    <a href="#" id="companySizeId_dummy" class="readonly-text{{if list.companySizeName}} writed{{/if}}" data-toggle="modal" data-target="#companySizeIdModal" data-select="option" data-scroll="#companySizeScroll" data-template="companySizeIdList" data-url="./data/companySizeId.json">{{if list.companySizeName}}{{list.companySizeName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanySize -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">入驻状态</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="enterStatus">
+                    <a href="#" id="enterStatus_dummy" class="readonly-text{{if list.enterStatus}} writed{{/if}}" data-toggle="modal" data-target="#enterStatusModal">{{if list.enterStatus == '0'}}已退租{{else if list.enterStatus == '1'}}未入驻{{else if list.enterStatus == '2'}}待入驻{{else if list.enterStatus == '3'}}已入驻{{else}}请选择{{/if}}</a>
+                </div>
+            </div>
+            <div class="form-item form-item-textarea">
+                <label class="form-label">公司业务</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写公司业务" data-maxlength="500" data-maxlength-hint="公司业务最大长度为500">
+                    <div class="textarea-wrap sm-height">
+                        <textarea name="business" placeholder="请填写" class="resize-none" maxlength="500" value="{{list.business}}">{{list.business}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>0</span>/500
+                    </div>
+                </div>
+            </div>
+            <div class="form-item form-item-bn">
+                <label class="form-label">公司网站</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写公司网站">
+                    <input type="text" name="site" placeholder="填写公司网站" value="{{list.site}}">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-item">
+                <dl class="title">
+                    <dt>为了给您提供更好的服务，请您完善以下信息</dt>
+                    <dd>
+                        <div class="note">以下信息为选填项，填写完全后我们将会赠送您100元会议室代金券，可以在全国使用哦</div>
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="form-item form-item-textarea">
+                <label class="form-label">目前最大的问题、痛点</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写" data-maxlength="500" data-maxlength-hint="最大长度为500">
+                    <div class="textarea-wrap sm-height">
+                        <textarea name="painPoint" placeholder="请填写" class="resize-none" maxlength="500" value="{{list.painPoint}}">{{list.painPoint}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>0</span>/500
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">需要优客工场平台提供的服务</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="needServiceId">
+                    <a href="#" id="needServiceId_dummy" class="readonly-text{{if list.needServiceName}} writed{{/if}}" data-toggle="modal" data-target="#needServiceIdModal" data-select="option" data-scroll="#needServiceScroll" data-template="needServiceIdList" data-url="./data/needServiceId.json">{{if list.needServiceName}}{{list.needServiceName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyNeedService -->
+                </div>
+            </div>
+            <div class="form-item form-item-textarea bobn">
+                <label class="form-label">可为社区提供置换的服务/资源/活动</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写" data-maxlength="500" data-maxlength-hint="最大长度为500">
+                    <div class="textarea-wrap sm-height">
+                        <textarea name="replacement" placeholder="请填写" class="resize-none" maxlength="500" value="{{list.replacement}}">{{list.replacement}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>0</span>/500
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label">创始人最高学历</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="founderEducationId">
+                    <a href="#" id="founderEducationId_dummy" class="readonly-text{{if list.founderEducationName}} writed{{/if}}" data-toggle="modal" data-target="#founderEducationIdModal" data-select="option" data-scroll="#founderEducationScroll" data-template="founderEducationIdList" data-url="./data/founderEducationId.json">{{if list.founderEducationName}}{{list.founderEducationName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyFounderEducation -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">创始人毕业国家</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写创始人毕业国家">
+                    <input type="text" name="founderGraduationCountry" placeholder="填写创始人毕业国家" value="{{list.founderGraduationCountry}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">创始人毕业学校</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写创始人毕业学校">
+                    <input type="text" name="founderGraduationSchool" placeholder="填写创始人毕业学校" value="{{list.founderGraduationSchool}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">创始人业前从事行业</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="founderBeforeIndustryId">
+                    <a href="#" id="founderBeforeIndustryId_dummy" class="readonly-text{{if list.founderBeforeIndustryName}} writed{{/if}}" data-toggle="modal" data-target="#founderBeforeIndustryIdModal" data-select="option" data-scroll="#founderBeforeIndustryScroll" data-template="founderBeforeIndustryIdList" data-url="./data/industryId.json">{{if list.founderBeforeIndustryName}}{{list.founderBeforeIndustryName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyIndustry -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">创始人创业前身份职业</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写创始人创业前身份职业">
+                    <input type="text" name="founderBeforePosition" placeholder="填写创始人创业前身份职业" value="{{list.founderBeforePosition}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">创始人创业前工作年限（年）</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写创始人创业前工作年限">
+                    <input type="text" name="founderWorkYear" placeholder="填写创始人创业前工作年限" value="{{list.founderWorkYear}}">
+                </div>
+            </div>
+            <div class="form-item form-item-textarea bobn">
+                <label class="form-label">创始人愿景</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写" data-maxlength="500" data-maxlength-hint="最大长度为500">
+                    <div class="textarea-wrap sm-height">
+                        <textarea name="founderVision" placeholder="请填写" class="resize-none" maxlength="500" value="{{list.founderVision}}">{{list.founderVision}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>0</span>/500
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-item">
+                <label class="form-label">第几次创业</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写数字">
+                    <input type="text" name="entrepreneurCount" placeholder="请填写数字" value="{{list.entrepreneurCount}}">
+                </div>
+            </div>
+            <div class="form-item form-item-radio form-select-enter">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否已有投资方</label>
+                    <div class="form-cont radio-control" id="hasInvestor">
+                        {{if list.hasInvestor == true}}
+                        <label><input type="radio" checked name="hasInvestor" value="1">是</label>
+                        <label><input type="radio" name="hasInvestor" value="0">否</label>
+                        {{else}}
+                        <label><input type="radio" name="hasInvestor" value="1">是</label>
+                        <label><input type="radio" checked name="hasInvestor" value="0">否</label>
+                        {{/if}}
+                    </div>
+                </div>
+                <input type="text" name="investorName" placeholder="请填写投资方名称" class="input-text input-text-gary" data-select="show" data-select-clear="clear" style="display:{{if list.hasInvestor == true}}block{{else}}none{{/if}}">
+            </div>
+            <div class="form-item">
+                <label class="form-label">融资阶段</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="financeStageId">
+                    <a href="#" id="financeStageId_dummy" class="readonly-text{{if list.financeStageName}} writed{{/if}}" data-toggle="modal" data-target="#financeStageIdModal" data-select="option" data-scroll="#financeStageScroll" data-template="financeStageIdList" data-url="./data/financeStageId.json">{{if list.financeStageName}}{{list.financeStageName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyFinanceStage -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">已融资总金额（万）</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写融资总金额">
+                    <input type="text" name="financeTotalAmount" placeholder="请填写融资总金额" value="{{list.financeTotalAmount}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">企业估值</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="companyValuationId">
+                    <a href="#" id="companyValuationId_dummy" class="readonly-text{{if list.companyValuationName}} writed{{/if}}" data-toggle="modal" data-target="#companyValuationIdModal" data-select="option" data-scroll="#companyValuationScroll" data-template="companyValuationIdList" data-url="./data/companyValuationId.json">{{if list.companyValuationName}}{{list.companyValuationName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyValuation -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">融资需求总金额（万）</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写融资需求总金额">
+                    <input type="text" name="financeNeedAmount" placeholder="请填写融资需求总金额" value="{{list.financeNeedAmount}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">产品载体形态</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="productFormId">
+                    <a href="#" id="productFormId_dummy" class="readonly-text{{if list.productFormName}} writed{{/if}}" data-toggle="modal" data-target="#productFormIdModal" data-select="option" data-scroll="#productFormScroll" data-template="productFormIdList" data-url="./data/productFormId.json">{{if list.productFormName}}{{list.productFormName}}{{else}}请选择{{/if}}</a>
+                    <!-- /companyPortrait/getAllCompanyProductForm -->
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">产品名称</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写产品名称">
+                    <input type="text" name="productName" placeholder="请填写产品名称" value="{{list.productName}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">产品面向对象</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <input type="hidden" name="productObjectId">
+                    <a href="#" id="productObjectId_dummy" class="readonly-text{{if list.productObjectId}} writed{{/if}}" data-toggle="modal" data-target="#productObjectIdModal">{{if list.productObjectId == '2'}}企业{{else if list.productObjectId == '1'}}个人{{else}}请选择{{/if}}</a>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">用户量</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写用户量">
+                    <input type="text" name="userQuantity" placeholder="请填写用户量" value="{{list.userQuantity}}">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">市场行业规模</label>
+                <div class="form-cont" data-required="true" data-required-hint="请填写市场行业规模">
+                    <input type="text" name="marketIndustryScale" placeholder="请填写市场行业规模" value="{{list.marketIndustryScale}}">
+                </div>
+            </div>
+            <div class="form-item form-item-radio form-select-enter">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否计划拓展和设点新城市</label>
+                    <div class="form-cont radio-control" id="hasPlanNewCity">
+                        {{if list.hasPlanNewCity == true}}
+                        <label><input type="radio" checked name="hasPlanNewCity" value="1">是</label>
+                        <label><input type="radio" name="hasPlanNewCity" value="0">否</label>
+                        {{else}}
+                        <label><input type="radio" name="hasPlanNewCity" value="1">是</label>
+                        <label><input type="radio" checked name="hasPlanNewCity" value="0">否</label>
+                        {{/if}}
+                    </div>
+                </div>
+                <input type="text" name="newCity" placeholder="请填写投资方名称" class="input-text input-text-gary" data-select="show" data-select-clear="clear" style="display:{{if list.hasPlanNewCity == true}}block{{else}}none{{/if}}">
+            </div>
+            <div class="form-item form-item-radio form-select-enter">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否有国外对标产品</label>
+                    <div class="form-cont radio-control" id="hasForeignProduct">
+                        {{if list.hasForeignProduct == true}}
+                        <label><input type="radio" checked name="hasForeignProduct" value="1">是</label>
+                        <label><input type="radio" name="hasForeignProduct" value="0">否</label>
+                        {{else}}
+                        <label><input type="radio" name="hasForeignProduct" value="1">是</label>
+                        <label><input type="radio" checked name="hasForeignProduct" value="0">否</label>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-cont select-enter-textarea" data-required="true" data-required-hint="请填写" data-maxlength="500" data-maxlength-hint="最大长度为500" data-select="show" style="display:{{if list.hasForeignProduct == true}}block{{else}}none{{/if}}">
+                    <div class="textarea-wrap sm-height">
+                        <textarea name="foreignProduct" placeholder="请填写" class="resize-none" maxlength="500" data-select-clear="clear" value="{{list.foreignProduct}}">{{list.foreignProduct}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>0</span>/500
+                    </div>
+                </div>
+            </div>
+            <div class="form-item form-item-radio form-select-enter bobn">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否有国内对标产品</label>
+                    <div class="form-cont radio-control" id="hasDomesticCompetitor">
+                        {{if list.hasDomesticCompetitor == true}}
+                        <label><input type="radio" checked name="hasDomesticCompetitor" value="1">是</label>
+                        <label><input type="radio" name="hasDomesticCompetitor" value="0">否</label>
+                        {{else}}
+                        <label><input type="radio" name="hasDomesticCompetitor" value="1">是</label>
+                        <label><input type="radio" checked name="hasDomesticCompetitor" value="0">否</label>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-cont select-enter-textarea" data-required="true" data-required-hint="请填写" data-maxlength="500" data-maxlength-hint="最大长度为500" data-select="show" style="display:{{if list.hasDomesticCompetitor == true}}block{{else}}none{{/if}}">
+                    <div class="textarea-wrap sm-height">
+                        <textarea name="domesticCompetitor" placeholder="请填写" class="resize-none" maxlength="500" data-select-clear="clear" value="{{list.domesticCompetitor}}">{{list.domesticCompetitor}}</textarea>
+                    </div>
+                    <div class="form-counter">
+                        <span>0</span>/500
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-item form-item-radio form-select-enter bob-50">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否拥有专利</label>
+                    <div class="form-cont radio-control" id="hasPatent">
+                        {{if list.hasPatent == true}}
+                        <label><input type="radio" checked name="hasPatent" value="1">是</label>
+                        <label><input type="radio" name="hasPatent" value="0">否</label>
+                        {{else}}
+                        <label><input type="radio" name="hasPatent" value="1">是</label>
+                        <label><input type="radio" checked name="hasPatent" value="0">否</label>
+                        {{/if}}
+                    </div>
+                </div>
+                <div  data-select="show" class="select-show" style="display:{{if list.hasPatent == true}}block{{else}}none{{/if}}">
+                    <div class="form-item">
+                        <label class="form-label">专利类型</label>
+                        <div class="form-cont">
+                            <i class="uricon-arrow-right ricon"></i>
+                            <input type="hidden" name="patentTypeId">
+                            <a href="#" id="patentTypeId_dummy" class="readonly-text{{if list.patentTypeName}} writed{{/if}}" data-toggle="modal" data-target="#patentTypeIdModal" data-select="option" data-scroll="#patentTypeScroll" data-template="patentTypeIdList" data-url="./data/patentTypeId.json">{{if list.patentTypeName}}{{list.patentTypeName}}{{else}}请选择{{/if}}</a>
+                            <!-- /companyPortrait/getAllCompanyPatentType -->
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label">专利个数</label>
+                        <div class="form-cont" data-required="true" data-required-hint="请填写市场行业规模">
+                            <input type="text" name="patentQuantity" placeholder="请填写市场行业规模" data-select-clear="clear" value="{{list.patentQuantity}}">
+                        </div>
+                    </div>
+                    <div class="form-item form-item-textarea form-select-enter">
+                        <label class="form-label">专利描述</label>
+                        <div class="form-cont" data-required="true" data-required-hint="请填写" data-maxlength="500" data-maxlength-hint="最大长度为500">
+                            <div class="textarea-wrap sm-height">
+                                <textarea name="patentDesc" placeholder="请填写" class="resize-none" maxlength="500" data-select-clear="clear" value="{{list.patentDesc}}">{{list.patentDesc}}</textarea>
+                            </div>
+                            <div class="form-counter">
+                                <span>0</span>/500
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item form-item-radio form-select-enter">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否希望付费为员工参加社区培训</label>
+                    <div class="form-cont radio-control" id="isPayForTraining">
+                        {{if list.isPayForTraining == true}}
+                        <label><input type="radio" checked name="isPayForTraining" value="true">是</label>
+                        <label><input type="radio" name="isPayForTraining" value="false">否</label>
+                        {{else}}
+                        <label><input type="radio" name="isPayForTraining" value="true">是</label>
+                        <label><input type="radio" checked name="isPayForTraining" value="false">否</label>
+                        {{/if}}
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-item form-item-radio form-select-enter bobn">
+                <div class="flex-box">
+                    <label class="form-label form-label-fixation">是否国家认定高新企业</label>
+                    <div class="form-cont radio-control" id="isHighTech">
+                        {{if list.isHighTech == true}}
+                        <label><input type="radio" checked name="isHighTech" value="1">是</label>
+                        <label><input type="radio" name="isHighTech" value="0">否</label>
+                        {{else}}
+                        <label><input type="radio" name="isHighTech" value="1">是</label>
+                        <label><input type="radio" checked name="isHighTech" value="0">否</label>
+                        {{/if}}
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-action">
+                <button type="button" class="btn btn-primary" id="submit">提交</button>
+            </div>
+        </form>
+    </script>
+    <!-- 注册地 -->
+    <div class="modal form-modal" id="workstageModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="setUpPlaceBox">
+                    <div class="scroller" >
+                        <dl id="countryBox">
+                            <dt>国家</dt>
+                            <dd>
+                                <ul data-col="2" >
+                                    <li data-id="1" id="chinaBtn" countryCode="CHN"><span>中国</span></li>
+                                    <li data-id="2" id="otherBtn" countryCode="OTH"><span>其他</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <div id="provinceBox">
+
+                        </div>
+                        <div id="cityBox">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset" id="setUpReset">重置</button>
+                    <button type="button" class="btn btn-primary confirm" id="setUpConfirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 注册地 -->
+    <script type="text/html" id="provinceList">
+        <dl>
+            <dt>省</dt>
+            <dd>
+                <ul data-col="2" >
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                        <li data-geo-id="{{d.geoCode}}"><span>{{d.geoName}}</span></li>
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <script type="text/html" id="cityList">
+        <dl>
+            <dt>市</dt>
+            <dd>
+                <ul data-col="2" >
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                        <li data-geo-id="{{d.geoCode}}"><span>{{d.geoName}}</span></li>
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 所属行业 -->
+    <div class="modal form-modal" id="industryIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="industryScroll">
+                    <div class="scroller">
+                        <!-- 所属行业 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 所属行业 -->
+    <script type="text/html" id="industryIdList">
+        <dl>
+            <dt>公司所属行业</dt>
+            <dd>
+                <ul data-col="2" >
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                        {{if d.checkedStatus != undefind }}
+                            <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                            {{else}}
+                            <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                        {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 整体规模 -->
+    <div class="modal form-modal" id="companySizeIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="companySizeScroll">
+                    <div class="scroller">
+                        <!-- 所属行业 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 整体规模 -->
+    <script type="text/html" id="companySizeIdList">
+        <dl>
+            <dt>公司所属行业</dt>
+            <dd>
+                <ul data-col="2" >
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 入驻状态 -->
+    <div class="modal form-modal" id="enterStatusModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                        <dl>
+                            <dt>入驻状态</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="0"><span>已退租</span></li>
+                                    <li data-id="1"><span>未入驻</span></li>
+                                    <li data-id="2"><span>待入驻</span></li>
+                                    <li data-id="3"><span>已入驻</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 入驻状态 -->
+    <!-- 需提供的服务 -->
+    <div class="modal form-modal" id="needServiceIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="needServiceScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 需提供的服务 -->
+    <script type="text/html" id="needServiceIdList">
+        <dl>
+            <dt>需提供的服务</dt>
+            <dd>
+                <ul data-col="2" data-mulity="true">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 创始人最高学历 -->
+    <div class="modal form-modal" id="founderEducationIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="founderEducationScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 创始人最高学历 -->
+    <script type="text/html" id="founderEducationIdList">
+        <dl>
+            <dt>创始人最高学历</dt>
+            <dd>
+                <ul data-col="2">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.education}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.education}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 创始人业前从事行业 -->
+    <div class="modal form-modal" id="founderBeforeIndustryIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="founderBeforeIndustryScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 创始人业前从事行业 -->
+    <script type="text/html" id="founderBeforeIndustryIdList">
+        <dl>
+            <dt>创始人业前从事行业</dt>
+            <dd>
+                <ul data-col="2">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 融资阶段 -->
+    <div class="modal form-modal" id="financeStageIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="financeStageScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 融资阶段 -->
+    <script type="text/html" id="financeStageIdList">
+        <dl>
+            <dt>融资阶段</dt>
+            <dd>
+                <ul data-col="2">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 企业估值 -->
+    <div class="modal form-modal" id="companyValuationIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="companyValuationScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 企业估值 -->
+    <script type="text/html" id="companyValuationIdList">
+        <dl>
+            <dt>企业估值</dt>
+            <dd>
+                <ul data-col="2">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 产品载体形态 -->
+    <div class="modal form-modal" id="productFormIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="productFormScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 产品载体形态 -->
+    <script type="text/html" id="productFormIdList">
+        <dl>
+            <dt>产品载体形态</dt>
+            <dd>
+                <ul data-col="2">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <!-- 产品面向对象 -->
+    <div class="modal form-modal" id="productObjectIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                        <dl>
+                            <dt>产品面向对象</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="2"><span>企业</span></li>
+                                    <li data-id="1"><span>个人</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 产品面向对象 -->
+    <!-- 专利类型 -->
+    <div class="modal form-modal" id="patentTypeIdModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="patentTypeScroll">
+                    <div class="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 专利类型 -->
+    <script type="text/html" id="patentTypeIdList">
+        <dl>
+            <dt>专利类型</dt>
+            <dd>
+                <ul data-col="2">
+                    {{if list.length == 0 }}
+                    <div class="data-null">
+                        <img src="/assets/public/images/NODATA.png" alt="">
+                    </div>
+                    {{else}}
+                    {{each list as d i}}
+                    {{if d.checkedStatus != undefind }}
+                        <li data-id="{{d.id}}" class="active"><span>{{d.name}}</span></li>
+                        {{else}}
+                        <li data-id="{{d.id}}"><span>{{d.name}}</span></li>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </dd>
+        </dl>
+    </script>
+    <script src="/assets/public/form/form-company.js"></script>
+    <script>
+        $(function() {
+            Form.ajaxPost({
+                validator: {
+                    rules: {
+                        founderName: {
+                            maxlength: 20
+                        },
+                        enterQuantity: {
+                            number: true,
+                        },
+                        founderWorkYear: {
+                            number: true,
+                        },
+                        entrepreneurCount: {
+                            number: true,
+                        },
+                        financeTotalAmount: {
+                            number: true,
+                        },
+                        financeNeedAmount: {
+                            number: true,
+                        },
+                        patentQuantity: {}
+
+                    },
+                    messages: {
+                        founderName: {
+                            maxlength: '姓名不大于20位'
+                        },
+                        enterQuantity: {
+                            number: '只能输入数字',
+                        },
+                        founderWorkYear: {
+                            number: '只能输入数字',
+                        },
+                        entrepreneurCount: {
+                            number: '只能输入数字',
+                        },
+                        financeTotalAmount: {
+                            number: '只能输入数字',
+                        },
+                        financeNeedAmount: {
+                            number: '只能输入数字',
+                        }
+                    }
+                },
+                postUrl: '/companyPortrait/save',
+                success: function (res) {
+                }
+            });
+            // 页面初始化
+            $.ajax({
+                url: './data/initCompany.json',
+                type: 'GET',
+                dataType: 'json',
+                data: {}
+            })
+            .done(function(res) {
+                res = res.data.companyPortrait;
+                $('#main').html(template('initForm', {list:res}));
+                Form.init();
+                if(res.registerCountryCode){
+                    $('[countrycode='+res.registerCountryCode+']').trigger(UR.click);
+                }
+
+                $.extend(Form.companyPortrait,res);
+                if(res.enterStatus){
+                    $('#enterStatusModal li[data-id=' + res.enterStatus + ']').addClass('active');
+                }
+                if(res.registerCountryCode == 'OTH'){
+                    $('[name=registerAddress]').css('display','block');
+                }else{
+                    $('[name=registerAddress]').css('display','none');
+                };
+                $('.form-item-textarea textarea').each(function(index, el) {
+                            $this = $(this);
+                            UR.inputCounter($this, 500);
+                        });
+                return res;
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

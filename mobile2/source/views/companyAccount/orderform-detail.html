@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全部账单</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/companyAccount/styles/orderform-detail.css">
+</head>
+<body  class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="list-banner">
+            <div class="list-banner-inner">
+                <div class="bill-box">
+                    <div class="current-bill">
+                        <p>本期账单  2017/05/01-2017/05/31</p>
+                        <span>账单金额: ￥2000.00</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>已支付: ￥1800.00</span>
+                    </div>
+                    <div class="all-bill">
+                        <a class="btn-link" href="###">全部账单<i class="uricon-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="wait-pay">
+                    <div class="pay-number">
+                        <p>待支付 &nbsp;&nbsp;&nbsp￥200.00</p>
+                        <span>(还剩 8 天)</span>
+                    </div>
+                    <div class="pay-btn">
+                        <button class="btn go-pay">去支付</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="layout-item">
+            <!--<div class="no-bill">
+                <div class="img-box">
+                    <img src="/assets/public/companyAccount/images/nolist.png" alt="">
+                    <p>暂无账单明细</p>
+                </div>
+            </div>-->
+            <header class="layout-item-title">
+                <aside>
+                    <a class="btn-link" href="###">更多<i class="uricon-arrow-right"></i></a>
+                </aside>
+                <h2><a href="javascript:;">账户明细</a></h2>
+            </header>
+            <ul class="account-list">
+                <li>
+                    <a href="#">
+                        <div class="account-item">
+                            <div class="desc-wrap">
+                                <p class="desc-price-center">-200.00 </p>
+                            </div>
+                            <div class="info-wrap">
+                                <div class="time-wrap">
+                                    <p>02-27</p>
+                                    <p>25:05</p>
+                                </div>
+                                <div class="user-info-wrap">
+                                    <div class="img-wrap">
+                                        <img class="image" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg" alt="" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg?imageMogr2/thumbnail/!670x376r/gravity/Center/crop/670x376">
+                                    </div>
+                                    <p>张晓旭旭</p>
+                                </div>
+                            </div>
+                            <div class="text-wrap">
+                                <p>订单ID27881123</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="account-item">
+                            <div class="desc-wrap">
+                                <p class="desc-price-center">-200.00 </p>
+                            </div>
+                            <div class="info-wrap">
+                                <div class="time-wrap">
+                                    <p>02-27</p>
+                                    <p>25:05</p>
+                                </div>
+                                <div class="user-info-wrap">
+                                    <div class="img-wrap">
+                                        <img class="image" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg" alt="" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg?imageMogr2/thumbnail/!670x376r/gravity/Center/crop/670x376">
+                                    </div>
+                                    <p>张晓旭旭</p>
+                                </div>
+                            </div>
+                            <div class="text-wrap">
+                                <p>订单ID27881123</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script>
+    $('body').on('click','.go-pay',function (e) {
+        e.preventDefault();
+        if (UR.isApp()) {
+            if(UR.isNewApi){
+                if(UR.testNative(DANativeApi.longRentStationPayment)){
+                    DANativeApi.longRentStationPayment({
+                        orderId: 123,       //长租工位的订单id
+                        completion: function(res) {
+                            if(res.data){
+                                //支付成功
+
+                            }else {
+                                //支付失败
+
+                            }
+                        }
+                    });
+                }else {
+                    UR.msg('使用此功能需要更新客户端');
+                }
+            }else {
+                UR.msg('使用此功能需要更新客户端');
+            }
+        } else {
+            UR.openApp.init({
+                intentUrlParams:location.href
+            });
+        }
+    })
+</script>
+</body>
+</html>

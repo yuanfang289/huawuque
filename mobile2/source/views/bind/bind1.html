@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>绑定优客工场账号</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/bind/bind.css">
+</head>
+
+<body no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        @import "topbar-def.tpl"
+
+        <!-- main -->
+        <main id="main">
+
+            <form action="" id="bindForm1" class="form form-second form-bind">
+                <h2 class="legend">验证手机号</h2>
+                <div class="form-item">
+                    <div class="input-item"><input type="tel" class="input" name="mobile" placeholder="手机号"/></div>
+                </div>
+                <div class="form-item">
+                    <div class="valid-code-item">
+                        <div class="input-item"><input type="text" autocomplete="off" class="input" name="smsCode" placeholder="验证码"/></div>
+                        <button type="button" disabled id="sendBtn" class="btn-code">获取验证码</button>
+                    </div>
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary">下一步</button>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+    <script src="/assets/public/plugins/jquery.validate.js"></script>
+    <script src="/assets/public/bind/scripts/bind.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>会议室订单列表</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/meetingRoom/index.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="meeting-room-main">
+        <!-- 筛选条件 -->
+        <section class="ur-searcher">
+            <ul class="tabs" data-param="orderStatus">
+                <li class="active" data-id=""><a href="javascript:;">全部</a></li>
+                <li data-id="0"><a href="javascript:;">待支付</a></li>
+                <li data-id="1"><a href="javascript:;">待使用</a></li>
+                <li data-id="3"><a href="javascript:;">已完成</a></li>
+                <li data-id="4"><a href="javascript:;">已取消</a></li>
+            </ul>
+        </section>
+        <!-- ／筛选条件 -->
+
+
+        <!-- 订单列表 order-list -->
+        <section class="order-list" data-scroll="pullUp" data-options="
+              url: '/rentMeetingRoom/rentOrderList',
+              url: './data/orderList.json',
+              data: {
+              },
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  res = res.data.result || [];
+                  res.map(function(node) {
+                      node._orderStatus = {
+                         s0: '等待付款',
+                        s1: '待使用',
+                        s2: '使用中',
+                        s3: '已完成',
+                        s4: '已取消',
+                        s5: '已取消',
+                        s6: '已取消',
+                        s7: '已取消',
+                        s8: '已取消',
+                        s9: '已取消',
+                        s10: '已取消',
+                        s11: '已取消',
+                        s12: '已取消',
+                        s13: '已取消',
+                  }['s'+ node.orderStatus];
+
+                      if ( node.scheduledTime ) {
+                        node.scheduledTime =  node.scheduledTime.replace('至', ' - ');
+                      }
+
+                  });
+                  return res;
+              }
+              ">
+        </section>
+        <!--/ 订单列表 order-list -->
+
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+        <p>暂无此类型订单</p>
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="pictext-item">
+        <a href="./orderDetail.html?id={{d.orderId}}">
+            <div class="pictext-header">
+                <div class="flex">订单编号 {{d.orderId}}</div>
+                <div class="text-second">{{d._orderStatus}}</div>
+            </div>
+            <div class="pictext-main">
+                <dl>
+                    <dt>
+                        <span style="background-image:url({{d.pic}})"></span>
+                    </dt>
+
+                    <dd>
+                        <div class="pictext-flex">
+                            <p class="pictext-addr">{{d.roomName}}</p>
+                            <p class="font-sm">&yen;{{d.rentalPrice}}/30分钟</p>
+                        </div>
+                        <p class="pictext-desc">{{d.stageName}} {{d.floor}}层</p>
+                        <p>{{d.scheduledTime}}</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="pictext-footer">
+                共{{d.timeLength}}小时，实付 &yen;{{d.orderAmt}}
+            </div>
+        </a>
+
+        {{if d.orderStatus == 0 || d.isCancel == 1}}
+        <div class="pictext-operate" data-id="{{d.orderId}}" data-way="{{d.payWay}}">
+            {{if d.orderStatus == 0}}
+            <button class="btn btn-primary pay">立即支付</button>
+            {{/if}}
+            {{if d.isCancel == 1 && d.orderStatus != 4}}
+            <button class="btn btn-default cancel">取消订单</button>
+            {{/if}}
+        </div>
+        {{/if}}
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+
+<script src="/assets/public/meetingRoom/scripts/orderList.js"></script>
+
+<script>
+    $(function () {
+        Page.submit({
+            submit: ".cancel",
+            url: "/rentMeetingRoom/rentCancelOrder",
+            success: function (res) {
+                UR.msg(res.retMsg);
+
+                if (res.retCode == 0) {
+                    setTimeout(function () {
+                        location.href = ""
+                    }, 1500);
+                }
+            }
+        });
+
+        Page.submit({
+            submit: ".pay",
+            url: "/pay/wapPayment",
+            success: function (res) {
+
+            }
+        });
+    })
+</script>
+
+</body>
+
+</html>

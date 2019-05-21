@@ -1,0 +1,176 @@
+@charset "UTF-8";
+// arrow mixin
+
+// ArrowBase
+@mixin arrow() {
+    position: relative;
+    // overflow: hidden; // 可能会导致 IE9+ 显示有问题
+    display: inline-block;
+    padding: 0 !important;
+    background-image: none;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    vertical-align: middle;
+}
+
+// ArrowType
+
+// 参数 [solid | hollow]
+@mixin arrow-type( $arrow-type ) {
+    // 实心箭头
+    @if ( $arrow-type == solid ) {
+        &[class*="-solid"] {
+            @include arrow-type-solid;
+            @content;
+        }
+    }
+    // 空心箭头
+    @if ( $arrow-type == hollow ) {
+        & {
+            &:before,
+            &:after,
+            > * {
+                /* arrow-hollow */
+                display: block;
+                width: 0 !important;
+                height: 0 !important;
+                padding: 0 !important;
+                border-style: solid;
+                font-size: 0 !important;
+                line-height: 0 !important;
+            }
+            &[class*="-hollow"]:empty:after,
+            &[class*="-hollow"]:empty:before {
+                content: "";
+            }
+            > small,
+            &:after {
+                position: absolute;
+            }
+            // &[class*="-hollow"] {
+                // 待插入的内容，如：size、color
+                @content;
+            // }
+        }
+    }
+}
+
+// ArrowSkins
+// $arrow-color: 箭头颜色
+// $arrow-bgc: 空心箭头填充色
+@mixin arrow-skins( $arrow-color, $arrow-bgc: null ) {
+    // 空心箭头颜色
+    @if ( $arrow-bgc != null ) {
+        & > big,
+        &:before {
+            border-color: $arrow-color;
+        }
+        & > small,
+        &:after {
+            border-color: $arrow-bgc;
+        }
+    }
+    // 实心箭头颜色
+    @else {
+        border-color: $arrow-color;
+    }
+}
+
+// ArrowSize
+// $arrow-border 空心箭头边宽度
+// $arrow-size: 箭头的大小
+// $arrow-border-size: 空心箭头的线条粗细
+@mixin arrow-size( $arrow-size, $arrow-border-size: null ) {
+    $border-width: $arrow-size / 2;
+
+    // 空心箭头
+    @if ( $arrow-border-size != null ) {
+        &>big, &:before {
+            border-width: $border-width;
+        }
+        &>small, &:after {
+            border-width: $border-width - $arrow-border-size;
+        }
+        &[class*="top-"],
+        &[class*="left-"] {
+            > small,
+            &:after {
+                top: $arrow-border-size;
+                left: $arrow-border-size;
+            }
+        }
+        &[class*="right-"],
+        &[class*="bottom-"] {
+            > small,
+            &:after {
+                right: $arrow-border-size;
+                bottom: $arrow-border-size;
+            }
+        }
+    } @else {
+        // 实心箭头大小
+        border-width: $border-width;
+    }
+}
+
+// ArrowDirection
+// 参数 [top | right | bottom | left]
+@mixin arrow-dir( $arrow-dir ) {
+    @if ( $arrow-dir == top ) {
+        &, > *,
+        &:before, &:after {
+            @include arrow-dir-top;
+        }
+    }
+    @else if ( $arrow-dir == right ) {
+        &, > *,
+        &:before, &:after {
+            @include arrow-dir-right;
+        }
+    }
+    @else if ( $arrow-dir == bottom ) {
+        &, > *,
+        &:before, &:after {
+            @include arrow-dir-bottom;
+        }
+    }
+    @else if ( $arrow-dir == left ) {
+        &, > *,
+        &:before, &:after {
+            @include arrow-dir-left;
+        }
+    }
+}
+
+// Base Mixin
+@mixin arrow-type-solid() {
+    width: 0 !important;
+    height: 0 !important;
+    border-style: solid;
+    // 待插入的内容，如：size、color
+    @content;
+}
+@mixin arrow-dir-top() {
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-left-color: transparent !important;
+    border-top-width: 0 !important;
+}
+@mixin arrow-dir-right() {
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-right-width: 0 !important;
+}
+@mixin arrow-dir-bottom() {
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-bottom-width: 0 !important;
+}
+@mixin arrow-dir-left() {
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0 !important;
+}

@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/**
+ * @project       www.urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ * OrderStatus
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+
+/* OrderStatus
+---------------------------------------- */
+.order-status {
+    margin-bottom: 0;
+    padding-top: 60px;
+    padding-bottom: 0;
+    .status-tips {
+        padding-bottom: 60px;
+        // border-bottom: 1px dashed #f0f0f0;
+        color: #333;
+        font-size: 16px;
+        text-align: center;
+        img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 18px;
+        }
+    }
+    .order-items {
+        @include padding-v(12px);
+        font-size: 14px;
+        line-height: 32px;
+        dl {
+            @include clearfix;
+            margin-left: 90px;
+        }
+        dt {
+            @include text-overflow;
+            float: left;
+            width: 90px;
+            margin-left: -90px;
+        }
+        dd {
+            float: right;
+            width: 100%;
+            text-align: right;
+        }
+    }
+}
+.order-action {
+    background-color: rgba(255,255,255,0);
+    @include clearfix;
+    .btn {
+        width: 45%;
+        height: 40px;
+        color: #666;
+        font-size: 15px;
+        line-height: 38px;
+        &:first-child {
+            float: left;
+        }
+        &:last-child {
+            float: right;
+        }
+    }
+}
+
+/* Layout
+---------------------------------------- */
+

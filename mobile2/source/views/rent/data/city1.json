@@ -1,0 +1,37 @@
+{
+    "data": {
+        "pageSize": 2,
+        "currentPageNo": 1,
+        "totalRecord": 51,
+        "result": [
+            {
+                "id": 10022,
+"workstageImage": "http://7xp26u.com1.z0.glb.clouddn.com/7b6e678d-574a-416a-be68-30bd4c99d730.jpg",
+                "stageName": "方圆大厦·优客工场",
+                "address": "北京市海淀区中关村南大街甲56号方圆大厦商务楼1-3层",
+                "averageScore": 4.99,
+                "spaceId": 1,
+                "price": 900,
+                "isActivity": 1,
+                "leaseTypeId": 1
+            },
+            {
+                "id": 10025,
+"workstageImage": "http://7xp26u.com1.z0.glb.clouddn.com/a29ee73f-7e6f-40a9-8ddd-faa6b678b295.jpg",
+                "stageName": "阳光100",
+                "address": "朝阳区光华路",
+                "averageScore": 5,
+                "spaceId": 1,
+                "isActivity": 2
+            }
+        ],
+        "lastPageNo": 26,
+        "prevPageNo": 1,
+        "nextPageNo": 2,
+        "totalPage": 26,
+        "beginRow": 0,
+        "endRow": 2
+    },
+    "retCode": 0,
+    "retMsg": "OK"
+}

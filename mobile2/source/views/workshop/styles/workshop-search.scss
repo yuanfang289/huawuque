@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       www.urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * HotSearchkeyList
+ * SearchResultList
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'plugins/swiper';
+@import 'refresh/refresh';
+@import 'chip/workshop-search-item';
+
+/* HotSearchkeyList
+---------------------------------------- */
+.hot-searchkey-list {
+    overflow: hidden;
+    ul {
+        @include clearfix;
+        margin-bottom: -20px;
+    }
+    li {
+        float: left;
+        max-width: 95px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+    a {
+        @include text-overflow;
+        display: block;
+        @include padding-h(12px);
+        background-color: #f5f5f5;
+        border-radius: 12px;
+        color: #666;
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+.hot-workshop-list {
+    li {
+        margin-bottom: 25px;
+    }
+    li:not(:first-child) {
+        color: #333;
+        font-size: 14px;
+        b {
+            margin-right: 10px;
+            color: #999;
+        }
+    }
+}
+
+/* SearchResultList
+---------------------------------------- */
+.search-result-layout {
+    display: none;
+}
+
+.search-result-list {
+    li {
+        @include padding-v(18px);
+        @include border-top(#e5e5e5);
+        &:first-child {
+            &::before {
+                display: none;
+            }
+        }
+        .no-more{
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+            padding-top: 30px;
+            text-align: center;
+        }
+    }
+}
+
+/* RefreshResultList
+---------------------------------------- */
+.refresh-result-layout {
+    padding: 0 20px;
+    .flexbox {
+        display: flex;
+
+        h5 {
+            @include text-overflow();
+            padding-right: rem(40);
+            flex: 1;
+        }
+
+        aside {
+            font-size: 12px;
+            color: $font-999;
+        }
+    }
+
+    .workshop-search-item {
+        p {
+            height: 30px;
+            margin-top: 6px;
+            line-height: 15px;
+        }
+    }
+
+
+
+    .item-attrs {
+        margin-top: 5px;
+    }
+
+}
+
+/* Layout
+---------------------------------------- */
+
+#pullUp {
+    &.pull-loading .pullUpIcon {
+        background-image: url('../../images/component/ajax-loading.gif');
+    }
+}
+
+.searchbar {
+    margin-bottom: rem(16);
+}
+
+.layout-title {
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 12px;
+}

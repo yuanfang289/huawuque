@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import 'variable';
+@import 'mixins';
+@import 'refresh/refresh';
+
+.area-list{
+    li{
+        background: #fff;
+        padding: 20px;
+        margin-top: 10px;
+        & > a{
+            display: block;
+        }
+    }
+    .img-wrap{
+        width: 100%;
+        margin-bottom: 10px;
+        @include fixed-ratio-box(55.970);
+        span{
+            @include fixed-ratio-inner;
+        }
+    }
+    .area-info{
+        @include clearfix;
+        h3{
+            font-size:16px;
+            font-weight:600;
+            float: left;
+        }
+        p{
+            float: right;
+            span{
+                &:not(:last-child){
+                    &::after{
+                        content: ' | ';
+                    }
+                }
+            }
+        }
+    }
+    .area-location{
+        @include clearfix;
+        margin-top: 10px;
+        p{
+            float: left;
+            line-height: 28px;
+            color: #666;
+        }
+        .btn{
+            float: right;
+            width: 81px;
+        }
+    }
+}

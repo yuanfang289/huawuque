@@ -1,0 +1,35 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "id": 100355,
+        "lockerId": 53,
+        "lockerName": "媒体大柜子",
+        "lockerLocation": "媒体区位置",
+        "lockerCategoryId": 22,
+        "price": 10.5,
+        "createTime": 1509433175000,
+        "createUser": 10656,
+        "useStartTime": 1509433295000,
+        "currentTime": 1509433290000,
+        "useEndTime": 1899433295000,
+        "maxUseTime": 1509519695000,
+        "payTime": 1963519695000,
+        "cancelTime": 1963959695000,
+        "orderStatus": 1,
+        "useTimeNum": 0,
+        "payAmount": 0,
+        "lockerCategoryName": "大号柜子",
+        "userName": "姓名",
+        "mobile": "15011424170",
+        "categoryImage": "http://ouip1glzq.bkt.clouddn.com/af0e2caa-c228-4701-a74a-64b0c95ba9da.png",
+        "strOrderStatus": "使用中",
+        "strPayStatus": "未支付",
+        "overtime": false,
+        "lockerOrderStatus": {
+            "currentStatus": 2,
+            "consumption": 10.5,
+            "strCurrentStatus": "使用中"
+        }
+    }
+}

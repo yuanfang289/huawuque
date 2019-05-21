@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业账单</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/companyAccount/styles/orderform-all.css">
+</head>
+<body  class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="list-time">
+            <p>2017年</p>
+        </div>
+        <ul class="bill-list">
+            <li>
+                <a href="javascript:;">
+                    <div class="list-info">
+                        <p>2017/05 账单</p>
+                        <span>05/01-06/01</span>
+                    </div>
+                    <div class="list-tip">
+                        <button class="btn go-pay">去支付</button>
+                    </div>
+                </a>
+            </li>
+            <li class="all-list">
+                <a href="javascript:;">
+                    <div class="list-info">
+                        <p>2017/05 账单</p>
+                        <span>05/01-06/01</span>
+                    </div>
+                    <div class="list-tip">
+                        <p>50.00 <i class="uricon-arrow-right"></i></p>
+                    </div>
+                </a>
+            </li>
+            <li class="all-list">
+                <a href="javascript:;">
+                    <div class="list-info">
+                        <p>2017/05 账单</p>
+                        <span>05/01-06/01</span>
+                    </div>
+                    <div class="list-tip">
+                        <p>50.00 <i class="uricon-arrow-right"></i></p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script>
+    $('body')
+        .on('click','.go-pay',function () {
+            if (UR.isApp()) {
+                if(UR.isNewApi){
+                    if(UR.testNative(DANativeApi.longRentStationPayment)){
+                        DANativeApi.longRentStationPayment({
+                            orderId: 123,       //长租工位的订单id
+                            completion: function(res) {
+                                if(res.data){
+                                    //支付成功
+
+                                }else {
+                                    //支付失败
+
+                                }
+                            }
+                        });
+                    }else {
+                        UR.msg('使用此功能需要更新客户端');
+                    }
+                }else {
+                    UR.msg('使用此功能需要更新客户端');
+                }
+            } else {
+                UR.openApp.init({
+                    intentUrlParams:location.href
+                });
+            }
+        })
+        .on('click','.all-list',function () {
+            console.log($(this))
+        })
+</script>
+</body>
+</html>

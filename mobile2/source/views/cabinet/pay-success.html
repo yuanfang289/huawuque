@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付成功</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/payment-zfb.css">
+</head>
+<body class="gray-bg">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="pay-success">
+            <div class="success-img">
+                <img src="/assets/public/cabinet/images/pay-success.png" alt="">
+            </div>
+            <p>恭喜您！下单成功啦</p>
+            <div class="btn-group">
+                <button class="btn go-home">返回首页</button>
+                <button class="btn check-order">查看订单</button>
+            </div>
+        </div>
+    </main>
+</div>
+<script type="text/javascript">
+    $('.go-home').on('click',function(){
+        console.log(1);
+    })
+    $('.check-order').on('click',function(){
+        console.log(2);
+    })
+</script>
+</body>
+</html>

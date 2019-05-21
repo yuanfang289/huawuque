@@ -1,0 +1,74 @@
+.province-city-picker {
+    top: 45px !important;
+    display: flex;
+
+    .province-wrap {
+        overflow: hidden;
+        min-width: 0;
+        width: 155px;
+        height: 100%;
+        flex-basis: 155px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background-color: #fff;
+        li {
+            position: relative;
+            height: 54px;
+            margin-bottom: 0;
+            padding: 0;
+            line-height: 54px;
+            &.active {
+                background-color: #f5f5f5;
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 4px;
+                    height: 100%;
+                    background-color: #ffd624;
+                    content: "";
+                }
+                a {
+                    color: #333;
+                    font-weight: bold;
+                }
+            }
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding-left: 25px;
+                padding-right: 10px;
+                @include text-overflow;
+                color: #666;
+            }
+        }
+    }
+
+    .city-wrap {
+        flex-grow: 1;
+        min-width: 0;
+        height: 100%;
+        overflow: hidden;
+        li {
+            height: 54px;
+            margin-bottom: 0;
+            padding-left: 22px;
+            padding-right: 10px;
+            line-height: 54px;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: #666;
+            }
+            &.active {
+                a {
+                    color: #333;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

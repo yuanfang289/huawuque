@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@import 'variable';
+@import 'mixins';
+@import 'refresh/refresh';
+@import 'citypicker/citypicker';
+
+#main{
+    padding-top: 100px;
+}
+.wrapper-app .filter-model{
+    top: 0;
+}
+.wrapper-app #main{
+    padding-top: 54px;
+}
+.filter-model{
+    background: #fff;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    position: fixed;
+    top:45px;
+    z-index: 100;
+    p{
+        line-height: 44px;
+    }
+    i{
+        @include position-center-y;
+        right: 20px;
+        font-size: 10px;
+    }
+}
+.community-list{
+    li{
+        background: #fff;
+        padding: 20px 20px 13px;
+        margin-bottom: 10px;
+        & > a{
+            display: block;
+        }
+        .img-wrap{
+            width: 100%;
+            margin-bottom: 10px;
+            @include fixed-ratio-box(55.970);
+            span{
+                @include fixed-ratio-inner;
+            }
+        }
+        .community-info{
+            @include clearfix;
+            h3{
+                font-size:16px;
+                font-weight:600;
+                float: left;
+            }
+            p{
+                float: right;
+            }
+        }
+    }
+}

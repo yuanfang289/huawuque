@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>选择咖啡和小食</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/coffee/coffee.css">
+</head>
+<script>
+    DANativeApi.setIsRefresh({
+        isRefresh: false
+    });
+    DANativeApi.showShareButton({
+        isShow: false
+    });
+    if (!UR.isApp()) {
+        var $body=$('body');
+        overflow();
+        UR.openApp.init({
+            intentUrlParams: location.href
+        }, back);
+        function overflow() {
+            $body.css('overflow', 'hidden');
+        }
+        function back() {
+            UR.navigateBack();
+        }
+    }
+</script>
+<body>
+<!--wrapper-->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar-def.tpl"
+    </header>
+    <!-- /header -->
+    <!--main-->
+    <main id="main">
+        <section class="banners swiper-fixed-ratio">
+            <div class="swiper-container banner-list">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="javascript:;">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/coffee/images/banner1.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="javascript:;">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/coffee/images/banner2.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <section class="content"></section>
+        <section class="footer">
+            <div class="footer-fixed">
+                <dl>
+                    <dt class="shoppingTap">
+                        <div class="shopping">
+                            <span class="shopNum">0</span>
+                            <i class="uricon-shop-ld"></i>
+                        </div>
+                    </dt>
+                    <dd class="shoppingTap">
+                        <p id="total">还未选购商品</p>
+                        <span>免配送费</span>
+                    </dd>
+                    <dd>
+                        <button class="accounts" disabled> 去结算</button>
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="modal" id="uGiftModel">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <p>已选商品 （<span class="tote"></span>件）</p>
+                            <span class="empty-btn"><i class="uricon-empty-ld"></i> 清空</span>
+                        </div>
+                        <div class="modal-body" id="modalBody">
+                            <ul id="modalContent">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sharebg"></div>
+        </section>
+    </main>
+    <!--/main-->
+</div>
+<script src="/assets/public/plugins/template.js"></script>
+<script type="text/html" id="cotentTpl">
+    <div class="left-menu" id="left-menu">
+        <ul>
+            {{each leftlist as item i}}
+            <li><a href="javascript:;" class="{{if i==0}}active{{/if}}" data-id="{{item.id}}">{{item.listName}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="goods-list" id="goods-list">
+        <ul>
+            {{each goodslist as item }}
+            <li class="goods-item" >
+                <h2 class="title" data-id="{{item.id}}">{{item.title}}</h2>
+                {{each item.list as i }}
+                <dl>
+                    <dt><img src="{{i.img}}" alt=""></dt>
+                    <dd >
+                        <h3 data-id="{{i.skuId}}">{{i.name}}</h3>
+                        <p><em>{{i.info}}</em></p>
+                        <p class="price">￥<span class="sum" data-price="{{i.price}}">{{i.price}}</span></p>
+                        <div class="cartcontrol">
+                            <div class="cart-btn cart-decrease" style="">
+                                <i class="uricon-decrease-ld"></i>
+                            </div>
+                            <div class="cart-count" data-id="{{i.id}}" data-ids="{{i.id}}">{{i.num}}</div>
+                            <div class="cart-btn cart-add"><i class="uricon-plus-w"></i></div>
+                        </div>
+                    </dd>
+                </dl>
+                {{/each}}
+            </li>
+            {{/each}}
+            <li>
+                <dl>
+                    <dt></dt>
+                    <dd></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</script>
+<script>
+    $(function() {
+        var $content = $('.content');
+        var index = $('.left-menu a').index();
+        var html = template('cotentTpl', {
+            leftlist: [
+                {
+                    listName: "咖啡类",
+                    id: 1
+                },
+                {
+                    listName: "茶类",
+                    id: 2
+                },
+                {
+                    listName: "磨呗特调",
+                    id: 3
+                },
+                {
+                    listName: "软饮",
+                    id: 4
+                },
+                {
+                    listName: "甜点",
+                    id: 5
+                },
+                {
+                    listName: "酒",
+                    id: 6
+                }
+            ],
+            goodslist: [
+                {
+                    title: '咖啡类',
+                    id: 1,
+                    list: [
+                        {
+                        id: 100342,
+                        img: '/assets/public/market/images/def/company_logo.png',
+                        name: '美式咖啡（热）',
+                        info: '咖啡味道浓郁，低热量无负担',
+                        price: 12.00,
+                        num: 0
+                        },
+                        {
+                            id: 100341,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '美式咖啡（冰）',
+                            info: '冰爽可口，夏日必备',
+                            price: 12.00,
+                            num: 0
+                        },
+                        {
+                            id: 100340,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '卡布奇诺（热）',
+                            info: '正宗意式咖啡，奶沫丰富',
+                            price: 19.00,
+                            num: 0
+                        },
+                        {
+                            id: 100339,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '卡布奇诺（冰）',
+                            info: '绵密冰奶沫，口感清爽',
+                            price: 19.00,
+                            num: 0
+                        },
+                        {
+                            id: 100338,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '拿铁咖啡（热）',
+                            info: '馥郁丝滑',
+                            price: 21.00,
+                            num: 0
+                        },
+                        {
+                            id: 100337,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '拿铁咖啡（冰）',
+                            info: '清凉爽口，口感顺滑',
+                            price: 21.00,
+                            num: 0
+                        },
+                        {
+                            id: 100336,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '香草拿铁（热）',
+                            info: '馥郁丝滑，微微甜',
+                            price: 22.00,
+                            num: 0
+                        },
+                        {
+                            id: 100335,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '香草拿铁（冰）',
+                            info: '清凉爽口，口感顺滑',
+                            price: 22.00,
+                            num: 0
+                        },
+                        {
+                            id: 100334,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '草莓拿铁（热）',
+                            info: '馥郁丝滑，微微甜',
+                            price: 22.00,
+                            num: 0
+                        },
+                        {
+                            id: 100333,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '草莓拿铁（冰）',
+                            info: '清凉爽口，口感顺滑',
+                            price: 22.00,
+                            num: 0
+                        },
+                        {
+                            id: 100332,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '榛果拿铁（热）',
+                            info: '馥郁丝滑，微微甜',
+                            price: 22.00,
+                            num: 0
+                        },
+                        {
+                            id: 100331,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '榛果拿铁（冰）',
+                            info: '清凉爽口，口感顺滑',
+                            price: 22.00,
+                            num: 0
+                        },
+                        {
+                            id: 100330,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '牛奶（热）',
+                            info: '奶香浓郁',
+                            price: 16.00,
+                            num: 0
+                        },
+                        {
+                            id: 100329,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '巧克力（热）',
+                            info: '可可香气四溢',
+                            price: 18.00,
+                            num: 0
+                        },
+                        {
+                            id: 100328,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '抹茶拿铁（热）',
+                            info: '精选抹茶，口感清爽',
+                            price: 18.00,
+                            num: 0
+                        },
+                        {
+                            id: 100327,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '抹茶拿铁（冰）',
+                            info: '清凉爽口，适合夏天',
+                            price: 18.00,
+                            num: 0
+                        },
+                        {
+                            id: 100326,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '原味奶茶',
+                            info: '进口乳品，口感丝滑',
+                            price: 18.00,
+                            num: 0
+                        }
+                    ]
+                },
+                {
+                    title: '茶类',
+                    id: 2,
+                    list: [{
+                            id: 44,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '蜂蜜柚子茶（热）',
+                            info: '酸甜可口，果香浓郁',
+                            price: 16.00,
+                            num: 0
+                         },
+                        {
+                            id: 43,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '蜂蜜柚子茶（冰）',
+                            info: '冰爽可口',
+                            price: 16.00,
+                            num: 0
+                        },
+                        {
+                            id: 42,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '柠檬姜茶（热）',
+                            info: '最贴心的的温暖',
+                            price: 16.00,
+                            num: 0
+                        },
+                        {
+                            id: 41,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '冻顶乌龙茶（热）',
+                            info: '清香味道，养生之选',
+                            price: 16.00,
+                            num: 0
+                        },
+                        {
+                            id: 40,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '蜜柚乌梅茶（冰）',
+                            info: '酸爽可口',
+                            price: 16.00,
+                            num: 0
+                        },
+                        {
+                            id: 39,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '柠檬蜂蜜乌龙茶（热）',
+                            info: '清新可口，味型丰富',
+                            price: 18.00,
+                            num: 0
+                        },
+                        {
+                            id: 38,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '生姜红茶（热）',
+                            info: '生理期必备',
+                            price: 18.00,
+                            num: 0
+                        },
+                        {
+                            id: 37,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '锡兰红茶（热）',
+                            info: '味道浓郁',
+                            price: 14.00,
+                            num: 0
+                        }
+
+                    ]
+                },
+                {
+                    title: '磨呗特调',
+                    id: 3,
+                    list: [{
+                        id: 36,
+                        img: '/assets/public/market/images/def/company_logo.png',
+                        name: '乌梅苏打',
+                        info: '酸爽可口，适合夏天',
+                        price: 19.00,
+                        num: 0
+                    },
+                        {
+                            id: 35,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '巧克力奶昔',
+                            info: '奶香与巧克力完美结合',
+                            price: 21.00,
+                            num: 0
+                        },
+                        {
+                            id: 34,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '蜜柚冰沙',
+                            info: '酸甜清爽，夏日必备',
+                            price: 19.00,
+                            num: 0
+                        }
+                    ]
+                },
+                {
+                    title: '软饮',
+                    id: 4,
+                    list: [{
+                        id: 33,
+                        img: '/assets/public/market/images/def/company_logo.png',
+                        name: '屈臣氏苏打水',
+                        info: '零热量，无负担',
+                        price: 6,
+                        num: 0
+                    },
+                        {
+                            id: 32,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '巴黎矿泉水',
+                            info: '带气矿泉水，口感更清爽',
+                            price: 15.00,
+                            num: 0
+                        },
+                        {
+                            id: 31,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '依云矿泉水',
+                            info: '逼格满满',
+                            price: 15.00,
+                            num: 0
+                        },
+                        {
+                            id: 30,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '健怡可乐',
+                            info: '零热量，无负担',
+                            price: 6.00,
+                            num: 0
+                        },
+                        {
+                            id: 29,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '零度可乐',
+                            info: '零热量，无负担',
+                            price: 6.00,
+                            num: 0
+                        },
+                        {
+                            id: 28,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '维他柠檬茶',
+                            info: '酸甜可口，肥宅快乐茶',
+                            price: 8.00,
+                            num: 0
+                        },
+                        {
+                            id: 27,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '都乐苹果汁',
+                            info: '果香浓郁，富含维他命',
+                            price: 6.00,
+                            num: 0
+                        },
+                        {
+                            id: 26,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '都乐橙汁',
+                            info: '果香浓郁，富含维他命',
+                            price: 6.00,
+                            num: 0
+                        },
+                        {
+                            id: 25,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '都乐葡萄汁',
+                            info: '果香浓郁，富含维他命',
+                            price: 6.00,
+                            num: 0
+                        }
+                    ]
+                },
+                {
+                    title: '甜点',
+                    id: 5,
+                    list: [{
+                            id: 24,
+                            skuId:100,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '芝士蛋糕',
+                            info: '香滑甜软，咖啡绝配',
+                            price: 14.00,
+                            num: 0
+                        },
+                        {
+                            id: 23,
+                            skuId:102,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '抹茶黄桃',
+                            info: '软嫩黄桃搭配清爽抹茶',
+                            price: 14.00,
+                            num: 0
+                        },{
+                            id: 22,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '巧克力慕斯',
+                            info: '巧克力浓郁，甜而不腻',
+                            price: 14.00,
+                            num: 0
+                        },
+                        {
+                            id: 21,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '红丝绒蛋糕',
+                            info: '甜度适中，仙女最爱',
+                            price: 14.00,
+                            num: 0
+                        },
+                        {
+                            id: 20,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '每日坚果',
+                            info: '定量坚果，健康每一天',
+                            price: 6.00,
+                            num: 0
+                        }
+                    ]
+                },
+                {
+                    title: '酒',
+                    id: 6,
+                    list: [{
+                            id: 19,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '福佳白',
+                            info: '啤酒爱好者必选',
+                            price: 20.00,
+                            num: 0
+                        },
+                        {
+                            id: 18,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '督威',
+                            info: '啤酒爱好者必选',
+                            price: 25.00,
+                            num: 0
+                        },
+                        {
+                            id: 17,
+                            img: '/assets/public/market/images/def/company_logo.png',
+                            name: '莫吉托',
+                            info: '清凉薄荷，清新爽口',
+                            price: 25.00,
+                            num: 0
+                        }
+                    ]
+                }
+            ]
+        });
+        $content.html(html);
+        setTimeout(init,100)
+    })
+</script>
+<script type="text/html" id="modalTpl">
+    {{each modaList as item }}
+    <li>
+        <h3>{{item.name}}</h3>
+        <span>￥<em class="tt">{{item.price}}</em></span>
+        <div class="cartcontrol">
+            <div  class="cart-btn cart-decrease rotateOut decrease" style="">
+                <i class="uricon-decrease-ld"></i>
+            </div>
+            <div class="cart-count" data-id="{{item.id}}" style="opacity: 1">{{item.num}}</div>
+            <div class="cart-btn cart-add cartAdd"><i class="uricon-plus-w"></i></div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+<script src="/assets/public/coffee/scripts/coffee.js"></script>
+<script>
+    //渲染购物车
+    function cartShop(){
+        var modaList = [];
+        for (var i in moda){
+            modaList.push(moda[i])
+        }
+        var html = template('modalTpl', {
+            modaList:modaList
+        });
+        $('#modalContent').html(html);
+        //渲染完成 给dom添加事件
+        $(".decrease").click(decrease);
+        $('.cartAdd').click(cartAdd);
+        //清空
+        $('.empty-btn').click(function () {
+            window.moda = {};
+            $('.cart-count').text('0').css('opacity',0);
+            $('.cart-decrease').removeClass('rotateOut').addClass('rotateIn');
+            setTotal();
+            $('html,body').removeClass('ovfHiden');
+        })
+    }
+    //总金额
+    function setTotal() {
+        var allPrice = 0; //总金额
+        var allNum = 0; //总数量
+        for(var i in moda){
+            allPrice += moda[i].num* moda[i].price;
+            allNum += moda[i].num;
+        }
+        if(allPrice == 0.00){
+            $("#total").removeClass('total').html("还未选购商品");
+        }else if(allPrice > 0.00){
+            $("#total").addClass('total').html("￥"+ allPrice.toFixed(2));
+        }else{
+            allPrice=0;
+            $("#total").removeClass('total').html("还未选购商品");
+        }
+        //购物车弹层
+        if(allNum > 0 ){
+            $('.shopNum').html(allNum);
+            $('.modal-header').find('span[class*=tote]').html(allNum);
+            $('.shopping').addClass('at');
+            $('.accounts').attr("disabled",false);
+        }else{
+            $('.modal').removeClass('in');
+            $('.sharebg').removeClass('sharebg-active');
+            $('.shopping').removeClass('at');
+            $('.accounts').attr("disabled",true);
+        }
+    }
+    function decrease() {
+        var id = $(this).parent().parent().find('.cart-count').attr('data-id');
+        var num = moda[id].num -1 ;
+        var dataId=$("div[data-ids="+id+"]");
+        if(num == 0){
+            dataId.css('opacity',0);
+            dataId.parent().find('.cart-decrease').removeClass('rotateOut').addClass('rotateIn');
+            delete moda[id];
+            dataId.parent().find('.cart-count').text(num);
+            cartShop();
+        }else {
+            moda[id].num = num;
+            $("div[data-id="+id+"]").html(num);
+        }
+        setTotal()
+    };
+    function cartAdd() {
+        var id = $(this).parent().parent().find('.cart-count').attr('data-id');
+        var num = moda[id].num +1 ;
+        moda[id].num = num;
+        $("div[data-id="+id+"]").html(num);
+        setTotal();
+    };
+    //結算
+    $('.accounts').click(function () {
+        var accountsList = [];
+        for (var i in moda){
+            var skuId = Number(moda[i].skuId);
+            var num= moda[i].num;
+            accountsList.push({
+                count:num,
+                id:skuId
+            })
+        }
+        console.log(moda);
+        var balanceStr={
+            "address": {
+                "address": "详细地址（此业务场景即会议室地址）",
+                "cityCode": 123,
+                "cityName": "北京市",
+                "provinceCode": 123,
+                "provinceName": "北京市",
+                "workstageId": 1312313,
+                "workstageName": "hahhaha"
+            },
+            "selectedSkus": accountsList
+        };
+        balanceSt_json = JSON.stringify(balanceStr);
+        console.log(balanceSt_json);
+        code = encodeURI(balanceSt_json);
+        UR.setUrl('urwork://productQuicklyBuy?data=' + code);
+    })
+</script>
+<!--/wrapper-->
+</body>
+</html>

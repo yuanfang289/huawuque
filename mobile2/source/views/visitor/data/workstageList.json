@@ -1,0 +1,56 @@
+{
+    "retCode":0,
+    "retMsg":"接口请求成功",
+    "data":{
+        "北京市":[
+            {
+                "id":90123,
+                "stageName":"清风",
+                "provinceCode":"110000",
+                "cityCode":"110000",
+                "provinceName":"北京市",
+                "cityName":"北京市",
+                "visitTimeEnd":"17:05",
+                "visitTimeStart":"09:35"
+            },
+            {
+                "id":90116,
+                "stageName":"test_12121",
+                "provinceCode":"110000",
+                "cityCode":"110000",
+                "provinceName":"北京市",
+                "cityName":"北京市",
+                "visitTimeEnd":"15:25",
+                "visitTimeStart":"08:05"
+            },
+            {
+                "id":10022,
+                "stageName":"方圆大厦·优客工场",
+                "provinceCode":"110000",
+                "cityCode":"110000",
+                "provinceName":"北京市",
+                "cityName":"北京市"
+            }
+        ],
+        "上海市":[
+            {
+                "id":1,
+                "stageName":"上海陆家嘴 优客工场",
+                "provinceCode":"310000",
+                "cityCode":"310000",
+                "provinceName":"上海市",
+                "cityName":"上海市"
+            }
+        ],
+        "石家庄市":[
+            {
+                "id":90117,
+                "stageName":"思想与人的链接卢克书房 ",
+                "provinceCode":"130000",
+                "cityCode":"130100",
+                "provinceName":"河北省",
+                "cityName":"石家庄市"
+            }
+        ]
+    }
+}

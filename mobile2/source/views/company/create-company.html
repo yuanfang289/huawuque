@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="is-app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>创建企业</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/company/styles/common.css">
+    <link rel="stylesheet" href="/assets/public/company/styles/create-company.css">
+</head>
+
+<body>
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header" class="header-def">
+        <!-- titlebar -->
+        <div id="titlebar">
+            <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+            <span class="title">创建企业</span>
+        </div>
+        <!-- /titlebar -->
+    </header>
+    <!-- /header -->
+
+    <!-- main -->
+    <main id="main" data-render="template">
+        <div class="rendering">
+            <div class="img-box">
+                <div class="img"></div>
+            </div>
+
+            <p>正在加载 . . .</p>
+        </div>
+        <form class="form form-primary">
+
+            <div class="form-action">
+                <button type="button" class="btn btn-primary" id="submit">提交</button>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label">公司名称</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+
+                    <input type="hidden" id="companyName" name="companyName">
+                    <a href="#" id="companyName_dummy" class="readonly-text" data-toggle="modal" data-target="#companyNameModal" data-iscroll="#companyList">点击输入</a>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label">企业类型</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+
+                    <input type="hidden" id="companyType" name="companyType">
+                    <a href="#" id="companyType_dummy" class="readonly-text" data-toggle="modal" data-target="#companyTypeModal">点击选择</a>
+                </div>
+            </div>
+
+            <div class="form-item form-item-image">
+                <label class="form-label">访客照片</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <!-- upload -->
+                    <div data-role="uploader" class="uploader" data-options="
+                            imgSrc: '',
+                            serverSrc: '',
+                            url: '/upload',
+                            imgPX: '50x50',
+                            name: 'img',
+                            require: true,
+                            formatted: function(res) {
+                                return { url: res.data.filename, src: res.data.imgUrl}
+                            }
+                        ">
+                        <input type="hidden" name="img" data-role="hidden">
+                        <div data-role="placeholder" style="width: 25px; height: 25px;">
+                            <div data-role="add-plus" class="uricon-pic"></div>
+                            <label data-role="add">
+                                <input type="file" data-role="file">
+                            </label>
+                        </div>
+                    </div>
+                    <!--/ upload -->
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label">联系人</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+
+                    <input type="hidden" id="contact" name="contact">
+                    <a href="#" id="contact_dummy" class="readonly-text" data-toggle="modal" data-target="#contactModal">点击输入</a>
+                </div>
+            </div>
+
+        </form>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<!-- 联系人 -->
+<div class="modal form-modal form-modal-full" id="contactModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <header class="header header-def">
+                <!-- titlebar -->
+                <div class="titlebar">
+                    <a href="javascript:;" class="nav-switch uricon-arrow-left" data-dismiss="modal"></a>
+
+                    <span class="title">联系人信息</span>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary-market">保存</button>
+                    </div>
+                </div>
+                <!-- /titlebar -->
+            </header>
+            <div class="modal-body">
+                <form class="form form-primary">
+
+                    <div class="form-item">
+                        <label class="form-label">联系人姓名</label>
+                        <div class="form-cont form-input">
+                            <input type="text" placeholder="请输入企业联系人姓名" name="name">
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label class="form-label">联系电话</label>
+                        <div class="form-cont form-input">
+                            <input type="text" placeholder="请输入联系电话" name="tel">
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label class="form-label">联系邮箱</label>
+                        <div class="form-cont form-input">
+                            <input type="text" placeholder="请输入联系邮箱" name="email">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ 联系人 -->
+
+<!-- 企业名称 -->
+<div class="modal form-modal form-modal-full" id="companyNameModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <header class="header header-def">
+                <!-- titlebar -->
+                <div class="titlebar">
+                    <a href="javascript:;" class="nav-switch uricon-arrow-left" data-dismiss="modal"></a>
+
+                    <span class="title">企业名称</span>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary-market" id="saveComapny">保存</button>
+                    </div>
+                </div>
+                <!-- /titlebar -->
+            </header>
+            <div class="modal-body">
+                <div class="searchbar" id="searchComapny">
+                    <div class="search-inner">
+                        <form action="/search">
+                            <div class="search-input">
+                                <input type="search" placeholder="请输入企业名称">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="search-comapny-result">
+                    <h3>企业名称不能和已有企业相同</h3>
+                    <div class="result-list" id="companyList">
+                        <div class="result-list-inner">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ 企业名称 -->
+
+<!-- 企业类型 -->
+<div class="modal form-modal form-modal-full" id="companyTypeModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <header class="header header-def">
+                <!-- titlebar -->
+                <div class="titlebar">
+                    <a href="javascript:;" class="nav-switch uricon-arrow-left" data-role="hide"></a>
+                    <span class="title">企业类型</span>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary-market" id="saveComapnyType" style="display: none" disabled>保存</button>
+                    </div>
+                </div>
+                <!-- /titlebar -->
+            </header>
+            <div class="modal-body classify-wrap">
+                <!-- 企业类型内容 -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ 企业类型 -->
+
+<!--&lt;!&ndash; 注册地 &ndash;&gt;-->
+<!--<div class="modal form-modal form-modal-full in" id="ProvinceCityModal" role="dialog">-->
+    <!--<div class="modal-dialog">-->
+        <!--<div class="modal-content">-->
+            <!--<header class="header header-def">-->
+                <!--&lt;!&ndash; titlebar &ndash;&gt;-->
+                <!--<div class="titlebar">-->
+                    <!--<a href="javascript:;" class="nav-switch uricon-arrow-left" data-role="hide"></a>-->
+                    <!--<span class="title">注册地</span>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /titlebar &ndash;&gt;-->
+            <!--</header>-->
+            <!--<div class="modal-body province-city-picker">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;/ 注册地 &ndash;&gt;-->
+
+<!--<script type="text/html" id="ProvinceCityTpl">-->
+    <!--<div class="province-wrap" id="ProvinceCityLeft">-->
+        <!--<ul>-->
+            <!--<li class="active"><a href="javascript:;">北京市</a></li>-->
+            <!--<li class=""><a href="javascript:;">天津市</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="city-wrap" id="ProvinceCityRight">-->
+        <!--<ul>-->
+            <!--<li class="active" data-provinceCode="" data-provinceName="" data-cityCode="" data-cityName=""><a href="javascript:;">北京市</a></li>-->
+            <!--<li data-provinceCode="" data-provinceName="" data-cityCode="" data-cityName=""><a href="javascript:;">北京市</a></li>-->
+            <!--<li data-provinceCode="" data-provinceName="" data-cityCode="" data-cityName=""><a href="javascript:;">北京市</a></li>-->
+            <!--<li data-provinceCode="" data-provinceName="" data-cityCode="" data-cityName=""><a href="javascript:;">北京市</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</script>-->
+
+<script type="text/html" id="companyItemTpl">
+    {{each list as item i}}
+    <a href="/market/companyDetail?id={{item.id}}">
+        <dl class="result-item">
+            <dt>
+                {{if item.imageUrl}}
+                <img src="{{item.imageUrl}}" onerror="this.src='/assets/public/market/images/company_default.png'" alt="">
+                {{else}}
+                <img src="/assets/public/market/images/company_default.png" alt="">
+                {{/if}}
+            </dt>
+            <dd>
+                <p class="name">{{item.name}}</p>
+                <p class="member-count">{{item.count || '0'}}成员</p>
+            </dd>
+        </dl>
+    </a>
+    {{/each}}
+</script>
+
+<script src="/assets/public/form/form-import.js"></script>
+<script src="/assets/public/company/scripts/create-company.js"></script>
+<script>
+    $(function() {
+        $.when(Page.fetchUserInfo(), Page.fetchCompanyType())
+            .done(function(res1, res2) {
+                res1 = res1[0];
+                res2 = res2[0];
+                if (res1.retCode === 0 && res2.retCode === 0) {
+                    $('.rendering').remove();
+                    $('#page').show();
+                    Page.init([res1.data, res2.data]);
+                } else if (res1.retCode === -1 || res2.retCode === -1) {
+                    UR.toLogin();
+                } else if (res1.retCode !== 0) {
+                    UR.msg(res1.retMsg, {
+                        delay: 3000
+                    })
+                } else if (res2.retCode !== 0) {
+                    UR.msg(res2.retMsg, {
+                        delay: 3000
+                    })
+                }
+            })
+            .fail(function(err) {
+                console.log('接口请求失败');
+            });
+
+        BaseForm.post({
+            validator: {
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    type: {
+                        required: true
+                    },
+                    typeIds: {
+                        required: true
+                    },
+                    logo: {
+                        required: true
+                    },
+                    userName: {
+                        required: true
+                    },
+                    phone: {
+                        required: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: '请填写企业名称'
+                    },
+                    type: {
+                        required: '请选择企业类型'
+                    },
+                    typeIds: {
+                        required: '请选择企业类型'
+                    },
+                    logo: {
+                        required: '请上传企业logo'
+                    },
+                    userName: {
+                        required: '请填写联系人姓名'
+                    },
+                    phone: {
+                        required: '请填写联系人手机'
+                    }
+                }
+            },
+            postUrl: '/company/companyCreate',
+            success: function(res) {
+
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

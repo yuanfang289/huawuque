@@ -1,0 +1,43 @@
+.workshop-item {
+    .img-wrap {
+        @include fixed-ratio-box(56.119);
+        margin-bottom: 6px;
+        .image {
+            @include fixed-ratio-inner;
+        }
+    }
+    .score-mod {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+    .text-wrap {
+        font-size: 12px;
+    }
+    .text-title {
+        position: relative;
+        color: #333;
+        font-size: 16px;
+        line-height: 32px;
+        h6 {
+            @include text-overflow;
+            padding-right: 100px;
+        }
+    }
+    .text-attr {
+        @include clearfix;
+        color: #666;
+        line-height: 1;
+        p:first-child {
+            @include text-overflow;
+            float: left;
+            width: 70%;
+        }
+        p:last-child {
+            float: right;
+            width: 28%;
+            text-align: right;
+        }
+    }
+}

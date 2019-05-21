@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'common';
+
+/* Layout
+---------------------------------------- */
+.wrapper {
+    background-color: #B52B21;
+    padding-bottom: 50px;
+}
+.guide {
+    position: relative;
+    padding: 220px 20px 0;
+    background: url("/assets/public/market/images/surprise/uxj_bg.jpg") no-repeat 0 0;
+    background-size: contain;
+    text-align: center;
+    .rule-link {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        width: 43px;
+        height: 45px;
+        background: url("/assets/public/market/images/surprise/uxj_rule.jpg") no-repeat 0 0;
+        background-size: contain;
+    }
+    img {
+        vertical-align: bottom;
+    }
+    .btn {
+        width: 190px;
+        height: 40px;
+        @include box-center;
+        border-radius: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 38px;
+    }
+    &.rules {
+        padding-top: 94px;
+        background-image: url("/assets/public/market/images/surprise/rules_bg.jpg");
+    }
+}
+.guide-inner {
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 300px;
+    margin-bottom: 30px;
+    padding: 20px 10px 35px;
+}
+
+.rules {
+    color: #333;
+    font-size: 12px;
+    text-align: justify;
+    section:not(:last-of-type) {
+        margin-bottom: 28px;
+    }
+
+    .title {
+        margin-bottom: 13px;
+        padding-right: 3px;
+        color: #da4538;
+        font-size: 17px;
+        text-align: center;
+        line-height: 24px;
+        img {
+            position: relative;
+            top: -2px;
+            width: 16px;
+            margin-left: 4px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+    }
+    .guide-inner {
+        margin-bottom: 17px;
+        padding: 22px 24px 23px 36px;
+    }
+    ol {
+        li {
+            position: relative;
+            margin-bottom: 7px;
+            i {
+                position: absolute;
+                top: 0;
+                right: 100%;
+                margin-right: 5px;
+            }
+        }
+        span {
+            color: #da4538;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    ul {
+        padding-top: 4px;
+        li {
+            position: relative;
+            font-size: 12px;
+            &::before {
+                position: absolute;
+                top: 7px;
+                right: 100%;
+                content: "";
+                width: 3px;
+                height: 3px;
+                margin-right: 10px;
+                background-color: #333;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+.copyright {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}

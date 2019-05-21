@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="">
+
+<head>
+    <meta charset="UTF-8">
+    <title>企业表页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/market/styles/list.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="" />
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header" class="header-def">
+            <!-- titlebar -->
+            <div id="titlebar">
+                <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+                <div class="searchbar" id="searchbar">
+                    <div class="search-inner">
+                        <form action="/search">
+                            <div class="search-input">
+                                <input type="search">
+                                <div class="placeholder"><i class="uricon-search"></i><span>输入企业名称</span></div>
+                            </div>
+                        </form>
+                        <div class="search-action">
+                            <a href="javascript:;" class="search-btn cancel-btn">取消</a>
+                            <a href="urwork://myCompanyList" class="company-logo" id="myCompany">
+                                <div class="img-wrap"><span style="background-image: url('/a.png')"></span></div>
+                                <p>我的企业</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-mask"></div>
+            </div>
+            <!-- /titlebar -->
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- content -->
+            <div id="content">
+                <!-- select start -->
+                <div id="filterContainer" class="filter-container">
+                    <div class="select-group-wrapper" data-col="4" Wrapper>
+                        <div class="select-group">
+                            <div class="select-group-title" data-title="#1" data-parent-param="cityCode" data-param="workStageId">
+                                <span Text>城市</span>
+                                <i class="arrow uricon-arrow-dropdown" Icon></i>
+                            </div>
+                        </div>
+                        <div class="select-group">
+                            <div class="select-group-title" data-title="#2" data-parent-param="cityCode" data-param="workStageId">
+                                <span Text>社区</span>
+                                <i class="arrow uricon-arrow-dropdown" Icon></i>
+                            </div>
+                        </div>
+                        <div class="select-group">
+                            <div class="select-group-title" data-title="#3" data-parent-param="categoryParent" data-param="activityCategory">
+                                <span Text>行业</span>
+                                <i class="uricon-arrow-dropdown" Icon></i>
+                            </div>
+                        </div>
+                        <div class="select-group filter-sort">
+                            <div class="select-group-title" data-title="#4" data-parent-param="orderTypeParent" data-param="orderType">
+                                <span Text></span>
+                                <i class="uricon-sort"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- select end -->
+
+                <!-- activity-lists -->
+                <section class="activity-list" data-scroll="pullUp" data-options="
+                      <!--url: 'http://m.urwork.cn/uwCompany/companyListPageJson',-->
+                      url: './data/list.json',
+                      data: {
+                      },
+                      template: 'tplList',
+                      isFirstLoad: true,
+                      formatted: function(res) {
+                          return res.data && res.data.result || [];
+                      }
+                      ">
+
+                </section>
+                <!-- activity-lists -->
+            </div>
+            <!-- / content -->
+            @import "goto.tpl"
+        </main>
+        <!-- / main -->
+    </div>
+    <!--/ wrapper -->
+    @import "footer-common.tpl"
+
+    <script type="text/html" id="tlpFilter">
+        <div class="select-group-body {{data.currentIndex ? 'active': ''}}" Body>
+
+            <div class="select-content {{data.currentIndex == '#1' ? 'active' : ''}}" data-content="#1">
+                <section class="select-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            <li class="{{!data.cityCode ? 'active' : ''}}" data-parent="">全部</li>
+                            {{each data.workstage as item i}}
+                            {{if item.id}}
+                            <li class="{{data.cityCode == item.id ? 'active' : ''}}" data-parent="{{item.id}}">{{item.name}}</li>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </section>
+                <section class="select-sub-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            {{if !data.cityCode}}
+                            <li class="{{!data.cityCode && !data.workStageId ? 'active': ''}}" data-child="">全部社区</li>
+                            {{else}}
+                            {{each data.workstage[data.cityCode].list as stage j}}
+                            {{if data.cityCode == stage.id}}
+                            <li class="{{stage.id == data.workStageId ? 'active': ''}}" data-child="{{stage.id}}">全部</li>
+                            {{else}}
+                            <li class="{{stage.id == data.workStageId ? 'active' : ''}}" data-child="{{stage.id}}">{{stage.stageName}}</li>
+                            {{/if}}
+                            {{/each}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="select-content {{data.currentIndex == '#2' ? 'active' : ''}}" data-content="#2">
+                <section class="select-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            <li class="{{!data.cityCode ? 'active' : ''}}" data-parent="">全部</li>
+                            {{each data.workstage as item i}}
+                            {{if item.id}}
+                            <li class="{{data.cityCode == item.id ? 'active' : ''}}" data-parent="{{item.id}}">{{item.name}}</li>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </section>
+                <section class="select-sub-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            {{if !data.cityCode}}
+                            <li class="{{!data.cityCode && !data.workStageId ? 'active': ''}}" data-child="">全部社区</li>
+                            {{else}}
+                            {{each data.workstage[data.cityCode].list as stage j}}
+                            {{if data.cityCode == stage.id}}
+                            <li class="{{stage.id == data.workStageId ? 'active': ''}}" data-child="{{stage.id}}">全部</li>
+                            {{else}}
+                            <li class="{{stage.id == data.workStageId ? 'active' : ''}}" data-child="{{stage.id}}">{{stage.stageName}}</li>
+                            {{/if}}
+                            {{/each}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="select-content {{data.currentIndex == '#3' ? 'active' : ''}}" data-content="#3">
+                <section class="select-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            <li class="{{!data.categoryParent ? 'active' : ''}}" data-parent="">全部</li>
+                            {{each data.category as item i}}
+                            {{if item.id}}
+                            <li class="{{data.categoryParent == item.id ? 'active' : ''}}" data-parent="{{item.id}}">{{item.name}}</li>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </section>
+                <section class="select-sub-menu" data-scroll="verticle" Menu>
+                    <div class="scroller company-type">
+                        {{each data.category as item i}}
+                        {{if item.id && data.categoryParent == item.id}}
+                        <h3 class="company-type-title">{{item.name}}</h3>
+                        {{/if}}
+                        {{/each}}
+                        {{if !data.categoryParent}}
+                        <h3 class="company-type-title">全部行业</h3>
+                        {{/if}}
+                        <ul>
+                            {{if !data.categoryParent }}
+                            <li class="no-border {{!data.categoryParent && !data.activityCategory ? 'active': ''}}" data-child="">全部行业</li>
+                            {{else}}
+                                {{each data.category[data.categoryParent].list as cg j}}
+                                    {{if data.categoryParent == cg.id}}
+                                    <li class="{{cg.id == data.activityCategory ? 'active': ''}}" data-child="{{cg.id}}">全部</li>
+                                    {{else}}
+
+                                        {{if data.category[data.categoryParent].list.length % 2 === 1}}
+                                            <li class="{{cg.id == data.activityCategory ? 'active' : ''}} {{data.category[data.categoryParent].list.length - 1 === j ? 'no-border' : ''}}" data-child="{{cg.id}}">{{cg.categoryName}}</li>
+                                        {{else}}
+                                            <li class="{{cg.id == data.activityCategory ? 'active' : ''}} {{data.category[data.categoryParent].list.length - j < 3 ? 'no-border' : ''}}" data-child="{{cg.id}}">{{cg.categoryName}}</li>
+                                        {{/if}}
+
+                                    {{/if}}
+                                {{/each}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="select-content sort-list {{data.currentIndex == '#4' ? 'active' : ''}}" data-content="#4">
+                <section class="select-sub-menu" data-scroll="verticle" data-toelement="false" Menu>
+                    <div class="scrollers">
+                        <ul>
+                            {{if data.orderType == 1 || !data.orderType}}
+                            <li data-child="1" class="active">综合排序</li>
+                            <li data-child="2">加入时间</li>
+                            <li data-child="3">最新留言</li>
+                            {{else if data.orderType == 2}}
+                            <li data-child="1">综合排序</li>
+                            <li data-child="2" class="active">加入时间</li>
+                            <li data-child="3">最新留言</li>
+                            {{else if data.orderType == 3}}
+                            <li data-child="1">综合排序</li>
+                            <li data-child="2">加入时间</li>
+                            <li data-child="3" class="active">最新留言</li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tplList">
+        {{if list.length == 0 }}
+            <div class="data-null">
+                <img src="/assets/public/images/NODATA.png" alt="">
+            </div>
+        {{else}}
+        <ul class="financing-list">
+        {{each list as item i}}
+            <li class="financing-item">
+                <a href="/market/companyDetail?id={{item.companyId}}">
+                    <div class="financing-top">
+                        <dl>
+                            <dt>
+                                {{if item.logo}}
+                                <img src="${imgUrl}/{{item.logo}}?imageMogr2/thumbnail/!140x140r/gravity/Center/crop/140x140" alt="">
+                                {{else}}
+                                <img src="/assets/public/market/images/company_default.png" width="70" height="70" alt="">
+                                {{/if}}
+                            </dt>
+                            <dd>
+                                <div class="financing-name">
+                                    {{item.companyName}}
+                                </div>
+                                <p>{{item.companySizeStr}} {{if item.companySizeStr}}|{{/if}} {{item.establishYear}}年{{item.establishMonth}}月成立</p>
+                                <div class="financing-tabs">
+                                    <dl>
+                                        {{if item.categoryList}}
+                                        <dt>
+                                            {{each item.categoryList as item i}}
+                                            {{if i < 3}}
+                                            <span class="post-tab">{{item.categoryName}}</span>
+                                            {{/if}}
+                                            {{/each}}
+                                        </dt>
+                                        {{/if}}
+                                        <dd>
+                                            <button class="work-btn">合作联系</button>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </dd>
+                        </dl>
+                        {{if item.financeStageStr}}
+                        <em class="status-tab">{{item.financeStageStr}}</em>
+                        {{/if}}
+                    </div>
+                    <div class="card-bottom">
+                        <div class="supply">
+                            <img src="/assets/public/market/images/supply.png" alt="">
+                            <span>可提供的服务</span>
+                            <p>{{item.business}}</p>
+                        </div>
+                        <div class="need">
+                            <img src="/assets/public/market/images/help.png" alt="">
+                            <span>需要的帮助</span>
+                            <p>{{item.needHelp}}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {{/each}}
+        </ul>
+        {{/if}}
+    </script>
+    <script src="/assets/public/market/scripts/list.js"></script>
+    <script>
+        $(function () {
+            var searchData;
+
+            var $body     = $('body'),
+                $titlebar = $('#titlebar'),
+                $header   = $('#header'),
+                $filter   = $('#filterContainer');
+
+            var $pull = $('[data-scroll="pullUp"]').on('pullup.bs.refresh', function(evt) {
+                setTimeout(function() {
+                    $('.lazy').lazy();
+                }, 0)
+            });
+
+            UR.searchbar({
+                isPopLayer: true,
+                cancelReset: true,
+                focusHandler: function() {
+                    $filter.filter('hide');
+                    addClass()
+                },
+                inputHandler: toggleHasValue,
+                enterHandler: function(val, input) {
+                    $('#searchbar').find('.clear-text').attr('data-toggle', 'clear');
+                    removeClass();
+                    input.blur();
+                    $pull.refresh({
+                        companyName: val,
+                        workStageId: '',
+                        activityCategory: '',
+                        orderType: ''
+                    });
+                    $filter.filter('reset');
+                },
+                clearHandler: function(input) {
+                    $titlebar.removeClass('has-value');
+                },
+                cancelHandler: function(val, oldVal, input) {
+                    toggleHasValue(oldVal);
+                    removeClass();
+                }
+            });
+
+            if (location.hash === '#searchActive') {
+                $('[type=search]').trigger('click');
+                location.hash = '';
+            }
+
+            function toggleHasValue(val) {
+                if (val.length) {
+                    $titlebar.addClass('has-value');
+                } else {
+                    $titlebar.removeClass('has-value');
+                }
+            }
+
+            function addClass() {
+                $header.addClass('search-active');
+                $titlebar.addClass('search-active');
+            }
+            function removeClass() {
+                $header.removeClass('search-active');
+                $titlebar.removeClass('search-active');
+            }
+
+            $filter.filter({
+                template: 'tlpFilter',
+                // url: 'http://m.urwork.cn/uwCompany/searchJson',
+                url: './data/search.json',
+                isFixed: true,
+                formatted: function (res) {
+                    res = res.data;
+                    if (!res) {
+                        UR.msg('Error ...');
+                        return false;
+                    }
+                    var ret = {
+                        workstage: {},
+                        category: {},
+                    };
+
+                    var workstage = res.workstage || [];
+                    for (var prop in workstage) {
+                        var item = workstage[prop] || [];
+                        var id = item[0].cityCode;
+                        var name = prop;
+
+                        item.unshift({
+                            id: id,
+                            name: '全部'
+                        });
+
+                        ret.workstage[id] = {
+                            id: id,
+                            name: name,
+                            list: item
+                        };
+                    }
+
+                    var category = res.category || {};
+                    for (var prop in category) {
+                        var item = category[prop] || [];
+                        var id = item[0].categoryParent;
+                        var name = prop;
+
+                        item.unshift({
+                            id: id,
+                            name: '全部'
+                        });
+
+                        ret.category[id] = {
+                            id: id,
+                            name: name,
+                            list: item
+                        };
+                    }
+
+                    return ret;
+                }
+            });
+
+            $filter.on('change.bs.filter', function (e) {
+                searchData = e.query;
+                $pull.refresh(e.query);
+            });
+
+            $body.on('click', '[data-toggle=clear]', function() {
+                $pull.refresh({
+                    companyName: '',
+                    workStageId: '',
+                    activityCategory: '',
+                    orderType: ''
+                });
+                $filter.filter('reset');
+            })
+
+        })
+    </script>
+</body>
+
+</html>

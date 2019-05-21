@@ -1,0 +1,68 @@
+@import 'variable';
+@import 'mixins';
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+.wrapper {
+    overflow: hidden;
+    overflow-y: auto;
+    height: calc(100% - 65px);
+    background-color: #e5e5e5;
+}
+#main {
+    padding-top: 0;
+    li {
+        height: 300px;
+    }
+}
+#header {
+    .title {
+        opacity: 1 !important;
+    }
+}
+
+#filterTransform {
+    padding-top: 45px + 20;
+    background: linear-gradient(to bottom,#2c8eea,#0f77f1);
+    color: #fff;
+}
+
+.filter-wrap {
+    position: relative;
+    overflow: hidden;
+    //transition: height .2s;
+    ul {
+        padding: 0 10px 15px;
+    }
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 7px;
+        background: #3397fd;
+        padding: 0 20px;
+        border-radius: 4px;
+        height: 46px;
+        outline: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+#filters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.is-app {
+    #header {
+        height: 45px + 20;
+        padding-top: 20px;
+    }
+}

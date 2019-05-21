@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+
+@import 'variable';
+@import 'mixins';
+/* join
+ ---------------------------------------- */
+ body {
+     background-color: #760000;
+ }
+.join-urwork {
+    color: #fff;
+    text-align: center;
+    img {
+        vertical-align: bottom;
+    }
+    >h3 {
+        position: relative;
+        top: rem(-240);
+        margin-bottom: rem(10);
+    }
+    .tel {
+        position: relative;
+        top: rem(-240);
+        line-height: rem(48);
+        &, a {
+            color: #fff;
+            font-size: rem(32);
+        }
+        em{
+            position: relative;
+            top: rem(-4);
+            padding: 0 8px;
+            font-size: rem(28);
+        }
+    }
+}
+.join-content {
+    position: relative;
+    top: rem(-340);
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 18px -22px;
+    padding: 28px 28px 46px;
+    color: #333;
+    font-size: rem(28);
+    text-align: left;
+    line-height: 1.6;
+    p {
+        margin-bottom: rem(30);
+        color: #ac0139;
+    }
+    h3 {
+        margin-bottom: rem(40);
+        text-align: center;
+        span {
+            display: inline-block;
+            @include padding-h(2px);
+            background-color: #b70224;
+            border-radius: 4px;
+            color: #fff;
+            line-height: rem(48);
+        }
+    }
+}
+
+.buliding-body{
+    background: #100d18;
+}
+.buliding-urwork{
+    position: relative;
+    .join-content{
+        position: absolute;
+        top: rem(360);
+        p{
+            color: #2c4764;
+        }
+        h3{
+            span{
+                background-color: #2c4764;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+    >h3 {
+        position: absolute;
+        top: rem(1120);
+        width: 100%;
+    }
+    .tel{
+        position: absolute;
+        top: rem(1170);
+        width: 100%;
+    }
+    .moern-box{
+        width: rem(140);
+        @include position-center-x;
+        top: rem(1240);
+    }
+}
+// U定制
+.ucustom {
+    overflow: hidden;
+}
+.ucustom-content {
+    position: relative;
+    width: 100%;
+    margin-top: rem(-210);
+    padding: 20px 20px 60px;
+    text-align: center;
+    .circle-bg {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 113px;
+        height: 113px;
+        margin-right: -25px;
+        margin-bottom: -20px;
+        background: url("/assets/public/docs/images/custom/circle_bg.png") no-repeat 100% 100%;
+        background-size: 113px auto;
+    }
+    ol {
+        margin-bottom: 15px;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 30px;
+        text-align: left;
+    }
+    ul {
+        padding: 0 12px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        color: #333;
+        font-size: 14px;
+        text-align: left;
+        li {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+    .tel-title {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 0 5px;
+        border-radius: 2px;
+        background: linear-gradient(to bottom, #ffb600, #fe8b03);
+        color: #fff;
+        font-size: 14px;
+        line-height: 22px;
+        vertical-align: bottom;
+    }
+    .tel {
+        position: relative;
+        z-index: 20;
+        font-size: 14px;
+        em {
+            @include margin-h(5px);
+        }
+        &, a {
+            color: #fff;
+        }
+    }
+    .custom-layer {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        &::before {
+            overflow: hidden;
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: 112.66667%;
+            background: url("/assets/public/docs/images/custom/float_layer.png") no-repeat 0 0;
+            background-size: contain;
+        }
+    }
+}
+.ucustom-content-inner {
+    margin-bottom: 25px;
+    padding: 25px 20px 60px;
+    background-color: #fff;
+    border-radius: 5px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>邀请企业</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/referee/styles/index.css">
+    <style>
+        .invitaction-letter {
+            padding-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div class="wrapper wrapper-app">
+        <!-- main -->
+        <main id="main">
+            <div class="share-img"><img class="share-pic" src="/assets/public/market/images/def/company_logo.png" alt=""></div>
+            <div class="sahre-guide"></div>
+            <div class="container">
+                <div class="invitaction-letter">
+                    <i class="bi"></i>
+                    <p name="shareTitle"><span>长宇</span>邀请你加入U企业</p>
+                    <h2 class="title"><span>享丰富U企业特权</span></h2>
+                    <p class="sub-title"><span name="shareText">成为U企业，与优客工场万千优质企业的交流对接，享受丰富企业特权和超多福利，还能得到99元代金券哦！</span></p>
+                    <button class="btn" name="share">成为U企业</button>
+                    <a href="/appDownload" class="download-app">下载优客工场App</a>
+                </div>
+                <div class="layout-item">
+                    <h2 class="layout-title"><span>如何成为U企业</span></h2>
+                    <img src="/assets/public/referee/images/share/imgs_01.jpg" alt="">
+                    <img src="/assets/public/referee/images/share/imgs_02.jpg" alt="">
+                    <img src="/assets/public/referee/images/share/imgs_03.jpg" alt="">
+                    <img src="/assets/public/referee/images/share/imgs_04.jpg" alt="">
+                    <button class="btn btn-share" name="share">成为U企业</button>
+                </div>
+                <div class="layout-item">
+                    <h2 class="layout-title"><span>关于U企业</span></h2>
+                    <ul class="rules">
+                        <li>U企业，是优客工场推出的基于企业服务的商业社交平台“U鲜集”中的企业模块。</li>
+                        <li>企业进驻U鲜集平台（成为U企业）后，可与平台千万优质企业进行多种形式的互动，资源互换、合作对接。</li>
+                        <li>在平台发布企业需求，服务商极速应答，更可以享受优客服务商优惠。</li>
+                        <li>公司业务为“企业服务”类的企业，可以申请成为优客服务商，服务平台其他企业。还可以在U物平台发布自己的产品、服务，进行线上售卖。</li>
+                    </ul>
+                    <button class="btn btn-share" name="share">成为U企业</button>
+                </div>
+            </div>
+        </main>
+        <!-- /main -->
+
+    </div>
+    <!-- /wrapper -->
+    <script>
+        $(function() {
+            var refereeid = UR.getBrowserParamByName('refereeid');
+            var $body = $('body');
+
+            $body.on('click', '[name=share]', function() {
+                $('.sahre-guide').show();
+            })
+
+            // UR.wxShare({
+            //     desc: $.trim($('.share-text').text()),
+            //     imgUrl: $('.share-pic').attr('src'),
+            // });
+        });
+    </script>
+</body>
+
+</html>

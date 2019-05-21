@@ -1,0 +1,25 @@
+{
+  "name": "mobile",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "zgy <zhanggy@urwork.cn>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery_lazyload": "jquery.lazyload#^1.9.7",
+    "bootstrap": "^3.3.7",
+    "iscroll": "^5.2.0",
+    "jquery-validation": "jquery-validate#^1.15.1",
+    "jquery": "^2.2.0",
+    "exif-js": "^2.1.1"
+  }
+}

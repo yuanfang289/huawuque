@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>切换语言</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/index/language.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar-def.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <section class="layout-item language-list">
+                <ul>
+                    <li class="active"><a href="#">简体中文<i class="uricon-success"></i></a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script src=""></script>
+</body>
+
+</html>

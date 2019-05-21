@@ -1,0 +1,40 @@
+{
+  "retCode": 0,
+  "retMsg": "接口请求成功",
+  "data": {
+    "id": 10032,
+    "description": "123 <br/> 346dfgdg",
+    "couponBatchs": [
+      {
+        "money": 50,
+        "couponName": "时租会议室代金券50",
+        "count": 20,
+        "couponType": 0
+      },
+      {
+        "money": 50,
+        "couponName": "时租会议室代金券50",
+        "count": 20,
+        "couponType": 1
+      },
+        {
+            "money": 50,
+            "couponName": "时租会议室代金券50",
+            "count": 20,
+            "couponType": 2
+        },
+        {
+            "money": 50,
+            "couponName": "时租会议室代金券50",
+            "count": 20,
+            "couponType": 3
+        },
+        {
+            "money": 50,
+            "couponName": "时租会议室代金券50",
+            "count": 20,
+            "couponType": 4
+        }
+    ]
+  }
+}

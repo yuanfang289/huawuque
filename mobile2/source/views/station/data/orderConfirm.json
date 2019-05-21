@@ -1,0 +1,112 @@
+{
+    "data": {
+        "id": 4,
+        "workstageId": 10022,
+        "code": "2ssdsd",
+        "city": "北京市",
+        "workstageAddress": "北京市 北京市 阳光100 优客工场",
+        "workstageName": "阳光100 优客工场",
+        "floor": "dsdsd",
+        "img": "http://7xp26u.com1.z0.glb.clouddn.com/875c478d-2998-4b92-91cd-3508b2df0c41.png",
+        "isCoupon": 1,
+        "price": 0.01,
+        "openTime": "00:00",
+        "closeTime": "4:30",
+        "manager": "2sdds",
+        "mobile": "212121212",
+        "isWifi": 1,
+        "isMeetingRoom": 2,
+        "isRelaxZone": 2,
+        "isActivity": 1,
+        "isReproTyp": 1,
+        "isPhoneBooth": 1,
+        "isSelfSupermarket": 1,
+        "isCoffeeHouse": 1,
+        "isPurifiedWater": 1,
+        "date": "2017-01-04",
+        "userName": "樊玉书",
+        "userMobile": "15313446082",
+        "count": 10,
+        "list":[
+            {
+                "price": 50.00,
+                "couponCode": "hhhh235874",
+                "startDate": 1480780800000,
+                "endDate": 1514735999000,
+                "remark": "eee",
+                "strType": "时租工位"
+            },
+            {
+                "price": 40.00,
+                "couponCode": "hhhh322639",
+                "startDate": 1480780800000,
+                "endDate": 1514735999000,
+                "remark": "eee",
+                "strType": "时租工位"
+            }
+        ],
+        "listCompany": [
+             {
+                "name": "Android测试无线公司1222222222222222222211212",
+                "id": 241,
+                "countTime": "38.0",
+                "listCoupon": [
+                    {
+                        "price": 38,
+                        "couponCode": "0908186762",
+                        "startDate": 1473264000000,
+                        "endDate": 1507478399000,
+                        "remark": "111",
+                        "strType": "时租工位"
+                    },
+                    {
+                        "price": 38,
+                        "couponCode": "0908406055",
+                        "startDate": 1473264000000,
+                        "endDate": 1507478399000,
+                        "remark": "111",
+                        "strType": "时租工位"
+                    },
+                    {
+                        "price": 38,
+                        "couponCode": "0908303601",
+                        "startDate": 1473264000000,
+                        "endDate": 1507478399000,
+                        "remark": "111",
+                        "strType": "时租工位"
+                    }
+                ],
+                "accountAuth": 1
+            },
+            {
+                "name": "Google",
+                "id": 291,
+                "countTime": "0",
+                "listCoupon": [
+                    {
+                        "price": 38,
+                        "couponCode": "222",
+                        "startDate": 1473264000000,
+                        "endDate": 1507478399000,
+                        "remark": "111",
+                        "strType": "时租工位22"
+                    },
+                    {
+                        "price": 39,
+                        "couponCode": "333",
+                        "startDate": 1473264000000,
+                        "endDate": 1507478399000,
+                        "remark": "111",
+                        "strType": "时租工位33"
+                    }
+                ],
+                "accountAuth": 0
+            }
+        ]
+       
+
+         
+    },
+    "retCode": 0,
+    "retMsg": "success"
+}

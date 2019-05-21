@@ -1,0 +1,50 @@
+{
+    "data": {
+        "leaseInfo": [
+            {
+                "id": 1,
+                "img": "https://image.urwork.cn/2dcd0cf7-7cb5-4cc0-8b5b-44913360a476.jpg",
+                "leaseTypeId": 1,
+                "leaseRoomId": 1,
+                "price": 1000,
+                "dayPrice": 2.74,
+                "minCount": 3,
+                "area": 0,
+                "name": "工位出租A",
+                "nameEn": "A",
+                "isActivity": 2,
+                "leftCount": 2
+            },
+            {
+                "id": 2,
+                "img": "https://image.urwork.cn/2dcd0cf7-7cb5-4cc0-8b5b-44913360a476.jpg",
+                "leaseTypeId": 2,
+                "leaseRoomId": 1,
+                "price": 1000,
+                "dayPrice": 2.74,
+                "minCount": 3,
+                "area": 0,
+                "name": "工位出租A",
+                "nameEn": "A",
+                "isActivity": 1,
+                "leftCount": 2
+            },
+            {
+                "id": 3,
+                "img": "https://image.urwork.cn/2dcd0cf7-7cb5-4cc0-8b5b-44913360a476.jpg",
+                "leaseTypeId": 3,
+                "leaseRoomId": 1,
+                "price": 1000,
+                "dayPrice": 2.74,
+                "minCount": 3,
+                "area": 50,
+                "name": "工位出租A",
+                "nameEn": "A",
+                "isActivity": 1,
+                "leftCount": 2
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "OK"
+}

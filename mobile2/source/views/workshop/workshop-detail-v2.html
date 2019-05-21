@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>社区详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/simditor/styles/simditor.css">
+    <link rel="stylesheet" href="/assets/public/workshop/styles/workshop-detail-v2.css">
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <!-- <link rel="stylesheet" href="../../../../../Downloads/uricon/style.css"> -->
+    <!-- <script>
+    $(function(){
+        console.log(UR.getBrowserParam().id);
+    })
+    </script> -->
+</head>
+
+<body class="gray-bg" no-downloadbar data-bottom="" data-image="">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- slide -->
+            <div class="swiper-container main-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/e3943121-b5de-4382-8742-0946529a7a40.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/c26a009d-b9b5-4768-9fb0-151269b80ca6.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="#" title="" require-clip><img class="swiper-lazy" data-src="https://image.urwork.cn/2dcd0cf7-7cb5-4cc0-8b5b-44913360a476.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- /slide -->
+            <section class="layout-item workshop-profile">
+                <header>
+                    <div class="main-title-info">
+                        <h1>天恒大厦·优客工场</h1> @import "common/score.tpl"
+                        <p>&yen; 1,290<em>/月起</em></p>
+                    </div>
+                    <a href="javascript:;" class="btn">预约来访</a>
+                </header>
+            </section>
+
+            <div class="tab tab-flex" data-role="tab">
+                <div class="tabs" data-tab-role="tabs">
+                    <ul>
+                        <li data-tab-role="tab" class="active"><span>&nbsp;&nbsp;预定&nbsp;&nbsp;</span></li>
+                        <li data-tab-role="tab" class=""><span>社区详情</span></li>
+                        <li data-tab-role="tab" class=""><span>评价(88)</span></li>
+                    </ul>
+                </div>
+                <div class="tabbed" data-tab-role="tabbed">
+                    <div class="tab-group" data-tab-role="group" style="display: block;">
+                        <section class="layout-item">
+                            <div class="select-date" id="selectDate">
+                                <form action="">
+                                    <div class="form-item">
+                                        <label class="form-label">入驻</label>
+                                        <div class="form-cont">
+                                            <input type="hidden" name="startDate" class="" value="">
+                                            <input type="text" class="input-text" placeholder="请选择" id="startDate" data-target="startDate" readonly="" value="" data-flag="0">
+                                            <i class="uricon-arrow-right ricon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="date-num">
+                                        <span id="dayNum">共7天</span>
+                                    </div>
+                                    <div class="form-item">
+                                        <label class="form-label">离场</label>
+                                        <div class="form-cont">
+                                            <input type="hidden" name="endDate" class="" value="">
+                                            <input type="text" class="input-text" placeholder="请选择" id="endDate" data-target="endDate" readonly="" value="">
+                                            <i class="uricon-arrow-right ricon"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        <section class="layout-item layout-item-mtbn">
+                            <ul class="rent-list" id="rentList" data-scroll="pullUp" data-options="
+                                  url: './data/rent.json',
+                                  data: {
+                                      workstageId: UR.getBrowserParam().id,
+                                  },
+                                  template: 'rentTplList',
+                                  isFirstLoad: true,
+                                  formatted: function(res) {
+                                       var list = res.data && res.data.leaseInfo || [];
+                                      return list;
+                                  }
+                                  ">
+
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="tab-group" data-tab-role="group" style="display: none;">
+                        <section class="layout-item layout-item-mtbn">
+                            <div class="workshop-location" data-navigation="http://m.urwork.cn">
+                                <ul>
+                                    <li>
+                                        <p>北京市朝阳区光华路阳光100D</p><a href=""><em class="btn-icon"><i class="uricon-daohang"></i></em></a>
+                                    </li>
+                                    <li>
+                                        <p><a href="tel:400-3567-435">400-3567-435</a></p><em class="btn-icon"><a href="tel:400-3567-435"><i class="uricon-phone"></i></a></em>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="workshop-resume" id="workshopResume" show-mode="less" show-line="2.5" data-flag="0">
+                                <div class="content-wrap">
+                                    <section class="more-content editor-style">天恒大厦·优客工场位于东直门外大街天恒大厦B1层，紧邻东二环，地铁2号线、地铁13号线、机场线东直门站以及多路公交均可到达，交通便利；周套天恒大厦·优客工场位于东直门外大街天恒大厦B1层，紧邻东二环，地铁2号线、地铁13号线、机场线东直门站以及多路公交均可到达，交通便利。</section>
+                                </div>
+                                <a href="javascript:;" class="btn-more" data-more="展开简介" data-less="收起简介"><span class="btn-text">展开简介</span><i class="uricon-arrow-bottom"></i></a>
+                            </div>
+                        </section>
+                        <section class="layout-item workshop-device">
+                            <header class="layout-item-title">
+                                <h2>社区设施</h2>
+                            </header>
+                            <ul class="device-list">
+                                <li>
+                                    <div class="device-icon"><i class="uricon-tyy"></i></div>
+                                    <p>投影</p>
+                                </li>
+                                <li>
+                                    <div class="device-icon"><i class="uricon-zy"></i></div>
+                                    <p>座椅</p>
+                                </li>
+                                <li>
+                                    <div class="device-icon"><i class="uricon-ht"></i></div>
+                                    <p>话筒</p>
+                                </li>
+                                <li>
+                                    <div class="device-icon"><i class="uricon-yx"></i></div>
+                                    <p>音箱</p>
+                                </li>
+                                <li>
+                                    <div class="device-icon" id="MoreDevice"><i class="uricon-slh"></i></div>
+                                    <p>+14</p>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="layout-item workshop-team">
+                            <header class="layout-item-title">
+                                <h2>社区团队</h2>
+                            </header>
+                            <div class="swiper-container team-slide">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="team-role-wrap">
+                                            <div class="team-role">
+                                                <div class="team-role-inner">
+                                                    <div class="img-wrap" require-clip>
+                                                        <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                                    </div>
+                                                    <p class="team-name">烊烊</p>
+                                                    <p class="team-position">社区经理</p>
+                                                    <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                                </div>
+                                            </div>
+                                            <div class="team-role">
+                                                <div class="team-role-inner">
+                                                    <div class="img-wrap" require-clip>
+                                                        <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                                    </div>
+                                                    <p class="team-name">烊烊烊烊烊烊烊烊烊烊</p>
+                                                    <p class="team-position">社区经理社区经理社区经理社区经理</p>
+                                                    <button type="button" class="btn btn-primary team-send" disabled><i class="uricon-sixin"></i> 发私信</button>
+                                                </div>
+                                            </div>
+                                            <div class="team-role">
+                                                <div class="team-role-inner">
+                                                    <div class="img-wrap" require-clip>
+                                                        <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                                    </div>
+                                                    <p class="team-name">烊烊</p>
+                                                    <p class="team-position">社区经理</p>
+                                                    <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="team-role-wrap">
+                                            <div class="team-role">
+                                                <div class="team-role-inner">
+                                                    <div class="img-wrap" require-clip>
+                                                        <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                                    </div>
+                                                    <p class="team-name">烊烊</p>
+                                                    <p class="team-position">社区经理</p>
+                                                    <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                                </div>
+                                            </div>
+                                            <div class="team-role">
+                                                <div class="team-role-inner">
+                                                    <div class="img-wrap" require-clip>
+                                                        <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                                    </div>
+                                                    <p class="team-name">烊烊</p>
+                                                    <p class="team-position">社区经理</p>
+                                                    <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                                </div>
+                                            </div>
+                                            <div class="team-role">
+                                                <div class="team-role-inner">
+                                                    <div class="img-wrap" require-clip>
+                                                        <img src="https://image.urwork.cn/8e46889a-8967-4bdd-bbb9-5420b541cd82.JPG" alt="">
+                                                    </div>
+                                                    <p class="team-name">烊烊</p>
+                                                    <p class="team-position">社区经理</p>
+                                                    <button type="button" class="btn btn-primary team-send"><i class="uricon-sixin"></i> 发私信</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <p class="slogan">
+                                阿里云+ 优客工场作为全国旗舰店，通过两大品牌的强强联合，通过"生态、社群、共享、大数据"等平台合作，将致力打造最有科技范儿的联合办公空间，同时为我们优秀的入驻企业提供最完善的服务。
+                            </p>
+                            <div class="team-pic"><img class="lazy" data-src="https://image.urwork.cn/901f99b0-4ac4-4f67-8335-1beeef936891.jpg" alt=""></div>
+                        </section>
+                    </div>
+                    <div class="tab-group" data-tab-role="group" style="display: none;">
+                        <section class="layout-item">
+                            <ul class="comment-list"></ul>
+                            <div class="more-comment"><a href="javascript:;" id="moreComment">查看更多评价</a></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    <!-- data-scroll="pullUp" data-options="
+         url: './data/comment.json',
+         data: {
+             workstageId: UR.getBrowserParam().id,
+         },
+         template: 'commentTplList',
+         isFirstLoad: true,
+         formatted: function(res) {
+
+         }
+         " -->
+
+    <div class="workshop-bottombar">
+        <div class="booking-wrap">
+            <div class="feedback">
+                <a href="javascript:;"><i class="uricon-bgw" data-show-flag="0"><span id="commodityNum" style="display:none">0</span></i></a>
+            </div>
+            <div class="booking">
+                <div class="link-wrap pay-num">
+                    <p><em>总计：<i id="totalPrice">&yen;0</i></em></p>
+                </div>
+                <div class="link-wrap">
+                    <a href="javascript:;" class="btn btn-primary" id="submitBtn" disabled>立即预定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-box">
+        <ul></ul>
+    </div>
+    <div mask="" style="z-index: 1000;"></div>
+    <!-- @import "goto.tpl" -->
+    @import "footer-common.tpl"
+    @import "workshop/devicePopup.tpl"
+    <script src="/assets/public/workshop/scripts/workshop-detail-v2.js"></script>
+    <script type="text/html" id="commentTplList">
+        {{if list.length == 0}}
+        <li>
+            <div class="result-tips">
+                <div class="result-tips-inner">
+                    <img src="/assets/public/images/comment-nodata.png" alt="">
+                    <p>找不到相匹配的内容</p>
+                </div>
+            </div>
+        </li>
+        {{/if}}
+        {{each list as d i}}
+        <li class="list-item">
+            <dl>
+                <dt>
+                <time>{{d.commentTime}}</time>
+                <div class="user-title">
+                    {{if d.headImage}}
+                    <img src="{{d.headImage}}" alt="">
+                    {{else}}
+                    <img src="/assets/public/workshop/images/noHeadImg.png" alt="">
+                    {{/if}}
+                    <p>{{d.userName}}</p>
+                </div>
+            </dt>
+                <dd>
+                    <p>{{d.content}}</p>
+                    <p class="gray">工位类型：开放式（短租12月）</p>
+                </dd>
+            </dl>
+        </li>
+        {{/each}}
+    </script>
+    <script type="text/html" id="rentTplList">
+        {{if list.length == 0}}
+        <li>
+            <div class="result-tips">
+                <div class="result-tips-inner">
+                    <img src="/public/images/search-nodata.png" alt="">
+                    <p>找不到相匹配的内容</p>
+                </div>
+            </div>
+        </li>
+        {{/if}}
+        {{each list as d i}}
+        <li data-id="{{d.id}}" data-num="" data-name="{{d.name}}" data-rent-image="{{d.img}}?imageMogr2/thumbnail/!750x300r/gravity/Center/crop/750x300" data-price="{{d.price}}" data-type-number="{{d.leaseTypeId}}" data-lease-type="{{if d.leaseTypeId == '1'}}移动工位{{/if}}{{if d.leaseTypeId == '2'}}固定工位{{/if}}{{if d.leaseTypeId == '3'}}专属会议室{{/if}}">
+            {{if d.leaseTypeId == '1'}}
+            <div class="slide-bar">
+                <p>剩余<em data-flag="leftCount">{{d.leftCount}}</em>个</p>
+                <div class="select-num" data-sub-type="{{d.leftCount}}">
+                    <button type="button" class="btn-sub disabled"></button> <span class="btn-sum">0</span>
+                    <button type="button" class="btn-plus"></button>
+                </div>
+            </div>
+            <dl>
+                <dt><em class="leftCount">{{d.minCount}}天起租</em><img src="{{d.img}}?imageMogr2/thumbnail/!828x464r/gravity/Center/crop/828x464" alt="">{{if d.isActivity == '1'}}<span>限时抢</span>{{/if}}</dt>
+                <dd>
+                    <p class="rent-title"><span>{{d.name}}</span><i>移动工位</i></p>
+                    <p class="rent-price">&yen;{{d.price}}<em>/月</em><span>（约合&yen;{{d.dayPrice}}/天）</span></p>
+                    <p class="rent-desc">10m<sup>2</sup>/工位</p>
+                </dd>
+            </dl>
+            {{/if}}
+            {{if d.leaseTypeId == '2'}}
+            <div class="slide-bar">
+                <p>剩余<em data-flag="leftCount">{{d.leftCount}}</em>个</p>
+                <div class="select-num" data-sub-type="{{d.leftCount}}">
+                    <button type="button" class="btn-sub disabled"></button> <span class="btn-sum">0</span>
+                    <button type="button" class="btn-plus"></button>
+                </div>
+            </div>
+            <dl>
+                <dt><img src="{{d.img}}" alt="">{{if d.isActivity == '1'}}<span>限时抢</span>{{/if}}</dt>
+                <dd>
+                    <p class="rent-title"><span>{{d.name}}</span><i>固定工位</i></p>
+                    <p class="rent-price">&yen;{{d.price}}<em>/月</em><span>（约合&yen;{{d.dayPrice}}/天）</span></p>
+                    <p class="rent-desc">10m<sup>2</sup>/工位</p>
+                </dd>
+            </dl>
+            {{/if}}
+            {{if d.leaseTypeId == '3'}}
+            <div class="slide-bar">
+                <div class="select-num" data-sub-type="1">
+                    <button type="button" class="btn-sub disabled"></button> <span class="btn-sum">0</span>
+                    <button type="button" class="btn-plus"></button>
+                </div>
+            </div>
+            <dl>
+                <dt><img src="{{d.img}}" alt="">{{if d.isActivity == '1'}}<span>限时抢</span>{{/if}}</dt>
+                <dd>
+                    <p class="rent-title"><span>{{d.name}}</span><i>专属办公室</i></p>
+                    <p class="rent-price">&yen;{{d.price}}<em>/月</em><span>（约合&yen;{{d.dayPrice}}/天）</span></p>
+                    <p class="rent-desc">{{d.area}}m<sup>2</sup></p>
+                </dd>
+            </dl>
+            {{/if}}
+        </li>
+        {{/each}}
+    </script>
+    <script>
+        var number = 1;
+        function commentData(num){
+            $.ajax({
+                url: './data/comment.json',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    workstageId: UR.getBrowserParam().id,
+                    currentPageNo: num,
+                    pageSize: 10
+                }
+            })
+            .done(function(res) {
+                var data = res.page;
+                var list = data.result||[];
+                list.map(function(d) {
+                    d.commentTime = $.dateFormat(d.commentTime,'yyyy-MM-dd')
+                });
+                if(!data.result){
+                    $('.more-comment').html('<p>没有更多了~</p>');
+                }else{
+                    if(data.result.length  < 10){
+                        $('.comment-list').append(template('commentTplList', {list:list}));
+                        $('.more-comment').html('<p>没有更多了~</p>');
+                    }else{
+                        $('.comment-list').append(template('commentTplList', {list:list}));
+                        number++;
+                    }
+                }
+                return list;
+            });
+        }
+        commentData(number);
+        $(function() {
+            var defDate = Date.parse(new Date());var oneDay = 86400000;
+            $('#startDate').val($.dateFormat(defDate, 'yyyy-MM-dd'));
+            $('#endDate').val($.dateFormat((defDate + oneDay*7), 'yyyy-MM-dd'));
+            $('[name=startDate]').val(Date.parse(new Date($('#startDate').val())));
+            $('[name=endDate]').val(Date.parse(new Date($('#endDate').val())));
+
+            $('body')
+                .off(UR.click,'.btn-plus')
+                .on(UR.click,'.btn-plus',function(){
+                    // 点击加
+                    var $this = $(this),
+                        $parent = $this.closest('.slide-bar'),
+                        $rentNum = $parent.find('.btn-sum'),
+                        rentNum = parseInt($parent.find('.btn-sum').html()),
+                        subNum = parseInt($parent.find('.select-num').attr('data-sub-type'));
+                        $subBtn = $parent.find('.btn-sub');
+
+                    if(rentNum < subNum){
+                        rentNum++;
+                        $rentNum.html(rentNum);
+                        $this.closest('li').attr('data-num', rentNum);
+                    }
+                    if(rentNum > 0){
+                        $subBtn.removeClass('disabled');
+                    }
+                    if(rentNum == subNum){
+                        $this.addClass('disabled');
+                    }
+                })
+                .off(UR.click,'.btn-sub')
+                .on(UR.click,'.btn-sub',function(){
+                    // 点击减
+                    var $this = $(this),
+
+                        $parent = $this.closest('.slide-bar'),
+                        $rentNum = $parent.find('.btn-sum'),
+                        rentNum = parseInt($parent.find('.btn-sum').html()),
+                        subNum = parseInt($parent.find('.select-num').attr('data-sub-type'));
+                        $plusBtn = $parent.find('.btn-plus');
+                    if(rentNum > 0){
+                        rentNum--;
+                        $rentNum.html(rentNum);
+                        $this.closest('li').attr('data-num', rentNum);
+                    }
+                    if(rentNum < subNum){
+                        $plusBtn.removeClass('disabled');
+                    }
+                    if(rentNum == 0){
+                        $this.addClass('disabled');
+                        $plusBtn.removeClass('disabled');
+                    }
+
+                })
+                .off(UR.click,'.btn-plus,.btn-sub')
+                .on(UR.click,'.btn-plus,.btn-sub',function(){
+                    // 点击加减请求数据
+                    var $this = $(this);
+                    var elText = '';
+                    var commodityNum = 0;
+                    var num = 0;
+                    var text = '';
+                    var src_desk = '';
+                    var dayNum = ($('[name=endDate]').val() - $('[name=startDate]').val()) / 86400000 + 1;
+
+                    $('#rentList li').each(function(index, el) {
+                        var _this = $(this);
+                        var rentId = _this.attr('data-id');
+                        var rentNum = _this.attr('data-num');
+                        var rentMaxNum = _this.find('.select-num').attr('data-sub-type');
+                        var rentName = _this.attr('data-name');
+                        var rentImg = _this.attr('data-rent-image');
+                        var rentType = _this.attr('data-lease-type');
+                        var rentTypeNum = _this.attr('data-type-number');
+                        var rentPrice = _this.attr('data-price');
+                        if(rentNum && rentNum != 0){
+                            elText += rentId + '_' + rentNum + '-';
+                            num += parseInt(rentNum);
+                            text += '<li><p><em>'+rentName+'<i><span>'+rentType+'</span></i></em></p><p>&yen;'+rentPrice+' / 月</p><p>x'+rentNum+'</p></li>';
+                            src_desk += '{'+'"daskId":'+rentId+',"deskName":"'+rentName+'","deskType":'+rentTypeNum+',"deskPrice":'+rentPrice+',"deskCount":'+rentNum+',"deskMaxCount":'+rentMaxNum+'},'
+                        }
+                    });
+                    src_desk = src_desk.substring(0 ,src_desk.length - 1);
+                    var src = 'urwork://longRentDeskConfirmOrder?data={'+'"workstageId":'+UR.getBrowserParam().workStageId+',"img":"'+$('body').attr('data-image')+'","startDate":'+$('[name=startDate]').val()+',"endDate":'+$('[name=endDate]').val()+',"totalDay":'+dayNum+',"desk":['+src_desk+']}';
+                    // console.log(src_desk);
+                    // console.log(src);
+                    if(num!= 0){
+                        $('#commodityNum').show();
+                        $('#submitBtn').removeAttr('disabled');
+                        $('#submitBtn').attr('href',src)
+                    }else {
+                        $('#commodityNum').hide();
+                        $('#submitBtn').attr('disabled','disabled');
+                        $('#submitBtn').attr('href','javascript:;');
+                        // $('#totalPrice').html('&yen;'+'0');
+                    }
+
+
+                    $('#commodityNum').html(num);
+                    $('.fixed-box ul').html(text);
+
+
+                    var height = '-' + $('.fixed-box').height()-50 + 'px';
+                    $('.fixed-box').css('bottom', height);
+                    $('body').attr('data-bottom',height);
+
+                    elText = elText.substring(0 ,elText.length - 1);
+                        $.ajax({
+                            url: './data/rent-num.json',
+                            type: 'GET',
+                            dataType: 'json',
+                            data: {
+                                workstageId: UR.getBrowserParam().id,
+                                leaseIdAndCount: elText,
+                                startDate: $('#startDate').val(),
+                                endDate: $('#endDate').val()
+                            }
+                        })
+                        .done(function(res) {
+                            var totalPrice = res.data.totalAmount || '';
+                            if(res.data){
+                                $('#totalPrice').html('&yen;'+totalPrice)
+                            }else if(num == 0){
+                                $('#totalPrice').html('&yen;'+'0')
+                            }else{
+                                $('#totalPrice').html('&yen;'+'0')
+                            }
+
+                        });
+                })
+                .off(UR.click,'.uricon-bgw')
+                .on(UR.click,'.uricon-bgw',function(){
+                    // 点击弹层显示商品详情
+                    var $this = $(this);
+                    var showflag = $this.attr('data-show-flag');
+
+                    console.log($('body').attr('data-bottom'));
+                    if(showflag == '0' && $('.fixed-box li').length > 0){
+                        $('.fixed-box').css({
+                            'bottom': '60px',
+                        });
+                        $this.attr('data-show-flag','1');
+                        $('[mask]').show();
+                    }else{
+                        $('.fixed-box').css({
+                            'bottom': $('body').attr('data-bottom'),
+                        });
+                        $this.attr('data-show-flag','0');
+                        $('[mask]').hide();
+                    }
+                })
+                .off('touchstart','[mask]')
+                .on('touchstart','[mask]',function(evt){
+                    //遮罩层点击事件
+                    evt.preventDefault();
+                    $('.uricon-bgw').trigger(UR.click);
+                })
+                .off(UR.click,'#moreComment')
+                .on(UR.click,'#moreComment',function(){
+                    commentData(number);
+                })
+
+        })
+    </script>
+</body>
+
+</html>

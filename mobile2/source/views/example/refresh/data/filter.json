@@ -1,0 +1,294 @@
+{
+    "130100": {
+        "cityCode": "130100",
+        "cityName": "石家庄市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10017,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10002,
+            "stageName": "耿希测试数据3"
+        }, {
+            "id": 10001,
+            "stageName": "耿希 测试 数据2"
+        }, {
+            "id": 1,
+            "stageName": "耿希测试数据1"
+        }]
+    },
+    "370200": {
+        "cityCode": "370200",
+        "cityName": "青岛市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10046,
+            "stageName": "青岛优客"
+        }]
+    },
+    "510100": {
+        "cityCode": "510100",
+        "cityName": "成都市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10038,
+            "stageName": "锦江优客工场"
+        }, {
+            "id": 10020,
+            "stageName": "qqq"
+        }, {
+            "id": 10010,
+            "stageName": "阳光100 优客工场-real"
+        }]
+    },
+    "110000": {
+        "cityCode": "110000",
+        "cityName": "北京市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10061,
+            "stageName": "fesco 优客工场dddd"
+        }, {
+            "id": 10060,
+            "stageName": "海龙大厦。优客工场"
+        }, {
+            "id": 10059,
+            "stageName": "社区名称"
+        }, {
+            "id": 10058,
+            "stageName": "测试一下"
+        }, {
+            "id": 10055,
+            "stageName": "阳光600.优客工场"
+        }, {
+            "id": 10039,
+            "stageName": "最新测试数据30"
+        }, {
+            "id": 10036,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10035,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10032,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10031,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10030,
+            "stageName": "阳光100 优客工场26"
+        }, {
+            "id": 10029,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10028,
+            "stageName": "阳光100 优客工场111"
+        }, {
+            "id": 10027,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10026,
+            "stageName": "优客工场26"
+        }, {
+            "id": 10025,
+            "stageName": "海龙"
+        }, {
+            "id": 10024,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10022,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10019,
+            "stageName": "最新测试数据"
+        }, {
+            "id": 10018,
+            "stageName": "hello kity"
+        }, {
+            "id": 10016,
+            "stageName": "四季青 3优客工场"
+        }, {
+            "id": 10015,
+            "stageName": "四季青 2优客工场"
+        }, {
+            "id": 10014,
+            "stageName": "四季青优客工场"
+        }, {
+            "id": 10013,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10012,
+            "stageName": "阳光100 优客工场"
+        }, {
+            "id": 10004,
+            "stageName": "耿希测试数据4"
+        }, {
+            "id": 10003,
+            "stageName": "耿希测试数据3"
+        }]
+    },
+    "511100": {
+        "cityCode": "511100",
+        "cityName": "乐山市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10009,
+            "stageName": "优客工场"
+        }]
+    },
+    "350200": {
+        "cityCode": "350200",
+        "cityName": "厦门市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10034,
+            "stageName": "厦门优客工场"
+        }]
+    },
+    "420100": {
+        "cityCode": "420100",
+        "cityName": "武汉市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10043,
+            "stageName": "武汉优客"
+        }]
+    },
+    "440300": {
+        "cityCode": "440300",
+        "cityName": "深圳市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10023,
+            "stageName": "优客工场"
+        }]
+    },
+    "310000": {
+        "cityCode": "310000",
+        "cityName": "上海市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10057,
+            "stageName": "漕河泾·优客工场"
+        }, {
+            "id": 10056,
+            "stageName": "漕河泾·优客工场6000"
+        }, {
+            "id": 10042,
+            "stageName": "漕河泾优客工场"
+        }, {
+            "id": 10006,
+            "stageName": "陆家嘴 优客工场"
+        }]
+    },
+    "370600": {
+        "cityCode": "370600",
+        "cityName": "烟台市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10047,
+            "stageName": "好"
+        }]
+    },
+    "610100": {
+        "cityCode": "610100",
+        "cityName": "西安市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10045,
+            "stageName": "西安优客"
+        }]
+    },
+    "140100": {
+        "cityCode": "140100",
+        "cityName": "太原市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10054,
+            "stageName": "阳光112 优客工场-real就就就就就"
+        }, {
+            "id": 10048,
+            "stageName": "3333333333"
+        }]
+    },
+    "120000": {
+        "cityCode": "120000",
+        "cityName": "天津市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10033,
+            "stageName": "天津 优客工场"
+        }]
+    },
+    "450500": {
+        "cityCode": "450500",
+        "cityName": "北海市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10051,
+            "stageName": "hello"
+        }]
+    },
+    "230900": {
+        "cityCode": "230900",
+        "cityName": "七台河市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10007,
+            "stageName": "阳光100 优客工场"
+        }]
+    },
+    "320100": {
+        "cityCode": "320100",
+        "cityName": "南京市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10021,
+            "stageName": "南京优客工场"
+        }]
+    },
+    "320200": {
+        "cityCode": "320200",
+        "cityName": "无锡市",
+        "list": [{
+            "id": 0,
+            "stageName": "全部社区"
+        }, {
+            "id": 10044,
+            "stageName": "无锡优客"
+        }]
+    }
+}

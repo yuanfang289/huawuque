@@ -1,0 +1,21 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": [{
+            "id": 1,
+            "reasonName": "面试"
+        },
+        {
+            "id": 2,
+            "reasonName": "商务"
+        },
+        {
+            "id": 3,
+            "reasonName": "私人"
+        },
+        {
+            "id": 4,
+            "reasonName": "参观"
+        }
+    ]
+}

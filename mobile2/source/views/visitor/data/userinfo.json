@@ -1,0 +1,11 @@
+{
+    "retCode":0,
+    "retMsg":"接口请求成功",
+    "data":{
+        "id":11163,
+        "nationalCode":"86",
+        "username":"15182882008",
+        "realname":"田林",
+        "mobile":"15182882008"
+    }
+}

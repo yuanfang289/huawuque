@@ -1,0 +1,40 @@
+/* 上拉刷新
+ ---------------------------------------- */
+$loading-img-url: "/assets/public/images/component/ajax-loading.gif";
+#pullUp {
+    padding: 30px 0;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    span {
+        line-height: 24px;
+        vertical-align: middle;
+    }
+    &.pull-loading .pullUpIcon {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        margin-right: 10px;
+        background: url($loading-img-url) no-repeat;
+        background-size: 100%;
+    }
+    &.stop {
+        @include padding-v(10px);
+    }
+}
+.clearfix,
+.list-container,
+[data-scroll="pullUp"] {
+    @include clearfix();
+}
+.list-container,
+[data-scroll="pullUp"] {
+    // min-height: 300px;
+    .data-null {
+        // min-height: 300px;
+        padding: 110px 0;
+        img {
+            max-width: 140px;
+        }
+    }
+}

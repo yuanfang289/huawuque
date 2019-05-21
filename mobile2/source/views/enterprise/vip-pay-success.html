@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title>支付成功</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/public/enterprise/styles/vip-pay-success.css">
+</head>
+
+<body class="gray-bg">
+    <div class="coupon-shadow">
+        <div class="coupon-bg">
+            <img src="/public/enterprise/images/bg.png" alt="" width="100%">
+            <p class="coupon-text"><strong>尊敬的用户</strong><br /><br />代金券<br />已存入您的账户</p>
+            <a href="javascript:;" class="coupon-btn">去看看</a>
+        </div>
+    </div>
+    <!-- <div class="coupon-shadow">
+        <div class="coupon-bg">
+            <img src="/public/enterprise/images/bg.png" alt="" width="100%">
+            <p class="coupon-text"><strong>尊敬的用户</strong><br /><br />代金券<br />已存入企业账户</p>
+            <a href="javascript:;" class="coupon-btn">去看看</a>
+        </div>
+    </div> -->
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- wrapper-inner -->
+        <div class="wrapper-inner">
+            <!-- main -->
+            <main id="main">
+                <!-- content -->
+                <div id="content">
+                    <div class="pay-state">
+                        <img src="/public/enterprise/images/vip-pay-success.png" height="59" width="59" alt="">
+                        <p>您的订单已经支付成功！</p>
+                    </div>
+                </div>
+                <!-- / content -->
+            </main>
+            <!-- / main -->
+        </div>
+        <!-- / wrapper-inner -->
+    </div>
+    @import "footer-common.tpl"
+
+</body>
+</html>

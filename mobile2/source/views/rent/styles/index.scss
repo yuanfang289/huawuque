@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/**
+ * index.scss
+ *
+ * @project       www.urwork.cn
+ * @author        Litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+
+//引用社区详情页
+@import '../../workshop/styles/workshop-detail';
+
+/* 入口页
+----------------------------------------------------*/
+.nav-search{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 950;
+    padding: 12px 16px;
+    i{
+        font-size: rem(36);
+        font-weight: 700;
+    }
+    .wrapper-app &{
+        display: none;
+    }
+}
+.list-item{
+    display: block;
+    @include fixed-ratio-box(42.133);
+    margin-top: 8px;
+    span{
+        @include fixed-ratio-inner;
+    }
+}
+.con-item{
+    width: 100%;
+    text-align: center;
+    @include position-center-y;
+    p{
+        &.item-title{
+            line-height: rem(68);
+            font-size: rem(44);
+            color: #fff;
+        }
+        &.item-desc{
+            line-height: rem(46);
+            font-size: rem(24);
+            color: #fff;
+        }
+        &.item-btn{
+            display: inline-block;
+            width: rem(158);
+            height: rem(52);
+            margin-top: rem(16);
+            padding: rem(9) 0;
+            font-size: rem(24);
+            color: #333;
+            background: #fff;
+        }
+    }
+}
+/* 移动工位详情页
+----------------------------------------------------*/
+
+.title-layout{
+    @include clearfix;
+    h1{
+        &:before{
+            content: '';
+            position: absolute;
+            left:0;
+            bottom: 0;
+            width: rem(92);
+            height: rem(5);
+            background: #333;
+        }
+        position: relative;
+        float: left;
+        padding-bottom: rem(16);
+        font-size: rem(48);
+        color: #333;
+    }
+    .btn{
+        float: right;
+        position: relative;
+        top: rem(10);
+    }
+}
+.item-price{
+    padding-top: rem(24);
+    padding-bottom: rem(36);
+    font-size: rem(28);
+}
+.gray-text{
+    margin-top: 20px;
+    padding: 7px;
+    line-height: rem(40);
+    font-size: rem(28);
+    background: #f7f7f7;
+}
+.site-text{
+    line-height: rem(44);
+    font-size: rem(28);
+    color: #666;
+    em{
+        font-weight: 400;
+        padding-top: rem(40);
+        display: block;
+        color: #333;
+    }
+}
+.issue-item{
+    &:last-child{
+        margin-bottom: 0;
+    }
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f7f7f7;
+    p{
+        @include clearfix;
+    }
+    i{
+        float: left;
+        margin-right: 8px;
+    }
+    span{
+        display: block;
+        overflow: hidden;
+    }
+    .issue-q{
+        font-weight: 400;
+    }
+    .issue-a{
+        margin-top: 8px;
+        color: #666;
+    }
+}
+/* Layout
+----------------------------------------------------*/
+.workshop-bottombar .booking-wrap{
+    margin-left: 0;
+}
+.workshop-bottombar .booking{
+    padding-left: 0;
+}

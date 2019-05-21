@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+/* VipCoupon
+ ---------------------------------------- */
+.coupon-shadow{
+    position: fixed;
+    top:0;
+    bottom:0;
+    z-index:1000;
+    width: 100%;
+    background:rgba(0,0,0,.5);
+}
+.coupon-bg{
+    position: absolute;
+    top:46%;
+    left:50%;
+    width: 70.667%;
+    // // height: 308px;
+    transform:translate(-50%, -50%);
+    // background-image:url(../images/vip/vip-coupon.png);
+    // background-size:327px 308px;
+}
+.coupon-text{
+    position: absolute;
+    line-height: 1.5;
+    top: 9%;
+    width: 100%;
+    text-align: center;
+    // color:#333;
+    font-size: rem(34);
+}
+.coupon-btn{
+    &:active{
+        background-color:darken(#fff,8%);
+        // color:#fff;
+    }
+    position: absolute;
+    left:50%;
+    bottom: 10%;
+    transform:translateX(-50%);
+    width: rem(224);
+    height: rem(70);
+    line-height: rem(70);
+    border-radius: rem(35);
+    text-align: center;
+    background: #fff;
+    color:#d0a762;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* payState
+ ---------------------------------------- */
+.pay-state{
+    padding-top: 32%;
+    text-align: center;
+    p{
+        padding-top: 20px;
+        line-height: 24px;
+        font-size: rem(32);
+    }
+    a{
+        display: inline-block;
+        margin-top: 130px;
+        padding: 10px 42px;
+        border:1px solid #333;
+        border-radius: 4px;
+        font-size: rem(32);
+    }
+}

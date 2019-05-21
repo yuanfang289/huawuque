@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title>领取会员包</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/memberPackage/index.css">
+</head>
+
+<body>
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- wrapper-inner -->
+    <div class="wrapper-inner">
+        <!-- main -->
+        <main id="main">
+            <!-- content -->
+            <div id="content">
+                <section class="member-wrapper">
+                    <div class="member-content desc">
+                        <article id="iscroll">
+                            <div class="member-content-inner">
+                                <p>1、会员包使用条款会员包使用条款会员包使用会员包使用条款</p>
+                                <p>2、会员包使用条款会员包使用条款</p>
+                                <p>3、会员包使用条款会员包</p>
+                                <p>4、会员包使用条款会员包使用条款会员包使用会员包使用条款会员包使用条款</p>
+                                <p>1、会员包使用条款会员包使用条款会员包使用会员包使用条款</p>
+                                <p>2、会员包使用条款会员包使用条款</p>
+                                <p>3、会员包使用条款会员包</p>
+                                <p>4、会员包使用条款会员包使用条款会员包使用会员包使用条款会员包使用条款</p>
+                                <p>1、会员包使用条款会员包使用条款会员包使用会员包使用条款</p>
+                                <p>2、会员包使用条款会员包使用条款</p>
+                                <p>3、会员包使用条款会员包</p>
+                                <p>4、会员包使用条款会员包使用条款会员包使用会员包使用条款会员包使用条款</p>
+                            </div>
+                        </article>
+                    </div>
+                    <a href="doing.html" class="member-get-btn">立即领取</a>
+                </section>
+            </div>
+            <!-- / content -->
+        </main>
+        <!-- / main -->
+    </div>
+    <!-- / wrapper-inner -->
+</div>
+<!--/ wrapper -->
+@import "footer-common.tpl"
+<script>
+    var Page = {
+        init: function () {
+            UR.androidRefresh(false)
+            this.iscroll();
+        },
+        iscroll: function () {
+            var height = $(window).height() * .43 - 50;
+            $('#iscroll').height(height);
+            new IScroll('#iscroll', {
+                click: true,
+                onScrollMove: function () {
+                    console.log('onScrollMove');
+                }
+            });
+        }
+    }
+
+
+    $(function () {
+        Page.init();
+    });
+</script>
+</body>
+</html>

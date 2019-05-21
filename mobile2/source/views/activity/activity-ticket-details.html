@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>活动购票详情页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/activity/activity-ticket-details.css">
+</head>
+<body style="background: #f0f0f0;">
+    <!-- header -->
+    <header id="header" class="header-def">
+        <!-- titlebar -->
+        <div id="titlebar">
+            <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+            <span class="title">标题</span>
+        </div>
+        <!-- /titlebar -->
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="content">
+            <div class="box">
+                <a href="" style="display: block;">
+                    <div class="img-show">
+                        <span style="background-image: url('http://m.urwork.cn/assets/public/index/images/news/news-01.jpg?0508')"></span>
+                    </div>
+                    <dl class="box-header">
+                        <dt><p>新奇美食入驻亦庄，一大波福利袭来福利袭来</p></dt>
+                        <dd class="todo">[待支付]</dd>
+                    </dl>
+                </a>
+
+                <span class="border-left"></span>
+                <span class="border-right"></span>
+                <div class="box-footer">
+                    <h2>新奇美食入驻亦庄，一大波福利袭来福利袭来</h2>
+                    <dl>
+                        <dd>时间</dd>
+                        <dt>16/11/03 00:00-16/11/14 00:00</dt>
+                    </dl>
+                    <dl>
+                        <dd>地点</dd>
+                        <dt><span>阳光100</span><span>阳光100</span><span>阳光100</span><span>阳光100</span></dt>
+                    </dl>
+                    <dl>
+                        <dd>主办方</dd>
+                        <dt>优客工场</dt>
+                    </dl>
+                    <dl>
+                        <dd>报名人</dd>
+                        <dt>赵常宇/ 18612791154</dt>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /main -->
+    <div class="footer">
+        <a href="javascript:void (0)" class="white small">取消订单</a>
+        <a href="javascript:void (0)" class="black small">立即支付</a>
+    </div>
+</body>
+<script>
+    $(function () {
+        function initTop() {
+            var topleft=$(".border-left");
+            var topright=$(".border-right");
+            var height=$(".box-header").height() + $(".img-show").height();
+            topleft.css("top",height+10+"px");
+            topright.css("top",height+10+"px");
+        }
+        initTop();
+    })
+</script>
+</html>

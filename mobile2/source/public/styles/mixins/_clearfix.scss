@@ -1,0 +1,20 @@
+@charset "UTF-8";
+// clearfix
+
+@mixin clearfix-mixin() {
+    &::after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+/* clearfix */
+%clearfix {
+    @include clearfix-mixin;
+}
+// 在父级调用 clearfix 混合，即可清除浮动
+@mixin clearfix() {
+    // @extend %clearfix;
+    @include clearfix-mixin;
+}

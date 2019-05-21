@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>社区列表</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/workshop/styles/workshop-list.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+            @import "nav-tab.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <section class="layout-item swiper-layout" style="padding-top: 10px">
+                <a href="#" class="search-link"><i class="uricon-search-r"></i>搜索城市或社区名</a>
+
+                <div class="swiper-fixed-ratio">
+                    <div class="swiper-container city-swiper" id="citySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="piclist-item city-swiper-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/f15973b4-c338-482d-8ae1-f064913d856c.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="center-text">
+                                            <p class="text-title">北京</p>
+                                            <p class="text-desc"><span>24个社区</span></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="piclist-item city-swiper-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/e3943121-b5de-4382-8742-0946529a7a40.jpg" alt="">
+                                                <div class="price"><i>¥ </i>120<sub>起</sub></div>
+                                            </div>
+                                        </div>
+                                        <div class="center-text">
+                                            <p class="text-title">北京</p>
+                                            <p class="text-desc"><span>24个社区</span></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="piclist-item city-swiper-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/c26a009d-b9b5-4768-9fb0-151269b80ca6.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="center-text">
+                                            <p class="text-title">北京</p>
+                                            <p class="text-desc"><span>24个社区</span></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="piclist-item city-swiper-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/c26a009d-b9b5-4768-9fb0-151269b80ca6.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="center-text">
+                                            <p class="text-title">北京</p>
+                                            <p class="text-desc"><span>24个社区</span></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="piclist-item city-swiper-item">
+                                    <a href="#">
+                                        <div class="piclist-image-box">
+                                            <div class="piclist-image" require-clip>
+                                                <img class="swiper-lazy" src="https://image.urwork.cn/c26a009d-b9b5-4768-9fb0-151269b80ca6.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="center-text">
+                                            <p class="text-title">北京</p>
+                                            <p class="text-desc"><span>24个社区</span></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="nearby-workshop-wrap">
+                <section class="layout-item nearby-workshop-layout" id="nearbyWorkshop">
+
+                </section>
+            </div>
+
+            <section class="layout-item workshop-list-layout" id="cityNavLayout">
+                <!-- 城市导航 -->
+                @import "workshop/cityNav.tpl"
+                <!-- / 城市导航 -->
+                <!-- 城市弹层 -->
+                @import "workshop/cityNavLayer.tpl"
+                <!-- / 城市弹层 -->
+
+                <div class="workshop-list-wrap" id="workshopListWrap">
+                    <div class="pull-tips">下拉加载更多</div>
+                    <ul class="workshop-list" id="workshopList">
+                        <li>
+                            <a href="/workstage/detail?id=10001">
+                                <div class="workshop-item">
+                                    <div class="img-wrap">
+                                        <img class="image lazy" data-src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg" alt="" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg?imageMogr2/thumbnail/!670x376r/gravity/Center/crop/670x376">
+                                    </div>
+                                    <div class="text-wrap">
+                                        <div class="text-title">
+                                            <h6>耿希 测试 数据2</h6>
+                                            <div class="score-mod lv-5">
+                                                <div class="star"><span></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="text-attr">
+                                            <p>测试地址</p>
+                                            <p>0 工位可订</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/workstage/detail?id=10001">
+                                <div class="workshop-item">
+                                    <div class="img-wrap">
+                                        <img class="image lazy" data-src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg" alt="" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg?imageMogr2/thumbnail/!670x376r/gravity/Center/crop/670x376">
+                                    </div>
+                                    <div class="text-wrap">
+                                        <div class="text-title">
+                                            <h6>耿希 测试 数据2</h6>
+                                            <div class="score-mod lv-0">
+                                                <div class="star"><span></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="text-attr">
+                                            <p>测试地址</p>
+                                            <p>0 工位可订</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/workstage/detail?id=10001">
+                                <div class="workshop-item">
+                                    <div class="img-wrap">
+                                        <img class="image lazy" data-src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg" alt="" src="http://7xp26u.com1.z0.glb.clouddn.com/158cf683-0d37-40d1-991c-be904a825869.jpg?imageMogr2/thumbnail/!670x376r/gravity/Center/crop/670x376">
+                                    </div>
+                                    <div class="text-wrap">
+                                        <div class="text-title">
+                                            <h6>耿希 测试 数据2</h6>
+                                            <div class="score-mod lv-0">
+                                                <div class="star"><span></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="text-attr">
+                                            <p>测试地址</p>
+                                            <p>0 工位可订</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script src="/assets/public/workshop/scripts/workshop-list.js"></script>
+    <script>
+        WorkshopList.fetchNearbyWorkshop = function (lon, lat) {
+            $.ajax({
+                type: 'post',
+                url: '/workstage/nearby',
+                type: 'get',
+                url: 'data/nearby.json',
+                data: {
+                    longitude: lon,
+                    latitude: lat
+                },
+                dataType: 'json',
+                success: function(res) {
+                    if (res.retCode == 1) {
+                        var data = res.data || {};
+                        WorkshopList.nearbyWorkshop({
+                            longitude: lon,
+                            latitude: lat,
+//                                href: '/workstage/detail?id=' + data.id,
+                            stageName: data.stageName || '',
+                            rentStationNum: data.rentStationNum || 0
+                        });
+                    }
+                }
+            });
+        }
+        $(function() {
+            WorkshopList.geolocation(function(lon, lat) {
+                WorkshopList.fetchNearbyWorkshop(lon, lat);
+            }, function (msg) {
+                WorkshopList.nearbyWorkshop();
+            });
+
+            $('body').on(UR.click, '#searchLink', function() {
+                location.href = '/workstage/search';
+            })
+
+            $.ajax({
+                type: 'post',
+                url: '/workstage/cityWorkstageNum',
+                dataType: 'json',
+                success: function(res) {
+                    res = res || {};
+                    var sum = 0;
+                    for (prop in res) {
+                        if (!prop) continue;
+                        sum += Number(res[prop]);
+                        $('#citySwiper [data-city=' + prop + ']').append('<p class="text-desc"><span>' + res[prop] + '个社区</span></p>');
+                    }
+                    $('#citySwiper [data-city=all]').append('<p class="text-desc"><span>' + sum + '个社区</span></p>');
+                }
+            });
+        })
+    </script>
+    <script>
+//        var prefix = WorkshopList.getPrefix();
+//        document.addEventListener(prefix + 'visibilitychange', function (e) {
+//            var hidden = prefix ? prefix + 'Hidden' : 'hidden';
+//            hidden     = e.target[hidden];
+////            alert('hidden: '+ hidden)
+////            if (!hidden) {
+////                alert('hidden: '+ hidden)
+////            }
+//        }, false);
+    </script>
+
+    <script type="text/html" id="tplNearby">
+        {{if longitude && latitude}}
+            {{if stageName}}
+            <a href="./workshop-near.html?longitude={{longitude}}&latitude={{latitude}}">
+                <dl class="nearby-workshop">
+                    <dt><img src="/assets/public/workshop/images/fjsq-dw.png" alt=""></dt>
+                    <dd>
+                        <h5 class="workshop-name">{{stageName}}</h5>
+                        <p class="booking-desk"> {{distance}}m {{rentStationNum}}个工位可订</p>
+                        <span class="right-arrow">查看更多<i class="uricon-arrow-right"></i></span>
+                    </dd>
+                </dl>
+            </a>
+            {{else}}
+            <a href="./workshop-recommend.html?longitude={{longitude}}&latitude={{latitude}}">
+                <dl class="nearby-workshop">
+                    <dt><img src="/assets/public/workshop/images/fjsq-dw.png" alt=""></dt>
+                    <dd>
+                        <h5 class="workshop-name">暂无附近社区</h5>
+                        <p class="booking-desk">点击查看推荐社区</p>
+                        <i class="uricon-arrow-right right-arrow"></i>
+                    </dd>
+                </dl>
+            </a>
+            {{/if}}
+        {{else}}
+        <a href="javascript:;" id="relocation">
+            <dl class="nearby-workshop">
+                <dt><img src="/assets/public/workshop/images/fjsq-dw.png" alt=""></dt>
+                <dd>
+                    <h5 class="workshop-name">请开启手机定位服务</h5>
+                    <p class="booking-desk">获取附近社区</p>
+                    <i class="uricon-arrow-right right-arrow"></i>
+                </dd>
+            </dl>
+        </a>
+        {{/if}}
+    </script>
+
+    <script type="text/html" id="tplList">
+        {{if list.length == 0}}
+        <li>
+            <div class="data-null">
+                <div class="data-null-inner">暂无社区</div>
+            </div>
+        </li>
+        {{/if}}
+
+        {{each list as item i}}
+        {{if item.stageStatus == -1}}
+        <li>
+            <a href="/workstage/detail?id={{item.id}}">
+                <div class="workshop-item">
+                    <div class="img-wrap">
+                        <img class="image lazy" data-src="{{item.workstageImage}}" alt="">
+                        <div class="prepare">
+                            <p>筹备中，敬请期待...</p>
+                        </div>
+                    </div>
+                    <div class="text-wrap">
+                        <div class="text-title phone-wrap">
+                            <h6>{{item.stageName}}</h6>
+                            {{if item.stagePhone}}
+                            <object>
+                                <a class="phone" href="tel:{{item.stagePhone}}"><i class="uricon-phone"></i></a>
+                            </object>
+                            {{else}}
+                            <object>
+                                <a class="phone disabled" href="javascript:;"><i class="uricon-phone"></i></a>
+                            </object>
+                            {{/if}}
+                        </div>
+                        <div class="text-attr">
+                            <p>{{item.address}}</p>
+                            <p style="visibility: hidden">{{item.rentStationNum}} 工位可订</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{else}}
+        <li>
+            <a href="/workstage/detail?id={{item.id}}">
+                <div class="workshop-item">
+                    <div class="img-wrap">
+                        <img class="image lazy" data-src="{{item.workstageImage}}" alt="">
+                    </div>
+                    <div class="text-wrap">
+                        <div class="text-title">
+                            <h6>{{item.stageName}}</h6>
+                            <div class="score-mod lv-{{item.averageScore}}">
+                                <div class="start"><span></span></div>
+                            </div>
+                        </div>
+                        <div class="text-attr">
+                            <p>{{item.address}}</p>
+                            <p>{{item.rentStationNum}} 工位可订</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{/if}}
+        {{/each}}
+    </script>
+
+
+</body>
+
+</html>

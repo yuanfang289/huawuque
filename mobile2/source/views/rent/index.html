@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>租赁入口页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/rent/styles/index.css">
+</head>
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar-def.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <a href="javascript:;" class="nav-search"><i class=" uricon-search"></i></a>
+        <section>
+            <a class="list-item">
+                <span style="background-image:url(/assets/public/rent/images/index-list-bg1.jpg)"></span>
+                <div class="con-item">
+                    <p class="item-title">移动工位</p>
+                    <p class="item-desc">¥ 1,290/月起</p>
+                    <p class="item-btn">了解更多</p>
+                </div>
+            </a>
+            <a class="list-item">
+                <span style="background-image:url(/assets/public/rent/images/index-list-bg2.jpg)"></span>
+                <div class="con-item">
+                    <p class="item-title">固定工位</p>
+                    <p class="item-desc">¥ 1,290/月起</p>
+                    <p class="item-btn">了解更多</p>
+                </div>
+            </a>
+            <a class="list-item">
+                <span style="background-image:url(/assets/public/rent/images/index-list-bg3.jpg)"></span>
+                <div class="con-item">
+                    <p class="item-title">专属办公室</p>
+                    <p class="item-desc">¥ 1,290/月起</p>
+                    <p class="item-btn">了解更多</p>
+                </div>
+            </a>
+        </section>
+        @import "goto.tpl"
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+<!-- 社区列表 modal -->
+<!-- <div class="modal primary-modal" id="plantIdModal" role="dialog" data-param="plantId">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="background-color: #f5f5f5;">
+                <div class="scroller" id="plantIdContainer">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary save">保存</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--/ 社区列表 modal -->
+</body>
+</html>

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/**
+ * index.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ * En
+ * Layout
+ */
+@import './index';
+/* En
+---------------------------------------- */
+.icon-list {
+    padding-bottom: rem(60);
+}
+.btn-list {
+    li{
+        width: auto;
+    }
+
+    a{
+        padding: 0 rem(20);
+    }
+}
+/* Layout
+---------------------------------------- */

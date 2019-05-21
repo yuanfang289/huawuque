@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/passport/passport.css">
+</head>
+
+<body no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        @import "topbar-def.tpl"
+
+        <!-- main -->
+        <main id="main">
+            <form action="" id="forgetFormPwd" class="form form-second form-passport form-forget">
+                <input type="hidden" name="mobile" value="13311331133">
+                <div class="form-item">
+                    <div class="input-item"><input type="password" class="input" name="password" autocomplete="off" placeholder="密码(6-18位）"/></div>
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary">确定</button>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+    <script src="/assets/public/passport/scripts/passport.js"></script>
+    <script src="/assets/public/passport/scripts/forget.js"></script>
+</body>
+
+</html>

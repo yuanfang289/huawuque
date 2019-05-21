@@ -1,0 +1,203 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "上海市": [{
+                "id": 10081,
+                "stageName": "证大喜玛拉雅·优客工场",
+                "provinceCode": "310000",
+                "cityCode": "310000",
+                "provinceName": "上海市",
+                "cityName": "上海市"
+            },
+            {
+                "id": 10063,
+                "stageName": "上海长阳谷社区",
+                "provinceCode": "310000",
+                "cityCode": "310000",
+                "provinceName": "上海市",
+                "cityName": "上海市"
+            }
+        ],
+        "天津市": [{
+            "id": 10068,
+            "stageName": "阳光100·优客工场",
+            "provinceCode": "120000",
+            "cityCode": "120000",
+            "provinceName": "天津市",
+            "cityName": "天津市"
+        }],
+        "西安市": [{
+                "id": 10064,
+                "stageName": "西安万科城社区",
+                "provinceCode": "610000",
+                "cityCode": "610100",
+                "provinceName": "陕西省",
+                "cityName": "西安市"
+            },
+            {
+                "id": 10035,
+                "stageName": "西安万科",
+                "provinceCode": "610000",
+                "cityCode": "610100",
+                "provinceName": "陕西省",
+                "cityName": "西安市"
+            }
+        ],
+        "成都市": [{
+            "id": 10111,
+            "stageName": "测试13",
+            "provinceCode": "510000",
+            "cityCode": "510100",
+            "provinceName": "四川省",
+            "cityName": "成都市"
+        }],
+        "青岛市": [{
+            "id": 10082,
+            "stageName": "优客测试社区",
+            "provinceCode": "370000",
+            "cityCode": "370200",
+            "provinceName": "山东省",
+            "cityName": "青岛市"
+        }],
+        "武汉市": [{
+                "id": 10109,
+                "stageName": "测试社区1223",
+                "provinceCode": "420000",
+                "cityCode": "420100",
+                "provinceName": "湖北省",
+                "cityName": "武汉市"
+            },
+            {
+                "id": 10099,
+                "stageName": "HU",
+                "provinceCode": "420000",
+                "cityCode": "420100",
+                "provinceName": "湖北省",
+                "cityName": "武汉市"
+            }
+        ],
+        "烟台市": [{
+            "id": 10066,
+            "stageName": "烟台阳光壹佰社区",
+            "provinceCode": "370000",
+            "cityCode": "370600",
+            "provinceName": "山东省",
+            "cityName": "烟台市"
+        }],
+        "郑州市": [{
+                "id": 10110,
+                "stageName": "测试0103",
+                "provinceCode": "410000",
+                "cityCode": "410100",
+                "provinceName": "河南省",
+                "cityName": "郑州市"
+            },
+            {
+                "id": 10098,
+                "stageName": "哈黑糖群侠传",
+                "provinceCode": "410000",
+                "cityCode": "410100",
+                "provinceName": "河南省",
+                "cityName": "郑州市"
+            },
+            {
+                "id": 10091,
+                "stageName": "不不不",
+                "provinceCode": "410000",
+                "cityCode": "410100",
+                "provinceName": "河南省",
+                "cityName": "郑州市"
+            },
+            {
+                "id": 10089,
+                "stageName": "河南社区1号院",
+                "provinceCode": "410000",
+                "cityCode": "410100",
+                "provinceName": "河南省",
+                "cityName": "郑州市"
+            }
+        ],
+        "南京市": [{
+            "id": 10065,
+            "stageName": "南京东科社区",
+            "provinceCode": "320000",
+            "cityCode": "320100",
+            "provinceName": "江苏省",
+            "cityName": "南京市"
+        }],
+        "沁县": [{
+            "id": 10101,
+            "stageName": "押后押后广场一",
+            "provinceCode": "140000",
+            "cityCode": "140430",
+            "provinceName": "山西省",
+            "cityName": "沁县"
+        }],
+        "揭阳市": [{
+            "id": 10100,
+            "stageName": "AASSDD",
+            "provinceCode": "440000",
+            "cityCode": "445200",
+            "provinceName": "广东省",
+            "cityName": "揭阳市"
+        }],
+        "合肥市": [{
+                "id": 10097,
+                "stageName": "阿里大锅1107",
+                "provinceCode": "340000",
+                "cityCode": "340100",
+                "provinceName": "安徽省",
+                "cityName": "合肥市"
+            },
+            {
+                "id": 10080,
+                "stageName": "时租测试专用社区",
+                "provinceCode": "340000",
+                "cityCode": "340100",
+                "provinceName": "安徽省",
+                "cityName": "合肥市"
+            }
+        ],
+        "哈尔滨市": [{
+            "id": 10096,
+            "stageName": "NMT-官",
+            "provinceCode": "230000",
+            "cityCode": "230100",
+            "provinceName": "黑龙江省",
+            "cityName": "哈尔滨市"
+        }],
+        "阿拉善盟": [{
+            "id": 10095,
+            "stageName": "内蒙福兴阁",
+            "provinceCode": "150000",
+            "cityCode": "152900",
+            "provinceName": "内蒙古自治区",
+            "cityName": "阿拉善盟"
+        }],
+        "台湾": [{
+            "id": 10094,
+            "stageName": "HWM",
+            "provinceCode": "710000",
+            "cityCode": "710000",
+            "provinceName": "台湾",
+            "cityName": "台湾"
+        }],
+        "呼和浩特市": [{
+            "id": 10090,
+            "stageName": "三无",
+            "provinceCode": "150000",
+            "cityCode": "150100",
+            "provinceName": "内蒙古自治区",
+            "cityName": "呼和浩特市"
+        }],
+        "蚌埠市": [{
+            "id": 10077,
+            "stageName": "徐州西路-优客工场",
+            "provinceCode": "340000",
+            "cityCode": "340300",
+            "provinceName": "安徽省",
+            "cityName": "蚌埠市"
+        }]
+    }
+}

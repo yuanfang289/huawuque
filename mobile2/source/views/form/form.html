@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单页</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/form/form-demo.css">
+    <style>
+        #main-footer{display:none}
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary">
+                <div class="form-item">
+                    <label class="form-label">支持类型</label>
+                    <div class="form-cont">
+                        <label class="readonly-text">人力资源服务</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">企业名称</label>
+                    <div class="form-cont">
+                        <input type="text" placeholder="选填"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">社区</label>
+                    <div class="form-cont">
+                            <input type="hidden" name="workshopId" value="" id="workshopId">
+                            <input type="hidden" name="workId" value="" id="workinfo">
+                            <input type="text" id="workstage_dummy"/>
+                            <ul id="workstage" class="treelist-none">
+                                <li data-val="北京">北京北极
+                                    <ul>
+                                        <li data-val="阳光100" data-id="4">阳光100</li>
+                                    </ul>
+                                </li>
+                                <li data-val="上海">上海
+                                    <ul>
+                                        <li data-val="阳光100" data-id="1">阳光100阳光100阳光100阳光100阳光100阳光100</li>
+                                        <li data-val="阳光101" data-id="2">阳光101</li>
+                                        <li data-val="阳光102" data-id="3">阳光102</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">联系人</label>
+                    <div class="form-cont">
+                        <input type="text" placeholder="必填"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">联系电话</label>
+                    <div class="form-cont">
+                        <input type="tel" placeholder="必填"/>
+                    </div>
+                </div>
+                <div class="form-item form-item-textarea">
+                    <label class="form-label">详细描述</label>
+                    <div class="form-cont">
+                        <div class="textarea-wrap">
+                            <textarea type="tel" maxlength="200" placeholder="请输入描述内容，不要超过200字" class="resize-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <script src="/assets/public/plugins/mobiscroll/scripts/mobiscroll.js"></script>
+    <script src="/assets/public/form/form.js"></script>
+</body>
+
+</html>

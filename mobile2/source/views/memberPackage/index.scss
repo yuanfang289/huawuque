@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/**
+ * CSS Menu
+ * member-wrapper
+ * Layout
+ */
+// 引入变量及混合
+@import 'variable';
+@import 'mixins';
+
+#content {
+    position: absolute;
+    min-height: calc(100% - 45px);
+    left: 0;
+    width: 100%;
+    background: #960e1b url("./images/bg.png") no-repeat;
+    background-size: 100% auto;
+
+    .has-nav-tab & {
+        min-height: calc(100% - 84px);
+    }
+    .hide-header & {
+        min-height: 100%;
+    }
+}
+
+.member-wrapper {
+    padding: 53% 20px 45px;
+
+    .member-content {
+        margin: 0 auto 22px;
+        padding: rem(80) rem(110) rem(92);
+        background-color: #fff;
+        border-radius: 12px;
+        text-align: center;
+
+        &.desc {
+            padding: rem(40);
+            text-align: left;
+
+            article {
+                //max-height: 300px;
+
+                overflow: auto;
+            }
+        }
+
+    }
+
+    .member-title {
+        margin-bottom: 20px;
+        font-size: 17px;
+        color: #bf8466;
+        text-align: center;
+    }
+
+    article {
+        min-height: rem(230);
+        font-size: 14px;
+        color: $font-def;
+
+        p {
+            line-height: 20px;
+            //margin-bottom: 10px;
+        }
+    }
+
+    .member-get-btn {
+        width: 253px;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        margin: 0 auto;
+
+        text-align: center;
+        font-size: 14px;
+        color: $font-def;
+
+        background: url("./images/btn@3x.png") no-repeat;
+        background-size: 100%;
+    }
+
+    .member-btn-view {
+        display: block;
+        @include padding-v(16px);
+        text-align: center;
+        font-size: 12px;
+        color: #f7e9cf;
+    }
+
+    .member-btn-groups {
+        display: flex;
+        .btn {
+            width: rem(200);
+            height: rem(68);
+            line-height: rem(66);
+            color: $font-def;
+            font-size: 14px;
+            border-color: $font-999;
+            border-radius: 25px;
+
+            & + .btn {
+                margin-left: rem(54);
+            }
+        }
+    }
+
+}

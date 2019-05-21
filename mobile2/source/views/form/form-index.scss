@@ -1,0 +1,261 @@
+@charset "UTF-8";
+/**
+ * form.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'form';
+@import 'modal/modal';
+@import 'uploader/uploader';
+@import "chip/province-city-picker";
+
+.form-primary {
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="url"],
+    .readonly-text {
+        @include text-overflow;
+    }
+
+    .readonly-text {
+
+    }
+
+    .form-cont {
+        @include text-overflow;
+    }
+
+    .dynamic-action {
+        margin: 30px 0 38px;
+
+        .plus {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            margin-top: 7px;
+            margin-right: 20px;
+
+            &:after,
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: block;
+                background-color: $font-666;
+            }
+
+            &:before {
+                width: 16px;
+                height: 1px;
+                margin-left: -8px;
+                margin-top: -.5px;
+            }
+
+            &:after {
+                width: 1px;
+                height: 16px;
+                margin-left: -1px;
+                margin-top: -8px;
+            }
+        }
+
+        .btn {
+            margin: 0 auto;
+            display: block;
+            width: 148px;
+            height: 35px;
+            font-size: 14px;
+            color: $font-666;
+            border-color: #b2b2b2;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 12px;
+            color: $font-666;
+        }
+    }
+
+    .radio-control {
+        label:nth-of-type(1) {
+            display: flex;
+
+            .form-child-cont {
+                position: absolute;
+                top: -2px;
+                right: -18px;
+
+                input {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .form-discount {
+        margin-bottom: 8px;
+        .form-item {
+            margin-bottom: 0;
+            //border-bottom: 1px solid #e5e5e5;
+
+            &.form-item-textarea {
+                border-bottom: 0;
+            }
+        }
+        .form-item-title {
+            @include padding-h(20px);
+            position: relative;
+            height: 54px;
+            line-height: 54px;
+            //border-bottom: 1px solid #e5e5e5;
+            border-top: 1px solid #eee;
+            background-color: #f8f8f8;
+
+            [data-dismiss="discount"] {
+                position: absolute;
+                top: 0;
+                right: 20px;
+                width: 40px;
+                text-align: right;
+
+                font-size: 18px;
+                color: $font-999;
+            }
+        }
+
+        .form-label {
+            padding-left: 20px;
+        }
+
+        .form-cont {
+
+        }
+
+        .radio-control {
+            @include padding-h (0);
+
+            label {
+                @include padding-h(20px);
+                padding-left: 52px;
+                border-bottom: 0;
+
+                .form-child-cont {
+                    right: 0;
+                }
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                left: 20px;
+            }
+        }
+    }
+
+    .title {
+        @include padding-v(20px);
+        line-height: 1.4;
+        dt {
+            font-size: 20px;
+        }
+        dd {
+            padding-top: 10px;
+        }
+        .note {
+            padding: 10px 12px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+    }
+}
+
+.form-def {
+    .form-item-radio {
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 2px;
+        .radio-control {
+            label {
+                flex: 1;
+            }
+        }
+        .form-cont {
+            display: flex;
+        }
+    }
+}
+
+.input-content {
+    .searchbar {
+        margin-bottom: 8px;
+    }
+    .search-result {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        top: 108px;
+        bottom: 0;
+        background-color: #fff;
+        &.nodata {
+            background-color: #f8f8f8;
+        }
+        li {
+            @include border-top(#e5e5e5);
+        }
+        [role="result-data"] {
+            &:first-of-type {
+                li:first-of-type {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+        a {
+            display: block;
+            padding: 20px 17px;
+        }
+    }
+    .user-list {
+        h5 {
+            font-size: 14px;
+        }
+        p {
+            @include text-overflow;
+            color: #999;
+            font-size: 11px;
+        }
+    }
+    .company-list {
+        li {
+            @include text-overflow;
+        }
+    }
+    .result-tips {
+        p {
+            color: #666 !important;
+            font-size: 14px !important;
+        }
+    }
+    [role="pullUp"] {
+        padding: 15px 0;
+        color: #999;
+        font-size: 13px;
+        text-align: center;
+        &.reload {
+            padding: 50px 0;
+        }
+    }
+}

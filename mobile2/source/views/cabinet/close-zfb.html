@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付方式</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/payment-zfb.css">
+</head>
+<body class="gray-bg">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="content-zfb">
+            <img src="/assets/public/images/zfblogo.png" height="40px" width="40px" alt="">
+            <strong>支付宝</strong>
+        </div>
+        <div class="status-change">
+            免密支付
+            <div class="ios-btn">
+                <input type="checkbox" id="no-code-pay" class="checkbox"/>
+                <div class="checkbox-wrapper">
+                    <label for="no-code-pay" class="checkbox-label"></label>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script type="text/javascript">
+    $('#no-code-pay').on('click',function(){
+        console.log($(this).prop('checked'));
+        if(!$(this).prop('checked')){
+            console.log('关闭')
+        }else {
+            console.log('开启')
+        }
+    })
+</script>
+</body>
+</html>

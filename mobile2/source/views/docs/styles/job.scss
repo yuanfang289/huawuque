@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/**
+ * job
+ *
+ * @project       urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ * Job
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+
+/* Job
+---------------------------------------- */
+.job {
+    color: #333;
+    font-size: 12px;
+    a {
+        color: #333;
+    }
+    .banner-image-box {
+        position: relative;
+        height: 200px;
+        color: #fff;
+        font-size: 12px;
+        .banner-image {
+            @include fixed-ratio-inner;
+            padding: 30px 0 0 5%;
+        }
+        h1 {
+            margin-bottom: 14px;
+            font: 500 40px/1 "arial bold",arial;
+        }
+        p {
+            line-height: 2;
+        }
+    }
+    .job-list {
+        padding: 20px;
+        padding-bottom: 0;
+    }
+    .job-item {
+        @include clearfix;
+        margin-left: 70px;
+        margin-bottom: 20px;
+        dt {
+            float: left;
+            width: 60px;
+            height: 60px;
+            margin-left: -70px;
+            color: #fff;
+            font: 22px/60px arial;
+            text-indent: -1px;
+            text-align: center;
+        }
+        dd {
+            float: left;
+            width: 100%;
+            padding-top: 6px;
+            line-height: 24px;
+            color: #666;
+            strong {
+                margin: 0 10px;
+                color: #333;
+                font-size: 14px;
+            }
+            span {
+                margin: 0 10px;
+            }
+            p {
+                margin-left: -10px;
+            }
+        }
+    }
+    hr {
+        height: 1px;
+        margin: 0 20px;
+        border: none;
+        background-color: #ccc;
+    }
+    address {
+        padding: 20px;
+        font-size: 14px;
+    }
+    @media only screen and (min-width: 768px) {
+        @include box-center;
+        width: 1200px;
+        .banner-image-box {
+            height: 300px;
+            font-size: 16px;
+            .banner-image {
+                padding-left: 100px;
+            }
+            h1 {
+                font-size: 100px;
+            }
+        }
+        .job-list {
+            @include clearfix;
+            padding: 40px 100px 20px 100px;
+        }
+        .job-item {
+            margin-left: 100px;
+            dt {
+                width: 80px;
+                height: 80px;
+                margin-left: -100px;
+                font-size: 30px;
+                line-height: 80px;
+            }
+            dd {
+                padding-top: 13px;
+                font-size: 14px;
+                strong {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                p:first-child {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        li {
+            float: left;
+            width: 50%;
+        }
+        hr {
+            margin: 0 100px;
+        }
+        address {
+            padding: 40px 100px;
+            font-size: 16px;
+        }
+    }
+}

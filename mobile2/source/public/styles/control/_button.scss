@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/**
+ * control button
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+/* Button
+ ---------------------------------------- */
+.btn {
+    // 默认左右padding
+    @include padding-h($btn-base-padding);
+    @include btn-base( $btn-base-height,
+                       $btn-base-font-size, $btn-base-border-width,
+                       $other-tag: true );
+
+    @include btn-style( $btn-base-bg-type,
+                        $btn-base-background, $btn-base-border-color, $btn-base-color,
+                        $btn-base-hover-background, $btn-base-hover-border-color, $btn-base-hover-color,
+                        $btn-base-active-background, $btn-base-active-border-color, $btn-base-active-color,
+                        $btn-radius );
+   // Button disabled
+   @include btn-disabled( $btn-disabled-background,
+                          $btn-disabled-border,
+                          $btn-disabled-color );
+    // 按钮中的 icon
+    .uricon, .icon {
+        position: relative;
+        top: -1px;
+        margin-right: 5px;
+    }
+
+    // ----- button theme ----- //
+    // &.btn-def {
+    //     @include btn-style(
+    //         $btn-def-bg-type,
+    //         $btn-def-background, $btn-def-border-color, $btn-def-color,
+    //         $btn-def-hover-background, $btn-def-hover-border-color, $btn-def-hover-color,
+    //         $btn-def-active-background, $btn-def-active-border-color, $btn-def-active-color,
+    //         $btn-radius )
+    // }
+    // &.btn-def-o {
+    //     @include btn-style(
+    //         $btn-def-o-bg-type,
+    //         $btn-def-o-background, $btn-def-o-border-color, $btn-def-o-color,
+    //         $btn-def-o-hover-background, $btn-def-o-hover-border-color, $btn-def-o-hover-color,
+    //         $btn-def-o-active-background, $btn-def-o-active-border-color, $btn-def-o-active-color,
+    //         $btn-radius )
+    // }
+    &.btn-primary {
+        @include btn-style(
+            $btn-primary-bg-type,
+            $btn-primary-background, $btn-primary-border-color,
+            $btn-primary-color, $btn-primary-hover-background, $btn-primary-hover-border-color, $btn-primary-hover-color,
+            $btn-primary-active-background, $btn-primary-active-border-color, $btn-primary-active-color,
+            $btn-radius );
+    }
+    // &.btn-primary-o {
+    //     @include btn-style(
+    //         $btn-primary-o-bg-type,
+    //         $btn-primary-o-background, $btn-primary-o-border-color,
+    //         $btn-primary-o-color, $btn-primary-o-hover-background, $btn-primary-o-hover-border-color, $btn-primary-o-hover-color,
+    //         $btn-primary-o-active-background, $btn-primary-o-active-border-color, $btn-primary-o-active-color,
+    //         $btn-radius )
+    // }
+    // &.btn-second {
+    //     @include btn-style(
+    //         $btn-second-bg-type,
+    //         $btn-second-background, $btn-second-border-color,
+    //         $btn-second-color, $btn-second-hover-background, $btn-second-hover-border-color, $btn-second-hover-color,
+    //         $btn-second-active-background, $btn-second-active-border-color, $btn-second-active-color,
+    //         $btn-radius )
+    // }
+    // &.btn-second-o {
+    //     @include btn-style(
+    //         $btn-second-o-bg-type,
+    //         $btn-second-o-background, $btn-second-o-border-color,
+    //         $btn-second-o-color, $btn-second-o-hover-background, $btn-second-o-hover-border-color, $btn-second-o-hover-color,
+    //         $btn-second-o-active-background, $btn-second-o-active-border-color, $btn-second-o-active-color,
+    //         $btn-radius )
+    // }
+    // &.btn-text {
+    //     @include btn-style(
+    //         $btn-text-bg-type,
+    //         $btn-text-background, $btn-text-border-color, $btn-text-color,
+    //         $btn-text-hover-background, $btn-text-hover-border-color, $btn-text-hover-color,
+    //         $btn-text-active-background, $btn-text-active-border-color, $btn-text-active-color,
+    //         $btn-radius )
+    //     @include btn-disabled( transparent, transparent, #999 )
+    // }
+
+    // ----- button size ----- //
+    &[class*="width-"] {
+        // 设置固定宽度后，清除左右 padding
+        @include padding-h(0 !important);
+    }
+    // width
+    @include make-btn-width(width-xsmall, $btn-width-xsmall);
+    @include make-btn-width(width-small, $btn-width-small);
+    @include make-btn-width(width-medium, $btn-width-medium);
+    @include make-btn-width(width-large, $btn-width-large);
+    @include make-btn-width(width-xlarge, $btn-width-xlarge);
+
+    // height
+    @include make-btn-height(
+        height-xsmall,
+        $btn-height-xsmall,
+        $btn-height-xsmall-border-width,
+        $btn-height-xsmall-padding,
+        $btn-height-xsmall-font-size,
+        $other-tag: true
+    );
+    @include make-btn-height(
+        height-small,
+        $btn-height-small,
+        $btn-height-small-border-width,
+        $btn-height-small-padding,
+        $btn-height-small-font-size,
+        $other-tag: true
+    );
+    @include make-btn-height(
+        height-medium,
+        $btn-height-medium,
+        $btn-height-medium-border-width,
+        $btn-height-medium-padding,
+        $btn-height-medium-font-size,
+        $other-tag: true
+    );
+    @include make-btn-height(
+        height-large,
+        $btn-height-large,
+        $btn-height-large-border-width,
+        $btn-height-large-padding,
+        $btn-height-large-font-size,
+        $other-tag: true
+    );
+    @include make-btn-height(
+        height-xlarge,
+        $btn-height-xlarge,
+        $btn-height-xlarge-border-width,
+        $btn-height-xlarge-padding,
+        $btn-height-xlarge-font-size,
+        $other-tag: true
+    );
+}
+
+.btn-surprise-yellow {
+    &, &:hover, &:active {
+        background-color: #f8d95d;
+        border-color: #f8d95d;
+        color: #ee3f3f;
+    }
+}
+.btn-surprise-red {
+    &, &:hover, &:active {
+        background-color: #da4538;
+        border-color: #da4538;
+        color: #f7e3c6;
+    }
+}
+.btn-surprise-white-o {
+    &, &:hover, &:active {
+        color: #fff;
+    }
+}

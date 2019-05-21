@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>开门失败</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/open/open.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar-def.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="open-main">
+        <div class="data-wrap">
+            <div class="data-img">
+                <img src="/assets/public/open/images/fail.png">
+            </div>
+            <div class="data-tip">
+                <h2>开门失败了…</h2>
+                <p>您没该门权限，请联系社区管理员</p>
+            </div>
+            <div class="data-btn">
+                <a href="">确定</a>
+            </div>
+        </div>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+</body>
+
+</html>

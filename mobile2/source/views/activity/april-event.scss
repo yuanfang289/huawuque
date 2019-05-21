@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/**
+ * activity.scss
+ *
+ * @project       www.urwork.cn
+ * @author        LiTingFeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+// 引入变量及混合
+@import 'variable';
+@import 'mixins';
+
+/* event
+---------------------------------------- */
+#main{
+    background-image: url(./images/event-bg-black.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0 45px;
+}
+.wrapper-app #main{
+    background-position: 0 0;
+}
+.event-list{
+    padding: rem(300) rem(24) 0;
+    li{
+        margin-bottom: rem(20);
+        padding: rem(28);
+        border-radius: 12px;
+        background: #fff;
+    }
+    dt{
+        // @include border-right(#333)
+        float: left;
+        width: rem(120);
+        margin-right: rem(32);
+        font-size: rem(28);
+        color: #333;
+        line-height: rem(40);
+        em{
+            @include border-right(#999);
+            float: right;
+            height: rem(32);
+            margin-top: rem(4);
+        }
+    }
+    dd{
+        overflow: hidden;
+        .event-item{
+            &:first-child{
+                padding-top: 0;
+            }
+            &:last-child{
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+            display: block;
+            padding-top: rem(20);
+            padding-bottom: rem(26);
+            border-bottom: 1px dashed #999;
+        }
+        h3{
+            padding-bottom: rem(6);
+            font-size: rem(28);
+        }
+        p{
+            font-size: rem(24);
+            color:#999;
+        }
+    }
+}

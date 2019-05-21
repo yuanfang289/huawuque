@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+debug.log
+assets
+source/bower
+
+# OS files
+.DS_Store
+
+# Exclude IDE project folders
+.project
+.idea
+
+bash.exe.stackdump
+package-lock.json

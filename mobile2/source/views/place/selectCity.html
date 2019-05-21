@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>选择城市</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/place/place.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- 城市列表 city-list -->
+            <ul class="city-list">
+                <li data-id="1">北京市<i class="uricon-success-circle"></i></li>
+                <li data-id="2">上海市<i class="uricon-success-circle"></i></li>
+                <li data-id="3">青岛市<i class="uricon-success-circle"></i></li>
+            </ul>
+            <!--/ 城市列表 city-list -->
+
+            @import "goto.tpl"
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+</body>
+
+<script src="/assets/public/scripts/base.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $(document)
+            .off('click tap', '.city-list li')
+            .on('click tap', '.city-list li', function(evt) {
+                evt.preventDefault();
+                var $this = $(this);
+                $this.addClass('active').siblings().removeClass('active');
+                setTimeout(function() {
+                    window.location.href = "./list.html?id=" + $this.attr('data-id');
+                }, 500)
+            })
+    })
+</script>
+
+</html>

@@ -1,0 +1,166 @@
+@charset "UTF-8";
+/**
+ * form.scss
+ *
+ * @project       www.urwork.cn
+ * @author        litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+
+/* Form Primary
+  ---------------------------------------- */
+.bobn{
+  &::before{
+      border-top: 0!important;
+  }
+}
+.bob-50{
+    &::before{
+        top: 54px!important;
+        bottom: auto!important;
+    }
+}
+.form-modal .scroller{
+    position: absolute!important;
+}
+#provinceBox dl,#cityBox dl{
+    margin-bottom: 20px;
+}
+
+.dwfl{
+    &:nth-child(3){
+        display: none;
+    }
+}
+.show-day {
+    .dwfl{
+        &:nth-child(3){
+            display: block;
+        }
+    }
+}
+body{
+  background: #fff;
+}
+h2{
+    padding: 8px 20px;
+    font-size: rem(28);
+    color: #666;
+    background: #f0f0f0;
+}
+hr{
+    display: block;
+    height: 7px;
+    margin: 0;
+    border: 0;
+    background: #f0f0f0;
+}
+.main-text{
+    color: #333!important;
+}
+.form-item{
+    margin: 0 20px;
+}
+.form-select-enter{
+    display:block!important;
+    .flex-box{
+        display: flex;
+        align-items: center;
+    }
+}
+.form-primary .form-action{
+    margin: 0;
+    padding: 40px 0;
+    background: #f7f7f7;
+}
+.input-text-gary{
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 8px;
+    line-height: 32px;
+    background: #f7f7f7;
+    border-radius: 3px;
+}
+.form-primary .form-item-bn{
+    &:before{
+        border: 0;
+    }
+}
+.select-show .form-item{
+    margin: 0;
+    .textarea-wrap{
+        width: 100%!important;
+    }
+
+}
+.select-show .form-select-enter{
+    .form-cont{
+        display: block!important;
+    }
+}
+.form-primary .form-cont .ricon{
+    right: 0;
+}
+.form-primary .radio-control{
+    padding-right: 0;
+}
+.form-def .form-item-radio{
+    padding-top: 0;
+}
+.form-primary .form-item-textarea .form-cont,.form-primary .select-enter-textarea{
+    margin-bottom: 14px;
+    padding: 8px;
+    border-radius: 3px;
+    background: #f7f7f7;
+}
+.form-primary .form-item-textarea .form-label{
+    margin: 0;
+    border-bottom: 0;
+}
+.form-label-fixation{
+    width: 58%;
+}
+[data-select=special]{
+    display: none;
+
+}
+[data-select=show]{
+    display: none;
+}
+textarea{
+    background: #f7f7f7;
+}
+
+.form-primary .form-item-textarea .textarea-wrap,.form-primary .select-enter-textarea .textarea-wrap{
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+.form-primary .form-item-textarea textarea,.form-primary .select-enter-textarea textarea{
+    // width: 100%;
+    padding: 0;
+}
+.form-primary .form-item-textarea .textarea-wrap + .form-counter{
+    padding: 0;
+}
+.form-def .form-item-radio .select-enter-textarea{
+    display: none;
+}
+.form-primary .select-enter-textarea .form-counter{
+    padding: 0;
+}
+.form-def .form-label{
+    padding-left: 0;
+}
+.form-primary .form-cont .readonly-text, .form-primary .form-cont input[type="email"], .form-primary .form-cont input[type="number"], .form-primary .form-cont input[type="tel"], .form-primary .form-cont input[type="text"], .form-primary .form-cont input[type="url"]{
+    padding-right: 15px;
+}
+.form-primary .radio-control label{
+    padding-left: 25px;
+}

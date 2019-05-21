@@ -1,0 +1,497 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "pageSize": 20,
+        "currentPageNo": 1,
+        "totalRecord": 24,
+        "result": [
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            },
+            {
+                "companyId": 71,
+                "logo": "",
+                "companyName": "High Legal 事务所",
+                "financeStageId": 1,
+                "financeStageStr": "自有资金",
+                "categoryList": [
+                    {
+                        "categoryName": "创建合同"
+                    },
+                    {
+                        "categoryName": "成立公司"
+                    },
+                    {
+                        "categoryName": "版权所有"
+                    },
+                    {
+                        "categoryName": "知识产权"
+                    },
+                    {
+                        "categoryName": "移民咨询"
+                    }
+                ],
+                "establishYear": "2016",
+                "establishMonth": "01",
+                "needHelp": "惹我认为",
+                "business": "ewf",
+                "companySizeId": 7,
+                "companySizeStr": "501-1000人"
+            }
+        ],
+        "totalPage": 2,
+        "lastPageNo": 2,
+        "prevPageNo": 1,
+        "nextPageNo": 2,
+        "endRow": 20,
+        "beginRow": 0
+    }
+}

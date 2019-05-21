@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import "packages";
+@import "footer";
+@import "form";
+
+.layout-item {
+    padding: rem(40);
+}
+
+.package-img-wrap {
+    @include fixed-ratio-box(62.535);
+    border-radius: rem(20);
+    overflow: hidden;
+    margin-bottom: rem(24);
+    &::before{
+        background-color: #fff;
+    }
+
+    .package-img-inner {
+        @include fixed-ratio-inner();
+        background-color: #fff;
+    }
+}
+
+.package-title {
+    font-size: 19px;
+    color: $font-def;
+    margin-bottom: 6px;
+}
+
+.package-desc {
+    font-size: 12px;
+    color: $font-666;
+    margin-bottom: 5px;
+}
+
+.package-sell-info {
+    display: flex;
+    font-size: 12px;
+    color: $font-999;
+    line-height: 24px;
+
+    .package-sell-info-item {
+        display: flex;
+
+        &.flex {
+            flex: 1;
+        }
+    }
+
+    .price {
+        padding-right: rem(38);
+        font-size: 12px;
+        color: $font-def;
+
+        em {
+            font-size: 16px;
+        }
+    }
+
+    .btn-add,
+    .btn-sub {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        font-size: 0;
+        text-align: center;
+        border-radius: 3px;
+        border-color: $font-def;
+        background-color: $font-def;
+        transition: background-color .3s, border-color .3s;
+
+        &:before {
+            content: '';
+            @include position-center();
+            width: 8px;
+            height: 2px;
+            display: block;
+            background-color: #fff;
+        }
+
+        &.disabled,
+        &:disabled {
+            border-color: #ddd;
+            background-color: #fff !important;
+
+            &:before {
+                background-color: $font-999;
+            }
+        }
+    }
+
+    .btn-add {
+        &:after {
+            content: '';
+            @include position-center();
+            width: 2px;
+            height: 8px;
+            display: block;
+            background-color: #fff;
+        }
+
+        &.disabled,
+        &:disabled {
+            &:after {
+                background-color: $font-999;
+            }
+        }
+    }
+
+    .btn-num {
+        min-width: rem(60);
+        @include padding-h(rem(20));
+        text-align: center;
+    }
+}
+.package-tip {
+    color:#ef5400;
+    line-height:24px;
+    font-size:rem(24);
+}
+.dot-line {
+    @include margin-v(rem(40));
+    width: 100%;
+    height: 3px;
+    background: url("/assets/public/enterprise/images/dot.png") repeat-x;
+    background-size: auto 100%;
+}
+
+.package-detail-title {
+    color: $font-999;
+    margin-bottom: rem(8);
+}
+
+.package-detail-content {
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+

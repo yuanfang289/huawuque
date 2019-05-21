@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+@import 'variable';
+@import 'mixins';
+@import 'form';
+
+/* Common
+ ---------------------------------------- */
+.form-bind {
+    width: rem(530);
+    @include box-center;
+    padding-bottom: 100px;
+    padding-top: 55px;
+    color: #b2b2b2;
+    .legend {
+        margin-bottom: 40px;
+        color: #333;
+        font-size: 18px;
+    }
+    .form-action {
+        margin-top: 55px;
+    }
+}
+
+/* Layout
+ ---------------------------------------- */
+body {
+    background-color: #fff;
+}

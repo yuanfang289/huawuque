@@ -1,0 +1,24 @@
+.swiper-packages {
+    .piclist-image-box {
+        border-radius: 8px;
+        &:before {
+            padding-top: 58.8608%;
+        }
+    }
+
+    .outer-text-box {
+        .outer-title {
+            font-size: 14px;
+            color: $font-def;
+        }
+
+        .outer-price {
+            font-size: 12px;
+            color: $font-666;
+        }
+
+        small {
+            font-size: 10px !important;
+        }
+    }
+}

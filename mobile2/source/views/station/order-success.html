@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付成功</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/station/order-status.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <section class="layout-item order-status">
+                <div class="status-tips">
+                    <img src="/assets/public/station/images/success.png" alt="">
+                    <p>您的订单已支付成功 ！</p>
+                </div>
+                <!-- <div class="order-items">
+                    <dl>
+                        <dt>支付方式</dt>
+                        <dd>优惠券抵扣</dd>
+                    </dl>
+                    <dl>
+                        <dt>预定时长</dt>
+                        <dd>1 小时</dd>
+                    </dl>
+                    <dl>
+                        <dt>订单编号</dt>
+                        <dd>172291</dd>
+                    </dl>
+                    <dl>
+                        <dt>实付款</dt>
+                        <dd>&yen; 20.00</dd>
+                    </dl>
+                </div> -->
+            </section>
+            <section class="layout-item order-action">
+                <a href="#" class="btn">查看订单</a>
+                <a href="#" class="btn">返回首页</a>
+            </section>
+        </main>
+        <!-- /main -->
+
+    </div>
+    <!-- /wrapper -->
+</body>
+
+</html>

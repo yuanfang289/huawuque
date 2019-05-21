@@ -1,0 +1,24 @@
+{
+    "data": {
+        "pageSize": 10,
+        "currentPageNo": 6,
+        "totalRecord": 51,
+        "result": [
+            {
+                "stageName": "会议室优化用2017322",
+                "address": "光华路阳光100D座B1 优客工场",
+                "stageNameEn": "meetingroomupdate20170322",
+                "addressEn": "",
+                "distance": "1200"
+            }
+        ],
+        "beginRow": 50,
+        "endRow": 60,
+        "prevPageNo": 5,
+        "totalPage": 6,
+        "lastPageNo": 6,
+        "nextPageNo": 6
+    },
+    "retCode": 0,
+    "retMsg": "OK"
+}

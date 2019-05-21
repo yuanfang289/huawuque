@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'chip/piclist';
+@import 'chip/account-item';
+
+
+.layout-item {
+    padding-top: 0;
+}
+.account-item .text-wrap .text-detail {
+	white-space:pre-wrap;
+}
+
+
+

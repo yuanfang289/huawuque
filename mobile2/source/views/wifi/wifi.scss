@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/**
+ * wifi.scss
+ *
+ * @project       www.urwork.cn
+ * @author        Litingfeng
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+// 引入变量及混合
+@import 'variable';
+@import 'mixins';
+
+/* Index
+ ---------------------------------------- */
+.tip-icon{
+    padding-top: rem(180);
+    width: rem(300)!important;
+}
+.tip-tittle{
+    padding-top: rem(50);
+    line-height: rem(60);
+    font-size: rem(32);
+    word-wrap:break-word
+}
+.tip-desc{
+    line-height: rem(50);
+    font-size: rem(24);
+    color: #999;
+    word-wrap:break-word
+}
+/* Layout
+ ---------------------------------------- */
+.tc{
+    padding: 0 rem(80);
+    text-align: center
+}
+.login{
+    margin-top: rem(240);
+}
+.post{
+    margin-top: rem(120);
+}
+.p-btn{
+    padding-left: rem(80);
+    padding-right: rem(80);
+    padding-bottom: rem(20);
+}
+.btn{
+    border:0;
+    margin-bottom: rem(20);
+    height: rem(80);
+    line-height: rem(80);
+    font-size: rem(28);
+}

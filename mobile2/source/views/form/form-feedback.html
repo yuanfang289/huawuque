@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>意见反馈</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/form/form-index.css">
+    <style>
+        #main-footer {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary">
+                <div class="form-item">
+                    <div class="form-cont">
+                        <div class="textarea-wrap required">
+                            <textarea name="content" placeholder="您的意见是我们前进的动力" class="resize-none"></textarea>
+                        </div>
+                        <div class="form-counter">
+                            <span>0</span>/200
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">社区</label>
+                    <div class="form-cont">
+                        <i class="uricon-arrow-right ricon"></i>
+
+                        <input type="hidden" id="workstageId" name="workstageId">
+                        <a href="javascript:;" id="workstageId_dummy" class="readonly-text" data-toggle="modal" data-target="#formModal">选填</a> 
+
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">联系电话</label>
+                    <div class="form-cont">
+                        <input type="tel" name="phone" placeholder="选填" />
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button type="button" class="btn btn-primary" id="submit">提交</button>
+                </div>
+                <div class="form-call">
+                    <p><i class="uricon-tel"></i><a href="tel:400-1188-891">400-1188-891</a></p>
+                    <p><em>如有任何问题请拨打电话</em></p>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- modal -->
+    <div class="modal form-modal" id="formModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller">
+                        <dl data-pid="bj">
+                            <dt>北京市</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                    <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                    <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                    <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl data-pid="shh">
+                            <dt>上海市</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                    <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                    <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                    <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl data-pid="xian">
+                            <dt>西安市</dt>
+                            <dd>
+                                <ul data-col="2">
+                                    <li data-id="1"><span>北京阿里云+优客工场</span></li>
+                                    <li data-id="2"><span>方圆大厦·优客工场</span></li>
+                                    <li data-id="3"><span>首华大厦·优客工场</span></li>
+                                    <li data-id="4"><span>海龙大厦·优客工场</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ modal -->
+
+
+    <script src="/assets/public/form/form.js"></script>
+    <script>
+
+        $(function() {
+            UR.inputCounter('textarea', 200);
+            Form.init({
+                validator: {
+                    rules: {
+                        content: {
+                            required: true
+                        },
+                        phone: {
+                            reg: /(^(\d{3,4}-)?\d{7,8})$|(^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0-9]|17[0-9])\d{8}$)/
+                        }
+                    },
+                    messages: {
+                        content: {
+                            required: '请填写意见反馈'
+                        },
+                        phone: {
+                            reg: '请填写正确的11位手机号或固话号码'
+                        }
+                    }
+                },
+                postUrl: 'xx',
+                success: function (res) {
+
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

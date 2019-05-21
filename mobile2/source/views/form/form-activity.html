@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>补充信息</title>
+
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/form/form-index.css">
+    <style>
+        #main-footer {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary">
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>姓名</label>
+                    <div class="form-cont"
+                        data-required="true" data-required-hint="请填写姓名"
+                        data-maxlength="20" data-maxlength-hint="姓名最大长度为20">
+                        <input type="text" name="username" placeholder="填写姓名20字以内">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label"><em>*</em>联系电话</label>
+                    <div class="form-cont"
+                        data-required="true" data-required-hint="请填写联系电话"
+                        data-maxlength="20" data-maxlength-hint="联系电话最大长度为20">
+                        <input type="tel" name="phone" placeholder="填写联系电话20字以内">
+                    </div>
+                </div>
+                <div class="form-item form-item-textarea">
+                    <label class="form-label">平时喜欢参加什么类型的活动？</label>
+                    <div class="form-cont"
+                        data-required="true" data-required-hint="请填写“平时喜欢参加什么类型的活动？”"
+                        data-maxlength="40" data-maxlength-hint="“平时喜欢参加什么类型的活动？”最大长度为40">
+                        <div class="textarea-wrap sm-height">
+                            <textarea name="name1" placeholder="" class="resize-none" maxlength="40"></textarea>
+                        </div>
+                        <div class="form-counter">
+                            <span>0</span>/40
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item form-item-textarea">
+                    <label class="form-label">为什么参加我们的活动，活动的初衷是什么，想要从活动中得到什么样的知识新得呢？</label>
+                    <div class="form-cont"
+                        data-maxlength="500" data-maxlength-hint="“为什么参加我们的活动，活动的初衷是什么，想要从活动中得到什么样的知识新得呢？”最大长度为500">
+                        <div class="textarea-wrap">
+                            <textarea name="name2" placeholder="" class="resize-none" maxlength="500"></textarea>
+                        </div>
+                        <div class="form-counter">
+                            <span>0</span>/500
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-item form-item-checkbox">
+                    <label class="form-label"><em>*</em>平时喜欢参加什么类型的活动呢？(单选)</label>
+                    <div class="form-cont radio-control"
+                         data-required="true" data-required-hint="请选择“平时喜欢参加什么类型的活动呢？(单选)”">
+                        <label class="radio-date">
+                            <input type="radio" name="name3" value="0">教育学习
+                        </label>
+                        <label>
+                            <input type="radio" name="name3" value="1">兴趣爱好
+                        </label>
+                        <label>
+                            <input type="radio" name="name3" value="2">生僻诡异
+                        </label>
+                        <label>
+                            <input type="radio" name="name3" value="3">读书提高
+                        </label>
+                    </div>
+                </div>
+                <div class="form-item form-item-checkbox">
+                    <label class="form-label">平时喜欢参加什么类型的活动呢？(多选)</label>
+                    <div class="form-cont radio-control">
+                        <label class="radio-date">
+                            <input type="checkbox" name="name4" value="0">教育学习
+                        </label>
+                        <label>
+                            <input type="checkbox" name="name4" value="1">兴趣爱好
+                        </label>
+                        <label>
+                            <input type="checkbox" name="name4" value="2">生僻诡异
+                        </label>
+                        <label>
+                            <input type="checkbox" name="name4" value="3">读书提高
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button type="button" class="btn btn-primary" id="submit">提交</button>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+
+    <script src="/assets/public/form/form.js"></script>
+    <script>
+
+        $(function() {
+            $('textarea').each(function () {
+                UR.inputCounter(this);
+            });
+            Form.init({
+                validator: function () {
+                    return {}
+                    var validator = {rules: {}, messages: {}};
+                    $('.form .form-cont').each(function () {
+                        var $this = $(this);
+                        var metas = $this.data();
+                        var name  = $this.find(':input').attr('name');
+                        if (!validator.rules[name]) {
+                            validator.rules[name] = {};
+                        }
+                        if (!validator.messages[name]) {
+                            validator.messages[name] = {};
+                        }
+                        if (metas.required) {
+                            validator.rules[name].required = metas.required;
+                            validator.messages[name].required = metas.requiredHint;
+                        }
+                        if (metas.maxlength) {
+                            validator.rules[name].maxlength = metas.maxlength;
+                            validator.messages[name].maxlength = metas.maxlengthHint;
+                        }
+                    });
+                    return validator;
+                }(),
+                postUrl: 'xx',
+                success: function (res) {
+
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

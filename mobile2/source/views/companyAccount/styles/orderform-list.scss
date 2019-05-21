@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+.list-banner{
+    margin-bottom: rem(16);
+    .list-banner-inner{
+        background: #303030;
+        padding: rem(40) rem(40) rem(10);
+        color: #bc9658;
+        .total-money{
+            border-bottom: 1px solid #464646;
+            text-align: center;
+            padding-bottom: rem(10);
+        }
+        bigger {
+            font-size: 30px;
+        }
+        .other-money{
+
+            ul{
+                display: flex;
+                padding: rem(33) 0;
+                li{
+                    flex: 1;
+                    text-align: center;
+                    &:nth-child(1){
+                        border-right: 1px solid #464646;
+                    }
+                    .money-text-box{
+                        font-size: 11px;
+                        background: #2a2a2a;
+                        width: rem(144);
+                        margin: 0 auto;
+                        border-radius: 40px;
+                        line-height: 18px;
+                    }
+                    p{
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.orderform-list{
+    li{
+        padding: 0 rem(38);
+        background: #fff;
+        margin-bottom: rem(16);
+        .order-header{
+            color: #999;
+            font-size:14px;
+            line-height: rem(72);
+            border-bottom: 3px dotted #f0f0f0;
+            @include clearfix;
+            .order-number{
+                float: left;
+                span{
+                    margin-left: rem(50);
+                }
+            }
+            .order-arrow{
+                float: right;
+            }
+        }
+        .order-money{
+            ul{
+                padding: rem(40) 0;
+                display: flex;
+                li{
+                    flex: 1;
+                    text-align: center;
+                    border-right: 1px solid #e6e6e6;
+                    &:last-child{
+                        border-right: none;
+                    }
+                    h5{
+                        font-size:12px;
+                    }
+                    P{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

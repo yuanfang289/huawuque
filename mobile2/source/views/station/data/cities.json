@@ -1,0 +1,62 @@
+{
+    "data": [
+        {
+            "geoCode": "610100",
+            "geoName": "西安市",
+            "list": [
+                {
+                    "id": 10045,
+                    "stageName": "西安优客"
+                }
+            ]
+        },
+        {
+            "geoCode": "120000",
+            "geoName": "天津市",
+            "list": [
+                {
+                    "id": 10033,
+                    "stageName": "天津 优客工场"
+                }
+            ]
+        },
+        {
+            "geoCode": "110000",
+            "geoName": "北京市",
+            "list": [
+                {
+                    "id": 10022,
+                    "stageName": "阳光100 优客工场"
+                },
+                {
+                    "id": 10029,
+                    "stageName": "阳光100 优客工场"
+                },
+                {
+                    "id": 10031,
+                    "stageName": "阳光100 优客工场"
+                },
+                {
+                    "id": 10032,
+                    "stageName": "阳光100 优客工场"
+                },
+                {
+                    "id": 10041,
+                    "stageName": "阳光100 优客工场1"
+                }
+            ]
+        },
+        {
+            "geoCode": "350200",
+            "geoName": "厦门市",
+            "list": [
+                {
+                    "id": 10034,
+                    "stageName": "厦门优客工场"
+                }
+            ]
+        }
+    ],
+    "retCode": 0,
+    "retMsg": "OK"
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业账单</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/companyAccount/styles/orderform-list.css">
+</head>
+<body  class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="list-banner">
+            <div class="list-banner-inner">
+                <div class="total-money">
+                    <p>总金额（元）</p>
+                    <bigger>1200.00</bigger>
+                </div>
+                <div class="other-money">
+                    <ul>
+                        <li>
+                            <div class="money-text-box">
+                                <span>已支付(元)</span>
+                            </div>
+                            <p>200.00</p>
+                        </li>
+                        <li>
+                            <div class="money-text-box">
+                                <span>待支付(元)</span>
+                            </div>
+                            <p>1000.00</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <ul class="orderform-list">
+                <li class="orderform-single">
+                    <a href="javascript:;">
+                        <div class="order-header">
+                            <div class="order-number">
+                                订单编号
+                                <span>27881123</span>
+                            </div>
+                            <div class="order-arrow">
+                                <i class="uricon-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="order-money">
+                            <ul>
+                                <li>
+                                    <h5>总金额</h5>
+                                    <p>￥200.00</p>
+                                </li>
+                                <li>
+                                    <h5>已支付</h5>
+                                    <p>￥200.00</p>
+                                </li>
+                                <li>
+                                    <h5>总金额</h5>
+                                    <p>￥0</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+                <li class="orderform-single">
+                    <a href="javascript:;">
+                        <div class="order-header">
+                            <div class="order-number">
+                                订单编号
+                                <span>27881123</span>
+                            </div>
+                            <div class="order-arrow">
+                                <i class="uricon-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="order-money">
+                            <ul>
+                                <li>
+                                    <h5>总金额</h5>
+                                    <p>￥200.00</p>
+                                </li>
+                                <li>
+                                    <h5>已支付</h5>
+                                    <p>￥200.00</p>
+                                </li>
+                                <li>
+                                    <h5>总金额</h5>
+                                    <p>￥0</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+<script>
+    $('.orderform-list').on('click','.orderform-single',function () {
+        console.log($(this))
+    })
+</script>
+</body>
+</html>

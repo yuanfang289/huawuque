@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "city": "110000",
+            "cityName": "北京市",
+            "count": 29
+        },
+        {
+            "city": "120000",
+            "cityName": "天津市",
+            "count": 1
+        }
+    ],
+    "retCode": 0,
+    "retMsg": "OK"
+}

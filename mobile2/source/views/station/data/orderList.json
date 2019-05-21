@@ -1,0 +1,72 @@
+{
+    "data": {
+        "pageSize": 10,
+        "currentPageNo": 1,
+        "totalRecord": 8,
+        "result": [
+            {
+                "id": 7,
+                "orderStatus": 2,
+                "totalAmount": 0,
+                "couponCode": "ddfa072784",
+                "couponAmount": 15,
+                "payAmount": 0,
+                "workstageName": "西安万科西安万科西安万科西安万科西安万科",
+                "code": "33eee",
+                "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+                "day": "2016-12-01",
+                "floor": 1
+            },
+            {
+                "id": 8,
+                "orderStatus": 3,
+                "totalAmount": 0,
+                "couponCode": "ddfa072784",
+                "couponAmount": 15,
+                "payAmount": 0,
+                "workstageName": "西安万科",
+                "code": "33eee",
+                "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+                "day": "2016-12-01",
+                "floor": 1
+            },
+            {
+                "id": 9,
+                "orderStatus": 4,
+                "totalAmount": 0,
+                "couponCode": "ddfa072784",
+                "couponAmount": 15,
+                "payAmount": 0,
+                "workstageName": "西安万科",
+                "code": "33eee",
+                "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+                "day": "2016-12-01",
+                "floor": 1
+            },
+
+            {
+                "id": 10,
+                "orderStatus": 1,
+                "totalAmount": 0,
+                "couponCode": "ddfa072784",
+                "couponAmount": 15,
+                "payAmount": 0,
+                "workstageName": "西安万科",
+                "code": "33eee",
+                "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+                "day": "2016-12-01",
+                "floor": 1
+            }
+        ],
+        "lastPageNo": 1,
+        "totalPage": 1,
+        "prevPageNo": 1,
+        "nextPageNo": 1,
+        "beginRow": 0,
+        "endRow": 10
+    },
+    "retCode": 0,
+    "retMsg": "success"
+}
+
+

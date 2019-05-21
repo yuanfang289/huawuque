@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'psicon';
+  src:
+    url('../fonts/psicon.ttf?lrwa44') format('truetype'),
+    url('../fonts/psicon.woff?lrwa44') format('woff'),
+    url('../fonts/psicon.svg?lrwa44#psicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*=" psicon-"],
+[class^="psicon-"] {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'psicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.psicon-close-o:before {
+  content: "\e937";
+}
+.psicon-back-o:before {
+  content: "\e938";
+}
+.psicon-arrow-left:before {
+  content: "\e90c";
+}

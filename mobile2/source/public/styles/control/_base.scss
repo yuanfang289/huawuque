@@ -1,0 +1,148 @@
+@charset "UTF-8";
+/**
+ * control base
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ * Base
+ * Input Size
+ */
+
+/* Base
+ ---------------------------------------- */
+button,
+input,
+select,
+label,
+.btn {
+    vertical-align: middle;
+}
+
+.btn, .txt {
+    display: block;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    line-height: normal !important;
+}
+button{
+    background: none;
+    border: 0;
+}
+input, textarea {
+    &::placeholder {
+        color: $placeholder-color;
+        font-size: $placeholder-font-size;
+    }
+}
+[type="checkbox"],
+[type="radio"] {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+
+    &[disabled] {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            cursor: default !important;
+        }
+    }
+}
+input::-webkit-search-cancel-button {
+    display: none;
+}
+label {
+    & [type="checkbox"],
+    & [type="radio"] {
+        position: relative;
+        top: -2px;
+        left: 0;
+        margin-right: 10px;
+    }
+}
+// disabled
+.txt, select, textarea {
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &[disabled]:active {
+        background: $txt-disabled-bgcolor !important;
+        border-color: $txt-disabled-border-color !important;
+        box-shadow: none !important;
+        cursor: default !important;
+    }
+}
+
+/* InputSize (控件规格的补充)
+ ---------------------------------------- */
+
+.input-inline {
+    display: inline-block !important;
+}
+// input width
+.input-w-full {
+    width: 100% !important;
+}
+
+@if ($input-width-xsmall != null) {
+    .input-w-xsmall {
+        width: $input-width-xsmall !important;
+    }
+}
+@if ($input-width-small != null) {
+    .input-w-small {
+        width: $input-width-small !important;
+    }
+}
+@if ($input-width-medium != null) {
+    .input-w-medium {
+        width: $input-width-medium !important;
+    }
+}
+@if ($input-width-large != null) {
+    .input-w-large {
+        width: $input-width-large !important;
+    }
+}
+@if ($input-width-xlarge != null) {
+    .input-w-xlarge {
+        width: $input-width-xlarge !important;
+    }
+}
+// input height
+@if ($input-height-xsmall != null) {
+    .input-h-xsmall {
+        height: $input-height-xsmall;
+    }
+}
+@if ($input-height-small != null) {
+    .input-h-small {
+        height: $input-height-small;
+    }
+}
+@if ($input-height-medium != null) {
+    .input-h-medium {
+        height: $input-height-medium;
+    }
+}
+@if ($input-height-large != null) {
+    .input-h-large {
+        height: $input-height-large;
+    }
+}
+@if ($input-height-xlarge != null) {
+    .input-h-xlarge {
+        height: $input-height-xlarge;
+    }
+}

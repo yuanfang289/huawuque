@@ -1,0 +1,112 @@
+{
+    "retCode": 0,
+    "retMsg": "接口请求成功",
+    "data": {
+        "A": [{
+            "geoCode": "152900",
+            "geoName": "阿拉善盟",
+            "geoNameEn": "A"
+        }],
+        "B": [{
+            "geoCode": "110000",
+            "geoName": "北京市",
+            "geoNameEn": "B"
+        }, {
+            "geoCode": "340300",
+            "geoName": "蚌埠市",
+            "geoNameEn": "B"
+        }],
+        "C": [{
+            "geoCode": "510100",
+            "geoName": "成都市",
+            "geoNameEn": "C"
+        }],
+        "H": [{
+            "geoCode": "150100",
+            "geoName": "呼和浩特市",
+            "geoNameEn": "H"
+        }, {
+            "geoCode": "230100",
+            "geoName": "哈尔滨市",
+            "geoNameEn": "H"
+        }, {
+            "geoCode": "340100",
+            "geoName": "合肥市",
+            "geoNameEn": "H"
+        }],
+        "J": [{
+            "geoCode": "445200",
+            "geoName": "揭阳市",
+            "geoNameEn": "J"
+        }],
+        "L": [{
+            "geoCode": "131000",
+            "geoName": "廊坊市",
+            "geoNameEn": "L"
+        }],
+        "N": [{
+            "geoCode": "320100",
+            "geoName": "南京市",
+            "geoNameEn": "N"
+        }, {
+            "geoCode": "450100",
+            "geoName": "南宁市",
+            "geoNameEn": "N"
+        }],
+        "Q": [{
+            "geoCode": "140430",
+            "geoName": "沁县",
+            "geoNameEn": "Q"
+        }, {
+            "geoCode": "370200",
+            "geoName": "青岛市",
+            "geoNameEn": "Q"
+        }],
+        "S": [{
+            "geoCode": "130100",
+            "geoName": "石家庄市",
+            "geoNameEn": "S"
+        }, {
+            "geoCode": "310000",
+            "geoName": "上海市",
+            "geoNameEn": "S"
+        }, {
+            "geoCode": "320500",
+            "geoName": "苏州市",
+            "geoNameEn": "S"
+        }, {
+            "geoCode": "440300",
+            "geoName": "深圳市",
+            "geoNameEn": "S"
+        }],
+        "T": [{
+            "geoCode": "120000",
+            "geoName": "天津市",
+            "geoNameEn": "T"
+        }, {
+            "geoCode": "710000",
+            "geoName": "台湾",
+            "geoNameEn": "T"
+        }],
+        "W": [{
+            "geoCode": "420100",
+            "geoName": "武汉市",
+            "geoNameEn": "W"
+        }],
+        "X": [{
+            "geoCode": "610100",
+            "geoName": "西安市",
+            "geoNameEn": "X"
+        }],
+        "Y": [{
+            "geoCode": "370600",
+            "geoName": "烟台市",
+            "geoNameEn": "Y"
+        }],
+        "Z": [{
+            "geoCode": "410100",
+            "geoName": "郑州市",
+            "geoNameEn": "Z"
+        }]
+    }
+}

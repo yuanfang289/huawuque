@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content=""/>
+  <meta name="keywords" content=""/>
+  <meta name="theme-color" content="#" />
+  <meta name="format-detection" content="telephone=no"/>
+  <!-- 将网页添加到主屏幕时的名称 -->
+  <meta name="apple-mobile-web-app-title" content="<%= htmlWebpackPlugin.options.title %>"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="apple-touch-icon-precomposed" href="/app_icon.png">
+  <script>
+    fnResize()
+    window.onresize = function () {
+      fnResize()
+    }
+    function fnResize() {
+      var deviceWidth = document.documentElement.clientWidth || window.innerWidth
+      if (deviceWidth >= 750) {
+        deviceWidth = 750
+      }
+      if (deviceWidth <= 320) {
+        deviceWidth = 320
+      }
+      document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
+    }
+  </script>
+</head>
+<body>
+
+<div id="app" class="wrapper"></div>
+
+</body>
+</html>

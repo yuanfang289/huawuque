@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>社区搜索页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/workshop/styles/workshop-search.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            @import "common/search.tpl"
+            <div class="hot-wrap" id="hotWrap">
+                <section class="layout-item hot-searchkey">
+                    <header class="layout-title"><h2>热门搜索</h2></header>
+                    <div class="hot-searchkey-list">
+                        <ul>
+                            <li><a href="javascript:;">北京</a></li>
+                            <li><a href="javascript:;">上海</a></li>
+                            <li><a href="javascript:;">阳光100</a></li>
+                            <li><a href="javascript:;">天恒大厦天恒大厦</a></li>
+                            <li><a href="javascript:;">共享际</a></li>
+                            <li><a href="javascript:;">天津</a></li>
+                            <li><a href="javascript:;">宏坤广场</a></li>
+                            <li><a href="javascript:;">阳光</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="layout-item hot-workshop">
+                    <header class="layout-title"><h2>热门社区</h2></header>
+                    <div class="hot-workshop-list">
+                        <ol>
+                            <li>
+                                <div class="workshop-search-item">
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <img src="http://7xp26u.com1.z0.glb.clouddn.com/a1fc7802-27bc-43a3-9241-e913c2802f51.jpg?imageMogr2/thumbnail/!220x164r/gravity/Center/crop/220x164" alt="">
+                                                <div class="hot-tag">1</div>
+                                            </dt>
+                                            <dd>
+                                                <h5>天恒大厦·优客工场</h5>
+                                                <p>朝阳区 东直门外大街</p>
+                                                <div class="item-attrs">
+                                                    <div class="attr-item">34工位可订</div>
+                                                    <div class="attr-item">
+                                                        <div class="score-mod star-min lv-5">
+                                                            <div class="star"><span></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </a>
+                                </div>
+                            </li>
+                            <li><b>2</b>鸿坤广场·优客工场</li>
+                            <li><b>3</b>阳光100·优客工场</li>
+                            <li><b>4</b>北京阿里云＋优客工场</li>
+                            <li><b>5</b>东四共享际·优客工场</li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+            <section class="layout-item search-result-layout block" id="searchResult">
+                <ul class="search-result-list" id="searchResultList">
+                    <li>
+                        <div class="result-tips">
+                            <div class="result-tips-inner">
+                                <img src="/assets/public/images/search-nodata.png" alt="">
+                                <p>找不到相匹配的内容</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    <script src="/assets/public/workshop/scripts/workshop-search.js"></script>
+    <script>
+    $(function() {
+        var $hotWrap = $('#hotWrap'),
+            $result = $('#searchResult');
+
+        var fetchWorkstage, refreshIsInit = false;
+
+        var search = UR.searchbar({
+            enterHandler: refreshHandler,
+            clearHandler: function() {
+                $hotWrap.show();
+                $result.hide();
+            }
+        })
+
+        $('body')
+            .on(UR.click, '.hot-searchkey-list a', function() {
+                search.search($.trim($(this).text()))
+            })
+
+        function refreshHandler(val) {
+            if (!refreshIsInit) {
+                refreshIsInit = true;
+                fetchWorkstage = $('#searchResultList').refresh({
+                    url: '/workstage/list',
+                    template: 'tplList',
+                    isFirstLoad: true,
+                    pageSize: 5,
+                    data: {
+                        cityOrWorkstage: val
+                    },
+                    formatted: function(res) {
+                        var data = res.data || {};
+                        var list = data.result || [];
+                        list.map(function(item) {
+                            item.averageScore = Math.round(item.averageScore);
+                        });
+
+                        if ($result.is(':hidden')) {
+                            $hotWrap.hide();
+                            $result.show();
+                        }
+
+                        return list;
+                    }
+                });
+
+                fetchWorkstage.on('pullup.bs.refresh', function(evt) {
+                    setTimeout(function() {
+                        $('.lazy').lazy();
+                    }, 0)
+                });
+            } else {
+                fetchWorkstage.refresh({
+                    cityOrWorkstage: val
+                })
+            }
+        }
+    })
+    </script>
+    <script type="text/html" id="tplList">
+    {{if list.length == 0}}
+    <li>
+        <div class="result-tips">
+            <div class="result-tips-inner">
+                <img src="/assets/public/images/search-nodata.png" alt="">
+                <p>找不到相匹配的内容</p>
+            </div>
+        </div>
+    </li>
+    {{/if}}
+    {{each list as item i}}
+    <li>
+        <div class="workshop-search-item">
+            <a href="/workstage/detail?id={{item.id}}">
+                <dl>
+                    <dt>
+                        <img data-src="{{item.workstageImage}}" class="lazy" alt="">
+                    </dt>
+                    <dd>
+                        <h5>{{item.stageName}}</h5>
+                        <p>{{item.address}}</p>
+                        <div class="item-attrs">
+                            <div class="attr-item">{{item.rentStationNum}}工位可订</div>
+                            <div class="attr-item">
+                                <div class="score-mod star-min lv-{{item.averageScore}}">
+                                    <div class="star"><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </a>
+        </div>
+    </li>
+    {{/each}}
+    </script>
+</body>
+
+</html>

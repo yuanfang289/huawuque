@@ -1,0 +1,267 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'common';
+@import 'refresh/refresh';
+
+/* SearchBar
+---------------------------------------- */
+#header {
+    height: 94px;
+    background-color: #fff;
+    z-index: 1001;
+    &::before {
+        display: none;
+    }
+    .is-app & {
+        height: 45px + 20;
+    }
+    .is-app.iphone-x & {
+        height: 45px + 20 + 24;
+        padding-top: 0 !important;
+    }
+    &.search-active {
+        z-index: 1010;
+    }
+}
+
+#main {
+    padding-top: 94px;
+    .is-app & {
+        padding-top: 94px + 20;
+    }
+    .is-app.iphone-x & {
+        padding-top: 94px + 20 + 24;
+    }
+}
+#titlebar {
+    height: 50px;
+    padding: 11px 0 6px 16px;
+    &.search-active {
+        .search-inner {
+            margin-right: 58px;
+        }
+        .searchbar {
+            padding-left: 0;
+        }
+        .search-action {
+            display: block;
+        }
+        .nav-switch {
+            display: none;
+        }
+        .search-mask {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        &.has-value {
+            input {
+                padding-left: 15px;
+            }
+        }
+    }
+    &.has-value {
+        input {
+            background-color: #f3f3f3;
+        }
+    }
+    .search-mask {
+        display: none;
+    }
+    .is-app & {
+        height: 45px + 20;
+        padding-top: 6px + 20;
+    }
+    .is-app.iphone-x & {
+        height: 45px + 44;
+        padding-top: 6px + 44;
+    }
+    .searchbar {
+        background: $opa-b0;
+        padding: 0 0 0 22px;
+        transition: padding-left .3s;
+        i {
+            line-height: 32px;
+            vertical-align: bottom;
+            top: 0;
+        }
+    }
+    input {
+        font-size: 14px;
+        padding-left: 15px;
+        padding-right: 35px;
+        .search-active & {
+            padding-left: 30px;
+        }
+    }
+    .search-inner {
+        margin-right: 22px;
+        transition: margin-right .2s;
+    }
+    .placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #a6a6a6;
+        font-size: 13px;
+        line-height: 32px;
+        .android-device & {
+            padding-top: 2px;
+        }
+        i {
+            margin-right: 4px;
+            font-size: 16px;
+            top: -1px;
+        }
+        span {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .search-active & {
+            text-align: left;
+            padding-left: 10px;
+        }
+    }
+    .search-input {
+        overflow: hidden;
+        z-index: 50;
+        float: none;
+        background-color: #f3f3f3;
+        border-radius: 15px;
+
+        input {
+            .android-device & {
+                padding-top: 3px;
+            }
+        }
+    }
+    .nav-switch {
+        top: auto;
+        bottom: 6px;
+        left: 2px;
+    }
+    .search-action {
+        position: absolute;
+        bottom: 6px;
+        right: 0;
+        z-index: 20;
+        display: none;
+        width: 58px;
+        height: 32px;
+        margin-right: 0;
+        text-align: center;
+    }
+    .search-btn {
+        float: none;
+    }
+    .company-logo {
+        display: block;
+        padding-left: 5px;
+        .img-wrap {
+            overflow: hidden;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            @include box-center;
+            @include fixed-ratio-box(100);
+
+            &::before {
+                background: url("/assets/public/market/images/def/company_search_logo.png") no-repeat 0 0;
+                background-size: 100% 100%;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                border: 1px solid $border-def;
+                border-radius: 50%;
+                transform: scale(.5);
+                transform-origin: 0 0;
+            }
+            span {
+                @include fixed-ratio-inner;
+            }
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1;
+            transform: scale(.75);
+            transform-origin: 50% 100%;
+        }
+    }
+    .search-active & {
+        @include border-bottom($border-def);
+        &::before {
+            bottom: -5px;
+            z-index: 1;
+        }
+    }
+}
+
+/* Layout
+---------------------------------------- */
+
+.filter-box {
+    background-color: #fff;
+    @include clearfix;
+    height: 44px;
+    .filter-wrap {
+        position: relative;
+        overflow: hidden;
+        padding: 0 20px;
+        height: 100%;
+        @include border-bottom($border-def);
+
+        ul {
+            position: absolute;
+            @include clearfix;
+        }
+        li {
+            float: left;
+            padding-right: 30px;
+            a {
+                position: relative;
+                display: inline-block;
+                text-align: center;
+                line-height: 44px;
+                font-size: 13px;
+                font-weight: bold;
+            }
+            &.active {
+                a {
+                    &::before {
+                        position: absolute;
+                        left: 0;
+                        width: 21px;
+                        content: "";
+                        border-bottom: 3px solid #ffcd00;
+                        border-radius: 10px;
+                        bottom: 0;
+                        left: calc(50% - 10px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ushow-list {
+    margin-top: 8px;
+}

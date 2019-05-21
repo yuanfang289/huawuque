@@ -1,0 +1,181 @@
+@charset "UTF-8";
+@import 'variable';
+@import 'mixins';
+
+.station-main{
+    padding-bottom: 60px;
+}
+.order-info{
+    display: flex;
+    padding: 20px;
+    background: #f7f7f7;
+    dt{
+        @include fixed-ratio-box(100%);
+        width: 75px;
+        height: 75px;
+        margin-right: 18px;
+        &::before{
+            background-size: 85%;
+        }
+        span{
+            @include fixed-ratio-inner;
+        }
+    }
+    dd{
+        flex: 1;
+    }
+    p{
+        font-size: 12px;
+        color: #999;
+        &:nth-child(2){
+            padding: 5px 0;
+        }
+    }
+    h3{
+        display: flex;
+        justify-content: space-between;
+        p{
+            font-size: 14px;
+            color: #333;
+        }
+        span{
+            color: #999;
+        }
+        em{
+            font-weight: 600;
+            color: #333;
+        }
+    }
+}
+.time-wrap{
+    padding: 0 20px;
+    background: #fff;
+    margin-bottom: 10px;
+    .info-time{
+        display: flex;
+        line-height: 30px;
+        &:nth-child(1){
+            padding-top: 7px;
+        }
+        &:nth-child(2){
+            padding-bottom: 7px;
+        }
+        p{
+            width: 85px;
+            color: #999;
+        }
+        span{
+            flex: 1;
+        }
+    }
+    .info-cost{
+        text-align: right;
+        padding: 10px 0;
+        @include border-top(#e6e6e6);
+        em{
+            font-weight: 600;
+        }
+    }
+}
+.payment-way{
+    background: #fff;
+    padding: 0 20px;
+    li{
+        padding: 20px 0;
+        @include clearfix;
+        .way-item{
+            float: left;
+            width: 100%;
+            input{
+                float: right;
+                width: 22px;
+                height: 22px;
+                display: block;
+                appearance: none;
+                background: url('/assets/public/images/ui/checkicon2.png') no-repeat;
+                background-size: cover;
+                background-position: 0 0;
+                border: none;
+                outline: none;
+                shadow: none;
+                margin-right:0;
+                &:checked{
+                    background-position: 0 -22px;
+                }
+            }
+        }
+        .urimg-alipay{
+            background: url('/assets/public/images//ui/zhifubao.png') no-repeat;
+            width: 22px;
+            height: 22px;
+            display: block;
+            margin-right: 0.32rem;
+            float: left;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            background-size: cover;
+        }
+    }
+}
+.payment-cost{
+    margin:10px;
+    background-color: #fff;
+    padding: 20px;
+    ul{
+        position: relative;
+        padding-bottom: 20px;
+        li{
+            line-height: 30px;
+            @include clearfix;
+            h3{
+                float: left;
+            }
+            p{
+                float: right;
+            }
+        }
+        .point-line{
+            background: url("/assets/public/cabinet/images/point.png");
+            height: 6px;
+            width: 100%;
+            position: absolute;
+            bottom:0;
+            left: -1px;
+        }
+    }
+    .cost-total{
+        @include clearfix;
+        padding-top: 14px;
+        p{
+            float: right;
+            span{
+                padding-left: 40px;
+                color: $color-primary;
+            }
+        }
+    }
+}
+.pay-confirm{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background: #fff;
+    width: 100%;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    .cost-total{
+        flex: 1;
+        line-height: 40px;
+        padding-left: 10px;
+        span{
+            font-weight: 600;
+        }
+    }
+    .pay-btn{
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+}

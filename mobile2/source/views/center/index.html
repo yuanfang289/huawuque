@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/center/center.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="station-main">
+
+        <!--/user/ucenter-->
+        <!--/user/userData-->
+        <section data-render="template" data-url-pre="./data/userInfo.json" data-url="./data/userData.json">
+            <div class="rendering">
+                <div class="img-box">
+                    <div class="img"></div>
+                </div>
+
+                <p>正在加载 . . .</p>
+            </div>
+        </section>
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<script type="text/html" id="pageTpl">
+    <div class="user-center-profile">
+        <div class="user-center-profile-inner">
+            <dl>
+                <dt>
+                    <img src="{{data.headImageUrl}}" alt="">
+                </dt>
+                <dd>
+                    <div class="user-inner">
+                        <p class="user-name">{{data.realname}}
+                            {{if data.enterType == 3}}
+                            <i class="urimg-join"></i>
+                            {{/if}}
+                            {{if data.member}}
+                            <i class="urimg-vip"></i>
+                            {{/if}}
+                        </p>
+                        <p class="user-desc">{{data.corpDuties}}</p>
+                        <p class="user-desc">{{data.workstageNames}}</p>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="menu-list">
+        <a class="menu-item-primary" href="/views/station/list.html">
+            <div class="menu-title">订工位</div>
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+    </div>
+    <div class="menu-list">
+        <a class="menu-item-primary" href="/views/station/orderList.html">
+            <div class="menu-title">
+                工位订单
+            </div>
+            {{if data.rentOrderCnt}}
+            <span class="msg-num">{{data.rentOrderCnt}}</span>
+            {{/if}}
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+        <a class="menu-item-primary" href="/views/myCompny/my-company.html">
+            <div class="menu-title">
+                我的企业
+            </div>
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+        <a class="menu-item-primary" href="/views/coupon/list.html">
+            <div class="menu-title {{data.couponCnt ? 'new-msg': ''}}">
+                优惠券
+            </div>
+            {{if data.couponCnt}}
+            <span class="msg-num">{{data.couponCnt}}</span>
+            {{/if}}
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+        <a class="menu-item-primary" href="#">
+            <div class="menu-title">
+                我的退款
+            </div>
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+        <a class="menu-item-primary" href="/views/vip/vip-index.html">
+            <div class="menu-title">
+                会员中心
+            </div>
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+        <a class="menu-item-primary" href="/views/sesameCredit/index.html">
+            <div class="menu-title new-msg">
+                芝麻信用
+            </div>
+            {{if data.member}}
+            <span class="msg-num">未授权</span>
+            {{/if}}
+            <i class="menu-arrow uricon-arrow-right"></i>
+        </a>
+    </div>
+    
+    <div class="btn-wrapper">
+        <a href="javascript:;" class="btn btn-default logout">退出登录</a>
+    </div>
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/center/scripts/index.js"></script>
+<script>
+    Page.formatted = function (res) {
+        if (res.data.workstageNames && res.data.workstageNames instanceof Array) {
+            res.data.workstageNames = res.data.workstageNames[0];
+        }
+
+        if (res.data.corpDuties && res.data.corpDuties instanceof Array) {
+            res.data.corpDuties     = res.data.corpDuties[0];
+        }
+
+        return res;
+    }
+</script>
+
+</body>
+
+</html>

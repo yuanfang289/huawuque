@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>租赁入口页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/rent/styles/select-city.css">
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=acf4923c3689ec51d2a41c613a975f37&plugin=AMap.CitySearch"></script>
+</head>
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<input type="hidden" id="getGps" name="getGps" data-cityName="" data-cityCode="" data-lng="" data-lat="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar-def.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <a href="javascript:;" class="select-btn" id="citySrc">
+            <span id="cityName"><i class="uricon-locationB"></i>定位中...</span>
+        </a>
+        <ul class="list-layout" id="workStageList"></ul>
+        @import "goto.tpl"
+    </main>
+
+  <!-- //url: '/leaseWorkStage/workStageList', -->
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+<script src="/assets/public/rent/scripts/list.js"></script>
+<script type="text/html" id="tplList">
+{{if list.length == 0}}
+<li>
+    <div class="result-tips">
+        <div class="result-tips-inner">
+            <img src="/public/images/search-nodata.png" alt="">
+            <p>找不到相匹配的内容</p>
+        </div>
+    </div>
+</li>
+{{/if}}
+{{each list as d i}}
+<li>
+    <a href="/leaseWorkStage/workStageDetail?id={{d.id}}">
+    <dl>
+        <dt>
+            <sapn style="background-image:url({{d.workstageImage}});"></span>
+            <div class="image-text">
+                <div class="score-mod star-min">
+                    <div class="star"><span style="width: {{d.averageScore*20}}%"></span></div>
+                </div>
+
+                {{if d.price}}
+                <p>¥ {{d.price}} <em>/月起</em></p>
+                {{/if}}
+            </div>
+        </dt>
+        <dd>
+            <span>查看详情</span>
+            <div class="image-detail">
+                <h2>{{if d.isActivity == '1'}}<i>限时购</i>{{/if}}{{d.stageName}}</h2>
+                <p>{{d.address}}</p>
+            </div>
+
+        </dd>
+    </dl>
+    </a>
+</li>
+{{/each}}
+</script>
+<!-- <p>¥ {{d.price}} <em>/月起</em></p> -->
+<script>
+// console.log(UR.getBrowserParam().cityName);
+if(UR.getBrowserParam().cityNum){
+    var _refresh = $('#workStageList')
+        .refresh({
+            url: './data/city1.json',
+            // url: '/leaseWorkStage/workStageList',
+            data: {
+                cityId: UR.getBrowserParam().cityNum
+            },
+            template: 'tplList',
+            isFirstLoad: true,
+            formatted: function(res) {
+                console.log(res);
+                var data = res.data || {};
+                var list = data.result || [];
+                var _name = escape(UR.getBrowserParam().cityName);
+                _name = decodeURI(_name);
+                console.log(_name);
+                $('#cityName').html('<i class="uricon-locationB"></i>'+_name);
+                $('#citySrc').attr('href','./select-city2.html?cityNum='+UR.getBrowserParam().cityNum+'&cityName='+_name);
+                // /leaseWorkStage/selectCity
+                return list;
+            }
+        });
+}else{
+//-------- 获取城市名、城市adcode、当前坐标值 --------
+var map = new AMap.Map("getGps", {
+    resizeEnable: true,
+    zoom: 13
+});
+//获取用户所在城市信息
+function showCityInfo() {
+    //实例化城市查询类
+    var citysearch = new AMap.CitySearch();
+    //自动获取用户IP，返回当前城市
+    citysearch.getLocalCity(function(status, result) {
+        if (status === 'complete' && result.info === 'OK') {
+            if (result && result.city) {
+                var cityname = result.city;
+                var citycode = result.adcode;
+                $('#getGps').attr('data-cityName',cityname);
+                $('#getGps').attr('data-cityCode',citycode);
+                $('#cityName').html('<i class="uricon-locationB"></i>'+$('#getGps').attr('data-cityName'));
+                console.log('城市定位成功');
+                console.log('您当前所在城市：'+cityname);
+                console.log('城市code：'+citycode);
+
+                var _refresh = $('#workStageList')
+                            .refresh({
+                                url: './data/city1.json',
+                                // url: '/leaseWorkStage/workStageList',
+                                data: {
+                                    cityId: $('#getGps').attr('data-cityCode')
+                                },
+                                template: 'tplList',
+                                isFirstLoad: true,
+                                formatted: function(res) {
+                                    console.log(res);
+                                    var data = res.data || {};
+                                    var list = data.result || [];
+
+                                    console.log(data);
+                                    console.log(list);
+                                    return list;
+                                }
+                            });
+            }
+        } else {
+            console.log('城市定位失败');
+            $('#cityName').html('<i class="uricon-locationB"></i>北京市');
+            var _refresh = $('#workStageList')
+                        .refresh({
+                            url: './data/city1.json',
+                            data: {
+                                cityId: 110000
+                            },
+                            template: 'tplList',
+                            isFirstLoad: true,
+                            formatted: function(res) {
+                                console.log(res);
+                                var data = res.data || {};
+                                var list = data.result || [];
+
+                                console.log(data);
+                                console.log(list);
+                                return list;
+                            }
+                        });
+
+        }
+    });
+}
+showCityInfo();
+}
+//定位当前坐标
+// map.plugin('AMap.Geolocation', function() {
+//     geolocation = new AMap.Geolocation({
+//         enableHighAccuracy: true,//是否使用高精度定位，默认:true
+//         timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+//         buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+//         zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+//         // buttonPosition:'RB'
+//     });
+//     map.addControl(geolocation);
+//     geolocation.getCurrentPosition();
+//     AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+//     AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+// });
+// //解析定位结果
+// function onComplete(data) {
+//     console.log('经纬度定位成功');
+//     var lng = data.position.getLng();
+//     var lat = data.position.getLat();//如为IP精确定位结果则没有精度信息
+//     // showCityInfo();
+//     $('#getGps').attr('data-lng',lng);
+//     $('#getGps').attr('data-lat',lat);
+//     console.log('经度'+lng+' 纬度'+lat);
+// }
+// //解析定位错误信息
+// function onError(data) {
+//     console.log('定位失败');
+//     // showCityInfo();
+// }
+</script>
+</body>
+</html>

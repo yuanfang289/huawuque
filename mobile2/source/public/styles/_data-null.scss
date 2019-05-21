@@ -1,0 +1,21 @@
+/* DataNull
+ ---------------------------------------- */
+.data-null {
+    @include padding-v(20px);
+    display: table;
+    width: 100%;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    line-height: 40px;
+    .data-null-inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    img {
+        max-width: 140px;
+    }
+    &.no-padding-bottom{
+        padding-bottom: 0;
+    }
+}

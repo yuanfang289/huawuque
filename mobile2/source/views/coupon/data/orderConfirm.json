@@ -1,0 +1,58 @@
+{
+    "data": {
+        "id": 21,
+        "workstageAddress": "陕西省 西安市 西安万科",
+        "workstageName": "西安万科",
+        "floor": "aaa",
+        "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+        "isCoupon": 2,
+        "price": 20,
+        "openTime": "7:00",
+        "closeTime": "19:00",
+        "manager": "22221",
+        "mobile": "21212",
+        "isWifi": 1,
+        "isMeetingRoom": 1,
+        "isRelaxZone": 1,
+        "isActivity": 1,
+        "isReproTyp": 1,
+        "isPhoneBooth": 1,
+        "isSelfSupermarket": 1,
+        "isCoffeeHouse": 1,
+        "isPurifiedWater": 1,
+        "date": "2016-12-01",
+        "userName": "fanyushu",
+        "userMobile": "5313446082",
+        "list": [
+            {
+                "couponCode": "afdfd445",
+                "price": "12.00",
+                "startDate": 1482211947994,
+                "endDate":1482211947994,
+                "remark": "",
+                "strType": 1,
+                "remark": "xxxxxx"
+            },
+            {
+                "couponCode": "afdfd446",
+                "price": "16.00",
+                "startDate": 1482211947994,
+                "endDate":1482211947994,
+                "remark": "",
+                "strType": 2
+
+            },
+            {
+                "couponCode": "afdfd447",
+                "price": "18.00",
+                "startDate": 1482211947994,
+                "endDate":1482211947994,
+                "remark": "",
+                "strType": 3
+
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "success"
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>活动列表页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/activity/activity.css">
+</head>
+
+<body style="background-color: #f5f5f5;">
+    <input type="hidden" name="appSource" value="" />
+    <!-- wrapper -->
+    <div class="wrapper wrapper-select">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- content -->
+            <div id="content">
+                <!-- select start -->
+                <div id="filterContainer" class="filter-container" data-role="filter" data-options="
+                       template: 'tlpFilter',
+                       url: 'data/search.json',
+                       isFixed: true,
+                       formatted: function (res) {
+                           res = res.data;
+                           if (!res) {
+                               UR.msg('Error ...');
+                               return false;
+                           }
+                           var ret = {
+                               workstage: {},
+                               category: {},
+                           };
+                           (res.workstage || []).map(function (ws) {
+                               if (ws.id) {
+                                   ret.workstage[ws.id] = {
+                                       id: ws.id,
+                                       name: ws.stageName,
+                                       list: ws.workStageVOList || []
+                                   }
+                               }
+                           });
+                           (res.category || []).map(function (cg) {
+                               if (cg.id) {
+                                   ret.category[cg.id] = {
+                                       id: cg.id,
+                                       name: cg.categoryName,
+                                       list: cg.categoryList || []
+                                   }
+                               }
+                           });
+
+                           return ret;
+                       }
+                       ">
+                    <div class="select-group-wrapper" data-col="4" Wrapper>
+                        <div class="select-group">
+                            <div class="select-group-title" data-title="#1" data-parent-param="cityCode" data-param="workStageId">
+                                <span Text>全部社区</span>
+                                <i class="arrow uricon-arrow-dropdown" Icon></i>
+                            </div>
+                        </div>
+                        <div class="select-group">
+                            <div class="select-group-title" data-title="#2" data-parent-param="categoryParent" data-param="activityCategory">
+                                <span Text>全部类别</span>
+                                <i class="uricon-arrow-dropdown" Icon></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- select end -->
+
+                <!-- activity-lists -->
+                <section class="activity-list" data-scroll="pullUp" data-options="
+                      url: 'data/list.json',
+                      data: {
+                      },
+                      template: 'tplList',
+                      isFirstLoad: true,
+                      formatted: function(res) {
+                          return res.result || [];
+                      }
+                      ">
+
+                </section>
+                <!-- activity-lists -->
+            </div>
+            <!-- / content -->
+            @import "goto.tpl"
+        </main>
+        <!-- / main -->
+    </div>
+    <!--/ wrapper -->
+    @import "footer-common.tpl"
+
+    <script type="text/html" id="tlpFilter">
+        <div class="select-group-body {{data.currentIndex ? 'active': ''}}" Body>
+            <div class="select-content {{data.currentIndex == '#1' ? 'active' : ''}}" data-content="#1">
+                <article class="select-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            <li class="{{!data.cityCode ? 'active' : ''}}" data-parent="">全部</li>
+                            {{each data.workstage as item i}}
+                            {{if item.id}}
+                            <li class="{{data.cityCode == item.id ? 'active' : ''}}" data-parent="{{item.id}}">{{item.name}}</li>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </article>
+                <article class="select-sub-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            {{if !data.cityCode }}
+                            <li class="{{ !data.cityCode && !data.workStageId ? 'active': '' }}" data-child="">全部社区</li>
+                            {{else}}
+                            {{each data.workstage[data.cityCode].list as stage j}}
+                            {{if data.cityCode == stage.id}}
+                            <li class="{{stage.id === data.workStageId ? 'active': '' }}" data-child="{{stage.id}}">全部</li>
+                            {{else}}
+                            <li class="{{stage.id === data.workStageId ? 'active' : '' }}" data-child="{{stage.id}}">{{stage.stageName}}</li>
+                            {{/if}}
+                            {{/each}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </article>
+            </div>
+            <div class="select-content {{data.currentIndex == '#2' ? 'active' : ''}}" data-content="#2">
+                <article class="select-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            <li class="{{!data.categoryParent ? 'active' : ''}}" data-parent="">全部</li>
+                            {{each data.category as item i}}
+                            {{if item.id}}
+                            <li class="{{data.categoryParent == item.id ? 'active' : ''}}" data-parent="{{item.id}}">{{item.name}}</li>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </article>
+                <article class="select-sub-menu" data-scroll="verticle" Menu>
+                    <div class="scroller">
+                        <ul>
+                            {{if !data.categoryParent }}
+                            <li class="{{ !data.categoryParent && !data.activityCategory ? 'active': '' }}" data-child="">全部类别</li>
+                            {{else}}
+                            {{each data.category[data.categoryParent].list as cg j}}
+                            {{if data.categoryParent == cg.id}}
+                            <li class="{{cg.id === data.activityCategory ? 'active': '' }}" data-child="{{cg.id}}">全部</li>
+                            {{else}}
+                            <li class="{{cg.id === data.activityCategory ? 'active' : '' }}" data-child="{{cg.id}}">{{cg.categoryName}}</li>
+                            {{/if}}
+                            {{/each}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tplList">
+        {{if list.length == 0 }}
+        <div class="data-null">
+            <img src="/assets/public/images/NODATA.png" alt="">
+        </div>
+        {{else}}
+        {{each list as d i}}
+        <div class="bigpictext-item">
+            <dl>
+                <dt>
+                    <span class="lazy" data-src="http://www.beihaiting.com/uploads/allimg/160211/10723-160211131PK62.jpg"></span>
+                    <div class="layer"><i>&yen; </i>0.00<sub>起</sub></div>
+                    {{if i % 2 == 0}}
+                    <div class="tag tag-topic"></div>
+                    {{/if}}
+                </dt>
+                <dd>
+                    <div class="bigpictext-title">
+                        <h2 class="bigpictext-title-text">活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题活动标题</h2>
+                    </div>
+                    <div class="bigpictext-content">
+                        <span class="location"><img src="/assets/public/activity/images/location.png" alt="">优客工场全国社区</span>
+                        <time><img src="/assets/public/activity/images/time.png" alt="">10/24 开始</time>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        {{/each}}
+        {{/if}}
+    </script>
+    <script src="/assets/public/activity/activity-list.js"></script>
+</body>
+
+</html>

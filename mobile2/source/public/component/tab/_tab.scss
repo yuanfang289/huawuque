@@ -1,0 +1,81 @@
+@charset "UTF-8";
+// style tab
+//
+// CSS Menu
+//
+// Tabs
+// Theme
+//
+
+// *Tabs Base
+// ----------------------------------------
+
+.tab {
+    // tabs
+    >.tabs {
+        ul {
+            @include clearfix;
+        }
+        li {
+            float: left;
+            cursor: pointer;
+            @include user-select-none;
+        }
+    }
+
+    // tabbed
+    >.tabbed {
+        &>.tab-group {
+            display: none;
+        }
+    }
+}
+
+// *Tabs Theme
+// ----------------------------------------
+
+.tab-primary {
+    >.tabs {
+        border-bottom: 1px solid #e5e5e5;
+        ul {
+            height: 37px;
+        }
+        li {
+            @include padding-h(15px);
+            color: #666;
+            font-size: 14px;
+            line-height: 36px;
+            &.active, .desktop &:hover {
+                border-bottom: 3px solid $color-primary;
+                &, a {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}
+
+.tab-pic {
+    >.tabs {
+        margin-bottom: 20px;
+        ul {
+            height: 47px;
+        }
+        li {
+            position: relative;
+            height: 100%;
+            &.active, .desktop &:hover {
+                &::before {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 15px;
+                    height: 1px;
+                    background-color: #1a1a1a;
+                    content: "";
+                }
+            }
+        }
+    }
+}

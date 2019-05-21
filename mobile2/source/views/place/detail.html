@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>场地详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/place/place.css">
+</head>
+
+<body class="gray-bg">
+    <input type="hidden" name="appSource" value="app">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main" class="place-detail">
+
+            <!-- slide 多图 -->
+            <div class="swiper-container detail-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="javascript:;" title=""><img class="swiper-lazy" data-src="http://static.urwork.cn/index/banner/banner-01.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="javascript:;" title=""><img class="swiper-lazy" data-src="http://static.urwork.cn/index/banner/banner-02.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="javascript:;" title=""><img class="swiper-lazy" data-src="http://static.urwork.cn/index/banner/banner-03.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide banner-image-box">
+                        <a class="banner-image" href="javascript:;" title=""><img class="swiper-lazy" data-src="http://static.urwork.cn/index/banner/banner-04.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- /slide 多图 -->
+
+            <!-- 单图 -->
+            <!-- <div class="banner-image-box">
+                <a class="banner-image" href="javascript:;" title="">
+                    <img src="http://static.urwork.cn/index/banner/banner-03.png" alt="">
+                </a>
+            </div> -->
+            <!-- / 单图 -->
+
+            <!-- 详情信息 place-detail-info -->
+            <section class="layout-item place-detail-info">
+                <div class="banner-title">
+                    <h2 class="banner-title-text">山丘多功能厅山丘多功能厅山丘多功能厅</h2>
+                    <em class="banner-title-info">&yen;5000<small>／小时</small></em>
+                </div>
+                <div class="banner-desc info-desc">
+                    <dl>
+                        <dt>地<span class="em-2"></span>址</dt>
+                        <dd class="flex-box">
+                            <span class="text-overflow">北京市朝阳区光华路阳光100D100D100D</span><span>|</span><span>B12层</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>容<span class="em-2"></span>纳</dt>
+                        <dd>200人</dd>
+                    </dl>
+                    <dl>
+                        <dt>开放时间</dt>
+                        <dd>9:00 - 24:00</dd>
+                    </dl>
+                    <dl>
+                        <dt>联系方式</dt>
+                        <dd><span>张先生</span><span>13899873829</span></dd>
+                    </dl>
+                </div>
+                <p class="banner-brief" style="display: none;">
+                    场地简介阿里云+优客工场位于西四环四季青路7号，毗邻中关村核心区，北京市科委，海淀招商局，周边商务、生活配套成熟。地铁10号线、6号线双轨通过摆渡车直达项目。14000平米的阿里云+优客工场集合众方资源，打造一个“不让创业者为工作之外的琐事烦心”的办公社区。
+                </p>
+                <a class="see-more" href="javascript:;">
+                    <span>展开场地详情</span><i class="uricon-arrow-bottom"></i>
+                </a>
+            </section>
+            <!-- /详情信息 place-detail-info -->
+
+            <!-- 地图 map -->
+            <section class="layout-item map">
+                <img src="https://restapi.amap.com/v3/staticmap?location=116.34030,39.79155&zoom=14&size=375*200&scale=2&markers=large,,A:116.34030,39.79155&labels=鸿坤广场·优客工场,3,0,30,0xFFFFFF,0xe95513:116.34030,39.79155&key=739267cee1c64393de3dc02798fce752" alt="鸿坤广场·优客工场">
+            </section>
+            <!-- / 地图 map -->
+
+            <!-- 配套设施 install -->
+            <section class="layout-item install">
+                <header class="layout-item-title">
+                    <h2>配套设施</h2>
+                </header>
+                <ul class="icon-list">
+                    <li>
+                        <i class="uricon-tyy"></i>
+                        <p>投影</p>
+                    </li>
+                    <li>
+                        <i class="uricon-zy"></i>
+                        <p>座椅</p>
+                    </li>
+                    <li>
+                        <i class="uricon-ht"></i>
+                        <p>话筒</p>
+                    </li>
+                    <li>
+                        <i class="uricon-yx"></i>
+                        <p>音箱</p>
+                    </li>
+                    <li>
+                        <i class="uricon-changzhuo"></i>
+                        <p>长桌</p>
+                    </li>
+                    <li>
+                        <i class="uricon-wifi"></i>
+                        <p>wifi</p>
+                    </li>
+                    <li>
+                        <i class="uricon-jiangtai"></i>
+                        <p>讲台</p>
+                    </li>
+                    <li>
+                        <i class="uricon-dianshi"></i>
+                        <p>电视</p>
+                    </li>
+                    <li>
+                        <i class="uricon-light2"></i>
+                        <p>灯光</p>
+                    </li>
+                </ul>
+            </section>
+            <!-- / 配套设施 install -->
+
+            <!-- 支持活动类型  act-type -->
+            <section class="layout-item act-type">
+                <header class="layout-item-title">
+                    <h2>支持活动类型</h2>
+                </header>
+                <ul class="btn-list">
+                    <li><span>发布会</span></li>
+                    <li><span>年会</span></li>
+                    <li><span>沙龙</span></li>
+                    <li><span>比赛</span></li>
+                    <li><span>讲座</span></li>
+                    <li><span>party</span></li>
+                </ul>
+            </section>
+            <!-- / 支持活动类型  act-type -->
+
+            <!-- 预约须知  notice -->
+            <section class="layout-item notice">
+                <header class="layout-item-title">
+                    <h2>预约须知</h2>
+                </header>
+                <div class="layout-desc">
+                    海淀招商局，周边商务、生活配套成熟。地铁10号线、6号线双轨通过摆渡车直达项目 拷贝
+                </div>
+            </section>
+            <!-- / 预约须知  notice -->
+
+
+            <!-- 场地推荐 -->
+            <section class="layout-item">
+                <header class="layout-item-title">
+                    <h2>场地推荐</h2>
+                </header>
+                <div class="rec-list">
+                    <div class="pictext-item">
+                        <dl>
+                            <dt>
+                                <span style="background-image:url('http://pic.90sjimg.com/back_pic/00/04/27/49/08bfc708cf3096c8a1bb817864a1cbcf.jpg')"></span>
+                            </dt>
+                            <dd>
+                                <p class="pictext-title pictext-title-pr">四季青多功能厅多功能</p>
+                                <p class="pictext-desc">阳光100· 优客工场阳光100· 优客工场阳光100· 优客工场阳光100· 优客工场阳光100· 优客工场</p>
+                                <p class="pictext-info">&yen;5000<small>／小时</small></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="pictext-item">
+                        <dl>
+                            <dt>
+                                <span style="background-image:url('http://pic.90sjimg.com/back_pic/00/04/27/49/08bfc708cf3096c8a1bb817864a1cbcf.jpg')"></span>
+                            </dt>
+                            <dd>
+                                <p class="pictext-title pictext-title-pr">四季青多功能厅多功能</p>
+                                <p class="pictext-desc">阳光100· 优客工场</p>
+                                <p class="pictext-info">&yen;5000<small>／小时</small></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="pictext-item">
+                        <dl>
+                            <dt>
+                                <span style="background-image:url('http://pic.90sjimg.com/back_pic/00/04/27/49/08bfc708cf3096c8a1bb817864a1cbcf.jpg')"></span>
+                            </dt>
+                            <dd>
+                                <p class="pictext-title pictext-title-pr">四季青多功能厅多功能</p>
+                                <p class="pictext-desc">阳光100· 优客工场</p>
+                                <p class="pictext-info">&yen;5000<small>／小时</small></p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <!-- /场地推荐 -->
+
+            <!-- 预约按钮 -->
+            <footer class="btn-group">
+                <a href="./form.html?id=1" class="btn btn-primary use">预约使用</a>
+            </footer>
+            <!--/ 预约按钮 -->
+
+            @import "goto.tpl"
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+
+    <script src="/assets/public/place/detail.js"></script>
+</body>
+
+</html>

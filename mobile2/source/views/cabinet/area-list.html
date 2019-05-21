@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>区域列表</title>
+    @import "meta.tpl"
+
+    <link rel="stylesheet" href="/assets/public/cabinet/styles/area-list.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <ul class="area-list" data-scroll="pullUp" >
+
+        </ul>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<script type="text/html" id="areasListTlp">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img class="data-null-img" src="/assets/public/images/no-data.png" alt="">
+        <p>暂无区域</p>
+    </div>
+    {{else}}
+    {{each list as item}}
+    <li>
+        <a href="javascript:;" class="area-item" data-id="{{item.id}}">
+            <div class="img-wrap">
+                <span style="background-image: url('{{item.image}}?imageMogr2/thumbnail/!655x436r/gravity/Center/crop/655x436')"></span>
+            </div>
+            <div class="area-info">
+                <h3>{{item.name}}</h3>
+                <p>
+                    {{each item.categoryNames as i}}
+                    <span>{{i}}</span>
+                    {{/each}}
+                </p>
+            </div>
+            <div class="area-location">
+                <p>{{item.location}}</p>
+                <button class="btn btn-primary">立即预定</button>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+    {{/if}}
+</script>
+<script src="/assets/public/cabinet/scripts/area-list.js"></script>
+
+<script>
+    $(function () {
+        var workstageId = UR.getBrowserParam().workstageId;
+        var $body = $('body');
+        var refreshDom = $('[data-scroll="pullUp"]')
+            .refresh({
+                url: '/assets/views/cabinet/data/areasList.json',
+//                    url: '/locker/areas',
+                data: {
+                    workstageId : workstageId
+                },
+                template: 'areasListTlp',
+                isFirstLoad: true,
+                formatted: function(res) {
+                    var list = res.data.result || [];
+                    list.map(function (item) {
+                        if(!item.image){
+                            item.image = '/assets/public/images/list-default-big.png';
+                        }
+                    })
+                    return list;
+                }
+            })
+
+        $body
+            .off('click','.area-item')
+            .on('click','.area-item',function () {
+                var $this = $(this);
+                var id = $this.data('id');
+                if(UR.isApp()){
+                    DANativeApi.navigateTo({
+                        url:  UR.host + '/leasePlace/getPlaceInfo?workstageId=' + workstageId + 'areaId=' + id
+                    });
+                }else{
+                    location.href = 'cabinet-list.html?workstageId=' + workstageId + '&areaId=' + id;
+                    //                    location.href = '/leasePlace/getPlaceInfo?id=' + id;
+                }
+            })
+    })
+</script>
+
+</body>
+
+</html>

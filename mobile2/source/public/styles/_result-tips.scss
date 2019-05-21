@@ -1,0 +1,49 @@
+/* ResultTips
+ ---------------------------------------- */
+.result-tips {
+    display: table;
+    width: 70%;
+    min-height: 420px;
+    @include box-center;
+    @include padding-v(35px);
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+
+    .result-tips-inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    img {
+        max-width: 140px;
+        margin-bottom: 30px;
+    }
+    h5 {
+        margin-bottom: 26px;
+        color: #333;
+        font-size: 16px;
+    }
+    p {
+        color: #666;
+        font-size: 14px;
+    }
+    .action {
+        margin-top: 85px;
+        .btn {
+            display: inline-block;
+            width: 185px;
+            height: 40px;
+            font-size: 14px;
+            line-height: 38px;
+        }
+        .icon {
+            top: -2px;
+            margin-right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+    @media only screen and (min-width: 350px) {
+        @include padding-v(75px);
+    }
+}

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/**
+ * 评论列表
+ *
+ * @project       www.urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'refresh/refresh';
+@import 'chip/comment-list';
+
+#pullUp {
+    &.pull-loading .pullUpIcon {
+        background-image: url('../../images/component/ajax-loading.gif');
+    }
+}

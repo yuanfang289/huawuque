@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html class="is-app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>企业</title>
+    @import "meta.tpl"
+    <!--<link rel="stylesheet" href="/assets/public/company/styles/common.css">-->
+    <link rel="stylesheet" href="/assets/public/company/styles/index.css">
+</head>
+
+<body class="gray-bg">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header" class="header-def">
+        <!-- titlebar -->
+        <div id="titlebar">
+            <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+        </div>
+        <!-- /titlebar -->
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <div class="search-wrapper">
+            <a href="javascript:;"><i class="uricon-search-r"></i> <span> 搜索企业</span></a>
+        </div>
+        <!--带缩放效果的swiper固定结构-->
+        <section class="transform-scale-wrapper swiper-wrap-hidden">
+            <div class="swiper-fixed-ratio">
+                <div class="swiper-container transform-scale-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide banner-image-box">
+                            <a class="banner-image" href="/market/index" title="" style="background-image:url('/assets/public/index/images/building.png');"></a>
+                        </div>
+                        <div class="swiper-slide banner-image-box">
+                            <a class="banner-image" href="/company/package" title="" style="background-image:url('/assets/public/index/images/join-ad.jpg');"></a>
+                        </div>
+                        <div class="swiper-slide banner-image-box">
+                            <a class="banner-image" href="/product/getProduct?spuId=100493" title="" style="background-image:url('/assets/public/index/images/building.png');"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        <!--带缩放效果的swiper固定结构-->
+
+        <div class="main-icon-wrapper">
+            <ul class="main-icon">
+                <li>
+                    <a href="javascript:;">
+                        <img src="/assets/public/company/images/icon/fws.jpg" alt="">
+                        <p>服务商</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/assets/public/company/images/icon/fws.jpg" alt="">
+                        <p>服务商</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/assets/public/company/images/icon/fws.jpg" alt="">
+                        <p>服务商</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="layout-item my-company">
+            <span class="tag"><em>我的企业</em></span>
+            <a href="#">
+                <dl class="my-company-item">
+                    <dt>
+                        <img src="https://image.urwork.cn/4eb390b3-16ec-4f27-93dc-d9ebe974852f.jpg?imageMogr2/thumbnail/!110x110r/gravity/Center/crop/110x110" alt="">
+                    </dt>
+                    <dd>
+                        <p class="name">上海品课品牌设计有限公司</p>
+                        <p class="attrs">A轮｜50-100人｜2014年11月成立</p>
+                        <i class="uricon-arrow-right icon"></i>
+                    </dd>
+                </dl>
+            </a>
+        </section>
+        <section class="layout-item my-company null">
+            <p class="desc">你还没有企业，赶快创建一个吧</p>
+            <a href="javascript:;" class="btn btn-primary-market"><span><i class="uricon-plus-w"></i>创建企业</span></a>
+        </section>
+
+        <div class="layout-title">
+            <h2>新企业速递</h2>
+            <div class="title-side">
+                <a href="javascript:;" class="ushow-fb-btn"><span><i class="uricon-plus-w"></i>成为U企业</span></a>
+            </div>
+        </div>
+        <section class="layout-item swiper-fixed-ratio">
+            <div class="swiper-container" id="newCompanyList" style="margin-right: -7px">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="new-company-item">
+                            <div class="new-company-item-inner">
+                                <a href="#">
+                                    <div class="pic-wrap">
+                                        <img src="https://image.urwork.cn/user/zhouzibo.jpg" alt="">
+                                    </div>
+                                    <p class="name">张丽莉</p>
+                                    <p class="workstage"><span>阳光100·优客工场优客工场</span></p>
+                                </a>
+                                <a href="javascript:;" class="btn followed">已关注</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-company-item">
+                            <div class="new-company-item-inner">
+                                <a href="javascript:;">
+                                    <div class="pic-wrap">
+                                        <img src="https://image.urwork.cn/user/zhouzibo.jpg" alt="">
+                                    </div>
+                                    <p class="name">张丽莉</p>
+                                    <p class="workstage"><span>阳光100·优客工场优客工场</span></p>
+                                </a>
+                                <a href="javascript:;" class="btn"><i class="uricon-plus-w"></i><span>关注</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-company-item">
+                            <div class="new-company-item-inner">
+                                <a href="javascript:;">
+                                    <div class="pic-wrap">
+                                        <img src="https://image.urwork.cn/user/zhouzibo.jpg" alt="">
+                                    </div>
+                                    <p class="name">张丽莉</p>
+                                    <p class="workstage"><span>阳光100·优客工场优客工场</span></p>
+                                </a>
+                                <a href="javascript:;" class="btn"><i class="uricon-plus-w"></i><span>关注</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="layout-title">
+            <h2>一键企服</h2>
+        </div>
+        <section class="layout-item ghost-service">
+            <div class="flex2">
+                <dl class="left-item">
+                    <a href="">
+                        <dt>
+                            <h3>财税服务</h3>
+                            <p>财税统筹管家</p>
+                        </dt>
+                        <dd>
+                            <img src="/assets/public/company/images/ghost/daili.png" alt="">
+                        </dd>
+                    </a>
+                </dl>
+                <div class="right-item">
+                    <dl>
+                        <a href="">
+                            <dt>
+                                <h3>人力资源</h3>
+                                <p>一站式解决方案</p>
+                            </dt>
+                            <dd>
+                                <img src="/assets/public/company/images/ghost/renli.png" alt="">
+
+                            </dd>
+                        </a>
+                    </dl>
+                    <dl>
+                        <a href="">
+                            <dt>
+                                <h3>政务咨询</h3>
+                                <p>从咨询到规划</p>
+                            </dt>
+                            <dd>
+                                <img src="/assets/public/company/images/ghost/zhengwu.png" alt="">
+
+                            </dd>
+                        </a>
+                    </dl>
+                </div>
+            </div>
+            <ul>
+                <li>营销推广</li>
+                <li>管理输出</li>
+                <li>U定制</li>
+            </ul>
+        </section>
+
+        <section class="banners swiper-fixed-ratio">
+            <div class="swiper-container banner-list">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <div class="layout-title">
+            <h2>按城市找企业</h2>
+            <div class="title-side">
+                <a href="javascript:;" class="title-more">更多</a>
+            </div>
+        </div>
+        <section class="layout-item swiper-fixed-ratio">
+            <div class="swiper-container city-list" id="city" style="margin-right: -5px">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="center-text">
+                                        <p class="text-place">北京</p>
+                                        <p class="text-desc"><span>BEIJING</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="center-text">
+                                        <p class="text-place">北京</p>
+                                        <p class="text-desc"><span>BEIJING</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="center-text">
+                                        <p class="text-place">北京</p>
+                                        <p class="text-desc"><span>BEIJING</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="layout-title">
+            <h2>按类型找企业</h2>
+            <div class="title-side">
+                <a href="javascript:;" class="title-more">更多</a>
+            </div>
+        </div>
+        <section class="layout-item company-type-wrap" style="margin-bottom: 0">
+            <ul class="company-type-list">
+                <li>
+                    <div class="icon" style="background-color: #fef4e2"><i class="uricon-qiyefuwu" style="color: #ffa200"></i></div>
+                    <p>企业服务</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #ebf8e6"><i class="uricon-jiaoyu" style="color: #1bcf65"></i></div>
+                    <p>教育</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #e8f4ff"><i class="uricon-hulianwang" style="color: #219eff"></i></div>
+                    <p>互联网</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #ebf8e6"><i class="uricon-yingjian" style="color: #1bcf65"></i></div>
+                    <p>硬件</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #fef4e2"><i class="uricon-wenyuchuanmei" style="color: #ffa200"></i></div>
+                    <p>文娱传媒</p>
+                </li>
+            </ul>
+            <ul class="company-type-list">
+                <li>
+                    <div class="icon" style="background-color: #e8f4ff"><i class="uricon-jiankangyiliao" style="color: #219eff"></i></div>
+                    <p>健康医疗</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #fef4e2"><i class="uricon-fangchanfuwu" style="color: #ffa200"></i></div>
+                    <p>房产服务</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #eff8ec"><i class="uricon-shenghuofuwu" style="color: #1bcf65"></i></div>
+                    <p>生活服务</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #e8f4ff"><i class="uricon-jinrong" style="color: #219eff"></i></div>
+                    <p>金融</p>
+                </li>
+                <li>
+                    <div class="icon" style="background-color: #eff8ec"><i class="uricon-qita" style="color: #1bcf65"></i></div>
+                    <p>其他</p>
+                </li>
+            </ul>
+        </section>
+
+
+        <section class="banners swiper-fixed-ratio">
+            <div class="swiper-container banner-list">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <div class="layout-title">
+            <h2>U企业</h2>
+            <div class="title-side">
+                <a href="javascript:;" class="btn btn-primary-market"><span><i class="uricon-plus-w"></i>成为U企业</span></a>
+            </div>
+        </div>
+        <div class="tab tab-market ucompany-tab" id="uCompany" data-role="tab">
+            <div class="tabs" data-tab-role="tabs">
+                <div class="tabs-inner" id="uCompanyTabs">
+                    <ul>
+                        <li data-tab-role="tab"><span>企业服务</span></li>
+                        <li data-tab-role="tab"><span>互联网</span></li>
+                        <li data-tab-role="tab"><span>智能硬件</span></li>
+                        <li data-tab-role="tab"><span>个人服务</span></li>
+                        <li data-tab-role="tab"><span>投融资</span></li>
+                        <li data-tab-role="tab"><span>文娱</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tabbed" data-tab-role="tabbed">
+                <div class="tab-group" data-tab-role="group">
+                    <ul class="ucompany-list">
+                        <li>
+                            <div class="ucompany-item">
+                                <a href="#">
+                                    <dl class="ucompany-hd">
+                                        <dt><img src="http://7xp26u.com1.z0.glb.clouddn.com/4E42101B-CC58-4BBF-B1B0-654D65931413.jpg?imageMogr2/thumbnail/!140x140/gravity/Center" alt=""></dt>
+                                        <dd>
+                                            <p class="name">上海品课品牌设计有限公司</p>
+                                            <p class="attrs">A轮｜50-100人｜2014年11月成立</p>
+                                            <div class="tags">
+                                                <div class="tag"><span>营销推广</span></div>
+                                                <div class="tag"><span>新闻</span></div>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <div class="ucompany-bd">
+                                    <a href="#">
+                                        <div class="specialty">
+                                            <p><span class="label">服务</span>互联网技术咨询，项目研发，空间智能化解决方案</p>
+                                            <p><span class="label need">需求</span>互联网技术咨询，项目研发，空间智能化解决方案</p>
+                                        </div>
+                                    </a>
+                                    <div class="actions">
+                                        <span>粉丝 21</span>
+                                        <span>合作留言 45</span>
+                                        <div class="btns">
+                                            <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                            <a href="#" class="btn btn-primary-market"><i class="uricon-uqby"></i><span>留言</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ucompany-item">
+                                <a href="#">
+                                    <dl class="ucompany-hd">
+                                        <dt><img src="http://7xp26u.com1.z0.glb.clouddn.com/4E42101B-CC58-4BBF-B1B0-654D65931413.jpg?imageMogr2/thumbnail/!140x140/gravity/Center" alt=""></dt>
+                                        <dd>
+                                            <p class="name">上海品课品牌设计有限公司</p>
+                                            <p class="attrs">A轮｜50-100人｜2014年11月成立</p>
+                                            <div class="tags">
+                                                <div class="tag"><span>营销推广</span></div>
+                                                <div class="tag"><span>新闻</span></div>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <div class="ucompany-bd">
+                                    <a href="#">
+                                        <div class="specialty">
+                                            <p><span class="label">服务</span>互联网技术咨询，项目研发，空间智能化解决方案</p>
+                                            <p><span class="label need">需求</span>互联网技术咨询，项目研发，空间智能化解决方案</p>
+                                        </div>
+                                    </a>
+                                    <div class="actions">
+                                        <span>粉丝 21</span>
+                                        <span>合作留言 45</span>
+                                        <div class="btns">
+                                            <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                            <a href="#" class="btn btn-primary-market"><i class="uricon-pinglun"></i><span>留言</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-group" data-tab-role="group">
+                    2
+                </div>
+                <div class="tab-group" data-tab-role="group">
+                    3
+                </div>
+                <div class="tab-group" data-tab-role="group">
+                    4
+                </div>
+                <div class="tab-group" data-tab-role="group">
+                    5
+                </div>
+                <div class="tab-group" data-tab-role="group">
+                    6
+                </div>
+            </div>
+            <a class="read-more">查看全部<i class="uricon-arrow-right"></i></a>
+        </div>
+
+        <section class="banners swiper-fixed-ratio">
+            <div class="swiper-container banner-list">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <div class="layout-title">
+            <h2>帮帮堂</h2>
+            <div class="title-side">
+                <a href="/carouselDetail?id=helpClubList&type=1" class="title-more">更多</a>
+            </div>
+        </div>
+        <section class="layout-item swiper-fixed-ratio">
+            <div class="swiper-container swiper-helpclub">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="piclist-item">
+                            <div class="piclist-image-box">
+                                <a class="piclist-image" href="javascript:;" style="background-image:url('http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/03/11/75350b9de08745afad63c193704054c5.jpg');">
+                                    <div class="top-left-text">
+                                        <p class="text-title">幂次方学院</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="banners swiper-fixed-ratio">
+            <div class="swiper-container banner-list ad-swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide piclist-item slide-banner-item">
+                        <a href="#">
+                            <div class="piclist-image-box">
+                                <span class="piclist-image swiper-lazy" style="background-image: url('/assets/public/market/images/ceshi.jpg')"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <div class="layout-title">
+            <h2>U秀</h2>
+            <div class="title-side">
+                <a href="javascript:;" class="ushow-fb-btn"><span><i class="uricon-plus-w"></i>成为U秀</span></a>
+            </div>
+        </div>
+        <div class="ushow-wrapper">
+            <section class="layout-item swiper-fixed-ratio">
+                <div class="swiper-container" id="ushowList" style="margin-right: -10px">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="ushow-group">
+                                <h3 class="ushow-title">霸道总裁</h3>
+                                <div class="ushow-list">
+                                    <dl class="ushow-item">
+                                        <dt>
+                                            <a href="#"><img src="https://image.urwork.cn/user/zhouzibo.jpg?imageMogr2/thumbnail/!120x120r/gravity/Center/crop/120x120" alt=""></a>
+                                        </dt>
+                                        <dd>
+                                            <p class="name">王之滨</p>
+                                            <p>创意融通（北京）文化资讯有限公司</p>
+                                            <p>CEO</p>
+                                            <div class="actions">
+                                                <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                                <a href="#" class="btn btn-primary-market"><i class="uricon-sixin"></i><span>私信</span></a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="ushow-item">
+                                        <dt>
+                                            <a href="#"><img src="https://image.urwork.cn/user/zhouzibo.jpg?imageMogr2/thumbnail/!120x120r/gravity/Center/crop/120x120" alt=""></a>
+                                        </dt>
+                                        <dd>
+                                            <p class="name">王之滨</p>
+                                            <p>创意融通（北京）文化资讯有限公司</p>
+                                            <p>CEO</p>
+                                            <div class="actions">
+                                                <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                                <a href="#" class="btn btn-primary-market"><i class="uricon-sixin"></i><span>私信</span></a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="ushow-item">
+                                        <dt>
+                                            <a href="#"><img src="https://image.urwork.cn/user/zhouzibo.jpg?imageMogr2/thumbnail/!120x120r/gravity/Center/crop/120x120" alt=""></a>
+                                        </dt>
+                                        <dd>
+                                            <p class="name">王之滨</p>
+                                            <p>创意融通（北京）文化资讯有限公司</p>
+                                            <p>CEO</p>
+                                            <div class="actions">
+                                                <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                                <a href="#" class="btn btn-primary-market"><i class="uricon-sixin"></i><span>私信</span></a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="ushow-group">
+                                <h3 class="ushow-title">霸道总裁</h3>
+                                <div class="ushow-list">
+                                    <dl class="ushow-item">
+                                        <dt>
+                                            <a href="#"><img src="https://image.urwork.cn/user/zhouzibo.jpg?imageMogr2/thumbnail/!120x120r/gravity/Center/crop/120x120" alt=""></a>
+                                        </dt>
+                                        <dd>
+                                            <p class="name">王之滨</p>
+                                            <p>创意融通（北京）文化资讯有限公司</p>
+                                            <p>CEO</p>
+                                            <div class="actions">
+                                                <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                                <a href="#" class="btn btn-primary-market"><i class="uricon-sixin"></i><span>私信</span></a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="ushow-item">
+                                        <dt>
+                                            <a href="#"><img src="https://image.urwork.cn/user/zhouzibo.jpg?imageMogr2/thumbnail/!120x120r/gravity/Center/crop/120x120" alt=""></a>
+                                        </dt>
+                                        <dd>
+                                            <p class="name">王之滨</p>
+                                            <p>创意融通（北京）文化资讯有限公司</p>
+                                            <p>CEO</p>
+                                            <div class="actions">
+                                                <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                                <a href="#" class="btn btn-primary-market"><i class="uricon-sixin"></i><span>私信</span></a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="ushow-item">
+                                        <dt>
+                                            <a href="#"><img src="https://image.urwork.cn/user/zhouzibo.jpg?imageMogr2/thumbnail/!120x120r/gravity/Center/crop/120x120" alt=""></a>
+                                        </dt>
+                                        <dd>
+                                            <p class="name">王之滨</p>
+                                            <p>创意融通（北京）文化资讯有限公司</p>
+                                            <p>CEO</p>
+                                            <div class="actions">
+                                                <a href="#" class="btn btn-def"><i class="uricon-plus-w"></i><span>关注</span></a>
+                                                <a href="#" class="btn btn-primary-market"><i class="uricon-sixin"></i><span>私信</span></a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <a class="read-more" >查看全部<i class="uricon-arrow-right"></i></a>
+        </div>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<script src="/assets/public/company/scripts/index.js"></script>
+<script>
+    var Index = {
+        init: function () {
+            UR.scaleSlide();
+            UR.carouselSlide('#newCompanyList', {
+                cols: 2,
+                marginRight: 36
+            });
+            UR.carouselSlide('#city', {
+                cols: 2,
+                marginRight: 36
+            });
+            UR.carouselSlide('.swiper-helpclub', {
+                cols: 2,
+                marginRight: 32
+            });
+            UR.carouselSlide('#ushowList', {
+                cols: 1,
+                marginRight: 45
+            });
+            UR.mainSlide('.ad-swiper');
+            $('#uCompany').tab();
+            this.filter('#uCompanyTabs');
+        },
+        filter:function (box) {
+            var $li = $(box).find('li');
+            var width = 1;
+            for(var i = 0; i <= $li.length - 1; i++){
+                width += Math.ceil($li.eq(i).outerWidth());
+            }
+            $(box).find('ul').css('width', width);
+            new IScroll(box,{
+                scrollX: true,
+                scrollY: false,
+                hScrollbar:false,
+                vScrollbar : false,
+                vScroll:false,
+                disablePointer: true,   // 因谷歌升级需加以下两行
+                disableTouch: false,
+                click: true,
+            })
+
+        },
+    };
+    $(function() {
+        Index.init();
+    })
+</script>
+</body>
+
+</html>

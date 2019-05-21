@@ -1,0 +1,99 @@
+.bigpictext-item {
+    @include clearfix;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+
+    dt {
+        @include fixed-ratio-box(56.119) {
+            color: $font-def;
+        }
+        position: relative;
+        width: 100%;
+
+        &::before {
+            background-size: 40%;
+        }
+
+        span {
+            @include fixed-ratio-inner;
+        }
+    }
+
+    dd {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .bigpictext-title {
+        @include text-overflow;
+        display: flex;
+        padding-top: 9px;
+        padding-bottom: 2px;
+        margin-bottom: 2px;
+        line-height: 26px;
+        font-size: 17px;
+        color: $font-def;
+
+        .bigpictext-title-text {
+            @include text-overflow;
+            flex: 1;
+        }
+
+        em {
+            padding-left: 20px;
+            text-align: right;
+            font-size: 14px;
+
+            small {
+                font-size: 10px;
+                line-height: 14px;
+            }
+        }
+    }
+
+    .bigpictext-addr {
+        line-height: 18px;
+        font-size: 12px;
+        color: $font-666;
+
+        span {
+            @include text-overflow;
+            display: block;
+            float: left;
+            max-width: 206px;
+        }
+    }
+
+    .bigpictext-desc {
+        height: 36px;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 18px;
+        color: $font-666;
+    }
+
+    .bigpictext-tip {
+        @include clearfix;
+        float: left;
+        padding-top: 14px;
+        margin-bottom: -7px;
+        width: 235px;
+        // padding-left: rem(470);
+        em {
+            float: left;
+            display: block;
+            margin-right: 7px;
+            margin-bottom: 7px;
+            padding: 0 5px;
+            line-height: 18px;
+            font-size: 12px;
+            color: $font-999;
+            // border: 1px solid #ededed;
+            border-radius: 2px;
+            background: #f7f7f7;
+        }
+
+        .btn {}
+    }
+}

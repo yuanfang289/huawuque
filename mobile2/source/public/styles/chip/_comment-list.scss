@@ -1,0 +1,172 @@
+.comment-details {
+    background: #fff;
+    .second-title {
+        @include clearfix;
+        line-height: rem(70);
+        padding-top: rem(20);
+        margin: 0 rem(40);
+        h2 {
+            float: left;
+            line-height: rem(70);
+            font-size: rem(34);
+            color: $font-def;
+        }
+        button {
+            float: right;
+            width: rem(124);
+            height: rem(54);
+            margin-top: rem(6);
+            font-size: rem(28);
+        }
+    }
+    .second-title-line {
+        padding-bottom: rem(20);
+        @include border-bottom(#e5e5e5);
+    }
+    .comment-empty {
+        font-size: rem(28);
+        color: #999;
+        padding: 80px 0;
+        text-align: center;
+    }
+    .comment-inner {
+        background: #fff;
+        padding: 0 rem(40);
+    }
+    .tab-show {
+        display: block;
+    }
+    .comment-item {
+        @include clearfix;
+        &:first-child {
+            &:before {
+                border-bottom: 0;
+            }
+        }
+        padding-top: rem(46);
+        padding-bottom: rem(12);
+        @include border-top(#e5e5e5);
+    }
+    .item-left {
+        float: left;
+        width: rem(64);
+        .headImg {
+            position: relative;
+            width: rem(64);
+            height: rem(64);
+            border-radius: 50%;
+            // box-shadow: 1px 1px 1px #ddd;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: rem(128);
+                height: rem(128);
+                border: 1px solid #e5e5e5;
+                border-radius: 50%;
+                transform: scale(.5);
+                transform-origin: 0 0;
+                max-width: none;
+            }
+        }
+    }
+    .item-info {
+        padding-left: rem(22);
+        overflow: hidden;
+    }
+    .comment-user {
+        @include clearfix;
+        .user {
+            float: left;
+        }
+        padding-top: rem(14);
+        line-height: rem(40);
+        font-size: rem(28);
+        color: #666;
+        time {
+            float: right;
+            font-size: rem(24);
+            line-height: rem(40);
+            font-weight: normal;
+            color: #999;
+        }
+        span {
+            &.lonely {
+                max-width: 140px;
+            }
+            float: left;
+            max-width: 50px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: 400;
+        }
+        em {
+            float: left;
+            padding: 0 8px;
+            font-size: rem(28);
+            color: #999;
+            font-weight: normal;
+        }
+    }
+    .comment-txt {
+        padding-top: rem(24);
+        padding-bottom: rem(24);
+        font-size: rem(28);
+        line-height: rem(36);
+        min-height: rem(70);
+        color: $font-def;
+        @include text-break;
+        em {
+            color: #0068b7;
+        }
+    }
+    .comment-bottom {
+        @include clearfix;
+        line-height: rem(60);
+        margin-bottom: rem(14);
+        position: relative;
+        time {
+            float: left;
+            color: #999;
+            margin-top: rem(24);
+        }
+        .delete-btn,
+        .praise-btn,
+        .reply-btn {
+            float: left;
+            color: $font-999;
+            font-size: rem(24);
+            span {
+                float: left;
+                line-height: rem(60);
+                font-size: rem(28);
+                padding: 0 rem(10) 0 rem(20);
+                margin-left: -10px;
+            }
+            em {
+                float: left;
+                width: 65px;
+                padding-right: 12px;
+                a {
+                    color: #999;
+                }
+            }
+
+        }
+        .delete-btn,
+        .praise-btn,
+        .reply-btn {
+            &.active {
+                color: $font-666;
+            }
+        }
+        .delete-btn {
+            float: right;
+            em {
+                width: 30px;
+                padding-right: 0;
+            }
+        }
+    }
+}

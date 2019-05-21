@@ -1,0 +1,307 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+@import 'variable';
+@import 'mixins';
+@import 'form';
+@import "chip/menuitem";
+/* Radio
+  ---------------------------------------- */
+.radio {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    color: #666;
+    //line-height: 32px;
+    cursor: default;
+    span {
+        cursor: pointer;
+    }
+    [type="checkbox"],
+    [type="radio"] {
+        position: absolute;
+        bottom: 100%;
+        right: 100%;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        // 选中
+        &:checked~.radio-icon {
+            &::before {
+                background-color: #333;
+            }
+        }
+        &:checked~span {
+            color: #333;
+        }
+        // 不可用
+        &[disabled] {
+            ~.checkbox-icon,
+            ~.radio-icon {
+                border-color: #ddd;
+                cursor: default;
+                &,
+                &::before {
+                    background-color: #f5f5f5;
+                }
+            }
+            ~span {
+                cursor: default;
+            }
+        }
+    }
+    .checkbox-icon,
+    .radio-icon {
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    // 单选框
+    .radio-icon {
+        padding: 3px;
+        &,
+        &::before {
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        &::before {
+            display: block;
+            content: "";
+            width: 7px;
+            height: 7px;
+            background-color: #fff;
+        }
+    }
+    // 复选框
+    .checkbox-icon {
+        transition: 0.3s;
+    }
+    [type="checkbox"]:checked~.checkbox-icon {
+        background-color: #333;
+        border-color: #333;
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 11px;
+            display: block;
+            transform: rotate(45deg) translate(-1px, 1px);
+            transform-origin: right bottom;
+            border: 2px solid #fff;
+            border-width: 0 2px 2px 0;
+            content: "";
+        }
+    }
+}
+
+/* index
+ ---------------------------------------- */
+ .tip{
+ 	color:#666;
+ 	padding:rem(20) rem(40);
+ }
+ .form-accredit {
+ 	.from-core {
+ 		background:#fff;
+ 		padding:0 rem(40);
+ 		.input-item{			
+ 			padding:rem(20) 0;
+ 			border-bottom:1px solid #e6e6e6;
+ 			&:last-child{
+ 				border:none;
+ 			}
+ 		}
+		span{
+			display:inline-block;
+			width:rem(120);
+		}
+		input{
+			display:inline-block;
+			width:rem(430);
+		}
+ 	}
+ 	.deal{
+	 	padding:rem(46) rem(40);
+	 	a{
+	 		color:#42b0f8;
+	 	}
+	}
+	.form-action{
+		margin:rem(60) rem(40);
+	}
+ }
+
+ /* succsee
+ ---------------------------------------- */
+ @keyframes mymove
+{
+from {background-position:0 -70px;}
+to {background-position:1000px -70px;}
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+from {background-position:0 -70px;}
+to {background-position:1000px -70px;}
+}
+@keyframes myopacity
+{
+from {opacity:.1;}
+to {opacity:.6;}
+}
+
+@-webkit-keyframes myopacity /*Safari and Chrome*/
+{
+from {opacity:.1;}
+to {opacity:.6;}
+}
+ .menu-list {
+    @include padding-h(20px);
+    background-color: #fff;
+}
+.banner{
+	position:relative;
+	.circle{
+		width:rem(280);
+		height:rem(280);
+		background-image:url('/assets/public/sesameCredit/images/circle.png');
+		background-size:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		margin:auto;
+		overflow:hidden;
+		p {
+			text-align:center;
+			margin-top:rem(80);
+			font-size:16px;
+			color:#fff;
+			span{
+				font-size:29px;
+			}
+		}
+		.star1{
+			width:rem(20);
+			height:rem(20);
+			background:#fff;
+			position:absolute;
+			top:rem(100);
+			left:rem(220);
+			border-radius:50%;
+			animation:myopacity 5s ease infinite alternate;
+			-webkit-animation:myopacity 5s ease infinite alternate; /*Safari and Chrome*/
+		}
+		.star2{
+			width:rem(15);
+			height:rem(15);
+			background:#fff;
+			position:absolute;
+			top:rem(50);
+			left:rem(190);
+			border-radius:50%;
+			animation:myopacity 3s linear infinite alternate;
+			-webkit-animation:myopacity 3s linear infinite alternate; /*Safari and Chrome*/
+		}
+		.star3{
+			width:rem(14);
+			height:rem(14);
+			background:#fff;
+			position:absolute;
+			top:rem(60);
+			left:rem(90);
+			border-radius:50%;
+			animation:myopacity 2s ease infinite alternate;
+			-webkit-animation:myopacity 2s ease infinite alternate; /*Safari and Chrome*/
+		}
+		.star4{
+			width:rem(10);
+			height:rem(10);
+			background:#fff;
+			position:absolute;
+			top:rem(70);
+			left:rem(60);
+			border-radius:50%;
+			animation:myopacity 2s ease infinite alternate;
+			-webkit-animation:myopacity 2s ease infinite alternate; /*Safari and Chrome*/
+		}
+		.star5{
+			width:rem(10);
+			height:rem(10);
+			background:#fff;
+			position:absolute;
+			top:rem(30);
+			left:rem(140);
+			border-radius:50%;
+			animation:myopacity 3s linear infinite alternate;
+			-webkit-animation:myopacity 3s linear infinite alternate; /*Safari and Chrome*/
+		}
+		.star6{
+			width:rem(15);
+			height:rem(15);
+			background:#fff;
+			position:absolute;
+			top:rem(130);
+			left:rem(40);
+			border-radius:50%;
+			animation:myopacity 5s linear infinite alternate;
+			-webkit-animation:myopacity 5s linear infinite alternate; /*Safari and Chrome*/
+		}
+		.star7{
+			width:rem(10);
+			height:rem(10);
+			background:#fff;
+			position:absolute;
+			top:rem(125);
+			left:rem(120);
+			border-radius:50%;
+			animation:myopacity 4s linear infinite alternate;
+			-webkit-animation:myopacity 4s linear infinite alternate; /*Safari and Chrome*/
+		}
+	}
+	.water1{
+		width:rem(280);
+		height:rem(280);
+		background-image:url('/assets/public/sesameCredit/images/shuibo1.png');
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		margin:auto;
+		border-radius:50%;
+		background-repeat:repeat-x;
+		animation:mymove 45s linear infinite;
+		-webkit-animation:mymove 45s linear infinite; /*Safari and Chrome*/
+		
+	}
+	.water2{
+		width:rem(280);
+		height:rem(280);
+		background-image:url('/assets/public/sesameCredit/images/shuibo2.png');
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		margin:auto;
+		border-radius:50%;
+		background-repeat:repeat-x;
+		animation:mymove 35s linear infinite;
+		-webkit-animation:mymove 35s linear infinite; /*Safari and Chrome*/
+	}
+}

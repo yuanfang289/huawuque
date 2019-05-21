@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  &.gray-bg {
+    background-color: $body-gray-background;
+  }
+  background-color: $body-def-background;
+  color: $font-def;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: $link-def;
+  text-decoration: none;
+
+  @if ($link-def-hover != null) {
+    &:hover {
+      color: $link-def-hover;
+    }
+  }
+}
+
+.disabled:hover, .disabled:hover a,
+[disabled]:hover, [disabled]:hover a {
+  @include not-allowed;
+}

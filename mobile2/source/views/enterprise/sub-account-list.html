@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>子账户</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/enterprise/styles/sub-account-list.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <!-- 列表 sub-account-list -->
+        <section class="sub-account-list" data-scroll="pullUp" data-options="
+              url: 'data/list.json',
+              data: {
+                  //couponStatus: UR.getBrowserParam().couponStatus
+              },
+              template: 'tlpList',
+              isFirstLoad: true,
+              formatted: function(res) {
+                  var list = res.data.result || [];
+                  list.map(function(item) {
+                    item.bgImgUrl = '/public/enterprise/images/bg' + (Math.random() > .5 ? 1: 2) + '.png';
+                  });
+                  return list;
+              }
+              ">
+
+        </section>
+        <!--/ 列表 sub-account-list -->
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <div class="piclist-item">
+        <div class="piclist-image-box">
+            <a class="piclist-image lazy" href="./sub-account-detail.html"
+               data-src="{{d.bgImgUrl}}">
+                <div class="center-text">
+                    <p class="text-title">方圆大厦长租帐户</p>
+                    <p class="text-desc"><span>帐户余额: 258.00元</span></p>
+                </div>
+                <i class="uricon-arrow-right ricon"></i>
+            </a>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/enterprise/scripts/sub-account-list.js"></script>
+</body>
+
+</html>

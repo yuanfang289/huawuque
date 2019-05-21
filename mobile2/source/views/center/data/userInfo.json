@@ -1,0 +1,79 @@
+{
+    "retCode": 0,
+    "retMsg": "用户信息",
+    "data": {
+        "id": 1461,
+        "username": "13811574217",
+        "realname": "刘波",
+        "nickname": "大忽悠",
+        "email": "liubo@urwork.cn",
+        "mobile": "13811574217",
+        "type": 1,
+        "headImage": "01a2e314-8658-4dc4-97d9-44e5cea2af26.jpg",
+        "sex": 1,
+        "enterType": 3,
+        "creator": "boss",
+        "constellation": 12,
+        "backgroundImg": "a577a887-3df0-407d-ac7f-e8061035409c.jpg",
+        "complete": 1,
+        "manager": "sns",
+        "merchantStatus": 0,
+        "skillTags": [
+            {
+                "id": 18,
+                "tagName": "网站开发"
+            },
+            {
+                "id": 19,
+                "tagName": "后台开发"
+            }
+        ],
+        "interestTags": [
+            {
+                "id": 48,
+                "tagName": "游泳"
+            },
+            {
+                "id": 50,
+                "tagName": "骑行"
+            },
+            {
+                "id": 58,
+                "tagName": "足球"
+            }
+        ],
+        "workstageIds": [
+            "10033",
+            "10043"
+        ],
+        "workstageNames": [
+            "北京市·海龙大厦·优客工场",
+            "北京市·阳光100·优客工场"
+        ],
+        "corpDuties": [
+            "优客工场"
+        ],
+        "headImageUrl": "https://image.urwork.cn/01a2e314-8658-4dc4-97d9-44e5cea2af26.jpg",
+        "followCnt": 2,
+        "pinyinRealname": "liubo",
+        "token": "CNZlUh7lpIqO75csVGgdSjnnn3qc9h0miY3P9vWOFEXB0HZlfFNAVf2qtZ1dU8TOhP4XU0YbYvv4NRTcUrvJKg==",
+        "backgroundImgUrl": "https://image.urwork.cn/a577a887-3df0-407d-ac7f-e8061035409c.jpg",
+        "ireporter": true,
+        "ireporterUrl": "https://enterprise.ireport365.com/view/report.do?reportId=d16e126cdcdc4c17904988b28f0c0948",
+        "groupIdentity": 1,
+        "groupIds": [
+            "1002",
+            "1011",
+            "1055"
+        ],
+        "strConstellation": "双鱼座",
+        "strEnterType": "已入驻",
+        "strRegisterLocal": "",
+        "strStatus": "",
+        "strSex": "男",
+        "strIdCardType": "其他类型",
+        "memberName": "入驻会员",
+        "member": false
+    }
+}
+

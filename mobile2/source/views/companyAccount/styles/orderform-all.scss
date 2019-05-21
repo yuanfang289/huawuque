@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+.list-time{
+    padding: 0 rem(42);
+    p{
+        line-height: rem(60);
+    }
+}
+.bill-list{
+    background: #fff;
+    li{
+        padding:0 rem(42);
+        &:last-child a{
+            border-bottom: none;
+        }
+        a{
+            display: block;
+            padding: rem(40) 0;
+            border-bottom: 1px solid #e6e6e6;
+            @include clearfix;
+        }
+        .list-info{
+            float: left;
+            span{
+                color: #b6b6b6;
+            }
+        }
+        .list-tip{
+            float: right;
+            .go-pay{
+                color: #ff7824;
+                border: 1px solid #ff7824;
+                width: rem(108);
+                height: rem(46);
+                border-radius: 4px;
+                margin-top: rem(18);
+            }
+            p{
+                line-height: rem(84);
+            }
+        }
+    }
+    .all-list{
+        background-image: url("/assets/public/companyAccount/images/listbg.png");
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: rem(120) rem(110);
+    }
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>活动详情页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/simditor/styles/simditor.css">
+    <link rel="stylesheet" href="/assets/public/activity/activity.css">
+</head>
+
+<body class="gray-bg hd-detail">
+    <input type="hidden" name="appSource" value="" />
+    <!-- shade -->
+    <!-- style="display:none" -->
+    <section class="shade" style="display:none"></section>
+    <!-- wrapper -->
+    <div class="wrapper ">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <!-- content -->
+            <div id="content">
+                <!-- activity-hedaer -->
+                <section class="activity-header">
+                    <div class="img-wrap">
+                        <span style="background-image:url('https://image.urwork.cn/d7acfdc3-1aa3-4488-a3c6-7d79df7407b4.png')"></span>
+                    </div>
+                    <!-- activity-info -->
+                    <div class="activity-info">
+                        <div class="activity-info-inner">
+                            <h1>唯创业与美酒不可辜负-优客工场北京CEO之夜</h1>
+                            <div class="info-item-box">
+                                <ul>
+                                    <li> <i class="uricon-time"></i>
+                                        <p>2016.11.25 18:30 —2016.11.25 22:00</p>
+                                    </li>
+                                    <li> <i class="uricon-locationB"></i>
+                                        <p class="lh-24"> 北京阿里云＋优客工场 北京阿里云＋优客工场  北京阿里云＋优客工场  北京阿里云＋优客工场  北京阿里云＋优客工场  </p>
+                                    </li>
+                                    <li> <i class="uricon-coupon"></i>
+                                        <p class="lh-24"> 199.00元 | 99.00元 </p>
+                                    </li>
+                                    <li> <i class="uricon-people"></i>
+                                        <p> 剩余名额 53 </p>
+                                    </li>
+                                    <li> <i class="uricon-fabu"></i>
+                                        <p>阿里云+优客工场 发布</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /activity-info -->
+                </section>
+                <!-- / activity-hedaer -->
+                <section class="activity-joiner">
+                    <a href="/activity/getActivityMember?id=571"> <em>97 人报名</em>
+                        <ul>
+                            <li><img src="/assets/public/activity/images/no-head.png" alt="" /></li>
+                            <li><img src="https://image.urwork.cn/781e8100-89fa-4fb0-bac3-4665c66de997.jpg" alt="" /></li>
+                            <li><img src="https://image.urwork.cn/37c8497e-d4ff-4893-a2a1-fb7c8134298b.jpg" alt="" /></li>
+                            <li><img src="/assets/public/activity/images/no-head.png" alt="" /></li>
+                            <li><img src="/assets/public/activity/images/no-head.png" alt="" /></li>
+                            <li><img src="/assets/public/activity/images/activity-more.png" alt="" /></li>
+                        </ul>
+                    </a>
+                </section>
+                <!-- activity-details -->
+                <section class="activity-details">
+                    <div class="second-title">
+                        <h2>活动详情</h2>
+                    </div>
+                    <div class="detail-box">
+                        <article class="editor-style">
+                            <p style="text-align: center;"><span style="font-size: 12pt;"><b>▶吃喝玩乐趴◀</b></span></p>
+                            <p style="text-align: center;"><b><span style="font-size: 12pt;">大虾来了</span></b></p>
+                            <p style="text-align: center;"><b><span style="font-size: 12pt;"><img alt="f3919d53-9d0b-4e59-ad46-1ea29e8cfbc5.png" src="https://image.urwork.cn/b125d5d2-f28e-47fe-8bf7-00d04fd6f7d8.png" width="400" height="210.52631578947367"><br></span></b></p>
+                            <p style="text-align: center;"><span style="font-size: 12pt;">活动简介：</span><span style="font-size: 12pt;">大虾来了给力的试吃活动，志为大快朵颐</span></p>
+                        </article>
+                    </div>
+                </section>
+                <!-- /activity-details -->
+                <!-- activity-vote -->
+                <section class="activity-vote">
+                    <div class="vote-title">
+                        <h2>活动投票</h2>
+                    </div>
+                    <div class="vote-box">
+                        <div class="vote-list">
+                            <dl class="vote-item" data-id="q1">
+                                <dt>1 平时喜欢参加什么类型的活动？（单选）</dt>
+                                <dd><label><input type="radio" name="radio1" value="教育学习">教育学习</label></dd>
+                                <dd><label><input type="radio" name="radio1" value="兴趣爱好">兴趣爱好</label></dd>
+                                <dd><label><input type="radio" name="radio1" value="生僻诡异">生僻诡异</label></dd>
+                                <dd><label><input type="radio" name="radio1" value="读书提高">读书提高</label></dd>
+                            </dl>
+                            <dl class="vote-item" data-id="q2">
+                                <dt>2 平时喜欢参加什么类型的活动？（多选）</dt>
+                                <dd><label><input type="checkbox" name="ck1" value="教育学习">教育学习</label></dd>
+                                <dd><label><input type="checkbox" name="ck1" value="兴趣爱好">兴趣爱好</label></dd>
+                                <dd><label><input type="checkbox" name="ck1" value="生僻诡异">生僻诡异</label></dd>
+                                <dd><label><input type="checkbox" name="ck1" value="读书提高">读书提高</label></dd>
+                            </dl>
+                        </div>
+                        <div class="vote-action">
+                            <button type="button" class="btn btn-primary">投票</button>
+                            <!--<button type="button" class="btn btn-primary" disabled>投票未开始</button>-->
+                        </div>
+                    </div>
+                </section>
+                <section class="activity-vote activity-vote-result">
+                    <div class="vote-title">
+                        <h2>投票结果</h2>
+                    </div>
+                    <div class="vote-box">
+                        <div class="vote-list">
+                            <dl class="vote-item">
+                                <dt>1 平时喜欢参加什么类型的活动？（单选）</dt>
+                                <dd>
+                                    <p>教育学习</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 0%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>0票</span>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <p>兴趣爱好</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 84%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>98800票</span>
+                                            <span>84%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <p>生僻诡异</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 0%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>0票</span>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <p>读书提高</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 0%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>0票</span>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="vote-item">
+                                <dt>2 平时喜欢参加什么类型的活动？（多选）</dt>
+                                <dd>
+                                    <p>教育学习</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 0%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>0票</span>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <p>兴趣爱好</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 84%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>98800票</span>
+                                            <span>84%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <p>生僻诡异</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 0%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>0票</span>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <p>读书提高</p>
+                                    <div class="vote-result">
+                                        <div class="vote-bar">
+                                            <div class="vote-bar-inner" style="width: 0%;"></div>
+                                        </div>
+                                        <div class="vote-text">
+                                            <span>0票</span>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="vote-action">
+                            <!--<button type="button" class="btn btn-primary" disabled>已投票</button>-->
+                            <button type="button" class="btn btn-primary" disabled>投票已结束</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- ／activity-vote -->
+                <!-- comment-details -->
+                <section class="comment-details" data-url="https://image.urwork.cn">
+                    <div class="second-title second-title-line">
+                        <h2>活动评论(<span id="totalComments">2</span>)</h2>
+                        <a href="javascript:;" id="clickCommentBtn" activityid="571" class="btn rbtn">评论</a>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-inner tab-content-inner" id="tab2">
+                            <input type="hidden" name="cActivityId" value="571" />
+                            <input type="hidden" name="cUserId" value="" />
+                            <div class="comment-list" id="comment-list1">
+                                <div class="comment-item">
+                                    <div class="item-left">
+                                        <div class="headImg">
+                                            <img src="https://image.urwork.cn/6c3970ad-1d97-4f04-81bd-0d90e9531e21.jpg?imageView2/1/w/70/h/70" alt="" width="100%" height="100%" />
+                                        </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="comment-user">
+                                            <span class="lonely"> Lxpiue </span>
+                                            <time>16.11.21 13:58</time>
+                                        </div>
+                                        <p class="comment-txt">好棒的活动，我也想参加，可惜不是CEO........T^T</p>
+                                        <div class="comment-bottom">
+                                            <div class="praise-btn" data-flag="0" commentid="1310" currentuserid="" activityid="571">
+                                                <span class="uricon-zan"> </span>
+                                                <em>赞 0 </em>
+                                            </div>
+                                            <div class="reply-btn"><span class="uricon-ly"></span><em>回复</em></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment-item">
+                                    <div class="item-left">
+                                        <div class="headImg">
+                                            <img src="https://image.urwork.cn/6c3970ad-1d97-4f04-81bd-0d90e9531e21.jpg?imageView2/1/w/70/h/70" alt="" width="100%" height="100%" />
+                                        </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="comment-user">
+                                            <span class="lonely"> 我不是妲己 </span>
+                                            <time>16.11.21 13:58</time>
+                                        </div>
+                                        <p class="comment-txt">回复<em> 赵宇 </em>: 好棒的活动</p>
+                                        <div class="comment-bottom">
+                                            <div class="praise-btn active" data-flag="0" commentid="1310" currentuserid="" activityid="571">
+                                                <span class="uricon-zan2"> </span>
+                                                <em>赞 1 </em>
+                                            </div>
+                                            <div class="reply-btn"><span class="uricon-ly"></span><em>回复</em></div>
+                                            <div class="delete-btn"><span class="uricon-delete2"></span><em>删除</em></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="focus-more" id="more">
+                        <a href="/activity/getActivityCommentList?activityId=571">点击查看更多 <i class="uricon-arrow-right"></i></a>
+                    </div>
+                </section>
+            </div>
+            <!-- / content -->
+        </main>
+        <!-- / main -->
+    </div>
+    <!--/ wrapper -->
+    <input type="hidden" value="buy" id="canSignupId" />
+    <div class="fixed-item">
+        <!-- <p>&yen;0.0<em>起</em></p> -->
+        <!-- <a href="javascript:;" id="buyTicket" activityid="571" class="btn btn-primary fixed-btn">去购买</a> -->
+        <!-- <a href="javascript:;" id="buyTicket" activityid="571" class="btn btn-primary fixed-btn btn-gray">报名结束</a> -->
+        <a href="javascript:;" id="buyTicket" activityid="571" class="btn btn-primary fixed-btn btn-orange">已报名</a>
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+    <script src="/assets/public/activity/activity.js"></script>
+
+    <script>
+
+        $(function () {
+            var voteAnswerJson = {},
+                userId         = '${userId}',
+                activityId     = '${activityId}';
+
+            $(document)
+                .off('change', '.activity-vote input')
+                .on ('change', '.activity-vote input', function (evt) {
+                    evt.preventDefault();
+
+                    var $this = $(this),
+                        $item = $this.closest('.vote-item');
+
+                    var questionId = $item.attr('data-id'),
+                        selectId   = $.trim($this.val());
+
+                    var node = {
+                        // 返回
+                        "questionId": questionId,
+                        "activityId": activityId,
+                        "userId": userId,
+
+                        "status": 1,
+                        "type": $this.attr('type') == 'radio' ? 3: 4, // 单选3，多选4
+                        "category": 2, // 写死
+                        "title": $.trim($item.find('dt').text()),
+
+                        "selectId": selectId,
+                        "answer": $this.parent().text(),
+                    };
+
+                    if (node.type == 3) {
+                        voteAnswerJson[questionId] = node;
+                    }
+
+                    if (node.type == 4) {
+                        var key = questionId + selectId;
+                        if ($this.is(':checked')) {
+                            voteAnswerJson[key] = node;
+                        } else {
+                            delete voteAnswerJson[key];
+                        }
+                    }
+
+                    console.log(voteAnswerJson)
+                })
+                .off(UR.click, '.vote-action .btn')
+                .on (UR.click, '.vote-action .btn', function (evt) {
+                    evt.preventDefault();
+
+                    var $this = $(this);
+                    if ($this.prop('disabled') || $this.hasClass('disabled')) return false;
+
+                    var _voteAnswerJson = [];
+                    for(var key in voteAnswerJson) {
+                        _voteAnswerJson.push(voteAnswerJson[key]);
+                    }
+
+                    $.ajaxPost({
+                        url: '/activity/addVoteInfo',
+                        data: {
+                            voteAnswerJson: JSON.stringify(_voteAnswerJson)
+                        },
+                        submit: this,
+                        success: function (res) {
+                            console.log(res);
+                        }
+                    })
+                });
+        })
+    </script>
+</body>
+
+</html>

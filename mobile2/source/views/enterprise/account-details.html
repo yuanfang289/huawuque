@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>账户明细</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/enterprise/styles/account-details.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+
+        <!-- 列表 account-list -->
+        <div class="layout-item">
+            <ul class="account-list" data-scroll="pullUp" data-options="
+                url: './data/account-list.json',
+                data: {
+                },
+                template: 'tlpList',
+                isFirstLoad: true,
+                formatted: function(res) {
+                    res = res.data.result || [];
+                    res.map(function(node) {
+                        if(node.month.indexOf(2017) != -1){
+                            node.month = node.month.slice(5);
+                        }
+                        node.list.map(function(node2) {
+                            node2._date = $.dateFormat(node2.transactionDate, 'MM-dd');
+                            node2._time = $.dateFormat(node2.transactionDate, 'hh:mm');
+
+                            node2._transactionMode = {1:'人民币',2:'代金券',3:'虚拟币',4:'免费时长'}[node2.transactionMode];
+                            node2._ioType = {1:'+ ',2:'- '}[node2.ioType];
+
+                            if (node2.transactionMode - 2 <= 0) {
+                                node2._number = '¥' + node2.transactionMoney;
+                            }
+
+                            if (node2.transactionMode == 3) {
+                                node2._number = '¥' + node2.transactionMoney + '个';
+                            }
+
+                            if (node2.transactionMode == 4) {
+                                node2._number = node2.transactionMoney + 'h';
+                            }
+
+                            node2._number = node2._ioType + '' + node2._number;
+                        })
+                    });
+                    return res;
+                }
+            ">
+            </ul>
+        </div>
+        <!--/ 列表 account-list -->
+
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+<script type="text/html" id="tlpList">
+    {{if list.length == 0}}
+    <div class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+    </div>
+    {{else}}
+    {{each list as d i}}
+    <li class="account-title">{{d.month}}</li>
+    {{each d.list as d2}}
+    <li>
+        <a href="#">
+            <div class="account-item">
+                <div class="desc-wrap">
+                    <p class="desc-price">{{d2._number}}</p>
+                    <!-- <p class="desc-type">{{d2._transactionMode}} </p> -->
+                </div>
+                <div class="info-wrap">
+                    <div class="time-wrap">
+                        <p>{{d2._date}}</p>
+                        <p>{{d2._time}}</p>
+                    </div>
+                    <div class="user-info-wrap">
+                        <div class="img-wrap">
+                            <img class="image"
+                                 src="{{d2.headImage}}">
+                        </div>
+                        <p>{{d2.transactionName}}</p>
+                    </div>
+                </div>
+                <div class="text-wrap">
+                    <h6 class="text-title">{{d2.businessTypeName}}</h6>
+                    <p class="text-detail">{{d2.des}}</p>
+                </div>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+    {{/each}}
+    {{/if}}
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/enterprise/scripts/account-details.js"></script>
+</body>
+
+</html>

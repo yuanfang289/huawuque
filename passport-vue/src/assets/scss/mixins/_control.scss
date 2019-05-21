@@ -1,0 +1,271 @@
+@charset "UTF-8";
+// control mixin
+
+/* Button
+ ---------------------------------------- */
+// button base
+@mixin btn-base(
+    $height,             // 按钮高度
+    $font-size,          // 字号
+    $border-width: 0,    // 按钮边框宽度
+    $other-tag: false    // 是否其他 html 标签，如: a, span 等
+    ) {
+    overflow: hidden;
+    height: $height;
+    user-select: none;
+
+    // 如果边框宽度大于 0，则添加该属性
+    @if ( $border-width > 0 ) {
+        border-width: $border-width;
+        border-style: solid;
+    }
+    font-size: $font-size;
+    // 行高等于，高度 - 边框宽度
+    line-height: $height - $border-width * 2;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.8s, border-color 0.8s, color 0.8s;
+
+    &, &:hover {
+        text-decoration: none;
+    }
+    @if ( $other-tag == true ) {
+        // &:not(button),
+        // &:not(input) {
+            /* 以下样式针对非 input、button 的其他标签 */
+            // display: inline-block;
+
+            // 行高等于，高度 - 边框宽度
+            // line-height: $height - $border-width * 2;
+            // text-align: center;
+            // text-decoration: none;
+            // white-space: nowrap;
+        // }
+    }
+}
+// 按钮禁用样式
+@mixin btn-disabled(
+    $background-color,    // 背景色
+    $border-color,        // 边框颜色
+    $color                // 字体颜色
+    ) {
+    &[disabled] {
+        &,
+        &:active,
+        &:focus,
+        &:hover {
+            background: $background-color !important;
+            border-color: $border-color !important;
+            color: $color !important;
+            transition: none;
+            cursor: default !important;
+            // cursor: not-allowed !important;
+        }
+    }
+}
+// button style
+// 定义背景色，边框色，文本色，圆角
+@mixin btn-style(
+    $btn-type,          // 按钮类型 [color | gradient | image]
+    $background,        // 按钮背景
+    $border-color,      // 边框颜色
+    $color,             // 字体颜色
+    $hover-bg,          // hover 背景
+    $hover-brc,         // hover 边框色
+    $hover-color,       // hover 字体颜色
+    $active-bg,         // acitve 背景
+    $active-brc,        // acitve 边框色
+    $active-color,      // acitve 字体颜色
+    $radius: 0          // 圆角
+    ) {
+    // color
+    @if ( $btn-type == color) {
+        background: $background;
+        border-color: $border-color;
+        @if ( $radius > 0 ) {
+            border-radius: $radius;
+        }
+        color: $color;
+        // &:hover {
+        //     background: $hover-bg;
+        //     border-color: $hover-brc;
+        //     color: $hover-color;
+        // }
+        &:active {
+            background: $active-bg;
+            border-color: $active-brc;
+            color: $active-color;
+        }
+    }
+    // gradient
+    @if ( $btn-type == gradient ) {
+        background: $background;
+        border-color: $border-color;
+        color: $color;
+        // &:hover {
+        //     background: $hover-bg;
+        //     border-color: $hover-brc;
+        //     color: $hover-color;
+        // }
+        &:active {
+            background: $active-bg;
+            border-color: $active-brc;
+            color: $active-color;
+        }
+    }
+    // image
+    @if ( $btn-type == image ) {
+        background: $background repeat-x 0 0;
+        border-color: $border-color;
+        color: $color;
+        // &:hover {
+        //     background-position: $hover-bg;
+        //     border-color: $hover-brc;
+        //     color: $hover-color;
+        // }
+        &:active {
+            background-position: $active-bg;
+            border-color: $active-brc;
+            color: $active-color;
+        }
+    }
+}
+// button width
+@mixin btn-width( $width ) {
+    width: $width !important;
+}
+@mixin make-btn-width(
+    $class-name,    // 类名，如: width-medium
+    $width          // 按钮宽度
+    ) {
+    @if ($width != null){
+        &.#{$class-name} {
+            @include btn-width( $width );
+        }
+    }
+}
+// button height
+@mixin btn-height(
+    $height,                // 按钮高度
+    $border-width,          // 边框宽度
+    $other-tag: false       // 是否其他 html 标签，如: a, span 等
+    ) {
+    height: $height !important;
+    line-height: $height - $border-width * 2 !important;
+    @if ( $other-tag == true ) {
+        // &:not(button),
+        // &:not(input) {
+            /* 以下样式针对非 input、button 的其他标签 */
+            // 行高等于，高度 - 边框宽度
+            // line-height: $height - $border-width * 2 !important;
+        // }
+    }
+}
+@mixin make-btn-height(
+    $class-name,           // 类名，如: height-medium
+    $height,               // 按钮高度
+    $border-width,         // 边框宽度
+    $padding,              // 按钮左右 padding 值
+    $font-size,            // 字号
+    $other-tag: false      // 是否其他 html 标签，如: a, span 等
+    ) {
+     @if ($height != null){
+        &.#{$class-name} {
+            @include btn-height( $height, $border-width, $other-tag );
+            @if ($padding != null) {
+                 @include padding-h($padding);
+            }
+            @if ( $font-size != null ) {
+                font-size: $font-size;
+            }
+        }
+    }
+}
+/* Text
+ ---------------------------------------- */
+@mixin txt-style(
+    $border-color,            // 边框颜色
+    $hover-border-color,      // hover 边框颜色
+    $focus-border-color       // focus 边框颜色
+    ) {
+    border-color: $border-color;
+    // transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    // &:hover {
+    //     border-color: $hover-border-color;
+    //     box-shadow: 0 0 5px lighten($hover-border-color, 20%);
+    // }
+    // &:focus {
+    //     border-color: $focus-border-color !important;
+    //     box-shadow: 0 0 5px lighten($focus-border-color, 10%) !important;
+    // }
+}
+// Text size
+@mixin txt-size(
+    $height,                  // 高度
+    $font-size,               // 字号
+    $line-height,             // 行高
+    $border-width: 1px        // 边框宽度
+    ) {
+    $line-h: ($height - $line-height) / 2 - $border-width;
+    padding: $line-h;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+// Text height
+@mixin txt-height(
+    $height,                  // 高度
+    $line-height,             // 行高
+    $border-width: 1px        // 边框宽度
+    ) {
+    $line-h: ($height - $line-height) / 2 - $border-width;
+    padding: $line-h;
+    line-height: $line-height;
+}
+@mixin make-txt-height(
+    $class-name,              // 类名
+    $height,                  // 高度
+    $line-height,             // 行高
+    $border-width: 1px        // 边框宽度
+    ) {
+     @if ( $height != null ){
+        &.#{$class-name} {
+            @include txt-height( $height, $line-height, $border-width );
+        }
+    }
+}
+// urcontrol text height
+@mixin make-urtxt-height(
+    $class-name,              // 类名
+    $height,                  // 高度
+    $line-height,             // 行高
+    $border-width: 1px        // 边框宽度
+    ) {
+     @if ( $height != null ){
+         &.#{$class-name} {
+             .control-attr {
+                 line-height: $height;
+             }
+             .text-input {
+                 @include txt-height(
+                     $height,
+                     $line-height,
+                     $border-width
+                 )
+             }
+         }
+     }
+}
+// Text width
+@mixin txt-width ($width) {
+    width: $width;
+}
+@mixin make-txt-width(
+    $class-name,            // 类名
+    $width                  // 宽度
+    ) {
+     @if ( $width != null ){
+        &.#{$class-name} {
+            @include txt-width($width);
+        }
+    }
+}

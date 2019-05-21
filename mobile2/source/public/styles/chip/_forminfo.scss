@@ -1,0 +1,96 @@
+.form-info {
+    font-size: rem(28);
+    color: $font-def;
+
+    .form-info-header {
+        padding: 15px 20px 10px;
+        color: $font-666;
+    }
+
+    .form-info-title {}
+
+    .form-info-body {}
+
+    .form-info-group {
+        padding: 0 20px;
+        margin-bottom: rem(16);
+        background-color: #fff;
+    }
+
+    .form-info-item {
+        @include clearfix;
+        height: rem(110);
+        line-height: rem(110);
+        padding-left: rem(160);
+        border-bottom: 1px solid #e5e5e5;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        label {
+            float: left;
+            text-align: left;
+            cursor: default;
+            width: rem(160);
+            margin-left: rem(-160);
+            color: $font-666;
+
+            em {
+                margin: 0 rem(10);
+            }
+        }
+
+        &.noarrow {
+            .txt {
+                padding-right: 0;
+            }
+        }
+    }
+
+
+
+    .form-info-cont {
+        position: relative;
+        @include clearfix;
+
+        p.txt {
+            @include text-overflow;
+            height: rem(110);
+            line-height: rem(110);
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: 0;
+            text-align: right;
+        }
+
+        .txt {
+            min-width: 100%;
+            // height: rem(110);
+            // line-height: rem(110);
+            padding-top: rem(36);
+            padding-right: rem(40);
+            font-size: rem(28);
+            text-align: left;
+            border: none;
+            box-shadow: none;
+            color: $font-def;
+
+            &:focus {
+                border: none !important;
+                box-shadow: none !important;
+            }
+        }
+
+        .ricon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: rem(40);
+            line-height: rem(110);
+            text-align: right;
+            color: $font-999;
+            font-size: rem(20);
+        }
+    }
+}

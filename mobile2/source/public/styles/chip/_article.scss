@@ -1,0 +1,33 @@
+// 文章页结构样式
+.article-layout {
+    padding: 15px 20px 20px;
+    header {
+        margin-bottom: 15px;
+        text-align: center;
+        p {
+            color: #999;
+            font-size: 12px;
+        }
+        time {
+            margin-right: 12px;
+        }
+    }
+    h1 {
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 22px;
+    }
+    article {
+        padding-bottom: 40px;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    .editor-style {
+        font-size: 16px;
+        p {
+            margin-bottom: 20px!important;
+        }
+    }
+}

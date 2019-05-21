@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/**
+ * arrow mixin
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+/* ArrowVariable
+ ---------------------------------------- */
+
+// 箭头颜色
+$arrow-base-color: #666;
+
+// 箭头尺寸
+$arrow-base-size: 20px;
+
+// 空心箭头
+$arrow-base-border-width: 1px;  // 默认空心箭头边框粗细
+$arrow-base-hollow-bgc: #fff; // 默认空心箭头底色
+
+
+/* ArrowBase
+ ---------------------------------------- */
+
+/* arrow base */
+.arrow {
+    @include arrow();
+
+    // solid
+    @include arrow-type( solid ) {
+        @include arrow-skins( $arrow-base-color );
+        @include arrow-size( $arrow-base-size );
+    };
+
+    // hollow
+    @include arrow-type( hollow ) {
+        @include arrow-skins( $arrow-base-color, $arrow-base-hollow-bgc);
+        @include arrow-size( $arrow-base-size, $arrow-base-border-width );
+    };
+}
+
+// arrow direction
+.arrow[class*="top-"] {
+    @include arrow-dir( top );
+}
+.arrow[class*="right-"] {
+    @include arrow-dir( right );
+}
+.arrow[class*="bottom-"] {
+    @include arrow-dir( bottom );
+}
+.arrow[class*="left-"] {
+    @include arrow-dir( left );
+}

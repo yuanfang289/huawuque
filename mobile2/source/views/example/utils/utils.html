@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>工具函数</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/public/example/utils/utils.css">
+</head>
+
+<body>
+    <div class="container">
+        <hr>
+
+        <h3>ajaxGet and ajaxPost</h3>
+
+        <hr>
+
+        <button type="button" class="btn btn-default" id="get">GET</button>
+        <button type="button" class="btn btn-success" id="post">POST</button>
+
+        <hr>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+
+            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+
+            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+
+            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+        </div>
+
+        <!-- HTML to write -->
+        <a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+
+        <!-- Generated markup by the plugin -->
+        <div class="tooltip top" role="tooltip">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner">
+                Some tooltip text!
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="div1" class="test"></div>
+
+    </div>
+
+    <script src="/assets/public/scripts/base.js" charset="utf-8"></script>
+    <script src="/assets/public/example/utils/utils.js" charset="utf-8"></script>
+    <script src="http://localhost:35729/livereload.js?snipver=1" async defer charset="utf-8"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+.input-clear-wrapper, .input-clear-wrap {
+    position: relative;
+    padding-right: 35px;
+
+    .input-clear, .clear-input-btn {
+        @include position-center-y();
+        right: 0;
+        width: 35px;
+        height: 100%;
+        text-align: right;
+        cursor: pointer;
+
+        i {
+            top: 0;
+            margin: 0 !important;
+            font-size: 18px;
+            color: #ccc;
+        }
+    }
+}
+.input-clear-wrap {
+    height: 100%;
+    .clear-input-btn {
+        text-align: center;
+    }
+}

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'chip/banner';
+@import 'chip/account-item';
+
+.packages-banner {
+    @include fixed-ratio-box(38.6667);
+    margin-bottom: rem(20);
+
+    .packages-banner-inner {
+        @include fixed-ratio-inner();
+        background-color: #303030;
+
+        .packages-banner-text {
+            @include position-center-y();
+            width: 100%;
+
+            display: flex;
+
+            font-size: 12px;
+        }
+
+        .packages-banner-text-item {
+            position: relative;
+            flex: 1;
+            display: block;
+            text-align: center;
+            color: #94784b;
+
+            &::before {
+                content: '';
+                @include position-center-y();
+                right: 0;
+                width: 1px;
+                height: rem(96);
+                background-color: #504637;
+            }
+
+            &:last-child::before {
+                display: none;
+            }
+        }
+
+        bigger {
+            font-size: 30px;
+            color: #bc9658;
+            display: inline-block;
+            margin-bottom: rem(10);
+        }
+        .account-detail{
+            border:1px solid #685940;
+            border-radius: 2px;
+            color: #ae8b54;
+            font-size:12px;
+            text-align: center;
+            width: rem(160);
+            height: rem(50);
+            margin:0 auto;
+        }
+
+    }
+}
+
+
+.layout-item {
+    .layout-item-title {
+        margin-top: -4px;
+        padding-bottom: 8px;
+        h2 {
+            font-size: 16px;
+        }
+
+        aside {
+            line-height: 30px;
+            font-size: 12px;
+
+            a {
+                color: $font-999;
+            }
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+/* Common
+---------------------------------------- */
+.ucompany-item {
+    .actions {
+        .btn {
+            width: auto;
+            @include padding-h(8px);
+            span {
+                transform: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "retCode": 1,
+    "retMsg": "接口请求成功",
+    "data": {
+        "pageSize": 5,
+        "currentPageNo": 1,
+        "totalRecord": 24,
+        "result": [
+            {
+                "id": 10035,
+                "stageName": "北京阿里云＋优客工场 北京阿里云＋优客工场",
+                "rentStationNum": 0,
+                "address": "北京市海淀区四季青路7号院1号楼102东侧",
+                "workstageImage": "https://image.urwork.cn/51ac81ff-02c9-41d1-9e23-31fe57f6ef64.jpg",
+                "averageScore": 4.79,
+                "stageStatus":0,
+                "stagePhone":21345561
+            },
+            {
+                "id": 10065,
+                "stageName": "北大创业·优客工场",
+                "rentStationNum": 0,
+                "address": "北京市海淀区中关村大街1号海龙大厦11层",
+                "workstageImage": "https://image.urwork.cn/ed382fbe-7ae2-41bd-bb68-ba342bb2327e.png",
+                "averageScore": 4.99,
+                "stageStatus":-1,
+                "stagePhone":21345561
+            },
+            {
+                "id": 10067,
+                "stageName": "方圆大厦·优客工场",
+                "rentStationNum": 0,
+                "address": "北京市海淀区中关村南大街甲56号方圆大厦商务楼1-3层",
+                "workstageImage": "https://image.urwork.cn/86282ddc-9f97-41c5-8fd8-350e48ee938d.png",
+                "averageScore": 4.83,
+                "stageStatus":-1
+            },
+            {
+                "id": 10046,
+                "stageName": "首华大厦·优客工场",
+                "rentStationNum": 0,
+                "address": "北京市朝阳区干杨树甲16号首华大厦地下一层",
+                "workstageImage": "https://image.urwork.cn/8117cd76-a170-491e-b0d9-17320596cf06.jpg",
+                "averageScore": 4.98,
+                "stageStatus":0
+            },
+            {
+                "id": 10064,
+                "stageName": "东四共享际·优客工场",
+                "rentStationNum": 0,
+                "address": "京市东城区东四九条88号",
+                "workstageImage": "https://image.urwork.cn/ba53d659-c8f0-4fb1-b4b6-703608ce2efc.jpg",
+                "averageScore": 4.95,
+                "stageStatus":0
+            }
+        ],
+        "prevPageNo": 1,
+        "totalPage": 5,
+        "beginRow": 0,
+        "endRow": 5,
+        "nextPageNo": 2,
+        "lastPageNo": 5
+    }
+}

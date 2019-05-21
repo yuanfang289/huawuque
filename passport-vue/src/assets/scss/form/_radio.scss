@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/**
+ * control radio
+ *
+ * @project       m.urwork.cn
+ * @author        ZhangHaiBin
+ * @copyright
+ */
+
+/* Radio
+  ---------------------------------------- */
+.radio-control {
+    overflow: hidden;
+    color: #666;
+    line-height: 15px;
+    [type="checkbox"],
+    [type="radio"] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 0;
+        padding: 0 !important;
+        margin-top: -12px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            margin-top: 3px;
+            width: 36px;
+            height: 36px;
+            background: url("#{$img-path}/ui/checkicon.png") no-repeat;
+            background-position: 0 0;
+            transform: scale(.5);
+            transform-origin: left top;
+        }
+
+        &:checked:before {
+            background-position: 0 -36px;
+        }
+        // 选中
+        &:checked~[data-role="radio"] {
+            &::before {
+                background-color: $radio-checked-bgcolor;
+            }
+        }
+        &:checked~span {
+            color: #333;
+        }
+        // 不可用
+        &[disabled]~[data-role="checkbox"],
+        &[disabled]~[data-role="radio"] {
+            border-color: #ddd;
+            &,
+            &::before {
+                background-color: #f5f5f5;
+            }
+        }
+    }
+    [data-role="checkbox"],
+    [data-role="radio"] {
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+    }
+    // 单选框
+    [data-role="radio"] {
+        padding: 6px;
+        &,
+        &::before {
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        &::before {
+            display: block;
+            content: "";
+            width: 7px;
+            height: 7px;
+            background-color: #fff;
+        }
+    }
+    // 复选框
+    [data-role="checkbox"] {
+        transition: 0.3s;
+    }
+    [type="checkbox"]:checked~[data-role="checkbox"] {
+        background-color: $radio-checked-bgcolor;
+        border-color: $radio-checked-bgcolor;
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 11px;
+            display: block;
+            transform: rotate(45deg) translate(-1px, 1px);
+            transform-origin: right bottom;
+            border: 2px solid #fff;
+            border-width: 0 2px 2px 0;
+            content: "";
+        }
+    }
+}

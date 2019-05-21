@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/passport/passport.css">
+</head>
+
+<body no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        @import "topbar-def.tpl"
+
+        <!-- main -->
+        <main id="main">
+            <form action="" id="forgetForm" class="form form-second form-passport form-forget">
+                <div class="form-item">
+                    <div class="input-item"><input type="tel" class="input" name="mobile" placeholder="手机号"/></div>
+                </div>
+                <div class="form-item">
+                    <div class="valid-code-item">
+                        <div class="input-item"><input type="text" autocomplete="off" class="input" name="smsCode" placeholder="验证码"/></div>
+                        <button type="button" disabled id="sendBtn" class="btn-code">获取验证码</button>
+                    </div>
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary">下一步</button>
+                    <div class="action-wrap text-center">
+                        <p class="send-text">收不到短信验证码？点击<a href="javascript:;" id="sendSmsVoBtn">获取语音验证码</a></p>
+                        <p class="sending-text" style="display: none">请注意接听电话 , 收听语音验证码...</p>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <!-- /main -->
+
+    </div>
+    <!-- /wrapper -->
+    @import "footer-common.tpl"
+    <script src="/assets/public/passport/scripts/passport.js"></script>
+    <script src="/assets/public/passport/scripts/forget.js"></script>
+</body>
+
+</html>

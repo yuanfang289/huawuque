@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       www.urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+
+/* Layout
+---------------------------------------- */
+
+.language-list {
+    @include padding-v(0);
+    li {
+        position: relative;
+        height: 55px;
+        @include border-top(#e6e6e6);
+        color: #333;
+        font-size: 16px;
+        line-height: 54px;
+        &:first-of-type::before {
+            display: none;
+        }
+    }
+    a {
+        display: block;
+    }
+    [class*="uricon-"] {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        color: #fd6e37;
+        font-size: 12px;
+    }
+}

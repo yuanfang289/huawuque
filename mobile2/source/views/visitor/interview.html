@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预约访问</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <link rel="stylesheet" href="/assets/public/visitor/styles/baseform.css">
+</head>
+<body>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header" class="header-def">
+            <!-- titlebar -->
+            <div id="titlebar">
+                <i class="nav-switch uricon-arrow-left" id="backOrClose"></i>
+                <span class="title">预约访问</span>
+            </div>
+            <!-- / titlebar -->
+        </header>
+        <!-- / header -->
+        <!-- main -->
+        <main id="main">
+            <form class="form form-primary form-def">
+                <div class="form-scroll">
+                        <div class="form-item">
+                            <label class="form-label">姓名</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="name" value="" placeholder="必填" />
+                                <a href="javascript:;" class="readonly-text input-editor" data-target="#editor" data-options="
+                            mode: 'input',
+                            name: 'name',
+                            label: '姓名',
+                            type: 'text',
+                            rules: {
+                                maxlength: 20
+                            },
+                            messages: {
+                                maxlength: '最多20个字'
+                            }
+                        "></a>
+                            </div>
+                        </div>
+
+                        <div class="form-item form-item-telphone">
+                            <label class="form-label">手机号码</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="mobile" value="" placeholder="必填" />
+                                <a href="javascript:;" id="mobile_dummy" class="readonly-text input-editor" data-target="#editor" data-options="
+                            mode: 'input',
+                            name: 'mobile',
+                            label: '手机号码',
+                            type: 'tel',
+                            rules: {
+                                phone: true
+                            },
+                            messages: {
+                                phone: '手机格式不正确'
+                            }
+                        "></a>
+                            </div>
+                        </div>
+
+                        <div class="form-item">
+                            <label class="form-label">访问社区</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" id="workstageId" name="workstageId">
+                                <a href="javascript:;" id="workstageId_dummy" class="readonly-text" data-toggle="modal" data-target="#workstageModal">请选择</a>
+                            </div>
+                        </div>
+
+                        <div class="form-item" role="visitedUserId">
+                            <label class="form-label">访问对象</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="visitedUserId" value="" placeholder="请选择" />
+                                <a href="javascript:;" id="visitedUserId_dummy" class="readonly-text input-editor"data-target="#search" data-options="
+                            mode: 'search',
+                            name: 'visitedUserId',
+                            label: '输入姓名或手机号码',
+                            key: 'key',
+                            template: 'userTpl',
+                            url: './data/companyList.json',
+                            data: function() {
+                                return {
+                                    'workstageId': $('[name=workstageId]').val()
+                                };
+                            },
+                            pageSize: 20,
+                            formatted: function(res) {
+                                var data = res.data || {};
+                                var list = data.result || [];
+                                list.map(function(item) {
+                                    item.corpDuties = (item.corpDuties && item.corpDuties[0]) || '';
+                                });
+
+                                return list;
+                            },
+                            onBefore: function() {
+                                var workstageId = $('[name=workstageId]').val();
+                                if (!workstageId) {
+                                    UR.msg('请选择社区');
+                                    return false;
+                                }
+                            }
+                        "></a>
+                            </div>
+                        </div>
+
+                        <div class="form-item">
+                            <label class="form-label">来访事由</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="reasonId" value=""/>
+                                <input type="text" class="input-text" placeholder="请选择" id="reason" data-target="reasonId">
+                            </div>
+                        </div>
+
+                        <div class="form-item">
+                            <label class="form-label">来访日期</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="visitedDate" value="">
+                                <input type="text" class="input-text" placeholder="请选择" id="visitedDate" data-target="visitedDate">
+                            </div>
+                        </div>
+
+                        <div class="form-item">
+                            <label class="form-label">来访时间</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="visitedTimeId" value="">
+                                <input type="text" class="input-text" placeholder="请选择" id="visitedTime" data-target="visitedTimeId">
+                            </div>
+                        </div>
+
+                        <div class="form-item form-partner">
+                            <label class="form-label">同行人</label>
+                            <div class="form-cont">
+                                <i class="uricon-arrow-right ricon"></i>
+                                <input type="hidden" name="parnterId" value="" placeholder="添加同行人" />
+                                <a href="javascript:;" class="readonly-text input-partner" data-target="#partner" data-options="
+                            mode: 'input',
+                            name: 'name',
+                            label: '姓名',
+                            type: 'text',
+                            rules: {
+                                maxlength: 20
+                            },
+                            messages: {
+                                maxlength: '最多20个字'
+                            }
+                        "></a>
+                            </div>
+                        </div>
+                </div>
+                <div class="form-position">
+                    <div class="form-action">
+                        <button type="button" class="btn btn-primary" id="submit">提交申请</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <!-- / main -->
+    </div>
+    <!-- / wrapper -->
+    <!-- 单行文本编辑器 -->
+    <section class="input-content" id="editor" role="parent">
+        <header class="layer-header">
+            <a href="javascript:;" class="edit-btn" role="close">取消</a>
+            <a href="javascript:;" class="edit-btn input-content-save" role="save">保存</a>
+        </header>
+        <div class="layer-body">
+            <form action class="form form-input-content">
+                <div class="form-item">
+                    <input type="text" class="text" role="textfield">
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- / 单行文本编辑器 -->
+
+    <!-- 添加同行人编辑器 -->
+    <section class="input-content" id="partner" role="parent">
+        <div class="edit-model">
+            <header class="layer-header">
+                <a href="javascript:;" class="edit-btn" id="cancel">取消</a>
+                <span class="title">添加同行人</span>
+                <a href="javascript:;" class="edit-btn input-content-save" id="save">保存</a>
+            </header>
+            <div class="layer-body">
+                <form action class="form form-input-content" id="partnerForm">
+                    <div class="form-item partner-edit">
+                        <div class="edit-info">
+                            <div class="edit-box">
+                                <input type="text" class="text editname" has-clear placeholder="同行人">
+                            </div>
+                            <div class="edit-box">
+                                <div class="national" national>
+                                    +<em>86</em><i class="uricon-arrow-bottom ricon"></i>
+                                    <input type="hidden" name="nationalCode" value="86">
+                                </div>
+                                <input type="tel" class="text editphone" has-clear  placeholder="手机号码">
+                            </div>
+                        </div>
+                        <div class="edit-book">
+                            <div class="book-box">
+                                <i class="uricon-txl"></i>
+                                <p>通讯录</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="add-model">
+            <header class="layer-header">
+                <i class="nav-switch uricon-arrow-left" id="quit"></i>
+                <span class="title">添加同行人</span>
+                <a href="javascript:;" class="edit-btn input-content-save" id="delete">编辑</a>
+            </header>
+            <div class="layer-body">
+                <form action class="form form-input-content partner-box">
+                    <div class="partner-content">
+
+                    </div>
+                </form>
+            </div>
+            <div class="form-position">
+                <div class="form-action">
+                    <button type="button" class="btn btn-primary" id="addPeople">+ 添加同行人</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / 添加同行人编辑器 -->
+
+    <!-- 搜索 -->
+    <section class="input-content" id="search" role="parent">
+        <header class="layer-header">
+            <a href="javascript:;" class="nav-switch" role="close"><i class="uricon-arrow-left"></i></a>
+            <span class="title">查找访问对象</span>
+        </header>
+        <div class="layer-body">
+            <div class="searchbar">
+                <div class="search-inner">
+                    <form action="/search">
+                        <div class="search-input">
+                            <i class="uricon-search search-icon"></i>
+                            <input type="search" placeholder="搜索内容" role="search-input" />
+                            <div class="search-book">
+                                <i class="uricon-txl"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="search-action">
+                        <a href="javascript:;" class="search-btn">搜索</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search-result" role="result">
+                <div role="result-inner">
+                    <ul class="user-list" role="result-data">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / 搜索 -->
+
+    <!-- 社区 -->
+    <div class="modal form-modal" id="workstageModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="scroller" id="workstageList">
+                        <!-- 社区 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default reset">重置</button>
+                    <button type="button" class="btn btn-primary confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ 社区 -->
+
+    <!-- 社区模板 -->
+    <script type="text/html" id="workstageTpl">
+        {{each data as prop i}}
+        <dl>
+            <dt>{{i}}</dt>
+            <dd>
+                <ul data-col="2">
+                    {{each prop as item k}}
+                    <li data-id="{{item.id}}" data-province="{{item.provinceCode}}" data-city="{{item.cityCode}}" data-provinceName="{{item.provinceName}}" data-cityName="{{item.cityName}}" data-workstageName="{{item.stageName}}"><span>{{item.stageName}}</span></li>
+                    {{/each}}
+                </ul>
+            </dd>
+        </dl>
+        {{/each}}
+    </script>
+    <!-- / 社区模板 -->
+
+    <!-- partnerInfoTpl -->
+    <script type="text/html" id="partnerInfoTpl">
+        {{if !info}}
+        <div class="result-tips">
+            <div class="result-tips-inner">
+                <img src="/assets/public/images/search-nodata.png" alt="">
+                <p>暂无同行人</p>
+            </div>
+        </div>
+        {{else}}
+        {{each info as item key}}
+        <a href="javascript:;" class="partner-info" data-id="{{item.id}}">
+            <div class="partner-left">
+                <div class="partner-name">{{item.name}}</div>
+                <div class="partner-phone">+{{item.nationalCode}} {{item.phone}}</div>
+            </div>
+            <div class="partner-right">
+                <i class="uricon-arrow-right ricon"></i>
+            </div>
+            <button class="partner-delete">
+                <p>删除</p>
+            </button>
+        </a>
+        {{/each}}
+        {{/if}}
+    </script>
+    <!-- / partnerInfoTpl -->
+
+    <!-- 用户模板 -->
+    <script type="text/html" id="userTpl">
+        <ul class="user-list" role="result-data">
+            {{if list.length == 0}}
+            <li>
+                <div class="result-tips">
+                    <div class="result-tips-inner">
+                        <p>未找到匹配用户</p>
+                    </div>
+                </div>
+            </li>
+            {{/if}}
+            {{each list as item i}}
+            <li>
+                <a href="javascript:;" role="result-item" data-id="{{item.id}}" data-text="{{item.realname}}" data-code="{{item.nationalCode}}"  data-mobile="{{item.mobile}}">
+                    <dl>
+                        <dt>
+                            <img src="{{item.headImage}}" alt="">
+                        </dt>
+                        <dd>
+                            <h5>{{item.realname}}</h5>
+                            <p>{{item.companyName}}</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <!-- / 用户模板 -->
+
+    <script src="/assets/public/visitor/scripts/interview.js"></script>
+    <script>
+        $(function() {
+            var Partner = {
+                init:function (element){
+                    var that = this;
+                    this.$el             = $('.input-partner');
+                    this.$target         = $(this.$el.data('target'));
+                    this.edit            = this.$target.find('.edit-model');
+                    this.add             = this.$target.find('.add-model');
+                    this.name            = this.edit.find('.editname');
+                    this.phone           = this.edit.find('.editphone');
+                    this.stateCode       = this.edit.find('[name="nationalCode"]');
+                    this.em              = this.edit.find('.national em');
+                    this.oldHash;
+                    this.info = {};
+
+                    //弹窗内设置滚动
+                    var bHeight = $(document).height();
+//                    console.log(bHeight)
+                    $('.partner-box').height(bHeight-45-61-8);
+                    window.partnerScroll = new IScroll('.partner-box', {
+                        probeType: 4,
+                        preventDefault: false,
+                        disablePointer: true,   // 因谷歌升级需加以下两行
+                        disableTouch: false,
+                    });
+                },
+                show:function() {
+                    var that = this;
+                    location.hash = 'inputContent';
+                    this.oldHash = 'inputContent';
+                    window.onhashchange = function(e) {
+                        if (location.hash == '' && that.oldHash == 'inputContent') {
+                            that.quit();
+                        }
+                    };
+                    // 隐藏APP原生navigationBar
+                    UR.nativeShowNavigationBar(false);
+
+                    $('body').addClass('input-layer-show');
+                    this.$target.addClass('is-show');
+                    UR.androidRefresh(false); // 阻止客户端下拉刷新
+
+                    $(document).on('mousemove touchmove', function (e) {
+                        e.preventDefault();
+                    });
+
+                    //是否进入编辑模块
+                    if($.isEmptyObject(this.info)){
+//                        console.log('空对象')
+                        this.isEdit(true);
+                    }else {
+                        this.isEdit();
+                    }
+                    //启用一键删除input内容
+                    $('[has-clear]').input();
+
+                    this.bindEvent();
+                    this.save();
+                },
+                isEdit:function (flag) {
+                    if(flag){
+                        this.edit.show();
+                        this.add.hide();
+                    }else{
+                        this.edit.hide();
+                        this.add.show();
+                        this.edit.find('.clear-input-btn').remove();
+                    }
+
+                },
+                newItem:function() {
+                    var id = Date.now() || new Date().getTime();
+                    var stateCode = this.stateCode.val();
+                    var name = this.name.val();
+                    var phone = this.phone.val();
+                    this.info[id] = {
+                        id: id,
+                        name: name,
+                        nationalCode:stateCode,
+                        phone: phone
+                    }
+                    this.renderInfo(this.info)
+                },
+                renderInfo:function (info) {
+                    info = $.isEmptyObject(info) ? null : info;
+                    $('.partner-content').html(template('partnerInfoTpl',{info: info}));
+                    setTimeout(function () {
+                        partnerScroll.refresh();
+                    }, 0);
+                },
+                addPeople:function () {
+                    var item = 0;
+                    for(var i in this.info){
+                        item ++;
+                    }
+                    if(item > 9){
+                        UR.msg('最多添加10人');
+                        return;
+                    }
+                    this.isEdit(true);
+                    this.name.val('');
+                    this.phone.val('');
+                    this.save();
+                },
+                deletePeople:function (me) {
+                    var parent = me.parent();
+                    var id  = parent.attr('data-id');
+                    delete this.info[id];
+                    this.renderInfo(this.info);
+                },
+                bindEvent:function () {
+                    var that = this;
+                    $(document)
+                        .off(UR.click,'#addPeople')
+                        .on(UR.click,'#addPeople',function () {
+                            that.addPeople();
+                        })
+                        .off('click','.partner-info')
+                        .on('click','.partner-info',function (e) {
+                            e.stopPropagation();
+                            var $this = $(this);
+                            var itemId = $this.attr('data-id');
+                            var info = that.info[itemId];
+                            var name = info.name;
+                            var phone = info.phone;
+                            var stateCode = info.nationalCode;
+                            that.isEdit(true);
+                            that.name.val(name);
+                            that.phone.val(phone);
+                            that.stateCode.val(stateCode);
+                            that.em.html(stateCode);
+                            that.save(info);
+                        })
+                        .off(UR.click,'#cancel')
+                        .on(UR.click,'#cancel',function () {
+                            that.isEdit();
+                            that.renderInfo(that.info);
+                        })
+                        .off(UR.click,'#quit')
+                        .on(UR.click,'#quit',function (e) {
+                            e.preventDefault();
+                            that.quit();
+                            history.back();
+                        })
+                        .off(UR.click,'#delete')
+                        .on(UR.click,'#delete',function () {
+                            var parent = $('.partner-info');
+                            var editBtn = $('.partner-right');
+                            parent.toggleClass('translate');
+                            editBtn.toggleClass('hidden');
+                        })
+                        .off(UR.click,'.partner-box')
+                        .on(UR.click,'.partner-box',function () {
+                            var parent = $('.partner-info');
+                            var editBtn = $('.partner-right');
+                            parent.removeClass('translate');
+                            editBtn.removeClass('hidden');
+                        })
+                        .off('click','.partner-delete')
+                        .on('click','.partner-delete',function (e) {
+                            e.stopPropagation();
+                            var $this = $(this);
+                            var parent = $this.parent();
+                            parent.remove();
+                            that.deletePeople($this);
+                        })
+                        .off(UR.click,'.book-box')
+                        .on(UR.click,'.book-box',function () {
+                            var $this = $(this);
+                            that.useBook();
+                        })
+                },
+                save:function (info) {
+                    var that = this;
+                    $(document)
+                        .off('click', '#save')
+                        .on('click','#save',function (e) {
+                            e.preventDefault();
+                            //验证信息
+                            var name = that.name.val();
+                            var phone = that.phone.val();
+                            var reg = /^[0-9]{1,}$/;
+                            if(!name){
+                                UR.msg('请输入姓名');
+                                return;
+                            }
+                            if(!phone){
+                                UR.msg('请输入手机号码');
+                                return;
+                            }
+                            if(!reg.test(phone)){
+                                UR.msg('请输入一个正确的电话号码')
+                                return;
+                            }
+
+                            if(info){
+                                that.updateData(info);
+                                that.isEdit();
+                                console.log(that.info)
+                                return;
+                            }
+                            that.newItem();
+                            that.isEdit();
+//                            console.log(that.info)
+                        })
+                },
+                updateData:function (info) {
+                    var name =  this.name.val();
+                    var phone = this.phone.val();
+                    var stateCode = this.stateCode.val();
+                    info.name = name;
+                    info.phone = phone;
+                    info.nationalCode = stateCode;
+                    this.renderInfo(this.info);
+                },
+                quit:function () {
+//                    location.hash = '';
+                    $('body').removeClass('input-layer-show');
+                    this.$target.removeClass('is-show');
+
+                    $(document).off('mousemove touchmove');
+                    UR.androidRefresh(true); // 开启下拉刷新
+                    UR.nativeShowNavigationBar(true);
+
+                    //删除按钮归位
+                    var parent = $('.partner-info');
+                    var editBtn = $('.partner-right');
+                    parent.removeClass('translate');
+                    editBtn.removeClass('hidden');
+                    //清空输入框
+                    this.name.val('');
+                    this.phone.val('');
+
+                    var arr = [];
+                    for(var item in this.info){
+                        arr.push(this.info[item].name)
+                    }
+                    if(arr.length == 0){
+                        $('.input-partner').html('添加同行人');
+                        $('.input-partner').removeClass('writed');
+                        return;
+                    }
+                    var str = arr.join(',');
+                    $('.input-partner').html(str);
+                    $('.input-partner').addClass('writed');
+                },
+                useBook:function () {
+                    //调用通讯录
+                     DANativeApi.choosePhoneContact({
+                        completion: function(res) {
+                            //alert("选择联系人的结果为：" + JSON.stringify(res.data));
+                            $('.editname').val(res.data.name);
+                            $('.editphone').val(res.data.phone);
+                        }
+                    });
+                }
+            }
+            if(UR.isApp()){
+                if(DANativeApi.isNewApi){
+                    $('.search-book').show();
+                    $('.edit-book').show();
+                }else {
+                    $('.search-book').hide();
+                    $('.edit-book').hide();
+                }
+            }else {
+                $('.search-book').hide();
+                $('.edit-book').hide();
+            }
+
+            var $dom = $(document);
+            BaseForm.initReadonlyText();
+            Partner.init();
+            $dom
+                .on('click', '.input-editor', function(e) {
+                    e.stopPropagation();
+                    BaseForm.inputContent(this);
+                })
+                .on('click','.input-partner',function (e) {
+                    Partner.show();
+                })
+                .on(UR.click,'.search-book',function (e) {
+                    //调用通讯录（回调函数里不能写注释）
+                    DANativeApi.choosePhoneContact({
+                        completion: function(res) {
+                            $('[role="search-input"]').val(res.data.phone);
+                            $('[role="search-input"]').closest('form').submit();
+                        }
+                    });
+                })
+                .on(UR.click, '.confirm', function(e) {
+                    //处理用户选择访问对象后又更改社区
+                    var workstageId = $('[name=workstageId]').val();
+                    if(workstageId){
+                        $('#visitedUserId_dummy').removeClass('writed').html('请选择');
+                        $('[name="visitedUserId"]').val('');
+                    }
+                })
+                .on(UR.click,'.search-btn',function () {
+                    //点击搜索
+                    $('[role="search-input"]').closest('form').submit();
+                })
+
+
+            Form.ajaxPost({
+                validator: {
+                    rules: {
+                        name: {
+                            required: true,
+                            maxlength: 20,
+                        },
+                        mobile: {
+                            required: true,
+                            phone: true,
+                        },
+                        workstageId: {
+                            required: true
+                        },
+                        visitedUserId:{
+                            required: true
+                        },
+                        reasonId:{
+                            required:true
+                        },
+                        visitedDate: {
+                            required: true
+                        },
+                        visitedTimeId: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        name: {
+                            required: '请填写预约人',
+                            maxlength: '预约人最多填写20字',
+                        },
+                        mobile: {
+                            required: '请填写联系电话',
+                            phone: '请填写正确的手机号',
+                        },
+                        workstageId: {
+                            required: '请选择访问社区'
+                        },
+                        visitedUserId:{
+                            required:  '请选择访问对象'
+                        },
+                        reasonId:{
+                            required: '请选择访问事由'
+                        },
+                        visitedDate: {
+                            required: '请选择访问日期'
+                        },
+                        visitedTimeId: {
+                            required: '请选择访问时间'
+                        }
+                    }
+                },
+                postUrl: '/workstageVisit/saveVisit',
+                postFormatted:function () {
+                    var mobiles = $('#mobile_dummy').html().split(' ');
+                    var workstageId = $('#workstageId').val();
+                    var $workstage = $('[data-id="' + workstageId + '"]');
+                    var visitUser = $('[name="visitedUserId"]').val().split(',');
+                    var partner = Partner.info;
+                    var workstageVisitGuests = [];
+                    for(var i in partner){
+                        var item = partner[i];
+                        var obj = {
+                            name : item.name,
+                            nationalCode : item.nationalCode,
+                            mobile:item.phone
+                        }
+                        workstageVisitGuests.push(obj);
+                    }
+                    var data = {};
+                    data.name = $('[name="name"]').val();
+                    data.nationalCode = mobiles[0].substring(1);
+                    data.mobile = mobiles[1];
+                    data.province = $workstage.attr('data-province');
+                    data.provinceName = $workstage.attr('data-provinceName');
+                    data.city = $workstage.attr('data-city');
+                    data.cityName = $workstage.attr('data-cityName');
+                    data.workstageId = workstageId;
+                    data.workstageName = $workstage.attr('data-workstageName');
+                    data.visitedUserId = visitUser[0];
+                    data.visitedName = visitUser[1];
+                    data.visitedNationalCode = visitUser[3];
+                    data.visitedMobile = visitUser[2];
+                    data.reasonId = $('[name="reasonId"]').val();
+                    data.visitedDate = $('[name="visitedDate"]').val();
+                    data.visitedTime = $('#visitedTime').val();
+                    data.workstageVisitGuests = workstageVisitGuests;
+                    console.log(data);
+
+                    if(data.mobile == data.visitedMobile){
+                        UR.msg('预约人和访问对象不能相同');
+                        return;
+                    }
+                    for(var i in workstageVisitGuests){
+                        if(workstageVisitGuests[i].mobile == data.mobile){
+                            UR.msg('预约人和同行人不能相同');
+                            return;
+                        }
+                        if(workstageVisitGuests[i].mobile == data.visitedMobile){
+                            UR.msg('访问对象和同行人不能相同');
+                            return;
+                        }
+                        for(var j in workstageVisitGuests){
+                            if(workstageVisitGuests[j].mobile == workstageVisitGuests[i].mobile){
+                                if(i != j){
+                                    UR.msg('不能添加重复的同行人');
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    return data;
+
+                },
+                success: function (res) {
+                    UR.msg('预约成功');
+                    if (UR.isApp()) {
+                        location.replace(UR.host + '');
+                        return;
+                    }
+                    location.replace(UR.host + '');
+                }
+            });
+        })
+    </script>
+
+
+
+</body>
+</html>

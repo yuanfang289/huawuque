@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vip订单页</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/vip/vip.css">
+</head>
+
+<body class="gray-bg">
+    <div class="vip-fixed">
+        <div class="vip-fixed-inner"><label for="">实付</label><span>&yen; 200 元</span><button type="button" class="btn btn-primary">提交订单</button></div>
+    </div>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- wrapper-inner -->
+        <div class="wrapper-inner">
+            <!-- main -->
+            <main id="main">
+                <!-- content -->
+                <div id="content">
+                    <div class="vip-order">
+                        <div class="vip-account">
+                            <ul>
+                                <li>
+                                    <label for="">预订人</label>
+                                    <span>URWORK</span>
+                                </li>
+                                <li>
+                                    <label for="">电话</label>
+                                    <span>138333388881383333888813833338888138333388881383333888813833338888</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="vip-duration">
+                            <h2 class="vip-title-gray">开通时长</h2>
+                            <ul>
+                                <li class="selected"><p class="duration-info">1个月<em class="orange"> 10元</em></p></li>
+                                <li><span>9折</span><p class="duration-info">3个月<em class="orange"> 27元</em></p></li>
+                                <li><span>8.5折</span><p class="duration-info">6个月<em class="orange"> 51元</em></p></li>
+                                <li><span>8折</span><p class="duration-info">12个月<em class="orange"> 96元</em></p></li>
+                            </ul>
+                        </div>
+                        <div class="vip-way">
+                            <h2 class="vip-title-gray">支付方式</h2>
+                            <ul class="pay-privilege">
+                                <li data-flag="0"><span class="way-icon icon-privilege"></span>5元优惠卷</li>
+                            </ul>
+                            <ul class="pay-way">
+                                <li class="selected"><span class="way-icon icon-alipay"></span>支付宝支付</li>
+                                <li><span class="way-icon icon-wepay"></span>微信支付</li>
+                            </ul>
+                        </div>
+                        <p class="vip-hotline">如需开发票，请联系优客工场财务400-1188-891</p>
+                    </div>
+                </div>
+                <!-- / content -->
+            </main>
+            <!-- / main -->
+        </div>
+        <!-- / wrapper-inner -->
+    </div>
+    <!--/ wrapper -->
+    @import "footer-common.tpl"
+    <script src="/assets/public/vip/vip.js"></script>
+</body>
+</html>

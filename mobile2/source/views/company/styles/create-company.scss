@@ -1,0 +1,342 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+@import 'form';
+@import 'modal/modal';
+@import 'uploader/uploader';
+@import "chip/province-city-picker";
+
+#main {
+    padding-bottom: 70px;
+    .iphone-x.is-app & {
+        padding-top: 45px + 20px + 24;
+        padding-bottom: 70px + 34;
+    }
+}
+
+[data-role="uploader"] {
+    [data-role="remove"] {
+        opacity: 0;
+    }
+    [data-role="ctrl"] {
+        background-color: $opa-b0;
+    }
+}
+
+/* Modal
+---------------------------------------- */
+.form-modal-full {
+    .modal-dialog {
+        width: 100% !important;
+    }
+    .modal-content {
+        background-color: #f5f5f5;
+    }
+    .modal-inner {
+        position: relative;
+    }
+    .modal-body {
+        top: 53px;
+        bottom: 0;
+        .iphone-x.is-app & {
+            top: 53px + 20 + 24;
+            bottom: 34px;
+        }
+    }
+    .header {
+        @include border-bottom($border-def);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        width: 100%;
+        height: 45px;
+        background: #f9f9f9;
+        font-size: 14px;
+        .iphone-x.is-app & {
+            height: 45px + 20 + 24;
+            padding-top: 20px + 24;
+        }
+    }
+    .titlebar {
+        position: relative;
+        height: 45px;
+        padding: 9px 16px;
+        text-align: center;
+        line-height: 28px;
+        font-size: 18px;
+        i, a {
+            font-size: 18px;
+            line-height: 28px;
+        }
+        .title {
+            @include text-overflow;
+            width: 100%;
+            @include padding-h(50px);
+            display: block;
+            font-weight: bold;
+        }
+        .nav-switch {
+            position: absolute;
+            top: 3px;
+            left: 8px;
+            padding: 4px 8px;
+            color: #666;
+        }
+
+        .actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            @include clearfix;
+            padding-top: 10px;
+            padding-right: 15px;
+
+            .btn {
+                width: 46px;
+                height: 24px;
+                padding: 0;
+                line-height: 24px;
+            }
+        }
+    }
+    .search-inner {
+        margin-right: 0;
+    }
+    .search-input {
+        background-color: #fff;
+        input {
+            padding-left: 0;
+            padding-right: 0;
+            font-size: 14px;
+        }
+        .clear-text {
+            right: 0;
+        }
+    }
+    .search-comapny-result {
+        position: absolute;
+        top: 54px;
+        bottom: 0;
+        width: 100%;
+        h3 {
+            height: 45px;
+            padding-top: 5px;
+            padding-left: 20px;
+            @include border-top($border-def);
+            color: #999;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 40px;
+        }
+
+        .result-list {
+            overflow: hidden;
+            position: absolute;
+            top: 45px;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            a {
+                display: block;
+                @include padding-h(20px);
+                &:last-of-type {
+                    .result-item::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .result-list-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .result-item {
+            display: flex;
+            @include padding-v(12px);
+            @include border-bottom($border-def);
+
+            dt {
+                width: 50px;
+                height: 50px;
+                flex-basis: 50px;
+                flex-grow: 0;
+                flex-shrink: 0;
+                margin-bottom: 0;
+                @include border($border-def);
+                line-height: 50px;
+                text-align: center;
+                &::before {
+                    border-radius: 4px;
+                    z-index: 2;
+                }
+                img {
+                    position: relative;
+                    top: -1px;
+                    z-index: 1;
+                    vertical-align: middle;
+                    max-height: 100%;
+                }
+            }
+            dd {
+                min-width: 0;
+                padding-left: 15px;
+                flex-grow: 1;
+            }
+            .name {
+                @include text-overflow;
+                line-height: 24px;
+                font-size: 14px;
+            }
+            .member-count {
+                color: #666;
+                font-size: 12px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
+.form-primary {
+    margin-top: 8px;
+    padding: 0 20px;
+    background-color: #fff;
+
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="url"],
+    .readonly-text {
+        @include text-overflow;
+    }
+
+    .form-label {
+        padding-left: 0;
+    }
+    .form-cont {
+        min-width: 0;
+
+        .ricon {
+            right: 0;
+        }
+        .readonly-text,
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="text"],
+        input[type="url"] {
+            padding: 17px 20px;
+        }
+        &.form-input {
+            .readonly-text,
+            input[type="email"],
+            input[type="number"],
+            input[type="tel"],
+            input[type="text"],
+            input[type="url"] {
+                padding-right: 4px !important;
+            }
+        }
+
+    }
+    .form-item-image .form-cont {
+        padding: 17px 20px;
+    }
+    .form-item {
+        &:last-of-type::before {
+            display: none;
+        }
+    }
+}
+
+.form-action {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 15px 10px;
+    .btn {
+        width: 100% !important;
+    }
+    .iphone-x & {
+        padding-bottom: 15px + 34;
+    }
+}
+
+.classify-wrap {
+    display: flex;
+
+    .left-wrap {
+        width: rem(205);
+        background: #fff;
+        height: 100%;
+        overflow: hidden;
+        li {
+            height: 54px;
+            margin-bottom: 0;
+            text-align: center;
+            line-height: 54px;
+            &.active {
+                background: #f2f2f2;
+                border-left: 4px solid #ffd624;
+            }
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 0 5px;
+                @include text-overflow;
+            }
+        }
+    }
+
+    .right-wrap {
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        li {
+            padding: 0 12px;
+        }
+        h2 {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            font-size: 12px;
+            color: #666;
+            i {
+                font-size: 15px;
+                margin-right: 7px;
+            }
+        }
+        .second-wrap {
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 5px;
+            a {
+                flex: 0 0 50%;
+                border-bottom: 1px solid #e6e6e6;
+                height: 40px;
+                text-align: center;
+                font-size: 12px;
+                line-height: 40px;
+                padding: 0 5px;
+                @include text-overflow;
+                color: #666;
+                &:nth-child(odd) {
+                    border-right: 1px solid #e6e6e6;
+                }
+                &.active {
+                    color: #333;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+

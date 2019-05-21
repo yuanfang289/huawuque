@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* Init
+ ---------------------------------------- */
+$body-def-background: #fff;    // body 背景色
+
+$body-gray-background: #f5f5f5;
+
+// 默认字体
+$font-family: $font-family-ios9-light, $font-family-ios9-regular, $font-family-ios-thin, $font-family-ios-regular, $font-family-pingfangsc, $font-family-helvetica, $font-family-serif;
+
+// 默认字号
+$font-size: 14px;    // 为避免兼容问题直接采用px单位
+
+$line-height: 1.5;    // 默认行高
+
+// 设置文本被选中后，背景和文字的颜色(两个变量同时设置才生效)
+$selection-bg-color: null;
+$selection-color: null;
+
+/* Structure
+ ---------------------------------------- */

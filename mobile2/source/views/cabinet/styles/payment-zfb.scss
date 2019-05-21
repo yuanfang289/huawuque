@@ -1,0 +1,123 @@
+@charset "UTF-8";
+@import 'variable';
+@import 'mixins';
+
+.content-zfb{
+    color: #fff;
+    margin: 15px;
+    background: #fff;
+    border-radius: 4px;
+    height: 120px;
+    background: linear-gradient(top, #6cd4ff, #1da0d9);
+    padding: 20px;
+    text-align: center;
+    p{
+        text-align: left;
+        font-size: 14px;
+        span{
+            float: right;
+        }
+    }
+    &>div{
+        overflow: hidden;
+        margin-top: 30px;
+        img{
+            float: left;
+        }
+        span{
+            float: right;
+            line-height: 30px;
+            font-size: 12px;
+            &.icon{
+                font-size: 28px;
+            }
+
+        }
+    }
+    &>img{
+        display: block;
+        margin: 10px auto 0;
+    }
+    strong{
+        display: block;
+        font-weight: 300;
+        line-height: 30px;
+        font-size: 12px;
+    }
+}
+.status-change{
+    height: 46px;
+    padding: 10px 20px;
+    background: #fff;
+    margin-top: 20px;
+    color: #333;
+    line-height: 26px;
+    .ios-btn{
+        float: right;
+        .checkbox-wrapper {
+            width: 46px;
+            height: 26px;
+            position: relative;
+            display: inline-block;
+            background: #ffffff;
+            border-radius: 16px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 0px 2px #ddd;
+        }
+        .checkbox {
+            display: none;
+        }
+        .checkbox-label {
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 25px;
+            height: 26px;
+            cursor: pointer;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+            transition: all .3s ease-out;
+        }
+        .checkbox:checked + .checkbox-wrapper {
+            background: #0bd318;
+            box-shadow: 0px 0px 0px 2px #0bd318;
+        }
+        .checkbox:checked + .checkbox-wrapper .checkbox-label {
+            left: 22px;
+        }
+    }
+}
+.pay-success{
+    margin: 13px;
+    background: #fff;
+    border-radius: 10px;
+    .success-img{
+        text-align: center;
+        padding: 28px 0;
+        img{
+            width: 106px;
+            height: 76px;
+        }
+    }
+    p{
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .btn-group{
+        @include clearfix;
+        padding: 32px 58px;
+        .btn{
+            float: left;
+            height:30px;
+            width: 90px;
+            border-radius: 15px;
+            line-height: 30px;
+        }
+        .check-order{
+            float: right;
+        }
+    }
+}

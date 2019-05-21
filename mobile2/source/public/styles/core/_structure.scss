@@ -1,0 +1,46 @@
+@charset "UTF-8";
+//
+//  structure.scss
+//
+// @project     www.urwork.cn
+// @author      ZhangHaiBin
+//
+// CSS Menu
+//
+//
+
+/*  Structure
+ ---------------------------------------- */
+
+.wrapper {
+    width: 100%;
+}
+#main {
+    min-height: 100%;
+    padding-top: 45px;
+}
+.wrapper-app {
+    #main {
+        padding-top: 0;
+    }
+}
+.chat-input-show {
+    &.tencent-browser {
+        &, body, .wrapper {
+            height: 100%;
+        }
+        .wrapper {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+
+/*  Full Screen
+ ---------------------------------------- */
+
+.full-screen {
+    &, body, .wrapper, #main, #content {
+        height: 100%;
+    }
+}

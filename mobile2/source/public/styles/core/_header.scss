@@ -1,0 +1,376 @@
+@charset "UTF-8";
+/**
+ * header.scss
+ *
+ * @project       www.urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+/**
+ * CSS Menu
+ *
+ * Header
+ * Layout
+ */
+/*  Header
+ ----------------------------------------*/
+#header {
+    @include border-bottom(#e6e6e6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 45px;
+    background: #f9f9f9;
+    font-size: 14px;
+    transition: top .2s;
+    // 透明
+    &.header-transparent {
+        background: rgba(255,255,255,0);
+        box-shadow: none;
+        #titlebar {
+            &, a, i {
+                color: #fff;
+            }
+        }
+        .nav-switch {
+            top: 6px;
+            color: #fff;
+            font-size: 28px;
+        }
+        &::before {
+            display: none;
+        }
+        &.transparent-def {
+            .nav-switch {
+                top: 3px;
+                font-size: 18px;
+            }
+            &, #titlebar {
+                transition: .1s;
+            }
+            .title {
+                opacity: 0;
+                width: 180px;
+                @include box-center;
+                padding: 0;
+            }
+
+            &.fixed {
+                background-color: #f9f9f9;
+                border-bottom: 1px solid #e6e6e6;
+                #titlebar {
+                    color: #333;
+                    a, i {
+                        color: #666;
+                    }
+                }
+
+                .title {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &.header-def {
+        box-shadow: none;
+        &::before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 200%;
+            content: "";
+            border-bottom: 1px solid #e6e6e6;
+            transform: scale(.5);
+            transform-origin: 0 0;
+        }
+    }
+    &.webview-header {
+        #titlebar {
+            font-size: 16px;
+            .nav-switch {
+                top: 0;
+                color: #666;
+                font-size: 18px;
+            }
+        }
+    }
+    .has-nav-tab & {
+        height: 84px;
+    }
+    .hide-header & {
+        top: -50px;
+    }
+    .has-nav-tab.hide-header & {
+        top: -90px;
+    }
+}
+.iphone-x.is-app #header {
+    height: 45px + 20 + 24;
+    padding-top: 20px + 24;
+    //height: 65px;
+    //padding-top: 20px;
+}
+#titlebar {
+    position: relative;
+    height: 45px;
+    padding: 9px 16px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 18px;
+    i {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .title {
+        @include text-overflow;
+        width: 100%;
+        @include padding-h(50px);
+        display: block;
+        font-weight: bold;
+    }
+    .nav-switch, .msg-center {
+        position: absolute;
+        top: 3px;
+        padding: 4px 8px;
+    }
+    .nav-switch {
+        left: 8px;
+        color: #666;
+    }
+
+    .actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        padding-top: 3px;
+        padding-right: 6px;
+        @include clearfix;
+
+        i {
+            float: left;
+            margin-left: 2px;
+            padding: 4px 8px;
+        }
+    }
+
+    .msg-center {
+        right: 6px;
+        color: #868686;
+        font-size: 18px;
+    }
+    .new-msg {
+        &::after {
+            position: absolute;
+            top: 11px;
+            right: 6px;
+            width: 6px;
+            height: 6px;
+            content: "";
+            border-radius: 50%;
+            background: $color-primary;
+        }
+    }
+    .cancle-write{
+        font-size: 15px;
+    }
+    .release-btn{
+        position:absolute;
+        right:8px;
+        top:8px;
+        padding: 0 10px;
+        background: #e2e2e2;
+        color: #fff;
+        font-size: 15px;
+        border-radius: 4px;
+        &.active{
+            color: #333;
+            background: #FFCD00;
+        }
+    }
+}
+
+.nav-tab {
+    display: none;
+    .has-nav-tab & {
+        display: flex;
+    }
+    li {
+        flex: 1;
+        text-align: center;
+        &.active {
+            a {
+                color: $font-def;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $font-def;
+                }
+            }
+        }
+    }
+    a {
+        position: relative;
+        display: inline-block;
+        padding: 9px 3px;
+        line-height: 21px;
+        color: $font-999;
+    }
+}
+
+#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 920;
+    width: 76%;
+    height: 100%;
+    padding: 44px 35px 20px;
+    background: #fff;
+    transition: 0.3s ease-in-out;
+    transform: translateX(-101%);
+    .close-btn {
+        position: absolute;
+        top: -5px;
+        right: 4px;
+        padding: 18px;
+        font-size: 22px;
+    }
+    .user-profile {
+        @include clearfix;
+        height: 55px;
+        margin-bottom: 22px;
+        dt {
+            float: left;
+            margin-right: 10px;
+            img {
+                width: 55px!important;
+                height: 55px!important;
+                border-radius: 50%;
+            }
+        }
+        dd {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            p {
+                @include text-overflow;
+            }
+        }
+
+        .user-inner {
+            @include position-center-y;
+            width: 100%;
+        }
+        .user-name {
+            padding-bottom: 1px;
+            line-height: 19px;
+            font-size: 14px;
+        }
+        .user-desc {
+            line-height: 16px;
+            font-size: 12px;
+            color: $font-999;
+        }
+    }
+    ul {
+        padding: 8px 0;
+        @include border-top(#f0f0f0);
+    }
+    li {
+        line-height: 53px;
+        font-size: 16px;
+        &, a {
+            display: block;
+            color: $font-999;
+        }
+        &.active {
+            &, a {
+                color: $font-def;
+            }
+        }
+        i {
+            position: relative;
+            margin-right: 13px;
+            font-size: 22px;
+            vertical-align: middle;
+
+            .ios-device & {
+                top: 0;
+            }
+        }
+    }
+    .signout-wrap {
+        height: 34px;
+        padding: 0;
+        &::before {
+            display: none;
+        }
+        li {
+            position: relative;
+            height: 100%;
+        }
+    }
+    .signout-btn {
+        position: absolute;
+        top: 0;
+        width: 200%;
+        height: 68px;
+        border-color: #f0f0f0;
+        line-height: 66px;
+        background: rgba(255,255,255,0);
+        font-size: 28px;
+        color: $font-999;
+        transform: scale(.5);
+        transform-origin: left top;
+        &:active,
+        &:hover {
+            background: rgba(255,255,255,0);
+            color: $font-999;
+        }
+    }
+    .nav-items {
+        height: 100%;
+        overflow: hidden;
+    }
+    .nav-items-inner {
+        max-height: 100%;
+    }
+
+    &.main-nav-show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-nav-mask {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    line-height: 1.4;
+    background-color: rgba(0,0,0,.4);
+    transition: 0.3s ease-in-out;
+
+    &.main-nav-show {
+        visibility: visible;
+        opacity: 1;
+        z-index: 910;
+    }
+}
+
+/*  Layout
+ ----------------------------------------*/
+.has-nav-tab #main {
+    padding-top: 84px;
+}

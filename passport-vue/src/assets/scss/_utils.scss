@@ -1,0 +1,13 @@
+.user-select-none {
+    @include user-select-none;
+}
+
+.static {
+  position: static !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.fixed {
+  position: fixed !important;
+}

@@ -1,0 +1,80 @@
+.icon {
+  font-size: 28px;
+  color: #1877a5;
+}
+
+.header-nav {
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e1;
+  height: 77px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  .header-nav-row {
+    height: 77px;
+    margin: 0 auto;
+    max-width: 1010px;
+    padding: 0px 40px;
+    .header-nav-row-search-col {
+      .header-nav-row-search-col-input {
+        width: 100%;
+      }
+    }
+    .header-nav-row-icon-col {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      .header-nav-row-icon-col-compass {
+        margin-right: 30px;
+        cursor: pointer;
+      }
+      .header-nav-row-icon-col-user {
+        cursor: pointer;
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.header-logo {
+  background-image: url(//img.downfuture.com/images/favicon.png);
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  background-position-y: 5px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header-nav .header-nav-row {
+    padding: 0px 0px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header-nav-row-search-col {
+    display: none;
+  }
+
+  .header-nav .header-nav-row {
+    padding: 0px 0px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-nav .header-nav-row {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0px 0px;
+  }
+}

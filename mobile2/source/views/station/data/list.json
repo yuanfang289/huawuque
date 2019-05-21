@@ -1,0 +1,56 @@
+{
+    "data": [
+        {
+            "id": 21,
+            "workstageAddress": "陕西省 西安市 西安万科",
+            "workstageName": "西安万科",
+            "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+            "price": 2,
+            "count": 0,
+            "openTime": "7:00",
+            "closeTime": "19:00"
+        },
+        {
+            "id": 21,
+            "workstageAddress": "陕西省 西安市 西安万科",
+            "workstageName": "西安万科",
+            "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+            "price": 2,
+            "count": 93,
+            "openTime": "7:00",
+            "closeTime": "19:00"
+        },
+        {
+            "id": 21,
+            "workstageAddress": "陕西省 西安市 西安万科",
+            "workstageName": "西安万科",
+            "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+            "price": 2,
+            "count": 93,
+            "openTime": "7:00",
+            "closeTime": "19:00"
+        },
+        {
+            "id": 21,
+            "workstageAddress": "陕西省 西安市 西安万科",
+            "workstageName": "西安万科",
+            "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+            "price": 2,
+            "count": 93,
+            "openTime": "7:00",
+            "closeTime": "19:00"
+        },
+        {
+            "id": 21,
+            "workstageAddress": "陕西省 西安市 西安万科",
+            "workstageName": "西安万科",
+            "img": "http://7xp26u.com1.z0.glb.clouddn.com/ce817017-a325-44fd-97ce-d26ea4151d17.jpg",
+            "price": 2,
+            "count": 93,
+            "openTime": "7:00",
+            "closeTime": "19:00"
+        }
+    ],
+    "retCode": 0,
+    "retMsg": "success"
+}

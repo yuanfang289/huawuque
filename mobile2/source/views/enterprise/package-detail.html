@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>礼包详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/enterprise/styles/package-detail.css">
+    <link rel="stylesheet" href="/assets/public/plugins/mobiscroll/styles/mobiscroll.css">
+    <script src="/assets/public/plugins/mobiscroll/scripts/mobiscroll.js"></script>
+</head>
+
+<body class="gray-bg" no-downloadbar>
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <section class="layout-item">
+            <div class="package-img-wrap">
+                <div class="package-img-inner" style="background-image:url(http://placehold.it/400x300) "></div>
+            </div>
+            <h2 class="package-title">会议室大礼包</h2>
+            <p class="package-desc">抢购时段：  2017/03/06 12:00 - 2017/06/06 12:00</p>
+            <div class="package-sell-info">
+                <div class="package-sell-info-item flex">
+                    <span class="price">&yen;<em id="price">299.00</em></span>
+                    <span>(仅剩<em id="restNum">5</em>个)</span>
+                </div>
+                <div class="package-sell-info-item">
+                    <input type="hidden" id="status" value="3">
+                    <input type="hidden" value="3" id="limitCount">
+                    <button type="button" class="btn btn-sub" disabled></button>
+                    <span class="btn-num">1</span>
+                    <button type="button" class="btn btn-add"></button>
+                </div>
+            </div>
+            <div class="package-tip">
+               <p>限入驻会员、VIP会员购买</p>
+            </div>
+            <div class="dot-line"></div>
+            <div class="package-detail-title">
+                详情信息
+            </div>
+            <div class="package-detail-content">
+                <p>******</p>
+            </div>
+        </section>
+        <section class="form form-primary form-def" style="margin-bottom: 80px;">
+            <div class="form-item">
+                <label class="form-label">推荐渠道</label>
+                <div class="form-cont">
+                    <i class="uricon-arrow-right ricon"></i>
+                    <select name="channelCode" id="channelCode">
+                        <option value="">无</option>
+                        <option value="1" selected>adfas</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section class="package-footer">
+            <div class="flex">
+                实付：<span>¥<em id="total">299.00</em></span>
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-primary" id="go">立即购买</button>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+
+@import "goto.tpl"
+@import "footer-common.tpl"
+
+
+<script src="/assets/public/enterprise/scripts/package-detail.js"></script>
+
+<script>
+    $(function () {
+        $('#channelCode').mobiscroll().select({
+            theme: 'android-holo-light',
+            mode: 'scroller',
+            display: 'modal',
+            lang: 'zh',
+            buttons: [
+                'cancel', 'set'
+            ],
+            minWidth: 248,
+            onBeforeShow: function() {
+                UR.androidRefresh(false)
+            },
+            onCancel: function() {
+                UR.androidRefresh(true)
+            },
+            onSelect: function() {
+                UR.androidRefresh(true)
+            },
+        });
+
+        Page.submit({
+            submit: '#go',
+            url: 'xx',
+            data: {
+                memberPackageId: '1',
+                count: Page.$num.text()
+            },
+            success: function () {
+
+            },
+            error: function () {
+                location.href = './vip-order.html';
+            }
+        })
+    })
+</script>
+</body>
+
+</html>

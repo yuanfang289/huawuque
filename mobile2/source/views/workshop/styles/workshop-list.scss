@@ -1,0 +1,424 @@
+@charset "UTF-8";
+/**
+ *
+ * @project       www.urwork.cn
+ * @author        zhanghaibin
+ * @copyright
+ */
+
+/**
+ * CSS Menu
+ *
+ *
+ *
+ * Layout
+ */
+@import 'variable';
+@import 'mixins';
+@import 'plugins/swiper';
+@import 'refresh/refresh';
+@import 'chip/piclist';
+@import 'chip/workshop-item';
+
+/* Swiper
+---------------------------------------- */
+.city-swiper {
+    overflow: visible;
+    display: none;
+}
+.city-swiper-item {
+    position: relative;
+    margin-right: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    .piclist-image-box {
+        &::before {
+            padding-top: 100%;
+        }
+        .banner-image {
+            @include fixed-ratio-inner;
+        }
+    }
+    .center-text {
+        text-shadow: none;
+        .text-title {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .text-desc {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    }
+}
+
+/* NearbyWorkshop
+---------------------------------------- */
+.nearby-workshop-layout {
+    display: none;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+.nearby-workshop {
+    @include clearfix;
+    margin-left: 48px;
+    dt {
+        float: left;
+        width: 48px;
+        margin-left: -48px;
+        img {
+            width: 35px;
+        }
+    }
+    dd {
+        position: relative;
+        float: left;
+        width: 100%;
+        padding-left: 14px;
+        border-left: 1px solid #e6e6e6;
+
+        .right-arrow {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            color: #c6c6c6;
+        }
+        h5 {
+            @include text-overflow;
+            color: #333;
+            font-size: 14px;
+        }
+        p {
+            color: #999;
+            font-size: 12px;
+        }
+    }
+}
+/* WorkshopListLayout
+---------------------------------------- */
+.workshop-list-layout {
+    overflow: hidden;
+    position: relative;
+    padding: 56px 0 15px;
+}
+
+.workshop-city-nav {
+    overflow: hidden;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 56px;
+    background-color: #fff;
+    margin-top: -45px;
+    padding: 12px 20px 10px;
+    font-size: 12px;
+    transition: top .2s;
+    .has-nav-tab & {
+        top: 84px;
+        margin-top: -84px;
+    }
+    &.fixed {
+        top: 45px;
+        margin-top: 0;
+        z-index: 800;
+        @include border-bottom(#f0f0f0);
+    }
+    .has-nav-tab &.fixed {
+        top: 84px;
+    }
+    .hide-header &.fixed {
+        top: 0;
+    }
+    .wrapper-app &.fixed {
+        margin-top: -45px;
+    }
+
+    .city-nav {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        .city-nav-inner {
+            position: absolute;
+            padding-right: 40px;
+        }
+        ul {
+            width: 100%;
+            height: 100%;
+            @include clearfix;
+            line-height: 22px;
+            white-space: nowrap;
+        }
+        li {
+            // float: left;
+            display: inline-block;
+            margin-right: 2px;
+            @include padding-v(6px);
+        }
+        a {
+            display: block;
+            @include padding-h(13px);
+            color: #999;
+            &.active {
+                background-color: #333;
+                border-radius: 11px;
+                color: #fff;
+            }
+        }
+    }
+    .city-menu-btn {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 34px;
+        background-color: #fff;
+        .shadow {
+            position: absolute;
+            top: 0;
+            right: 100%;
+            width: 10px;
+            height: 100%;
+            overflow: hidden;
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 10px;
+                z-index: 1;
+                height: 100%;
+                width: 8px;
+                border-radius: 100%;
+                box-shadow: -0px 0 6px 0px rgba(0,0,0,.2);
+                content: "";
+            }
+        }
+
+        .menu-btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            z-index: 3;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 22px;
+            text-align: center;
+            line-height: 22px;
+            font-size: 17px;
+        }
+    }
+}
+
+.city-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #fff;
+    padding: 25px 0 25px;
+    &.active {
+        z-index: 950;
+        opacity: 1;
+        visibility: visible;
+    }
+    header {
+        position: relative;
+        z-index: 20;
+        margin-bottom: 25px;
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 16px;
+            width: 30px;
+            height: 30px;
+            color: #666;
+            font-size: 16px;
+            line-height: 30px;
+            text-align: center;
+        }
+    }
+    h1 {
+        color: #333;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 30px;
+    }
+    .city-menu-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        padding-top: 80px;
+    }
+    .city-menu {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: #333;
+        font-size: 14px;
+        text-align: center;
+        .city-menu-inner {
+            position: absolute;
+            width: 100%;
+        }
+        ul {
+            @include clearfix;
+            width: 100%;
+            padding: 0 5px;
+        }
+        li {
+            position: relative;
+            float: left;
+            width: 33.333%;
+            padding: 7px 0;
+            &::before {
+                overflow: hidden;
+                content: '';
+                display: block;
+                width: 100%;
+                padding-top: 100%;
+            }
+            @media only screen and (min-width: 480px) {
+                &::before {
+                    padding-top: 60%;
+                }
+            }
+            >a {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 88px;
+                height: 88px;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .img-wrap {
+            overflow: hidden;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 9px;
+            border-radius: 50%;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+.workshop-list-wrap {
+    position: relative;
+    transform: translateY(-30px);
+    &.is-pull {
+        .pull-tips {
+            opacity: 1;
+        }
+    }
+    .pull-tips {
+        width: 100%;
+        transition: .3s;
+        opacity: 0;
+        color: #999;
+        font-size: 13px;
+        text-align: center;
+        line-height: 30px;
+    }
+}
+.workshop-list {
+    @include padding-h(20px);
+    li {
+        @include padding-v(26px);
+        @include border-top(#e6e6e6);
+        &:first-child {
+            padding-top: 0;
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+/* Layout
+---------------------------------------- */
+.search-link {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    margin-bottom: 15px;
+    background: #F5F5F5;
+    border-radius: 5px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #7A808F;
+    i {
+        margin-right: 3px;
+    }
+}
+
+/* add
+---------------------------------------- */
+.swiper-layout{
+    margin-bottom: 0;
+}
+.nearby-workshop-wrap{
+    display: none;
+    padding: 15px 10px;
+    background-image: url("/assets/public/workshop/images/nearby-bg.png");
+}
+.prepare{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    color: #fff;
+    top: 0;
+    left: 0;
+    p{
+        @include position-center-y;
+        width: 100%;
+        text-align: center;
+    }
+}
+.phone-wrap{
+    .phone{
+        display: inline-block;
+        width: rem(130);
+        height: rem(50);
+        border-radius: 4px;
+        background: #333;
+        color: #fff;
+        position: absolute;
+        top: 3px;
+        right: 0;
+        &.disabled{
+            background: #cccccc;
+        }
+        i{
+            @include position-center;
+        }
+    }
+
+}
+.workshop-item {
+    .text-title h6 {
+        width: 68%;
+        padding-right: 0px;
+    }
+    .img-wrap {
+        border-radius: 5px;
+        overflow: hidden;
+    }
+}

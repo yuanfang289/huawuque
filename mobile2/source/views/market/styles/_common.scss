@@ -1,0 +1,706 @@
+@charset "UTF-8";
+
+@import 'variable';
+@import 'mixins';
+
+
+$color-main: #ffcd00;
+$color-primary: #ffcd00;
+$color-info-bg: #f7f8fa;
+/* Layout
+---------------------------------------- */
+.data-null p {
+    font-size: 12px !important;
+}
+
+.anchor-trigger {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+
+    .wrapper-app & {
+        top: -120px;
+    }
+    .iphone-x.is-app & {
+        top: -144px;
+    }
+}
+
+.btn-market {
+    &, &:hover, &:active {
+        background-color: $color-primary;
+        border-width: 0;
+        border-radius: 3px;
+    }
+}
+
+.btn-market-o {
+    &, &:hover, &:active {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        font-size: 13px;
+    }
+}
+
+.btn-primary-market {
+    border-radius: 3px;
+    color: #333;
+    @include padding-h(8px);
+    &, &:hover, &:active {
+        background-color: $color-primary;
+        border-width: 0;
+    }
+}
+
+.btn-white {
+    &, &:hover, &:active {
+        background-color: #fff;
+    }
+}
+.btn.followed {
+    &, &:hover, &:active {
+        background: #f2f2f2 !important;
+        border-color: #f2f2f2 !important;
+        color: #333 !important;
+        i {
+            font-size: 16px !important;
+        }
+    }
+}
+
+.action-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 990;
+    width: 100%;
+    height: 50px;
+    //padding: 13px 10px;
+    background-color: #f9f9f9;
+
+    ul {
+        @include margin-h(-5px);
+        display: flex;
+    }
+    li {
+        flex: 1;
+        @include padding-h(5px);
+    }
+
+    .btn {
+        $height: 40px;
+        height: $height;
+        font-size: 14px;
+        line-height: $height;
+        &[disabled] {
+            color: #aaa !important;
+        }
+    }
+    .btn-bottom-solo{
+        background: #f9f9f9;
+        color: #333;
+        border: none;
+        height: 50px;
+        line-height: 50px;
+        border-top: 1px solid #e3e3e3;
+        font-size: 15px;
+        &[disabled] {
+            color: #999 !important;
+            background: #f9f9f9!important;
+            border: none;
+        }
+    }
+
+    .iphone-x.is-app & {
+        height: 50 + 34px;
+        padding-bottom: 34px;
+    }
+}
+
+.financing-tab {
+    display: inline-block;
+    height: 17px;
+    min-width: 39px;
+    padding: 0 5px;
+    line-height: 17px;
+    text-align: center;
+    color: #fff;
+    font-size: 11px;
+    background: linear-gradient(to right, #ffba00, #ff9d00);
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+}
+
+.post-tab {
+    display: inline-block;
+    padding-right: 6px;
+    padding-left: 6px;
+    border: 1px solid #cee5ff;
+    color: #488df9;
+    line-height: 16px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.need-tap {
+    display: inline-block;
+    height: 15px;
+    width: 39px;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 11px;
+    background: linear-gradient(to right, #ff6b08, #fe253c);
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+}
+
+.status-tab {
+    display: inline-block;
+    height: 15px;
+    min-width: 25px;
+    padding: 0 5px;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 11px;
+    background: linear-gradient(to right, #ffba00, #ff9d00);
+    border-radius: 3px;
+}
+
+.card-bottom {
+    background: #fff;
+    p {
+        padding-top: 6px;
+        @include text-break;
+    }
+    .supply-model{
+        margin-bottom: 13px;
+    }
+}
+.supply {
+    position: relative;
+    span{
+        font-size: 12px;
+        color: #fff;
+        padding: 0 2px;
+        background: #7ba0cf;
+    }
+}
+.need {
+    position: relative;
+    span{
+        font-size: 12px;
+        color: #fff;
+        padding: 0 2px;
+        background: #adbeca;
+    }
+}
+
+.financing-item {
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, .1);
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .financing-top {
+        width: 100%;
+        padding: 10px;
+        background: #fff;
+        & > dl {
+            @include clearfix;
+            & > dt {
+                overflow: hidden;
+                float: left;
+                width: 70px;
+                height: 70px;
+                margin-right: 10px;
+                margin-top: 5px;
+                text-align: center;
+                line-height: 70px;
+                img {
+                    position: relative;
+                    top: -1px;
+                    max-height: 100%;
+                }
+            }
+            & > dd {
+                float: left;
+                width: calc(100% - 80px);
+                position: relative;
+                p {
+                    color: #666;
+                    @include text-overflow;
+                    padding: 5px 0;
+                }
+                .financing-tab {
+                    position: absolute;
+                    right: 0px;
+                    top: -6px;
+                }
+            }
+        }
+    }
+    .financing-name {
+        font-size: 16px;
+        font-weight: 600;
+        @include text-overflow;
+        margin-top: 9px;
+    }
+    .financing-tabs {
+        dl {
+            position: relative;
+            overflow: hidden;
+            height: 24px;
+        }
+        dt {
+            width: 10000px;
+            overflow: hidden;
+            line-height: 24px;
+        }
+        dd {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #fff;
+            padding-left: 8px;
+        }
+        .work-btn {
+            background: linear-gradient(to right, #478cf9, #619ffb);
+            padding: 0 10px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            height: 24px;
+            border-radius: 24px;
+            border: none;
+
+        }
+    }
+}
+
+.master-item {
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, .1);
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .master-top {
+        @include clearfix;
+        padding: 15px;
+        background: #fff;
+    }
+    dt {
+        float: left;
+        width: 70px;
+        height: 70px;
+        margin-right: 23px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #e6e6e6;
+        background-color: #fff;
+    }
+    dd {
+        float: left;
+        position: relative;
+        width: calc(100% - 93px);
+        margin-top: 6px;
+        h2 {
+            width: 60%;
+            @include text-overflow;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        p {
+            padding-top: 6px;
+        }
+    }
+    .contact-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: linear-gradient(to right, #478cf9, #619ffb);
+        padding: 0 13px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        height: 24px;
+        border-radius: 24px;
+        border: none;
+    }
+}
+
+.check-more {
+    display: inline-block;
+    width: 100%;
+    color: #69a5fb;
+    line-height: 42px;
+    text-align: center;
+}
+
+.btn-edit {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    width: 28px;
+    height: 28px;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.edit-profile-info {
+    background: $color-info-bg;
+    padding: 11px 10px;
+    &.margin-v{
+        margin-top: 12px;
+        margin-bottom: 20px;
+    }
+    a{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    i {
+        transform: scale(.73334);
+        font-size: 12px;
+    }
+}
+
+.detail-title {
+    position: relative;
+    height: 55px;
+    background-color: #fff;
+    padding: 15px 20px 16px;
+    color: #333;
+    font-size: 15px;
+    line-height: 24px;
+
+    &.line-bottom {
+        height: 45px;
+        padding-top: 10px;
+        padding-bottom: 11px;
+        @include border-bottom($border-def);
+    }
+    &.no-padding-bottom{
+        padding-bottom: 0;
+        height: auto;
+    }
+    .btn-edit {
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+}
+
+.fixed-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 990;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color: #fff;
+
+    .btn {
+        $height: 50px;
+
+        display: block;
+        height: $height;
+        font-size: 14px;
+        line-height: $height;
+        flex: 1;
+        border-radius: 0;
+
+        &.btn-market-line {
+            line-height: $height - 1;
+            background-color: #fff;
+            border-color: #eee;
+            border-width: 1px 0 0 0;
+            color: #2e81f7;
+
+            &[disabled] {
+                color: #aaa;
+            }
+        }
+    }
+
+    .iphone-x.is-app & {
+        height: 50 + 34px;
+        padding-bottom: 34px;
+    }
+}
+
+
+.product-item {
+    .img-wrap {
+        @include fixed-ratio-box(100);
+        &::before {
+            background-size: 70%;
+        }
+    }
+    .img {
+        @include fixed-ratio-inner;
+    }
+    .product-desc {
+        padding-top: 10px;
+        text-align: center;
+    }
+    .product-name {
+        @include text-overflow;
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .product-attrs {
+        @include text-overflow;
+        color: #999;
+        font-size: 12px;
+        line-height: 20px;
+        i {
+            position: relative;
+            top: -1px;
+            @include padding-h(5px);
+        }
+    }
+}
+
+.uqby-item {
+    @include padding-v(17px);
+
+    .desc {
+        @include multi-overflow(2);
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 15px;
+        line-height: 24px;
+    }
+    .tag {
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        height: 18px;
+        margin-right: 6px;
+        padding: 0 6px;
+        border: 1px solid #d2e5fd;
+        border-radius: 3px;
+        color: #2e81f7;
+        font-size: 12px;
+        line-height: 16px;
+        vertical-align: middle;
+    }
+
+    .img-wrap {
+        @include fixed-ratio-box(100);
+        width: 100px;
+        margin-top: 11px;
+        margin-bottom: 11px;
+        &::before {
+            background-size: 70%;
+        }
+        .img {
+            @include fixed-ratio-inner;
+        }
+    }
+    .actions {
+        @include clearfix;
+        color: #666;
+        font-size: 12px;
+        line-height: 18px;
+
+        span, a {
+            float: left;
+            i {
+                margin-right: 5px;
+                font-size: 15px;
+            }
+        }
+        time {
+            float: right;
+            transform: scale(.91667);
+            color: #999;
+        }
+    }
+}
+
+.workstage-list {
+    @include padding-v(0);
+    overflow: hidden;
+    .workstage-item:last-of-type {
+        &::before {
+            display: none;
+        }
+    }
+}
+.workstage-item {
+    display: flex;
+    align-items: center;
+    @include padding-v(20px);
+    @include border-bottom($border-def);
+    .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 70px;
+        height: 24px;
+        border-radius: 24px;
+        line-height: 24px;
+    }
+    dt {
+        flex-shrink: 0;
+        flex-grow: 0;
+        flex-basis: 42px;
+    }
+    dd {
+        position: relative;
+        flex-grow: 1;
+        padding-left: 10px;
+        padding-right: 80px;
+        min-width: 0;
+    }
+    .name {
+        @include text-overflow;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .address {
+        @include text-overflow;
+        color: #666;
+        font-size: 12px;
+    }
+    .img {
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+    }
+}
+
+.anchor {
+    height: 47px;
+    background-color: #fff;
+    line-height: 47px;
+
+    .fixed {
+        top: 45px;
+        z-index: 900;
+
+        .wrapper-app & {
+            top: 65px;
+        }
+        .iphone-x.is-app & {
+            top: 89px;
+        }
+    }
+
+    ul {
+        display: flex;
+        width: 100%;
+        @include padding-h(20px);
+        background-color: #fff;
+        @include border-bottom($border-def);
+    }
+    li {
+        flex: 1;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+
+        &.active {
+            font-weight: bold;
+
+            &::before {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 20px;
+                height: 3px;
+                background-color: $color-primary;
+                border-radius: 3px;
+                content: "";
+            }
+        }
+    }
+}
+
+.more-link {
+    display: block;
+    padding-top: 20px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    i {
+        font-size: 10px;
+        transform: scale(.83334);
+    }
+    &.has-bg{
+        height: 45px;
+        background-color: #f9f9f9;
+        border-radius: 3px;
+        line-height: 45px;
+        color: #333;
+        padding-top: 0;
+    }
+    &.has-margin{
+        margin-right: 20px;
+        margin-right: 20px;
+    }
+}
+
+.change-image{
+    transition: none;
+    .modal-dialog,.modal-content,.modal-body,.scroller{
+        height: 100%;
+    }
+    .scroller{
+        background: #000;
+        position: relative;
+    }
+    .close-btn{
+        color: #fff;
+        margin-top: 25px;
+        margin-left: 20px;
+        padding: 5px;
+        font-size: 18px;
+    }
+    .image-box{
+        height: rem(750);
+        @include position-center-y;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        img{
+            margin: 0 auto;
+        }
+    }
+    .change-btn{
+        width: rem(170);
+        height: rem(60);
+        line-height: rem(60);
+        border: 1px solid #4d4d4d;
+        border-radius: rem(60);
+        color: #fff;
+        text-align: center;
+        @include position-center-x;
+        bottom: rem(95);
+    }
+    .iphone-x.is-app & {
+        .close-btn{
+            margin-top: 24px + 25px;
+        }
+        .change-btn{
+            bottom: rem(95 + 68);
+        }
+    }
+}

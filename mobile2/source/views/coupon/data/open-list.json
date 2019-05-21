@@ -1,0 +1,42 @@
+{
+  "retCode": 0,
+  "retMsg": "接口请求成功",
+  "data": [
+    {
+      "companyId":100005,
+      "money": 50,
+      "couponName": "时租会议室代金券三级飓风的付款了",
+      "expiration": 3,
+      "isAllWorkstage": 1,
+      "workstageNames":["1社区","2社区","3社区"],
+      "count": 200
+    },
+  {
+      "companyId":100005,
+      "money": 50,
+      "couponName": "时租会议室代金券50",
+      "expiration": 3,
+      "isAllWorkstage": 0,
+      "workstageNames":["1社区","2社区","3社区"],
+      "count": 20
+  },
+      {
+          "companyId":100005,
+          "money": 50,
+          "couponName": "时租会议室代金券50",
+          "expiration": 3,
+          "isAllWorkstage": 1,
+          "workstageNames":["1社区","2社区","3社区"],
+          "count": 20
+      },
+      {
+          "companyId":100005,
+          "money": 50,
+          "couponName": "时租会议室代金券50",
+          "expiration": 3,
+          "isAllWorkstage": 0,
+          "workstageNames":["1社区","2社区","3社区"],
+          "count": 20
+      }
+  ]
+}

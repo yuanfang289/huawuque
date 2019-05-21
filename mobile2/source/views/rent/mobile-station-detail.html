@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>社区详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/plugins/simditor/styles/simditor.css">
+    <link rel="stylesheet" href="/assets/public/rent/styles/index.css">
+</head>
+
+<body class="gray-bg" no-downloadbar>
+    <input type="hidden" name="appSource" value="">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header">
+            @import "topbar.tpl"
+        </header>
+        <!-- /header -->
+        <!-- main -->
+        <main id="main">
+            <section class="layout-item">
+                <div class="title-layout">
+                    <h1>移动工位</h1>
+                    <a href="" class="btn">立即预定</a>
+                </div>
+                <p class="item-price">最低价格：¥ 1,800/月起</p>
+                <img src="/assets/public/rent/images/mobile-station-banner.jpg" alt="" width="100%">
+                <p class="gray-text">无论身在哪个城市，都可以随时使用公共区域的空闲座位，打开电脑，就可以立即开始一天的工作</p>
+            </section>
+            <section class="layout-item workshop-device">
+                <header class="layout-item-title">
+                    <h2>社区设施</h2>
+                </header>
+                <ul class="device-list">
+                    <li>
+                        <div class="device-icon"><i class="uricon-tyy"></i></div>
+                        <p>投影</p>
+                    </li>
+                    <li>
+                        <div class="device-icon"><i class="uricon-zy"></i></div>
+                        <p>座椅</p>
+                    </li>
+                    <li>
+                        <div class="device-icon"><i class="uricon-ht"></i></div>
+                        <p>话筒</p>
+                    </li>
+                    <li>
+                        <div class="device-icon"><i class="uricon-yx"></i></div>
+                        <p>音箱</p>
+                    </li>
+                    <li>
+                        <div class="device-icon" id="MoreDevice"><i class="uricon-slh"></i></div>
+                        <p>+14</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="layout-item">
+                <header class="layout-item-title">
+                    <h2>工位概览</h2>
+                </header>
+                <p class="site-text">流动办公桌面向需要灵活的、24/7 使用工作场地、但又不需要私人办公室或每天使用同一办公桌的人群。加入流动办公桌计划后，您将需要挑选一个主要的 地点，按照您的意愿露面，在公用区占用任何空座位，然后开始工作。每天一个新位置意味着更多的交流与合作机会 — 此外，您可使用 优客工场应用程序在周一到周五的早 9 点到晚 6 点预订其他任意流动办公桌空间。加入流动办公桌计划后，您将每月获得两个配额，配额可用于预订 WeWork 全球办公地点的工作场地和会议室。信件和包裹处理服务可额外付费使用。<br><em>可用时间</em>24/7进入首选地点办公<br><em>可用地点</em>确定首选办公地点。其他地点办公需支付¥225/日<br><em>附加服务</em>·日常工作场地： ¥1,225/日起<br>·会议室：¥25/小时起<br>·活动场地：¥225/小时起 </p>
+            </section>
+            <section class="layout-item workshop-team">
+                <header class="layout-item-title">
+                    <h2>常见问题</h2>
+                </header>
+                <div class="issue-item">
+                    <p class="issue-q"><i>Q</i><span>移动工位、固定工位与专属办公室有何不同？</span></p>
+                    <p class="issue-a"><i>A</i><span>流动办公桌是位于公用区的共用工作场地。不需要提前预订，您可以自由出入，使用任何空闲的办公桌。<br>专用办公桌是在与其他会员共用的大型开放区域中指定的工作空间。</span></p>
+                </div>
+                <div class="issue-item">
+                    <p class="issue-q"><i>Q</i><span>参观需要提早预约吗？</span></p>
+                    <p class="issue-a"><i>A</i><span>参观需提前预约，以便我们提前准备。我们的团队专注于帮您挑选合适的优客工场办公空间。如需预订参观，请直接在app注册预约。</p>
+                </div>
+            </section>
+        </main>
+        <!-- /main -->
+    </div>
+    <!-- /wrapper -->
+
+    <div class="workshop-bottombar">
+        <div class="booking-wrap">
+            <div class="booking">
+                <div class="link-wrap">
+                    <a href="#" class="btn btn-def">预约参观</a>
+                </div>
+                <div class="link-wrap">
+                    <a href="#" class="btn btn-primary">预约入驻</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @import "goto.tpl"
+    @import "footer-common.tpl"
+    @import "workshop/devicePopup.tpl"
+    <script src="/assets/public/workshop/scripts/workshop-detail.js"></script>
+    <script>
+        $(function() {
+            $('body').on(UR.click, '.js-navigation', function() {
+                var navigationUrl = encodeURIComponent($.trim($('.workshop-location').attr('data-navigation')));
+                if (UR.isApp()) {
+                    UR.setUrl('urwork://qrcode' + navigationUrl);
+                } else {
+                    UR.openApp.init({
+                        intentUrlParams: navigationUrl
+                    })
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

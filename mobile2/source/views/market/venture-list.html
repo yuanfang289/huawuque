@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>创投人物</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/market/styles/venture-list.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header" class="header-def">
+        <!-- titlebar -->
+        <div id="titlebar">
+            <i class="nav-switch uricon-arrow-left" id="pageBack"></i>
+            <div class="searchbar" id="searchbar">
+                <div class="search-inner">
+                    <form action="/search">
+                        <div class="search-input">
+                            <input type="search">
+                            <div class="placeholder"><i class="uricon-search"></i><span>请输入U秀姓名</span></div>
+                        </div>
+                    </form>
+                    <div class="search-action">
+                        <a href="javascript:;" class="search-btn cancel-btn">取消</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search-mask"></div>
+        </div>
+        <!-- /titlebar -->
+
+        <section class="venture">
+            <div class="filter-box">
+                <div class="filter-wrap venture-filter">
+                    <ul>
+                        <li class="active" data-id="">
+                            <a href="javascript:;">全部</a>
+                        </li>
+                        <li data-id="1">
+                            <a href="javascript:;">霸道总裁</a>
+                        </li>
+                        <li data-id="2">
+                            <a href="javascript:;">美女CEO</a>
+                        </li>
+                        <li data-id="3">
+                            <a href="javascript:;">老司机</a>
+                        </li>
+                        <li data-id="4">
+                            <a href="javascript:;">优鲜肉</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <ul class="ushow-list"></ul>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<script type="text/html" id="tpl">
+    {{if list.length == 0}}
+    <li class="data-null">
+        <img src="/assets/public/images/NODATA.png" alt="">
+    </li>
+    {{else}}
+    {{each list as item}}
+    <li>
+        <div class="ushow-mod">
+            <dl class="ushow-info">
+                <dt><a href="/market/xiuDetail?userId={{item.userId}}"><img src="{{item.headImg}}" alt=""></a></dt>
+                <dd>
+                    <a href="/market/xiuDetail?userId={{item.userId}}">
+                        <p class="name">{{item.userName}}</p>
+                        <p class="company">{{item.companyName}}</p>
+                        <p class="position">{{item.duties}}</p>
+                    </a>
+
+                    {{if item.userId}}
+                    <button class="btn btn-primary-market call-me" data-id="{{item.userId}}" data-name="{{item.userName}}">联系TA</button>
+                    {{else}}
+                    <button class="btn btn-primary-market call-me" disabled>联系TA</button>
+                    {{/if}}
+                </dd>
+            </dl>
+            <a href="/market/xiuDetail?userId={{item.userId}}">
+                <div class="supply-need">
+                    <dl class="supply">
+                        <dt>可提供服务</dt>
+                        <dd>{{item.business}}</dd>
+                    </dl>
+                    <dl class="need">
+                        <dt>需要的帮助</dt>
+                        <dd>{{item.needhelp}}</dd>
+                    </dl>
+                </div>
+            </a>
+        </div>
+    </li>
+    {{/each}}
+    {{/if}}
+</script>
+<script src="/assets/public/market/scripts/ventureList.js"></script>
+<script>
+    var Index = {
+        init: function() {
+            var ventureFilter = '.venture-filter';
+            this.filter(ventureFilter);
+            this.bindEvent();
+        },
+        filter:function (box) {
+            var $li = $(box).find('li');
+            var width = 1;
+            for(var i = 0; i <= $li.length - 1; i++){
+                width += Math.ceil($li.eq(i).outerWidth());
+            }
+            $(box).find('ul').css('width',width);
+            var myscroll = new IScroll(box,{
+                scrollX: true,
+                scrollY: false,
+                hScrollbar:false,
+                vScrollbar : false,
+                vScroll:false,
+                disablePointer: true,   // 因谷歌升级需加以下两行
+                disableTouch: false,
+                click: true,
+            })
+        },
+        bindEvent:function () {
+            $('body')
+                .off('click','.filter-wrap a')
+                .on('click','.filter-wrap a',function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var $li = $(this).parent();
+                    var id = $li.attr('data-id');
+                    $li.siblings().removeClass('active');
+                    $li.addClass('active');
+                    $('.ushow-list').refresh({
+                        xiuType:id
+                    })
+                })
+                .off('click','#callMe')
+                .on('click', '#callMe', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var $this = $(this);
+                    var uid   = $this.data('uid');
+                    var name  = $this.data('name');
+
+                    if (UR.isApp()) {
+                        UR.setUrl('urwork://conversation?targetUserId=' + uid + '&title=' + name);
+                    } else {
+                        UR.openApp.init('urwork://conversation?targetUserId=' + uid + '&title=' + name);
+                    }
+                });
+        }
+    };
+    $(function() {
+        Index.init();
+        var searchData;
+
+        var $body     = $('body'),
+            $titlebar = $('#titlebar'),
+            $header   = $('#header'),
+            $filter   = $('.ushow-list');
+
+        var $pull = $filter.on('pullup.bs.refresh', function(e) {
+            setTimeout(function() {
+                $('.lazy').lazy();
+            }, 0)
+        });
+
+        UR.searchbar({
+            isPopLayer: true,
+            cancelReset: true,
+            focusHandler: function() {
+                $filter.filter('hide');
+                addClass()
+            },
+            inputHandler: toggleHasValue,
+            enterHandler: function(val, input) {
+                $('#searchbar').find('.clear-text').attr('data-toggle', 'clear');
+                removeClass();
+                input.blur();
+                $pull.refresh({
+                    userName: val
+                });
+                $filter.filter('reset');
+            },
+            clearHandler: function(input) {
+                $titlebar.removeClass('has-value');
+            },
+            cancelHandler: function(val, oldVal, input) {
+                toggleHasValue(oldVal);
+                removeClass();
+            }
+        });
+
+        function toggleHasValue(val) {
+            if (val.length) {
+                $titlebar.addClass('has-value');
+            } else {
+                $titlebar.removeClass('has-value');
+            }
+        }
+
+        function addClass() {
+            $header.addClass('search-active');
+            $titlebar.addClass('search-active');
+        }
+        function removeClass() {
+            $header.removeClass('search-active');
+            $titlebar.removeClass('search-active');
+        }
+
+        $filter.refresh({
+            url: './data/ventureList.json',
+            // url: '/market/xiuList?xiuType=',
+            template: 'tpl',
+            isFirstLoad: true,
+            pageSize:20,
+            formatted: function(res) {
+                if(res.retCode != 0){
+                    UR.msg(res.retMsg);
+                    return;
+                }
+                var list = res.data.result || [];
+                return list;
+            }
+        })
+        $filter.on('change.bs.filter', function (e) {
+            searchData = e.query;
+            $pull.refresh(e.query);
+        });
+
+        $body.on('click', '[data-toggle=clear]', function() {
+            $pull.refresh({
+                userName: '',
+            });
+            $filter.filter('reset');
+        })
+    });
+</script>
+</body>
+
+</html>

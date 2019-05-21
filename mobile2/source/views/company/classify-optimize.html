@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>行业分类</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/company/styles/classify-optimize.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main">
+        <section class="classify-wrap">
+            <!--<div class="left-wrap">
+                <ul>
+                    <li class="active"><a href="javascript:;">全部</a></li>
+                    <li><a href="javascript:;">全部</a></li>
+                </ul>
+            </div>
+            <div class="right-wrap">
+                <ul>
+                    <li>
+                        &lt;!&ndash; slide &ndash;&gt;
+                        <div class="swiper-container index-slide">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide banner-image-box">
+                                    <a class="banner-image" href="/market/index" title="" style="background-image:url('/assets/public/company/images/chuangjianqiye_bg.png');"></a>
+                                </div>
+                                <div class="swiper-slide banner-image-box">
+                                    <a class="banner-image" href="/company/package" title="" style="background-image:url('/assets/public/company/images/faxuqiu_bg.png');"></a>
+                                </div>
+                                <div class="swiper-slide banner-image-box">
+                                    <a class="banner-image" href="/product/getProduct?spuId=100493" title="" style="background-image:url('/assets/public/company/images/publish_bg.png');"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        &lt;!&ndash; /slide &ndash;&gt;
+                        <h2><img src="/assets/public/images/urwork-qrcode.jpg" alt="">健康医疗</h2>
+                        <div class="second-wrap">
+                            <a href="javascript:;">全部</a>
+                        </div>
+                        <h2><img src="/assets/public/images/urwork-qrcode.jpg" alt="">推荐企业</h2>
+                        <ul class="recommend-wrap">
+                            <li>
+                                <a href="javascript:;">
+                                    <dl>
+                                        <dt>
+                                            <span style="background-image:url('/assets/public/company/images/publish_bg.png');"></span>
+                                        </dt>
+                                        <dd>
+                                            <h3>上海品课品牌设计有限公司十分士大夫士大夫</h3>
+                                            <p>A轮｜50-100人｜2014年11月成立就好好看书的和封建士大夫</p>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>-->
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+<script src="/assets/public/company/scripts/classify-optimize.js"></script>
+<script type="text/html" id="classifyTpl">
+    <div class="left-wrap">
+        <ul>
+            {{each list as i index}}
+            {{if index == 0}}
+            <li data-id="{{i.id}}" class="active"><a href="javascript:;">{{i.categoryName}}</a></li>
+            {{else}}
+            <li data-id="{{i.id}}"><a href="javascript:;">{{i.categoryName}}</a></li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="right-wrap">
+        <ul>
+            {{each list as i index}}
+            {{if index == 0}}
+            <li data-oneLevelId="{{i.id}}">
+                {{if i.imageDefaultVoList && i.imageDefaultVoList.length}}
+                <div class="swiper-container index-slide">
+                    <div class="swiper-wrapper">
+                        {{each i.imageDefaultVoList as item}}
+                        <div class="swiper-slide banner-image-box">
+                            <a class="banner-image" href="{{item.link}}" title="" style="background-image:url('{{item.imageUrl}}');"></a>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                {{/if}}
+                {{if i.iconList}}
+                <h2><i class="uricon-{{i.iconList.icon}}" style="color: {{i.iconList.color}}"></i>{{i.categoryName}}</h2>
+                {{else}}
+                <h2><i class="uricon-qiyefuwu" style="color: #ffa200"></i>{{i.categoryName}}</h2>
+                {{/if}}
+                <div class="second-wrap">
+                    <a href="javascript:;">全部</a>
+                    {{each i.childCompayCategory as item}}
+                    <a href="javascript:;" data-twoLevelId="{{item.id}}">{{item.categoryName}}</a>
+                    {{/each}}
+                </div>
+                {{if i.companyPortraitVOList && i.companyPortraitVOList.length}}
+                <h2><img src="/assets/public/images/urwork-qrcode.jpg" alt="">推荐企业</h2>
+                <ul class="recommend-wrap">
+                    {{each i.companyPortraitVOList as item}}
+                    <li>
+                        <a href="/market/companyDetail?id={{item.companyId}}">
+                            <dl>
+                                <dt>
+                                    <span style="background-image:url('{{item.logo}}');"></span>
+                                </dt>
+                                <dd>
+                                    <h3>{{item.companyName}}</h3>
+                                    <p>
+                                        {{if item.financeStageStr}}
+                                        {{item.financeStageStr}}｜
+                                        {{/if}}
+                                        {{if item.companySizeStr}}
+                                        {{item.companySizeStr}}｜
+                                        {{/if}}
+                                        {{if item.financeStageStr}}
+                                        {{item.establishYear}}年{{item.establishMonth}}月成立
+                                        {{/if}}
+                                    </p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </li>
+            {{else}}
+            <li data-oneLevelId="{{i.id}}" class="hide">
+                {{if i.imageDefaultVoList && i.imageDefaultVoList.length}}
+                <div class="swiper-container index-slide">
+                    <div class="swiper-wrapper">
+                        {{each i.imageDefaultVoList as item}}
+                        <div class="swiper-slide banner-image-box">
+                            <a class="banner-image" href="{{item.link}}" title="" style="background-image:url('{{item.imageUrl}}');"></a>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                {{/if}}
+                {{if i.iconList}}
+                <h2><i class="uricon-{{i.iconList.icon}}" style="color: {{i.iconList.color}}"></i>{{i.categoryName}}</h2>
+                {{else}}
+                <h2><i class="uricon-qiyefuwu" style="color: #ffa200"></i>{{i.categoryName}}</h2>
+                {{/if}}
+                <div class="second-wrap">
+                    <a href="javascript:;">全部</a>
+                    {{each i.childCompayCategory as item}}
+                    <a href="javascript:;" data-twoLevelId="{{item.id}}">{{item.categoryName}}</a>
+                    {{/each}}
+                </div>
+                {{if i.companyPortraitVOList && i.companyPortraitVOList.length}}
+                <h2><img src="/assets/public/images/urwork-qrcode.jpg" alt="">推荐企业</h2>
+                <ul class="recommend-wrap">
+                    {{each i.companyPortraitVOList as item}}
+                    <li>
+                        <a href="javascript:;">
+                            <dl>
+                                <dt>
+                                    <span style="background-image:url('{{item.logo}}');"></span>
+                                </dt>
+                                <dd>
+                                    <h3>{{item.companyName}}</h3>
+                                    <p>
+                                        {{if item.financeStageStr}}
+                                        {{item.financeStageStr}}｜
+                                        {{/if}}
+                                        {{if item.companySizeStr}}
+                                        {{item.companySizeStr}}｜
+                                        {{/if}}
+                                        {{if item.financeStageStr}}
+                                        {{item.establishYear}}年{{item.establishMonth}}月成立
+                                        {{/if}}
+                                    </p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</script>
+
+<script>
+    var Index = {
+        init: function() {
+            this.leftScroll = null;
+            this.rightScroll = null;
+            this.indexSwiper = null;
+            this.rightItemHeight = [];
+            this.iconList = [
+                {
+                    icon:'qiyefuwu',
+                    color:'#ffa200',
+                    name:'企业服务',
+                    id:10104
+                },
+                {
+                    icon:'jiaoyu',
+                    color:'#1bcf65',
+                    name:'教育',
+                    id:10183
+                },
+                {
+                    icon:'qita',
+                    color:'#1bcf65',
+                    name:'其他',
+                    id:10102
+                },{
+                    icon:'shenghuofuwu',
+                    color:'#1bcf65',
+                    name:'生活服务',
+                    id:10103
+                },{
+                    icon:'jinrong',
+                    color:'#219eff',
+                    name:'金融',
+                    id:10105
+                },{
+                    icon:'wenyuchuanmei',
+                    color:'#ffa200',
+                    name:'文娱传媒',
+                    id:10106
+                },{
+                    icon:'yingjian',
+                    color:'#1bcf65',
+                    name:'硬件',
+                    id:10107
+                },{
+                    icon:'hulianwang',
+                    color:'#219eff',
+                    name:'互联网',
+                    id:10108
+                },{
+                    icon:'fangchanfuwu',
+                    color:'#ffa200',
+                    name:'房产服务',
+                    id:10191
+                },
+                {
+                    icon:'jiankangyiliao',
+                    color:'#219eff',
+                    name:'健康医疗',
+                    id:10199
+                }
+            ];
+            this.ajaxLoading();
+            this.bindEvent();
+        },
+        bindEvent:function () {
+            var $body = $('body');
+            var that = this;
+            $body
+                .off('click','.left-wrap li a')
+                .on('click','.left-wrap li a',function () {
+                    var $this = $(this);
+                    $this.parent().addClass('active').siblings().removeClass('active');
+                    var id = $this.parent().attr('data-id');
+                    var selector = $('[data-oneLevelId="'+ id +'"]');
+                    selector.removeClass('hide').siblings().addClass('hide');
+                    that.rightScroll.refresh();
+                    if(Object.prototype.toString.call(that.indexSwiper) === '[object Array]'){
+                        that.indexSwiper.forEach(function (item) {
+                            item.update();
+                        })
+                    }else {
+                        that.indexSwiper.update();
+                    }
+
+                })
+                .off('click','.second-wrap a')
+                .on('click','.second-wrap a',function () {
+                    var $this = $(this);
+                    var twoLevelId = $this.attr('data-twoLevelId') || null;
+                    var oneLevelId = $this.parent().parent().attr('data-oneLevelId');
+                    console.log(twoLevelId,oneLevelId)
+
+                })
+        },
+        ajaxLoading:function () {
+            var that = this;
+            $.ajax({
+                url:'/assets/views/company/data/classifyOptimize.json',
+                success:function (res) {
+                    if(res.retCode != 0){
+                        UR.msg(res.retMsg)
+                        return;
+                    }
+                    if(res.data){
+                        var data = res.data;
+                        that.iconList.forEach(function (value,index) {
+                            data.forEach(function (item) {
+                                if(value.id == item.id){
+                                    item.iconList = value;
+                                }
+                            })
+                        });
+                        console.log(data)
+                        $('.classify-wrap').html(template('classifyTpl',{list:data}));
+                        that.indexSwiper = new Swiper('.index-slide', {
+                            pagination: '.swiper-pagination',
+                            paginationClickable: true,
+                            loop: true,
+                            speed: 300,
+                            autoplay: 2500,
+                            autoplayDisableOnInteraction: false,
+                            setWrapperSize: true,
+                            longSwipesRatio: 0.1,
+                            lazyLoading : true,
+                            lazyLoadingInPrevNext : true,
+                        });
+                        that.scroll();
+                    }
+                },
+                error:function (res) {
+                    console.log('接口请求失败');
+                }
+            })
+        },
+        scroll:function () {
+            var that = this;
+            var $leftWrap = $('.left-wrap');
+            var $leftWrapHeight = $leftWrap.height();
+            var $lis = Array.from($('.right-wrap').find('li'));
+            var num = 0;
+            $lis.forEach(function (value,index) {
+                num += $(value).height();
+                that.rightItemHeight.push(num);
+            });
+            this.leftScroll = new IScroll('.left-wrap',{
+                disablePointer: true,   // 因谷歌升级需加以下两行
+                disableTouch: false,
+                click: true,
+            });
+            this.rightScroll = new IScroll('.right-wrap',{
+                disablePointer: true,   // 因谷歌升级需加以下两行
+                disableTouch: false,
+                click: true,
+                probeType:2             //使用scroll事件时必须带有的参数
+            });
+        }
+    };
+
+    $(function() {
+        Index.init();
+    });
+</script>
+</body>
+
+</html>

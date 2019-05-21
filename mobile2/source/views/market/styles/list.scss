@@ -1,0 +1,558 @@
+@charset "UTF-8";
+
+// 引入变量及混合
+@import 'variable';
+@import 'mixins';
+@import 'filter/filter';
+@import 'refresh/refresh';
+@import 'common';
+
+/* SearchBar
+---------------------------------------- */
+#header {
+    height: 50px;
+    z-index: 1001;
+    &::before {
+        display: none;
+    }
+    .is-app & {
+        height: 45px + 20;
+    }
+    .is-app.iphone-x & {
+        height: 45px + 20 + 24;
+        //height: 65px;
+        padding-top: 20px;
+    }
+
+    &.search-active {
+        z-index: 1010;
+    }
+}
+#titlebar {
+    height: 50px;
+    padding: 11px 0 6px 16px;
+    &.search-active {
+        .searchbar {
+            padding-left: 0;
+        }
+        .search-btn {
+            display: block;
+        }
+        .company-logo {
+            display: none;
+        }
+        .nav-switch {
+            display: none;
+        }
+        .search-input {
+            background-color: #eeeff3;
+        }
+        .search-mask {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        &.has-value {
+            input {
+                padding-left: 15px;
+            }
+        }
+    }
+    &.has-value {
+        input {
+            background-color: #f3f3f3;
+        }
+    }
+    .search-mask {
+        display: none;
+    }
+    .is-app & {
+        height: 45px + 20;
+        padding-top: 6px + 20;
+    }
+    .is-app.iphone-x & {
+        //height: 45px + 44;
+        //padding-top: 6px + 44;
+        //height: 45px;
+        padding: 28px 0 6px 16px;
+    }
+    .searchbar {
+        background: $opa-b0;
+        padding: 0 0 0 22px;
+        transition: padding-left .3s;
+        i {
+            line-height: 32px;
+            vertical-align: bottom;
+            top: 0;
+        }
+    }
+    input {
+        font-size: 14px;
+        padding-left: 15px;
+        padding-right: 35px;
+        .search-active & {
+            padding-left: 30px;
+        }
+    }
+    .search-inner {
+        margin-right: 58px;
+    }
+    .placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #999;
+        font-size: 13px;
+        line-height: 32px;
+        .android-device & {
+            padding-top: 2px;
+        }
+        i {
+            margin-right: 4px;
+            font-size: 16px;
+            top: -1px;
+        }
+        span {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .search-active & {
+            text-align: left;
+            padding-left: 10px;
+        }
+    }
+    .search-input {
+        overflow: hidden;
+        z-index: 50;
+        float: none;
+        background-color: #fff;
+        border-radius: 15px;
+
+        input {
+            .android-device & {
+                padding-top: 3px;
+            }
+        }
+    }
+    .nav-switch {
+        top: auto;
+        bottom: 6px;
+        left: 2px;
+    }
+    .search-action {
+        position: absolute;
+        bottom: 6px;
+        right: 0;
+        z-index: 20;
+        width: 58px;
+        height: 32px;
+        margin-right: 0;
+        text-align: center;
+    }
+    .search-btn {
+        display: none;
+        float: none;
+    }
+    .company-logo {
+        display: block;
+        padding-left: 5px;
+        .img-wrap {
+            overflow: hidden;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            @include box-center;
+            @include fixed-ratio-box(100);
+
+            &::before {
+                background: url("/assets/public/market/images/def/company_search_logo.png") no-repeat 0 0;
+                background-size: 100% 100%;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                border: 1px solid $border-def;
+                border-radius: 50%;
+                transform: scale(.5);
+                transform-origin: 0 0;
+            }
+            span {
+                @include fixed-ratio-inner;
+            }
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1;
+            transform: scale(.75);
+            transform-origin: 50% 100%;
+        }
+    }
+    .search-active & {
+        @include border-bottom($border-def);
+        &::before {
+            bottom: -5px;
+            z-index: 1;
+        }
+    }
+}
+
+/* Filter
+---------------------------------------- */
+
+.filter-container {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    min-height: 36px;
+    line-height: 18px;
+    z-index: 600;
+
+    .is-app & {
+        top: 45px + 20;
+    }
+    .is-app.iphone-x & {
+        top: 45px + 20 + 24;
+        //top:65px;
+    }
+}
+.select-group {
+    &:last-of-type {
+        .select-group-title:after {
+            right: auto;
+            left: 0;
+            width: 1px;
+        }
+    }
+    &:not(:last-of-type) {
+        .select-group-title:after {
+            display: none
+        }
+    }
+    &.filter-sort {
+        width: 53px !important;
+        flex-basis: 53px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        span {
+            display: none;
+        }
+        i {
+            left: 0;
+            width: 100% !important;
+            font-size: 34px;
+        }
+
+        .select-group-title {
+            &::after {
+                height: 20px !important;
+            }
+        }
+    }
+}
+.select-group-title {
+    height: 35px;
+    @include padding-v(8px);
+    &.active {
+        span {
+            font-weight: bold;
+        }
+        i {
+            color: #646464;
+        }
+    }
+}
+.filter-fixed {
+    top: 50px;
+    .is-app & {
+        top: 45px + 20;
+    }
+    .is-app.iphone-x & {
+        top: 45px + 20 + 24;
+        //top: 65px;
+    }
+}
+[Body] {
+    &.active:not(.active4) {
+        height: 350px !important;
+        padding-bottom: 0 !important;
+    }
+    li {
+        @include padding-v(16px);
+    }
+    .select-menu,
+    .select-sub-menu {
+        height: 350px !important;
+        max-height: 350px !important;
+        min-width: 0;
+        li {
+            color: #666;
+        }
+    }
+    .select-menu {
+        width: 120px;
+        flex-basis: 120px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        ul {
+            border: none;
+            min-height: 350px !important;
+        }
+        li {
+            text-align: center;
+            right: 0 !important;
+            border: none;
+            &.active {
+                position: relative;
+                background-color: #f8f8f8;
+                color: #333;
+                font-weight: bold;
+                &::before {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 4px;
+                    height: 100%;
+                    background-color: #ffd400;
+                    content: "";
+                }
+            }
+            &:first-child {
+                border-top-width: 0;
+            }
+        }
+    }
+    .select-sub-menu {
+        flex-grow: 1;
+        li.active {
+            color: #333;
+            font-weight: bold;
+        }
+    }
+    .select-content {
+        &:not(.sort-list).active {
+            height: 350px !important;
+            background-color: #f8f8f8;
+            border-bottom: none;
+        }
+        &.sort-list {
+            width: 130px !important;
+            height: 145px !important;
+        }
+    }
+}
+.select-group-body {
+    &.active4 {
+        overflow: visible;
+        left: auto;
+        right: 10px;
+        width: 130px !important;
+        height: 145px !important;
+        margin-top: 10px;
+        border-radius: 3px;
+        background: none;
+        .sort-list {
+            position: relative;
+            background-color: #fff;
+            border-radius: 3px;
+            &::before {
+                position: absolute;
+                right: 15px;
+                bottom: 100%;
+                border: 4px solid rgba(0,0,0,0);
+                border-bottom-color: #fff;
+                content: "";
+            }
+        }
+        .select-content {
+            overflow: visible;
+        }
+        .scrollers {
+            transform: translate(0, 0) translateZ(0) !important;
+        }
+        li {
+            width: 100px;
+            height: 34px;
+            margin: 10px auto;
+            padding: 0;
+            border: none;
+            text-align: center;
+            line-height: 34px;
+            &.active {
+                background-color: #ffd53d;
+                border-radius: 34px;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        .select-sub-menu {
+            height: 145px !important;
+        }
+    }
+}
+
+.company-type {
+    padding: 12px;
+    ul {
+        @include clearfix;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    li {
+        float: left;
+        width: 50%;
+        height: 40px;
+        padding: 0 4px;
+        line-height: 40px;
+        font-size: 12px !important;
+        text-align: center;
+        border: none;
+        &.no-border {
+            &::before {
+                display: none !important;
+            }
+        }
+        &:nth-of-type(odd) {
+            @include border-bottom($border-def);
+            &::after {
+                position: absolute;
+                top: 0 !important;
+                right: 0 !important;
+                width: auto !important;
+                height: 200% !important;
+                transform: scale(.5) !important;;
+                transform-origin: 0 0;
+                background: none !important;
+                border-right: 1px solid $border-def;
+                content: "";
+            }
+        }
+        &:nth-of-type(even) {
+            @include border-bottom($border-def);
+            &::after {
+                display: none;
+            }
+        }
+    }
+    .company-type-title {
+        margin-bottom: 9px;
+        padding-left: 4px;
+        color: #333;
+        font-size: 12px;
+        line-height: 18px;
+        i {
+            margin-right: 10px;
+        }
+    }
+}
+
+/* Layout
+---------------------------------------- */
+
+#main {
+    padding-top: 50px + 38;
+    .is-app & {
+        padding-top: 45px + 20 + 38;
+    }
+    .is-app.iphone-x & {
+        padding-top: 45px + 20 + 24 + 38;
+        //padding-top: 103px;
+    }
+}
+.company-item {
+    margin-top: 8px;
+    padding: 15px 20px;
+    background-color: #fff;
+
+    .company-text {
+        overflow: hidden;
+        max-height: 44px;
+        margin-bottom: 6px;
+        color: #333;
+        font-size: 14px;
+        line-height: 22px;
+        img {
+            position: relative;
+            top: -1px;
+        }
+    }
+    .tag {
+        @include clearfix;
+        em {
+            float: left;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            @include padding-h(5px);
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            color: #666;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    dl {
+        @include clearfix;
+        margin-left: 85px;
+    }
+    dt {
+        position: relative;
+        overflow: hidden;
+        float: left;
+        margin-left: -85px;
+        width: 70px;
+        border: 1px solid #ececec;
+        @include fixed-ratio-box(100);
+
+        .img {
+            @include fixed-ratio-inner;
+        }
+    }
+    dd {
+        float: right;
+        width: 100%;
+    }
+}
+
+.activity-list {
+    padding: 15px 20px;
+}
+
+.financing-top {
+    position: relative;
+    .status-tab {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.sort-list {
+    height: 116px !important;
+    .select-sub-menu {
+        height: 116px !important;
+    }
+    .select-menu {
+        width: 100%;
+    }
+}
+[Body] {
+    transition: none;
+}

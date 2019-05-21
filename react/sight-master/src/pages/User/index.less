@@ -1,0 +1,68 @@
+.user-main {
+  .public-user-main();
+  .user-main-div {
+    position: relative;
+    height: 443px;
+    width: 350px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    margin-top: 12px;
+    .user-main-div-logo {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background: url(//img.downfuture.com/images/favicon.png) no-repeat center center;
+      height: 60px;
+      background-size: 60px;
+    }
+    .user-main-div-button {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      text-align: center;
+      height: 50px;
+      background-color: #f6f6f6;
+      border-top: 1px solid #ebebeb;
+      line-height: 50px;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+}
+
+.ant-form-item {
+  margin-bottom: 0px;
+}
+
+.ant-input {
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+
+@media only screen and (max-width: 767px) {
+  .user-main .user-main-div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #fafafa;
+    margin-top: 0px;
+    border: 0px solid #fafafa;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .user-main {
+    .public-user-main();
+    align-items: center;
+  }
+}
+
+.public-user-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    @import "meta.tpl"
+    <link rel="stylesheet" href="/assets/public/station/station.css">
+</head>
+
+<body class="gray-bg">
+<input type="hidden" name="appSource" value="app">
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        @import "topbar.tpl"
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main id="main" class="station-main">
+
+        <section data-render="template" data-url="./data/orderDetail.json">
+            <div class="rendering">
+                <div class="img-box">
+                    <div class="img"></div>
+                </div>
+
+                <p>正在加载 . . .</p>
+            </div>
+        </section>
+
+
+
+
+    </main>
+    <!-- /main -->
+</div>
+<!-- /wrapper -->
+@import "footer-common.tpl"
+
+<script type="text/html" id="pageTpl">
+    <section class="info-layout">
+        <div class="info-item">
+            <label class="info-label">订单编号</label>
+            <div class="info-cont flexbox">
+                <p class="flex">{{id}}</p>
+                <p class="info-status">{{orderStatus}}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout">
+        <div class="info-item">
+            <label class="info-label">预订工位 </label>
+            <div class="info-cont">
+                <span>{{workstageName}}·优客工场</span>
+                <span>工位</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <label class="info-label">预订时间</label>
+            <div class="info-cont">
+                {{day}} ({{week}})
+            </div>
+        </div>
+        <div class="info-item">
+            <label class="info-label">预订个数</label>
+            <div class="info-cont">
+                {{count ? count : 0}}个
+            </div>
+        </div>
+        <div class="info-sprite"></div>
+        <div class="info-item">
+            <label class="info-label">工位地址</label>
+            <div class="info-cont">
+                {{workstageAddress}} {{floor}}层
+            </div>
+        </div>
+        <div class="info-item">
+            <label class="info-label">开放时间</label>
+            <div class="info-cont">
+                {{openTime}}-{{closeTime}} 开放
+            </div>
+        </div>
+        <div class="info-item">
+            <label class="info-label">配套设施</label>
+            <div class="info-cont">
+                {{equipments}}
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout">
+        <div class="info-item">
+            <label class="info-label">总金额</label>
+            <div class="info-cont price text-right">
+                &yen;{{totalAmount}}
+            </div>
+        </div>
+        <div class="info-item bordered-bottom">
+            <label class="info-label">优惠券</label>
+            <div class="info-cont price text-right">
+                - &yen;{{couponAmount? couponAmount: 0}}
+            </div>
+        </div>
+        <div class="info-rest text-right">
+            <span>应付款 :</span>
+            <span class="price-bigger">&yen;{{payAmount}}</span>
+        </div>
+        <div class="info-rest text-right">
+            <span>下单时间:</span>
+            <span>{{createTime}}</span>
+        </div>
+    </section>
+
+    <section class="tip-wrapper">
+        <p>您将被安排在优客工场开放工位办公</p>
+        <p>预订成功后，请携带有效身份证件在前台办理进场<br>
+            您也可以在预订前一天23:59前取消</p>
+    </section>
+
+    {{if isCanCancel == 1 || orderStatus == "等待付款"}}
+    <footer class="btn-group fixed-bottom">
+        {{if isCanCancel == 1 }}
+        <a href="javascript:;" class="btn btn-default" id="cancel">取消订单</a>
+        {{/if}}
+        {{if orderStatus == "等待付款"}}
+        <a href="javascript:;" class="btn btn-primary" id="pay">立即支付</a>
+        {{/if}}
+    </footer>
+    {{else}}
+    @import "goto.tpl"
+    {{/if}}
+
+</script>
+
+<script src="/assets/public/plugins/template.js"></script>
+<script src="/assets/public/station/scripts/detail.js"></script>
+<script>
+    $(function () {
+        Page.submit({
+            submit: "#cancel",
+            url: "/rentOrder/cancel",
+            success: function (res) {
+                UR.msg(res.retMsg);
+
+                if (res.retCode == 0) {
+                    setTimeout(function () {
+                        location.href = ""
+                    }, 1500);
+                }
+            }
+        });
+
+        Page.submit({
+            submit: "#pay",
+            url: "/rentPay/payOrder",
+            success: function (res) {
+
+            }
+        });
+    })
+</script>
+
+</body>
+
+</html>
