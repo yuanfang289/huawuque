@@ -1,0 +1,139 @@
+* {
+    // 取消触屏点击默认高亮样式
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+keygen,
+legend,
+menu,
+ol,
+p,
+pre,
+select,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+body {
+    font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 400;
+}
+dt,
+th {
+    font-weight: 400;
+}
+ol,
+ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+button,
+input,
+select,
+textarea {
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    outline: none;
+}
+label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+abbr,
+fieldset,
+img {
+    border: 0;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+address,
+em,
+i,
+optgroup {
+    font-style: normal;
+}
+img {
+    vertical-align: middle;
+}
+q:after,
+q:before {
+    content: '';
+}
+sup {
+    vertical-align: top;
+}
+sub {
+    vertical-align: bottom;
+}
+small {
+    font-size: 85.7%;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 1em;
+}
+pre {
+    white-space: pre-wrap;
+}
+/* HTML 5 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}

@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+/* InputSize
+ ---------------------------------------- */
+
+// width
+$input-width-xsmall: null;
+$input-width-small: null;
+$input-width-medium: null;
+$input-width-large: null;
+$input-width-xlarge: null;
+// height
+$input-height-xsmall: null;
+$input-height-small: null;
+$input-height-medium: null;
+$input-height-large: null;
+$input-height-xlarge: null;
+
+/* Button
+ ---------------------------------------- */
+$btn-radius: 2px;    // 按钮圆角
+$btn-base-padding: 7px;    // 默认左右padding
+
+// Disabled
+$btn-disabled-background: #e9e9e9;
+$btn-disabled-border: #e9e9e9;
+$btn-disabled-color: #fff;
+
+// 按钮基础样式
+$btn-base-height: 28px;
+$btn-base-font-size: 12px;
+$btn-base-border-width: 1px;
+
+/* Button Theme
+ ---------------------------------------- */
+// 背景类型参数: img, color, gradient;
+
+// Base Theme
+$btn-base-bg-type: color;
+$btn-base-background: rgba(255,255,255,0);
+$btn-base-border-color: #ccc;
+$btn-base-color: #333;
+
+$btn-base-hover-background: #f7f7f7;               // (可选项)
+$btn-base-hover-border-color: #ccc;             // (可选项)
+$btn-base-hover-color: #333;
+
+$btn-base-active-background: #f7f7f7;              // (可选项)
+$btn-base-active-border-color: #ccc;            // (可选项)
+$btn-base-active-color: #333;                      // (可选项)
+
+// Primary Theme
+$btn-primary-bg-type: color;
+$btn-primary-background: #333;
+$btn-primary-border-color: #333;
+$btn-primary-color: #fff;
+
+$btn-primary-hover-background: #1a1a1a;
+$btn-primary-hover-border-color: #1a1a1a;   // (可选项)
+$btn-primary-hover-color: #fff;             // (可选项)
+
+$btn-primary-active-background: #1a1a1a;
+$btn-primary-active-border-color: #1a1a1a;  // (可选项)
+$btn-primary-active-color: #fff;            // (可选项)
+
+// Primary-o Theme
+// $btn-primary-o-bg-type: color;
+// $btn-primary-o-background: #fff;
+// $btn-primary-o-border-color: #ea5514;
+// $btn-primary-o-color: #ea5514;
+//
+// $btn-primary-o-hover-background: #fff;
+// $btn-primary-o-hover-border-color: lighten($btn-primary-o-border-color, 10%);   // (可选项)
+// $btn-primary-o-hover-color: lighten($btn-primary-o-color, 10%);             // (可选项)
+//
+// $btn-primary-o-active-background: #fff;
+// $btn-primary-o-active-border-color: lighten($btn-primary-o-border-color, 10%);  // (可选项)
+// $btn-primary-o-active-color: lighten($btn-primary-o-color, 10%);            // (可选项)
+
+// Def Theme
+// $btn-def-bg-type: color;
+// $btn-def-background: #ccc;
+// $btn-def-border-color: #ccc;
+// $btn-def-color: #fff;
+//
+// $btn-def-hover-background: darken($btn-def-background, 10%);               // (可选项)
+// $btn-def-hover-border-color: darken($btn-def-background, 10%);             // (可选项)
+// $btn-def-hover-color: #fff;
+//
+// $btn-def-active-background: darken($btn-def-background, 10%);              // (可选项)
+// $btn-def-active-border-color: darken($btn-def-background, 10%);            // (可选项)
+// $btn-def-active-color: #fff;                   // (可选项)
+
+// Def-o Theme
+// $btn-def-o-bg-type: color;
+// $btn-def-o-background: #fff;
+// $btn-def-o-border-color: #999;
+// $btn-def-o-color: #666;
+//
+// $btn-def-o-hover-background: #fff;               // (可选项)
+// $btn-def-o-hover-border-color: lighten($btn-def-o-border-color, 20%);             // (可选项)
+// $btn-def-o-hover-color: #666;
+//
+// $btn-def-o-active-background: #fff;              // (可选项)
+// $btn-def-o-active-border-color: lighten($btn-def-o-border-color, 20%);            // (可选项)
+// $btn-def-o-active-color: #666;                   // (可选项)
+
+// Second Theme
+// $btn-second-bg-type: color;
+// $btn-second-background: #f39700;
+// $btn-second-border-color: #f39700;
+// $btn-second-color: #fff;
+//
+// $btn-second-hover-background: lighten($btn-second-background, 10%);
+// $btn-second-hover-border-color: lighten($btn-second-border-color, 10%);   // (可选项)
+// $btn-second-hover-color: #fff;             // (可选项)
+//
+// $btn-second-active-background: lighten($btn-second-background, 10%);
+// $btn-second-active-border-color: lighten($btn-second-border-color, 10%);  // (可选项)
+// $btn-second-active-color: #fff;            // (可选项)
+
+// Second-o Theme
+// $btn-second-o-bg-type: color;
+// $btn-second-o-background: #fff;
+// $btn-second-o-border-color: #f39700;
+// $btn-second-o-color: #f39700;
+//
+// $btn-second-o-hover-background: #fff;
+// $btn-second-o-hover-border-color: lighten($btn-second-o-border-color, 10%);   // (可选项)
+// $btn-second-o-hover-color: lighten($btn-second-o-color, 10%);             // (可选项)
+//
+// $btn-second-o-active-background: lighten($btn-second-o-background, 10%);
+// $btn-second-o-active-border-color: lighten($btn-second-o-border-color, 10%);  // (可选项)
+// $btn-second-o-active-color: #fff;            // (可选项)
+
+// Text Theme
+// $btn-text-bg-type: color;
+// $btn-text-background: transparent;
+// $btn-text-border-color: transparent;
+// $btn-text-color: #333;
+//
+// $btn-text-hover-background: transparent;
+// $btn-text-hover-border-color: transparent;  // (可选项)
+// $btn-text-hover-color: #999;                // (可选项)
+//
+// $btn-text-active-background: transparent;
+// $btn-text-active-border-color: transparent; // (可选项)
+// $btn-text-active-color: #999;               // (可选项)
+
+/* Button Size
+ ---------------------------------------- */
+// width
+$btn-width-xsmall: null;
+$btn-width-small: null;
+$btn-width-medium: null;
+$btn-width-large: null;
+$btn-width-xlarge: null;
+
+// height
+$btn-height-xsmall: null;
+$btn-height-xsmall-border-width: $btn-base-border-width;
+$btn-height-xsmall-padding: null;    // 左右padding值
+$btn-height-xsmall-font-size: null;
+
+$btn-height-small: 24px;
+$btn-height-small-border-width: $btn-base-border-width;
+$btn-height-small-padding: null;    // 左右padding值
+$btn-height-small-font-size: 12px;
+
+$btn-height-medium: 30px;
+$btn-height-medium-border-width: $btn-base-border-width;
+$btn-height-medium-padding: null;    // 左右padding值
+$btn-height-medium-font-size: null;
+
+$btn-height-large: null;
+$btn-height-large-border-width: $btn-base-border-width;
+$btn-height-large-padding: null;    // 左右padding值
+$btn-height-large-font-size: null;
+
+$btn-height-xlarge: 40px;
+$btn-height-xlarge-border-width: $btn-base-border-width;
+$btn-height-xlarge-padding: null;    // 左右padding值
+$btn-height-xlarge-font-size: 15px;
+
+/* Text
+ ---------------------------------------- */
+
+$txt-base-radius: null;
+
+$txt-base-width: 200px;
+$txt-base-height: 28px;
+$txt-base-color: #333;
+$txt-base-font-size: 12px;
+$txt-base-line-height: 18px;
+$txt-base-border-width: 1px;
+$txt-base-border-style: solid;
+$txt-base-border-color: #ccc;
+$txt-base-hover-border-color: #a5a5a5;
+$txt-base-focus-border-color: #999;
+
+// placeholder
+$placeholder-color: #999;
+$placeholder-font-size: 12px;
+$placeholder-line-height: $txt-base-line-height;
+
+// disabled
+$txt-disabled-border-color: #d9d9d9;
+$txt-disabled-bgcolor: #f8f8f8;
+
+/* Textarea
+ ---------------------------------------- */
+$textarea-base-padding: 8px;
+$textarea-base-border-width: $txt-base-border-width;
+$textarea-base-border-style: $txt-base-border-style;
+$textarea-base-border-color: $txt-base-border-color;
+$textarea-base-hover-border-color: $txt-base-hover-border-color;
+$textarea-base-focus-border-color: $txt-base-focus-border-color;
+
+/* Text Size
+ ---------------------------------------- */
+$txt-width-xsmall: null;
+$txt-width-small: null;
+$txt-width-medium: null;
+$txt-width-large: null;
+$txt-width-xlarge: null;
+
+// height
+$txt-height-xsmall: null;
+$txt-height-xsmall-line-height: $txt-base-line-height;
+
+$txt-height-small: null;
+$txt-height-small-line-height: $txt-base-line-height;
+
+$txt-height-medium: null;
+$txt-height-medium-line-height: $txt-base-line-height;
+
+$txt-height-large: null;
+$txt-height-large-line-height: $txt-base-line-height;
+
+$txt-height-xlarge: null;
+$txt-height-xlarge-line-height: $txt-base-line-height;
+
+/* Radio & Checkbox
+ ---------------------------------------- */
+$radio-checked-bgcolor: $color-primary;    // 选项选中时按钮背景颜色

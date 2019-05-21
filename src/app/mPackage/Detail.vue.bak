@@ -1,0 +1,512 @@
+<template>
+  <page-wrap class="page-main">
+    <title v-title>{{title}}</title>
+
+    <page-header>
+      <topbar :type="'back'">
+        <template slot="title">{{title}}</template>
+      </topbar>
+    </page-header>
+
+    <page-main :show="show">
+      <div class="main-header-1">
+        <p class="name">优鲜集特惠-营销推广包</p>
+        <div class="price">
+          <span class="zxj">专享价</span>
+          <span class="mark">￥</span><span class="num">999</span>
+        </div>
+      </div>
+      <div class="main-header-2">
+            <div class="buy-ed">
+                <div class="name-type">
+                  <span class="name">优鲜集超惠-新手尝鲜包</span>
+                  <span class="type">年卡</span>
+                </div>
+                <div class="num-price">
+                  <span class="num">共1件</span><span class="price">实付：<em>￥666</em></span>
+                </div>
+            </div>
+      </div>
+      <div class="main-header-3">
+        <p class="name">优鲜集特惠-营销推广包</p>
+        <div class="price">
+          <span class="zxj">专享价</span>
+          <span class="mark">￥</span><span class="num">999</span>
+        </div>
+        <div class="tab">
+          <div class="tab-type">
+            <ul>
+              <li class="checked">年卡</li>
+              <li class="">季卡</li>
+              <li class="">月卡</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="main-list">
+        <ul class="coupon-list">
+          <li>
+            <div class="left">
+              <img src="https://assets.urwork.cn/image/1552477130888-006a0Rdhly8fsmutxs897j30e80e8dgi.jpg"/>
+            </div>
+            <div class="right">
+              <div class="name-price">
+                <span class="name">场地代金券</span>
+                <span class="price">￥<span>100</span></span>
+              </div>
+              <div class="date-num">
+                <span class="date">有效期：一年</span>
+                <span>x60张</span>
+              </div>
+              <div class="remake">
+                <span>适用范围：全国社区</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="ad-list">
+            <ul>
+              <li>
+                <p>会员权益</p>
+                <div>
+                  <span class="gold-weight">8</span>
+                  <span style="padding-top: 25px">项</span>
+                </div>
+              </li>
+              <li>
+                <p>全国电子屏广告</p>
+                <div>
+                  <span class="gold-weight">7</span>
+                  <span style="padding-top: 25px">天</span>
+                </div>
+              </li>
+              <li>
+                <p>APPbanner广告</p>
+                <div>
+                  <span class="gold-weight">3</span>
+                  <span style="padding-top: 25px">天</span>
+                </div>
+              </li>
+            </ul>
+        </div>
+        <div class="explain">
+          <div class="h3">
+            <span class="line"></span>
+            <span class="round"></span>
+            <span class="txt">礼包详情</span>
+            <span class="round"></span>
+            <span class="line"></span>
+          </div>
+          <p>
+            1、价值6000元（100元*60张）的全国会议室代金券；<br>
+            2、价值4000元（500元*8张）的全国场地代金券；<br>
+            3、线上推广福利：APPbanner广告3天（价值21000元）；<br>
+            4、全国电子屏广告7天，遍布全国80个社区，日曝光人次40000+；<br>
+            5、免费参加全国范围社区活动；<br>
+            6、享受优客工场企业会员全部八大权益（办公工具、在线效率、员工关怀福利、运动健康、媒体营销、新零售、娱乐、金融支持、出行酒店）。</p>
+        </div>
+        <div class="kefu">
+          <a href="tel:010-8765689">客服热线：010-8765689</a>
+        </div>
+      </div>
+      <div class="kong61"></div>
+      <div class="footer">
+        <a href="">激活</a>
+      </div>
+      <div class="footer">
+        <a href="">确认开通</a>
+      </div>
+    </page-main>
+
+  </page-wrap>
+</template>
+
+<script>
+  export default {
+    components: {
+
+    },
+    data: () => {
+      return {
+        show: false,
+        title: '礼包详情'
+      }
+    },
+    methods:{
+
+    },
+    created() {
+      this.show = true;
+    },
+    mounted() {
+    }
+  }
+</script>
+
+<style lang="scss" scoped="">
+  @import "../../assets/scss/variables";
+  @import "../../assets/scss/mixins";
+  .kong61{
+    height: 61px;
+  }
+  .page-main{
+    background-color: #f8f8f8;
+  }
+  #main{
+   .main-header-1{
+      width: 100%;
+      height: 2.01rem;
+      background: url("https://assets.urwork.cn/image/mpackage/bac2.png") no-repeat;
+      background-size: 100%;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .name{
+        font-family: PingFangSC-Semibold;
+        font-size: 18px;
+        color: #333333;
+        letter-spacing: 0;
+        text-align: center;
+        font-weight: 500;
+      }
+      .price{
+        color: #333333;
+        letter-spacing: 0;
+        text-align: center;
+        .zxj{
+          font-family: PingFangSC-Regular;
+          font-size: 13px;
+        }
+        .mark{
+          font-family: PingFangSC-Semibold;
+          font-size: 17px;
+          font-weight: 500;
+        }
+        .num{
+          font-family: PingFangSC-Semibold;
+          font-size: 25px;
+          font-weight: 500;
+        }
+      }
+    }
+   .main-header-2{
+     width: 100vw;
+     height: 3.02rem;
+     background: url("https://assets.urwork.cn/image/mpackage/bac1.png") no-repeat;
+     background-size: 100%;
+     padding: 0 15px;
+     padding-top: 0.6rem;
+     .buy-ed{
+       height: 2.2rem;
+       background: #ffffff;
+       border-radius: 5px;
+       padding: 0 15px;
+       .name-type{
+         height: 1.2rem;
+         display: flex;
+         align-items: center;
+         justify-content: flex-start;
+         border-bottom: 1px dotted #d8d8d8;
+         .name{
+           font-family: PingFangSC-Medium;
+           font-size: 17px;
+           color: #333333;
+           letter-spacing: 0;
+           font-weight: 600;
+         }
+         .type{
+           font-family: PingFangSC-Regular;
+           font-size: 12px;
+           color: #FF6D2F;
+           letter-spacing: 0;
+           margin-left: 5px;
+           position: relative;
+           @include border(#FF6D2F){
+             border-radius: 2px;
+           }
+         }
+       }
+       .num-price{
+         height: 1rem;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         font-family: PingFangSC-Regular;
+         font-size: 13px;
+         color: #333333;
+         letter-spacing: 0;
+         .price{
+           em{
+             font-size: 18px;
+             font-weight: 600;
+             color: #333333;
+           }
+         }
+       }
+     }
+   }
+    .main-header-3{
+      width: 100vw;
+      height: 3.02rem;
+      background: url("https://assets.urwork.cn/image/mpackage/bac1.png") no-repeat;
+      background-size: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 22px;
+      .name{
+        font-family: PingFangSC-Semibold;
+        font-size: 18px;
+        color: #333333;
+        letter-spacing: 0;
+        text-align: center;
+        font-weight: 500;
+      }
+      .price{
+        color: #333333;
+        letter-spacing: 0;
+        text-align: center;
+        .zxj{
+          font-family: PingFangSC-Regular;
+          font-size: 13px;
+        }
+        .mark{
+          font-family: PingFangSC-Semibold;
+          font-size: 17px;
+          font-weight: 500;
+        }
+        .num{
+          font-family: PingFangSC-Semibold;
+          font-size: 25px;
+          font-weight: 500;
+        }
+      }
+      .tab{
+        text-align: center;
+        margin-top: 0.28rem;
+        .tab-type{
+          width: 5.9rem;
+          height: 0.86rem;
+          line-height: 0.86rem;
+          background: #FFFFFF;
+          box-shadow: 0 2px 7px 0 rgba(160,160,160,0.15);
+          border-radius: 0.43rem;
+          font-family: PingFangSC-Regular;
+          font-size: 16px;
+          color: #999999;
+          letter-spacing: 0;
+          display: inline-block;
+          ul{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            li{
+              height: 100%;
+              border-bottom: 1px solid transparent;
+            }
+            .checked{
+              border-bottom: 1px solid #FFD53D;
+            }
+          }
+        }
+      }
+
+    }
+    .main-list{
+      >ul{
+        padding: 0 12px;
+        li{
+          width: 100%;
+          height: 2.2rem;
+          background: url("https://assets.urwork.cn/image/mpackage/coupon1.png") no-repeat;
+          background-size: 100%;
+          display: flex;
+          .left{
+            width: 33%;
+            height: 100%;
+            padding: 13px;
+            overflow: hidden;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .right{
+            flex: 1;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .name-price{
+              display: flex;
+              justify-content: space-between;
+              height: 34px;
+              line-height: 34px;
+              .name{
+                font-family: PingFangSC-Semibold;
+                font-size: 17px;
+                color: #333333;
+                letter-spacing: 0;
+                font-weight: 600;
+                margin-top: -1px;
+              }
+              .price{
+                font-family: PingFangSC-Semibold;
+                font-size: 15px;
+                color: #CC9C2D;
+                letter-spacing: 0;
+                text-align: center;
+                span{
+                  font-size: 23px;
+                }
+              }
+            }
+            .date-num{
+              font-family: PingFangSC-Regular;
+              font-size: 12px;
+              letter-spacing: 0;
+              display: flex;
+              justify-content: space-between;
+              .date{
+                color: #FF6D2F;
+              }
+              .num{
+                color: #999999;
+              }
+            }
+            .remake{
+              font-family: PingFangSC-Regular;
+              font-size: 12px;
+              color: #999999;
+              letter-spacing: 0;
+              margin-top: 10px;
+              span{
+                background: #F5F5F5;
+              }
+            }
+          }
+        }
+      }
+      .ad-list{
+        overflow: hidden;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        padding-left: 12px;
+        >ul{
+          white-space: nowrap;
+          overflow-x: scroll;
+          margin-bottom: -10px;
+          li{
+            width: 2.6rem;
+            height: 2.2rem;
+            background: url("https://assets.urwork.cn/image/mpackage/coupon2.png") no-repeat;
+            background-size: 100%;
+            display: inline-block;
+            overflow: hidden;
+            &:last-of-type{
+              margin-right: 12px;
+            }
+            p{
+              width: 100%;
+              height: 0.98rem;
+              line-height: 0.98rem;
+              text-align: center;
+              font-size: 14px;
+              color: #333333;
+            }
+            div{
+              height: 1.22rem;
+              display: flex;
+              text-align: center;
+              justify-content: center;
+              font-family: PingFangSC-Regular;
+              font-size: 15px;
+              color: #666666;
+              .gold-weight{
+                font-family: DINAlternate-Bold;
+                font-size: 37px;
+                color: #D3A845;
+                font-weight: 600;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+      }
+      .explain{
+        padding: 30px 15px 6px 16px;
+        .h3{
+          font-family: PingFangSC-Semibold;
+          font-size: 15px;
+          color: #333333;
+          letter-spacing: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 15px;
+          span{
+            display: inline-block;
+          }
+          .txt{
+            margin: 0 7px;
+          }
+          .line{
+            width: 30px;
+            height: 1px;
+            background: #BCA049;
+          }
+          .round{
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #BCA049;
+            margin: 0 8px;
+          }
+        }
+        p{
+          font-family: PingFangSC-Regular;
+          font-size: 13px;
+          color: #666666;
+          letter-spacing: 0;
+          text-align: justify;
+          line-height: 23px;
+        }
+      }
+      .kefu{
+        padding: 25px 0;
+        text-align: center;
+        a{
+          font-family: PingFangSC-Regular;
+          font-size: 13px;
+          color: #B8B8B8;
+          letter-spacing: 0;
+          border-bottom: 1px solid #b8b8b8;
+        }
+      }
+    }
+    .footer{
+      width: 100%;
+      height: 61px;
+      background: #ffffff;
+      padding: 10px 15px;
+      position: fixed;
+      bottom: 0;
+      a{
+        width: 100%;
+        height: 100%;
+        background: #FFD53D;
+        border-radius: 2px;
+        font-family: PingFangSC-Regular;
+        font-size: 15px;
+        color: #333333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+</style>
+

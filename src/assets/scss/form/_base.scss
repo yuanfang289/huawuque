@@ -1,0 +1,83 @@
+// Base
+button,
+input,
+select,
+label,
+.btn {
+  vertical-align: middle;
+}
+
+.btn, .txt {
+  display: block;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  line-height: normal !important;
+}
+
+button {
+  background: none;
+  border: 0;
+}
+
+input, textarea {
+  &::placeholder {
+    color: $placeholder-color;
+    font-size: $placeholder-font-size;
+  }
+}
+
+[type="checkbox"],
+[type="radio"] {
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      cursor: default !important;
+    }
+  }
+}
+
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+label {
+  & [type="checkbox"],
+  & [type="radio"] {
+    position: relative;
+    top: -2px;
+    left: 0;
+    margin-right: 10px;
+  }
+}
+
+// disabled
+.txt, select, textarea {
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
+    background: $txt-disabled-bgcolor !important;
+    border-color: $txt-disabled-border-color !important;
+    box-shadow: none !important;
+    cursor: default !important;
+  }
+}
+
+.input-inline {
+  display: inline-block !important;
+}
+
+// input width
+.input-w-full {
+  width: 100% !important;
+}

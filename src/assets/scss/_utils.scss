@@ -1,0 +1,27 @@
+.user-select-none {
+    @include user-select-none;
+}
+
+.static {
+  position: static !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.fixed {
+  position: fixed !important;
+}
+.more-link {
+  display: block;
+  height: 45px;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  line-height: 45px;
+  font-size: 12px;
+  color: #666666;
+  text-align: center;
+  i{
+    font-size: 10px;
+    transform: scale(.83334);
+  }
+}
