@@ -58,7 +58,7 @@
     "lodash": "^4.17.10",
     "mint-ui": "^2.2.13",
     "qrcode.vue": "^1.6.1",
-    "swiper": "3.4.2",
+    "swiper": "6.5.1",
     "vue": "^2.4.4",
     "vue-clipboard2": "^0.2.1",
     "vue-cookies": "^1.5.6",
